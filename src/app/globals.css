@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  /* Tabi Academy Brand Palette */
+  --color-brand-primary: #71286F;
+  --color-brand-secondary: #8a40a7;
+  --color-brand-surface: #E3D4E2D9; 
+  --color-brand-muted: #6B7280;
+
+  /* Custom Radii for those smooth Figma cards */
+  --radius-tabi-card: 2.5rem;
+  --radius-tabi-pill: 9999px;
+
+  /* Typography */
+  --font-sans: "Inter", ui-sans-serif, system-ui;
+}
