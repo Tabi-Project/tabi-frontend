@@ -1,3 +1,4 @@
+import AIBusinessTeaser from "@/components/organisms/Aibusinessteaser";
 import FeaturedProjects from "@/components/organisms/FeaturedProjects";
 import HeroSection from "@/components/organisms/HeroSection";
 import Partners from "@/components/organisms/Partners";
@@ -8,6 +9,7 @@ export default function Home() {
     <>
       <HeroSection />
       <Partners />
+      <AIBusinessTeaser />
       <WhatWeDo />
       <FeaturedProjects />
     </>
