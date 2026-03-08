@@ -33,12 +33,12 @@ export default function Footer() {
       <div className="mx-auto max-w-350 px-20 pt-16 pb-12 flex flex-col lg:flex-row justify-between gap-12">
         {/* Left – brand + subscribe */}
         <div className="shrink-0 max-w-xs">
-          <p className="text-[22px] font-light text-black/70 leading-snug tracking-tight">
+          <p className="text-2xl font-semibold text-black leading-snug tracking-tight">
             Tabi Empowerment and
           </p>
-          <p className="text-[22px] font-light text-black/70 leading-snug tracking-tight">
+          <p className="text-2xl font-semibold text-black leading-snug tracking-tight">
             <span className="font-bold italic text-brand-primary">
-              Educational
+              Educational 
             </span>{" "}
             Foundation
           </p>

@@ -94,9 +94,12 @@ function AcademyGrid({ project }: { project: (typeof PROJECTS)[number] }) {
         <p className="text-sm text-[#666] leading-relaxed mb-8">
           {project.description}
         </p>
+                          <div className="flex justify-start">
         <Button variant="outline" size="sm">
           Learn More
         </Button>
+
+                          </div>
       </div>
 
       {/* [0,1] Image 1 */}
@@ -157,9 +160,12 @@ function ProjectGrid({ project }: { project: (typeof PROJECTS)[number] }) {
           <p className="text-sm text-[#666] leading-relaxed mb-8">
             {project.description}
           </p>
+                            <div className="flex justify-start">
           <Button variant="outline" size="sm">
             Learn More
           </Button>
+
+                            </div>
         </div>
 
         {/* Right: collage image */}
@@ -215,9 +221,12 @@ function GuildGrid({ project }: { project: (typeof PROJECTS)[number] }) {
         <p className="text-sm text-[#666] leading-relaxed mb-8">
           {project.description}
         </p>
+                          <div className="flex justify-start">
+
         <Button variant="outline" size="sm">
           Learn More
         </Button>
+                          </div>
       </div>
 
       {/* [0,1] Purple Guild logo image */}
