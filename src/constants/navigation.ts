@@ -23,5 +23,5 @@ export const NAV_LINKS: NavItem[] = [
   //   ]
   // },
   { label: "Community", href: "#community" },
-  { label: "About Us", href: "#about" }
+  { label: "About Us", href: "/about" }
 ];

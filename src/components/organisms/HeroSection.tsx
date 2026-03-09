@@ -1,182 +1,7 @@
-// "use client";
-
-// import Image from "next/image";
-// import { Button } from "@/components/atoms/Button";
-
-// function polarToCSS(angleDeg: number, radiusPct: number) {
-//   const rad = ((angleDeg - 90) * Math.PI) / 180;
-//   const x = 50 + radiusPct * Math.cos(rad);
-//   const y = 50 + radiusPct * Math.sin(rad);
-//   return { left: `${x}%`, top: `${y}%` };
-// }
-
-// const ALL_TAGS = [
-//   {
-//     id: "academy",
-//     angle: 210,
-//     content: (
-//       <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-md px-4 py-2.5 min-w-[110px]">
-//         <p className="text-xs text-[#888] font-medium">Tabi</p>
-//         <div className="flex items-center gap-1.5 mt-0.5">
-//           <span className="w-2 h-2 rounded-full bg-gray-300 shrink-0" />
-//           <p className="text-sm font-bold text-[#1a1a2e]">Academy</p>
-//         </div>
-//       </div>
-//     )
-//   },
-//   {
-//     id: "project",
-//     angle: 340,
-//     content: (
-//       <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-md px-4 py-2.5 min-w-[110px]">
-//         <p className="text-xs text-[#888] font-medium">Tabi</p>
-//         <div className="flex items-center gap-1.5 mt-0.5">
-//           <span className="w-2 h-2 rounded-full bg-brand-primary shrink-0" />
-//           <p className="text-sm font-bold text-[#1a1a2e]">Project</p>
-//         </div>
-//       </div>
-//     )
-//   },
-//   {
-//     id: "guild",
-//     angle: 45,
-//     content: (
-//       <div className="bg-white rounded-2xl shadow-md px-4 py-2.5">
-//         <span className="text-xl font-black text-brand-primary tracking-tight leading-none">
-//           purple<span className="text-[#1a1a2e]">.</span>
-//         </span>
-//         <p className="text-[10px] tracking-[0.25em] text-brand-muted uppercase font-medium mt-0.5">
-//           guild
-//         </p>
-//       </div>
-//     )
-//   },
-//   {
-//     id: "volunteers",
-//     angle: 310,
-//     content: (
-//       <div className="bg-[#f0faf4]/90 backdrop-blur-sm rounded-2xl shadow-md px-4 py-2.5">
-//         <p className="text-xl font-extrabold text-[#1a1a2e] leading-none">
-//           500+
-//         </p>
-//         <p className="text-[11px] text-[#888] mt-1">Volunteers involved</p>
-//       </div>
-//     )
-//   },
-//   {
-//     id: "trained",
-//     angle: 130,
-//     content: (
-//       <div className="bg-[#fff9f0]/90 backdrop-blur-sm rounded-2xl shadow-md px-4 py-2.5">
-//         <p className="text-xl font-extrabold text-[#1a1a2e] leading-none">
-//           10K+
-//         </p>
-//         <p className="text-[11px] text-[#888] mt-1">Individuals Trained</p>
-//       </div>
-//     )
-//   },
-//   {
-//     id: "participation",
-//     angle: 240,
-//     content: (
-//       <div className="bg-[#fff9f0]/90 backdrop-blur-sm rounded-2xl shadow-md px-4 py-2.5">
-//         <p className="text-xl font-extrabold text-[#1a1a2e] leading-none">
-//           80%
-//         </p>
-//         <p className="text-[11px] text-[#888] mt-1">
-//           Active community participation
-//         </p>
-//       </div>
-//     )
-//   }
-// ];
-
-// export default function HeroSection() {
-//   return (
-//     <section className="relative w-full overflow-hidden bg-[#fdf7ff] pt-20 pb-0">
-//       {/* ── Headline copy ── */}
-//       <div className="relative z-10 flex flex-col items-center text-center px-6 mb-20">
-//         <h1 className="text-[clamp(2.4rem,5vw,4rem)] font-extrabold leading-tight tracking-tight text-[#1a1a2e]">
-//           Empowering <span className="text-brand-primary italic">Futures,</span>
-//           {/* scribble from public */}
-//           <Image
-//             src="/scribble.svg"
-//             alt=""
-//             width={84}
-//             height={84}
-//             className="inline-block -ml-3 mb-10"
-//             aria-hidden
-//           />
-//           <br />
-//           Transforming Communities
-//         </h1>
-
-//         <p className="mt-5 max-w-xl text-[#555] text-base leading-relaxed">
-//           Unlocking potential through innovative technology, community
-//           engagement and educational program which creates a dynamic environment
-//           where individuals thrive
-//         </p>
-
-//         <Button variant="primary" size="lg" className="mt-8">
-//           Join ai for business training
-//         </Button>
-//       </div>
-
-//       {/* ── Orbit stage ── */}
-//       <div
-//         className="relative mx-auto"
-//         style={{ width: "min(820px, 96vw)", aspectRatio: "1/1" }}
-//       >
-//         {/* Hero image – the ring is baked into the image itself */}
-//         <div className="absolute inset-0">
-//           <Image
-//             src="/Group 7.png"
-//             alt="Smiling woman with arms raised"
-//             fill
-//             className="object-contain"
-//             priority
-//           />
-//         </div>
-
-//         {/* ── Single rotating wrapper – all tags spin together ── */}
-//         <div
-//           className="absolute inset-0"
-//           style={{ animation: "orbit-cw 20s linear infinite" }}
-//         >
-//           {ALL_TAGS.map((tag) => (
-//             <div
-//               key={tag.id}
-//               className="absolute"
-//               style={{
-//                 ...polarToCSS(tag.angle, 47),
-//                 transform: "translate(-50%, -50%)",
-//                 // counter-rotate each tag so it stays visually upright
-//                 animation: "orbit-ccw 20s linear infinite"
-//               }}
-//             >
-//               {tag.content}
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-
-//       <style>{`
-//         @keyframes orbit-cw {
-//           from { transform: rotate(0deg); }
-//           to   { transform: rotate(360deg); }
-//         }
-//         @keyframes orbit-ccw {
-//           from { transform: translate(-50%, -50%) rotate(0deg); }
-//           to   { transform: translate(-50%, -50%) rotate(-360deg); }
-//         }
-//       `}</style>
-//     </section>
-//   );
-// }
-
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/atoms/Button";
 
 function polarToCSS(angleDeg: number, radiusPct: number) {
@@ -263,7 +88,7 @@ const ALL_TAGS = [
         <p className="text-base md:text-xl font-extrabold text-[#1a1a2e] leading-none">
           80%
         </p>
-        <p className="text-[9px] md:text-[11px] text-[#888] mt-0.5 md:mt-1 max-w-[80px] md:max-w-none">
+        <p className="text-[9px] md:text-[11px] text-[#888] mt-0.5 md:mt-1 max-w-20 md:max-w-none">
           Active community participation
         </p>
       </div>
@@ -296,13 +121,15 @@ export default function HeroSection() {
           where individuals thrive
         </p>
 
-        <Button
-          variant="primary"
-          size="lg"
-          className="mt-6 md:mt-8 text-sm md:text-base px-6 md:px-8"
-        >
-          Join ai for business training
-        </Button>
+        <Link href="/ai-for-businesses" className="mt-6 md:mt-8">
+          <Button
+            variant="primary"
+            size="lg"
+            className="text-sm md:text-base px-6 md:px-8"
+          >
+            Join ai for business training
+          </Button>
+        </Link>
       </div>
 
       {/* ── Orbit stage ── */}
