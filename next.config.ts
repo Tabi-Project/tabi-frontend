@@ -10,7 +10,10 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true
   },
-  trailingSlash: true
+  trailingSlash: true,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isProd ? "/tabi-frontend" : ""
+  }
 };
 
 export default nextConfig;
