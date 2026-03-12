@@ -3,13 +3,14 @@
 import { useRef } from "react";
 import { motion, useAnimationFrame, useMotionValue } from "framer-motion";
 import Image from "next/image";
+import { BASE_PATH } from "@/constants/paths";
 
 const IMAGES = [
-  "/about/about-1.png",
-  "/about/about-2.png",
-  "/about/about-3.png",
-  "/about/about-4.png",
-  "/about/about-5.png"
+  `${BASE_PATH}/about/about-1.png`,
+  `${BASE_PATH}/about/about-2.png`,
+  `${BASE_PATH}/about/about-3.png`,
+  `${BASE_PATH}/about/about-4.png`,
+  `${BASE_PATH}/about/about-5.png`
 ];
 
 const STRIP_IMAGES = [...IMAGES, ...IMAGES, ...IMAGES, ...IMAGES];

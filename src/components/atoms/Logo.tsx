@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { BASE_PATH } from "@/constants/paths";
 
 export const Logo = () => {
   return (
@@ -8,11 +9,11 @@ export const Logo = () => {
       className="flex items-center gap-2 transition-transform hover:scale-105 active:scale-95"
     >
       <Image
-        src="/Tabi-logo.svg"
+        src={`${BASE_PATH}/Tabi-logo.svg`}
         alt="Tabi Academy Logo"
-        width={120} // Adjust based on your Nav Bar.png proportions
+        width={120}
         height={40}
-        priority // Ensures logo loads immediately without lag
+        priority
         className="object-contain"
       />
     </Link>

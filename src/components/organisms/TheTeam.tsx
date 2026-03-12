@@ -2,13 +2,15 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { BASE_PATH } from '@/constants/paths'
+
 
 const TEAM = [
   {
     id: 1,
     name: "Sophia Ahuoyiza Abubakar",
     role: "DIRECTOR",
-    image: "/about/team-1.png",
+    image: `${BASE_PATH}/about/team-1.png`,
     bgColor: "#f0f0f0",
     bio: "Sophia is a passionate advocate for education and technological advancement. She is the visionary leader behind Tabi Empowerment and Educational (TEE) Foundation. With a deep-rooted commitment to bridging the gender gap in technology, she has dedicated their career to empowering African women through innovative tech education and development programs.\n\nUnder Sophia's leadership, TEE Foundation has grown into a transformative force, fostering an inclusive tech ecosystem where women are equipped to lead and innovate. With a background in [mention relevant background or experience], [CEO's Name] brings a wealth of knowledge and a unique perspective to the foundation, driving its mission forward with unwavering dedication and a visionary outlook. Her leadership inspires not only the organization but also the countless women who benefit from TEEF's programs, helping to pave the way for a brighter, more inclusive future in technology.\n\nShe enjoys meeting people and making new friends. She is fluent in Spanish and is currently French",
     hobbies: ["Traveling", "Reading", "Swimming", "Playing Golf", "Dancing"]
@@ -17,7 +19,7 @@ const TEAM = [
     id: 2,
     name: "Ihuoma Favor Agbaru",
     role: "PRODUCT MANAGER",
-    image: "/about/team-2.png",
+    image: `${BASE_PATH}/about/team-2.png`,
     bgColor: "#F5A623",
     bio: "Ihuoma is a passionate advocate for education and technological advancement. She brings a unique perspective to the foundation with her background in tech and community building.\n\nShe enjoys meeting people and making new friends.",
     hobbies: ["Reading", "Mentoring", "Coding"]
@@ -26,7 +28,7 @@ const TEAM = [
     id: 3,
     name: "Glory Chinemerem Okafor",
     role: "FRONTEND LEAD",
-    image: "/about/team-3.png",
+    image: `${BASE_PATH}/about/team-3.png`,
     bgColor: "#e8e0d0",
     bio: "A dedicated professional committed to bridging the gender gap in technology through education and community programs.",
     hobbies: ["Teaching", "Research", "Networking"]
@@ -35,7 +37,7 @@ const TEAM = [
     id: 4,
     name: "Sophia Ahuoyiza Abubakar",
     role: "CEO & FOUNDER",
-    image: "/about/team-4.png",
+    image: `${BASE_PATH}/about/team-4.png`,
     bgColor: "#f0f0f0",
     bio: "A dedicated professional committed to bridging the gender gap in technology through education and community programs.",
     hobbies: ["Innovation", "Writing", "Traveling"]
@@ -44,7 +46,7 @@ const TEAM = [
     id: 5,
     name: "Sophia Ahuoyiza Abubakar",
     role: "CEO & FOUNDER",
-    image: "/about/team-2.png",
+    image: `${BASE_PATH}/about/team-2.png`,
     bgColor: "#e8e0d0",
     bio: "A dedicated professional committed to bridging the gender gap in technology through education and community programs.",
     hobbies: ["Design", "Photography", "Yoga"]
@@ -53,7 +55,7 @@ const TEAM = [
     id: 6,
     name: "Sophia Ahuoyiza Abubakar",
     role: "CEO & FOUNDER",
-    image: "/about/team-1.png",
+    image: `${BASE_PATH}/about/team-1.png`,
     bgColor: "#F5A623",
     bio: "A dedicated professional committed to bridging the gender gap in technology through education and community programs.",
     hobbies: ["Coding", "Mentoring", "Swimming"]

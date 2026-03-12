@@ -171,7 +171,7 @@ export default function AIBusinessHero() {
               {/* Floating card — bottom left */}
               <div className="absolute bottom-16 left-0 z-30 bg-white rounded-2xl shadow-lg border border-[#ede8f5] px-5 py-4 w-52">
                 <p className="text-[11px] text-[#888] font-medium uppercase tracking-wider mb-2">
-                  You'll build
+                  You&apos;ll build
                 </p>
                 <div className="flex flex-col gap-1.5">
                   {["Live website", "AI agent", "Brand kit"].map((item) => (

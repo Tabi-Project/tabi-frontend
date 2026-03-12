@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/atoms/Button";
+import { BASE_PATH } from "@/constants/paths";
 
 /* ─────────────────────────────────────────────
    DATA
@@ -32,7 +33,7 @@ const PROJECTS = [
 ];
 
 const TESTIMONIAL = {
-  avatar: "/testimonial-image.png",
+  avatar: `${BASE_PATH}/testimonial-image.png`,
   quote:
     '"Tabi Empowerment and Educational Foundation transformed my perspective on learning. Their dedication to innovative education initiatives is truly inspiring! I feel empowered and inspired every day, knowing that I\'m part of a community that truly cares about making a positive impact."',
   name: "John Doe",
@@ -94,18 +95,17 @@ function AcademyGrid({ project }: { project: (typeof PROJECTS)[number] }) {
         <p className="text-sm text-[#666] leading-relaxed mb-8">
           {project.description}
         </p>
-                          <div className="flex justify-start">
-        <Button variant="outline" size="sm">
-          Learn More
-        </Button>
-
-                          </div>
+        <div className="flex justify-start">
+          <Button variant="outline" size="sm">
+            Learn More
+          </Button>
+        </div>
       </div>
 
       {/* [0,1] Image 1 */}
       <div className="relative h-52 sm:h-64 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
         <Image
-          src="/projects/academy-1.png"
+          src={`${BASE_PATH}/projects/academy-1.png`}
           alt="Students collaborating"
           fill
           className="object-cover"
@@ -115,7 +115,7 @@ function AcademyGrid({ project }: { project: (typeof PROJECTS)[number] }) {
       {/* [1,0] Image 2 — directly under text */}
       <div className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
         <Image
-          src="/projects/academy-2.png"
+          src={`${BASE_PATH}/projects/academy-2.png`}
           alt="Women in tech meeting"
           fill
           className="object-cover"
@@ -125,7 +125,7 @@ function AcademyGrid({ project }: { project: (typeof PROJECTS)[number] }) {
       {/* [1,1] Image 3 — directly under image 1 */}
       <div className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
         <Image
-          src="/projects/academy-3.png"
+          src={`${BASE_PATH}/projects/academy-3.png`}
           alt="Graduation ceremony"
           fill
           className="object-cover"
@@ -160,18 +160,17 @@ function ProjectGrid({ project }: { project: (typeof PROJECTS)[number] }) {
           <p className="text-sm text-[#666] leading-relaxed mb-8">
             {project.description}
           </p>
-                            <div className="flex justify-start">
-          <Button variant="outline" size="sm">
-            Learn More
-          </Button>
-
-                            </div>
+          <div className="flex justify-start">
+            <Button variant="outline" size="sm">
+              Learn More
+            </Button>
+          </div>
         </div>
 
         {/* Right: collage image */}
         <div className="relative h-50 sm:h-60 rounded-2xl overflow-hidden">
           <Image
-            src="/projects/project-collage.png"
+            src={`${BASE_PATH}/projects/project-collage.png`}
             alt="Project collage"
             fill
             className="object-contain"
@@ -182,7 +181,7 @@ function ProjectGrid({ project }: { project: (typeof PROJECTS)[number] }) {
       {/* Row 2: full-width video — spans entire width */}
       <div className="relative w-full h-56 sm:h-72 md:h-80 rounded-2xl overflow-hidden border border-[#e5e5e5]">
         <Image
-          src="/projects/project-video.png"
+          src={`${BASE_PATH}/projects/project-video.png`}
           alt="Video thumbnail"
           fill
           className="object-cover brightness-50"
@@ -221,18 +220,17 @@ function GuildGrid({ project }: { project: (typeof PROJECTS)[number] }) {
         <p className="text-sm text-[#666] leading-relaxed mb-8">
           {project.description}
         </p>
-                          <div className="flex justify-start">
-
-        <Button variant="outline" size="sm">
-          Learn More
-        </Button>
-                          </div>
+        <div className="flex justify-start">
+          <Button variant="outline" size="sm">
+            Learn More
+          </Button>
+        </div>
       </div>
 
       {/* [0,1] Purple Guild logo image */}
       <div className="relative h-52 sm:h-64 rounded-2xl overflow-hidden">
         <Image
-          src="/projects/purple-guild-logo.png"
+          src={`${BASE_PATH}/projects/purple-guild-logo.png`}
           alt="Purple Guild"
           fill
           className="object-contain p-6"
@@ -242,7 +240,7 @@ function GuildGrid({ project }: { project: (typeof PROJECTS)[number] }) {
       {/* [1,0] Photo 1 */}
       <div className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
         <Image
-          src="/projects/academy-1.png"
+          src={`${BASE_PATH}/projects/academy-1.png`}
           alt="Guild meeting"
           fill
           className="object-cover"
@@ -252,7 +250,7 @@ function GuildGrid({ project }: { project: (typeof PROJECTS)[number] }) {
       {/* [1,1] Photo 2 */}
       <div className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
         <Image
-          src="/projects/academy-2.png"
+          src={`${BASE_PATH}/projects/academy-2.png`}
           alt="Guild graduation"
           fill
           className="object-cover"

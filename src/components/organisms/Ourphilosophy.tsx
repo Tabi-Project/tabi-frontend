@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { BASE_PATH } from "@/constants/paths";
 
 function MissionVisual() {
   return (
@@ -10,7 +11,7 @@ function MissionVisual() {
       style={{ minHeight: "100%" }}
     >
       <Image
-        src="/about/mission-blocks.png"
+        src={`${BASE_PATH}/about/mission-blocks.png`}
         alt="Mission visual"
         fill
         className="object-cover object-center"
@@ -26,7 +27,7 @@ function VisionVisual() {
       style={{ minHeight: "100%" }}
     >
       <Image
-        src="/about/vision-blob.png"
+        src={`${BASE_PATH}/about/vision-blob.png`}
         alt="Vision visual"
         fill
         className="object-cover object-center"
