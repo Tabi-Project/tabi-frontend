@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/atoms/Button";
-import { BASE_PATH } from "@/constants/paths";
+import { withBasePath } from "@/constants/paths";
 
 const POSTS = [
   {
@@ -10,7 +10,7 @@ const POSTS = [
     date: "July 10, 2024",
     excerpt:
       "The tech industry offers a world of possibilities for those eager to innovate, create, and problem-solve. Whether you're a student exploring career paths or someone...",
-    image: `${BASE_PATH}/post-1.png`,
+    image: withBasePath("/post-1.png"),
     href: "/blog/journey-of-a-thousand-mile",
     featured: true
   },
@@ -20,7 +20,7 @@ const POSTS = [
     date: "July 10, 2024",
     excerpt:
       "The tech industry offers a world of possibilities for those eager to innovate, create, and problem-solve. Whether you're a student exploring...",
-    image: `${BASE_PATH}/post-2.png`,
+    image: withBasePath("/post-2.png"),
     href: "/blog/journey-of-a-thousand-mile-2",
     featured: false
   },
@@ -30,7 +30,7 @@ const POSTS = [
     date: "July 10, 2024",
     excerpt:
       "The tech industry offers a world of possibilities for those eager to innovate, create, and problem-solve. Whether you're a student exploring...",
-    image: `${BASE_PATH}/post-2.png`,
+    image: withBasePath("/post-2.png"),
     href: "/blog/journey-of-a-thousand-mile-3",
     featured: false
   }
@@ -43,26 +43,21 @@ export default function InsightsStories() {
   return (
     <section className="w-full bg-white">
       <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
-        {/* ── Heading ── */}
         <div className="text-start mb-14">
           <h2 className="text-[clamp(1.8rem,3.5vw,3.5rem)] font-bold tracking-tight text-[#1a1a2e] ">
             Insights &amp; Stories
           </h2>
-          <p className="mt-4 text-base text-black max-w-5xl  leading-relaxed">
+          <p className="mt-4 text-base text-black max-w-5xl leading-relaxed">
             Ready to embark on your tech journey? Explore our resources and
             start building your future today.
           </p>
         </div>
 
-        {/* ── Grid ── */}
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-5 mb-10">
-          {/* Featured card */}
           <Link
             href={featured.href}
             className="group flex flex-col bg-[#F5F5F5] rounded-3xl border border-[#ede8f5] overflow-hidden hover:-translate-y-1 transition-all duration-300"
-            // style={{ boxShadow: "0px 4px 16px 2px #3737371A" }}
           >
-            {/* Image */}
             <div className="relative w-full aspect-video overflow-hidden">
               <Image
                 src={featured.image}
@@ -72,7 +67,6 @@ export default function InsightsStories() {
               />
             </div>
 
-            {/* Body */}
             <div className="flex flex-col flex-1 p-8">
               <h3 className="text-xl font-bold text-[#1a1a2e] mb-2 leading-snug">
                 {featured.title}
@@ -99,16 +93,13 @@ export default function InsightsStories() {
             </div>
           </Link>
 
-          {/* Secondary cards column */}
           <div className="flex flex-col gap-5">
             {secondary.map((post) => (
               <Link
                 key={post.id}
                 href={post.href}
                 className="group flex flex-row bg-[#F5F5F5] rounded-3xl border border-[#ede8f5] overflow-hidden hover:-translate-y-1 transition-all duration-300"
-                // style={{ boxShadow: "0px 4px 16px 2px #222" }}
               >
-                {/* Thumbnail */}
                 <div className="relative w-45 shrink-0 overflow-hidden">
                   <Image
                     src={post.image}
@@ -118,7 +109,6 @@ export default function InsightsStories() {
                   />
                 </div>
 
-                {/* Body */}
                 <div className="flex flex-col flex-1 p-6 min-w-0">
                   <h3 className="text-base font-bold text-[#1a1a2e] mb-1.5 leading-snug">
                     {post.title}
@@ -153,7 +143,6 @@ export default function InsightsStories() {
           </div>
         </div>
 
-        {/* ── Load More ── */}
         <div className="flex justify-center">
           <Link href="/blog">
             <Button variant="outline" size="md">

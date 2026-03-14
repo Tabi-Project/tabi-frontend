@@ -1,9 +1,9 @@
 import Image from "next/image";
 import { Button } from "@/components/atoms/Button";
-import { BASE_PATH } from "@/constants/paths";
+import { withBasePath } from "@/constants/paths";
 
 /* ─────────────────────────────────────────────
-   DATA
+  DATA
 ───────────────────────────────────────────── */
 const PROJECTS = [
   {
@@ -33,7 +33,7 @@ const PROJECTS = [
 ];
 
 const TESTIMONIAL = {
-  avatar: `${BASE_PATH}/testimonial-image.png`,
+  avatar: withBasePath("/testimonial-image.png"),
   quote:
     '"Tabi Empowerment and Educational Foundation transformed my perspective on learning. Their dedication to innovative education initiatives is truly inspiring! I feel empowered and inspired every day, knowing that I\'m part of a community that truly cares about making a positive impact."',
   name: "John Doe",
@@ -41,7 +41,7 @@ const TESTIMONIAL = {
 };
 
 /* ─────────────────────────────────────────────
-   TESTIMONIAL STRIP
+  TESTIMONIAL STRIP
 ───────────────────────────────────────────── */
 function Testimonial() {
   return (
@@ -70,7 +70,7 @@ function Testimonial() {
 }
 
 /* ─────────────────────────────────────────────
-   IMAGE GRIDS
+  IMAGE GRIDS
 ───────────────────────────────────────────── */
 
 /**
@@ -87,7 +87,6 @@ function Testimonial() {
 function AcademyGrid({ project }: { project: (typeof PROJECTS)[number] }) {
   return (
     <div className="grid grid-cols-2 gap-3 w-full">
-      {/* [0,0] Text content */}
       <div className="flex flex-col justify-start py-2 pr-4">
         <h3 className="text-xl sm:text-2xl font-bold text-brand-primary mb-4">
           {project.title}
@@ -102,30 +101,27 @@ function AcademyGrid({ project }: { project: (typeof PROJECTS)[number] }) {
         </div>
       </div>
 
-      {/* [0,1] Image 1 */}
       <div className="relative h-52 sm:h-64 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
         <Image
-          src={`${BASE_PATH}/projects/academy-1.png`}
+          src={withBasePath("/projects/academy-1.png")}
           alt="Students collaborating"
           fill
           className="object-cover"
         />
       </div>
 
-      {/* [1,0] Image 2 — directly under text */}
       <div className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
         <Image
-          src={`${BASE_PATH}/projects/academy-2.png`}
+          src={withBasePath("/projects/academy-2.png")}
           alt="Women in tech meeting"
           fill
           className="object-cover"
         />
       </div>
 
-      {/* [1,1] Image 3 — directly under image 1 */}
       <div className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
         <Image
-          src={`${BASE_PATH}/projects/academy-3.png`}
+          src={withBasePath("/projects/academy-3.png")}
           alt="Graduation ceremony"
           fill
           className="object-cover"
@@ -148,11 +144,8 @@ function AcademyGrid({ project }: { project: (typeof PROJECTS)[number] }) {
  */
 function ProjectGrid({ project }: { project: (typeof PROJECTS)[number] }) {
   return (
-    // outer wrapper — fullWidth so we handle the 2-col + full-row ourselves
     <div className="w-full">
-      {/* Row 1: text + collage */}
       <div className="grid grid-cols-2 gap-6 items-start mb-6">
-        {/* Left: text */}
         <div className="flex flex-col justify-start py-2">
           <h3 className="text-xl sm:text-2xl font-bold text-brand-primary mb-4">
             {project.title}
@@ -167,10 +160,9 @@ function ProjectGrid({ project }: { project: (typeof PROJECTS)[number] }) {
           </div>
         </div>
 
-        {/* Right: collage image */}
         <div className="relative h-50 sm:h-60 rounded-2xl overflow-hidden">
           <Image
-            src={`${BASE_PATH}/projects/project-collage.png`}
+            src={withBasePath("/projects/project-collage.png")}
             alt="Project collage"
             fill
             className="object-contain"
@@ -178,10 +170,9 @@ function ProjectGrid({ project }: { project: (typeof PROJECTS)[number] }) {
         </div>
       </div>
 
-      {/* Row 2: full-width video — spans entire width */}
       <div className="relative w-full h-56 sm:h-72 md:h-80 rounded-2xl overflow-hidden border border-[#e5e5e5]">
         <Image
-          src={`${BASE_PATH}/projects/project-video.png`}
+          src={withBasePath("/projects/project-video.png")}
           alt="Video thumbnail"
           fill
           className="object-cover brightness-50"
@@ -212,7 +203,6 @@ function ProjectGrid({ project }: { project: (typeof PROJECTS)[number] }) {
 function GuildGrid({ project }: { project: (typeof PROJECTS)[number] }) {
   return (
     <div className="grid grid-cols-2 gap-3 w-full">
-      {/* [0,0] Text content */}
       <div className="flex flex-col justify-start py-2 pr-4">
         <h3 className="text-xl sm:text-2xl font-bold text-brand-primary mb-4">
           {project.title}
@@ -227,30 +217,27 @@ function GuildGrid({ project }: { project: (typeof PROJECTS)[number] }) {
         </div>
       </div>
 
-      {/* [0,1] Purple Guild logo image */}
       <div className="relative h-52 sm:h-64 rounded-2xl overflow-hidden">
         <Image
-          src={`${BASE_PATH}/projects/purple-guild-logo.png`}
+          src={withBasePath("/projects/purple-guild-logo.png")}
           alt="Purple Guild"
           fill
           className="object-contain p-6"
         />
       </div>
 
-      {/* [1,0] Photo 1 */}
       <div className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
         <Image
-          src={`${BASE_PATH}/projects/academy-1.png`}
+          src={withBasePath("/projects/academy-1.png")}
           alt="Guild meeting"
           fill
           className="object-cover"
         />
       </div>
 
-      {/* [1,1] Photo 2 */}
       <div className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
         <Image
-          src={`${BASE_PATH}/projects/academy-2.png`}
+          src={withBasePath("/projects/academy-2.png")}
           alt="Guild graduation"
           fill
           className="object-cover"
@@ -278,7 +265,6 @@ function ProjectBlock({
 }) {
   return (
     <div className="flex gap-4 sm:gap-8">
-      {/* ── Timeline column ── */}
       <div className="flex flex-col items-center shrink-0 w-8">
         <div className="w-8 h-8 rounded-full border-2 border-[#555] bg-white flex items-center justify-center text-xs font-bold text-[#333] z-10 shrink-0">
           {project.number}
@@ -286,13 +272,10 @@ function ProjectBlock({
         <div className="flex-1 w-px bg-[#ddd] mt-2" />
       </div>
 
-      {/* ── Content ── */}
       <div className="flex-1 pb-4">
         {fullWidth ? (
-          // Academy: full-width self-contained grid (text lives inside)
           <div className="pt-1 pb-10">{imageGrid}</div>
         ) : (
-          // Project / Guild: standard left-text + right-images layout
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start pt-1 pb-10">
             <div className="flex flex-col justify-start">
               <h3 className="text-xl sm:text-2xl font-bold text-brand-primary mb-4">
@@ -314,12 +297,11 @@ function ProjectBlock({
 }
 
 /* ─────────────────────────────────────────────
-   MAIN SECTION
+  MAIN SECTION
 ───────────────────────────────────────────── */
 export default function FeaturedProjects() {
   return (
     <section className="w-full bg-white">
-      {/* ── Section header ── */}
       <div className="flex flex-col items-center text-center pt-20 pb-10 px-6">
         <h2 className="text-[clamp(1.8rem,4vw,3rem)] font-extrabold text-[#1a1a2e] tracking-tight">
           Our Flagship Projects
@@ -341,7 +323,6 @@ export default function FeaturedProjects() {
         />
       </div>
 
-      {/* ── Projects list ── */}
       <div className="mx-auto max-w-4xl px-6 sm:px-12 lg:px-16 pb-20 flex flex-col gap-0">
         {PROJECTS.map((project, idx) => (
           <div key={project.id}>

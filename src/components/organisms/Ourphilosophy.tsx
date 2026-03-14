@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { BASE_PATH } from "@/constants/paths";
+import { withBasePath } from "@/constants/paths";
 
 function MissionVisual() {
   return (
@@ -11,7 +11,7 @@ function MissionVisual() {
       style={{ minHeight: "100%" }}
     >
       <Image
-        src={`${BASE_PATH}/about/mission-blocks.png`}
+        src={withBasePath("/about/mission-blocks.png")}
         alt="Mission visual"
         fill
         className="object-cover object-center"
@@ -27,7 +27,7 @@ function VisionVisual() {
       style={{ minHeight: "100%" }}
     >
       <Image
-        src={`${BASE_PATH}/about/vision-blob.png`}
+        src={withBasePath("/about/vision-blob.png")}
         alt="Vision visual"
         fill
         className="object-cover object-center"
@@ -40,11 +40,9 @@ const TABS = [
   {
     id: "mission",
     label: "Mission",
-    // active state
     activeBg: "#E3D4E2",
     activeText: "#71286F",
     activeDot: "#71286F",
-    // inactive state
     inactiveBg: "white",
     inactiveText: "#121212",
     inactiveDot: "#B893B7",
@@ -55,11 +53,9 @@ const TABS = [
   {
     id: "vision",
     label: "Vision",
-    // active state
     activeBg: "#D6A884",
     activeText: "white",
     activeDot: "white",
-    // inactive state
     inactiveBg: "white",
     inactiveText: "#121212",
     inactiveDot: "#D6A884",
@@ -75,13 +71,11 @@ export default function OurPhilosophy() {
 
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto max-w-[1400px] px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
-        {/* ── Heading ── */}
+      <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
         <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-extrabold text-center text-[#121212] tracking-tight mb-10">
           Our Philosophy
         </h2>
 
-        {/* ── Tab toggle ── */}
         <div className="flex justify-center gap-3 mb-10">
           {TABS.map((t) => {
             const isActive = active === t.id;
@@ -106,17 +100,14 @@ export default function OurPhilosophy() {
           })}
         </div>
 
-        {/* ── Card ── */}
         <div
-          className="w-full rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 min-h-[420px]"
+          className="w-full rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-2 min-h-105"
           style={{ background: tab.cardBg }}
         >
-          {/* Left: visual */}
-          <div className="relative min-h-[300px] lg:min-h-0 overflow-hidden">
+          <div className="relative min-h-75 lg:min-h-0 overflow-hidden">
             {tab.id === "mission" ? <MissionVisual /> : <VisionVisual />}
           </div>
 
-          {/* Right: text */}
           <div className="flex flex-col justify-center px-10 py-12">
             <h3 className="text-2xl sm:text-3xl font-extrabold text-[#121212] mb-6 leading-tight">
               {tab.heading}

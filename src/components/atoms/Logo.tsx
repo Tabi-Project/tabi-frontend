@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BASE_PATH } from "@/constants/paths";
+import { withBasePath } from "@/constants/paths";
 
 export const Logo = () => {
   return (
@@ -9,7 +9,7 @@ export const Logo = () => {
       className="flex items-center gap-2 transition-transform hover:scale-105 active:scale-95"
     >
       <Image
-        src={`${BASE_PATH}/Tabi-logo.svg`}
+        src={withBasePath("/tabi-logo.svg")}
         alt="Tabi Academy Logo"
         width={120}
         height={40}

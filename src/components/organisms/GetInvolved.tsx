@@ -4,8 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/atoms/Button";
 import DonationModal from "@/components/molecules/DonationModal";
-import { BASE_PATH } from "@/constants/paths";
-
+import { withBasePath } from "@/constants/paths";
 
 export default function GetInvolved() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -14,7 +13,6 @@ export default function GetInvolved() {
     <>
       <section className="w-full bg-white">
         <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
-          {/* ── Section heading ── */}
           <div className="text-center mb-14">
             <h2 className="text-[clamp(3.5rem,4.5vw,3.5rem)] font-bold tracking-tight text-[#1a1a2e] leading-tight">
               Get Involved, <span className="text-brand-primary">Support</span>{" "}
@@ -26,14 +24,11 @@ export default function GetInvolved() {
             </p>
           </div>
 
-          {/* ── Two cards ── */}
           <div className="grid grid-cols-1 lg:grid-cols-[41.5fr_58.5fr] gap-5">
-            {/* Left: Donate card */}
             <div
               className="relative rounded-3xl overflow-hidden p-10 flex flex-col justify-between min-h-90"
               style={{ background: "#F5F5F5" }}
             >
-              {/* Decorative dot pattern */}
               <div
                 className="absolute top-0 right-0 w-48 h-48 pointer-events-none opacity-30"
                 aria-hidden
@@ -46,7 +41,8 @@ export default function GetInvolved() {
 
               <div className="relative z-10">
                 <h3 className="text-4xl font-bold text-[#121212] leading-tight mb-4">
-                  Make a<br />
+                  Make a
+                  <br />
                   Lasting Impact
                 </h3>
                 <p className="text-base text-[#444444] leading-relaxed max-w-xs mb-8">
@@ -63,10 +59,9 @@ export default function GetInvolved() {
                 </Button>
               </div>
 
-              {/* Coin jar image */}
-              <div className="absolute bottom-0 right-0 h-48 w-40  sm:w-52 sm:h-64 pointer-events-none">
+              <div className="absolute bottom-0 right-0 h-48 w-40 sm:w-52 sm:h-64 pointer-events-none">
                 <Image
-                  src={`${BASE_PATH}/donate-jar.png`}
+                  src={withBasePath("/donate-jar.png")}
                   alt="Donation jar"
                   fill
                   className="object-contain object-bottom"
@@ -74,12 +69,10 @@ export default function GetInvolved() {
               </div>
             </div>
 
-            {/* Right: Community card */}
             <div
               className="relative rounded-3xl overflow-hidden p-10"
               style={{ background: "#F5EFE8" }}
             >
-              {/* Dot pattern */}
               <div
                 className="absolute top-0 right-0 w-48 h-48 pointer-events-none opacity-20"
                 aria-hidden
@@ -99,7 +92,6 @@ export default function GetInvolved() {
                   opportunities.
                 </p>
 
-                {/* Form */}
                 <div
                   className="bg-[#fbfbfc] rounded-2xl p-6 flex flex-col gap-4"
                   style={{ boxShadow: "0px 4px 12px 2px #ededed" }}

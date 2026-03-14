@@ -3,14 +3,14 @@
 import { useRef } from "react";
 import { motion, useAnimationFrame, useMotionValue } from "framer-motion";
 import Image from "next/image";
-import { BASE_PATH } from "@/constants/paths";
+import { withBasePath } from "@/constants/paths";
 
 const IMAGES = [
-  `${BASE_PATH}/about/about-1.png`,
-  `${BASE_PATH}/about/about-2.png`,
-  `${BASE_PATH}/about/about-3.png`,
-  `${BASE_PATH}/about/about-4.png`,
-  `${BASE_PATH}/about/about-5.png`
+  withBasePath("/about/about-1.png"),
+  withBasePath("/about/about-2.png"),
+  withBasePath("/about/about-3.png"),
+  withBasePath("/about/about-4.png"),
+  withBasePath("/about/about-5.png")
 ];
 
 const STRIP_IMAGES = [...IMAGES, ...IMAGES, ...IMAGES, ...IMAGES];
@@ -21,12 +21,6 @@ const SET_WIDTH = (CARD_WIDTH + GAP) * IMAGES.length;
 const SPEED = 0.8;
 const STRIP_HEIGHT = 380;
 
-// Shape from the design:
-// - Full width at bottom
-// - Top-left corner starts at 0%,0%
-// - Slopes DOWN to a V-notch at the centre (~50%, 22%)
-// - Then slopes back UP to top-right corner 100%,0%
-// Reading the Figma screenshot: the notch dips to roughly 22% of height at centre
 const CLIP =
   "polygon(0% 0%, 34% 22%, 50% 28%, 66% 22%, 100% 0%, 100% 100%, 0% 100%)";
 
@@ -76,7 +70,6 @@ function InfiniteStrip() {
 export default function AboutHero() {
   return (
     <section className="w-full bg-white overflow-hidden relative">
-      {/* ── Gradient blobs matching design ── */}
       <div
         className="absolute pointer-events-none"
         style={{
@@ -106,7 +99,6 @@ export default function AboutHero() {
         }}
       />
 
-      {/* ── Header ── */}
       <div className="relative w-full flex flex-col items-center justify-center text-center px-6 pt-24 pb-16">
         <div className="relative z-10 max-w-3xl mx-auto">
           <h1
@@ -130,7 +122,6 @@ export default function AboutHero() {
         </div>
       </div>
 
-      {/* ── Masked scrolling strip ── */}
       <div
         style={{
           width: "100%",
@@ -143,7 +134,6 @@ export default function AboutHero() {
         <InfiniteStrip />
       </div>
 
-      {/* Bottom spacing */}
       <div className="h-16 bg-white" />
     </section>
   );

@@ -146,7 +146,7 @@ export default function HeroSection() {
         {/* Hero image */}
         <div className="absolute inset-0">
           <Image
-            src={`${BASE_PATH}/Group 7.png`}
+            src={`${BASE_PATH}/hero-image.png`}
             alt="Smiling woman with arms raised"
             fill
             className="object-contain"
