@@ -1,18 +1,19 @@
 import type { NextConfig } from "next";
 
+const isProd = process.env.NODE_ENV === "production";
 const repoName = "tabi-frontend";
 
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: `/${repoName}`,
-  assetPrefix: `/${repoName}/`,
+  basePath: isProd ? `/${repoName}` : "",
+  assetPrefix: isProd ? `/${repoName}/` : "",
   trailingSlash: true,
-  images: {
-    unoptimized: true
-  },
+  images: { unoptimized: true },
   env: {
-    NEXT_PUBLIC_BASE_PATH: `/${repoName}`
+    NEXT_PUBLIC_BASE_PATH: isProd ? `/${repoName}` : ""
   }
 };
 
 export default nextConfig;
+
+

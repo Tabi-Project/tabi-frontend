@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Button } from "@/components/atoms/Button";
-import { withBasePath } from "@/constants/paths";
 
 /* ─────────────────────────────────────────────
   DATA
@@ -33,7 +32,7 @@ const PROJECTS = [
 ];
 
 const TESTIMONIAL = {
-  avatar: withBasePath("/testimonial-image.png"),
+  avatar: "/testimonial-image.png",
   quote:
     '"Tabi Empowerment and Educational Foundation transformed my perspective on learning. Their dedication to innovative education initiatives is truly inspiring! I feel empowered and inspired every day, knowing that I\'m part of a community that truly cares about making a positive impact."',
   name: "John Doe",
@@ -103,7 +102,7 @@ function AcademyGrid({ project }: { project: (typeof PROJECTS)[number] }) {
 
       <div className="relative h-52 sm:h-64 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
         <Image
-          src={withBasePath("/projects/academy-1.png")}
+          src="/projects/academy-1.png"
           alt="Students collaborating"
           fill
           className="object-cover"
@@ -112,7 +111,7 @@ function AcademyGrid({ project }: { project: (typeof PROJECTS)[number] }) {
 
       <div className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
         <Image
-          src={withBasePath("/projects/academy-2.png")}
+          src="/projects/academy-2.png"
           alt="Women in tech meeting"
           fill
           className="object-cover"
@@ -121,7 +120,7 @@ function AcademyGrid({ project }: { project: (typeof PROJECTS)[number] }) {
 
       <div className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
         <Image
-          src={withBasePath("/projects/academy-3.png")}
+          src="/projects/academy-3.png"
           alt="Graduation ceremony"
           fill
           className="object-cover"
@@ -162,7 +161,7 @@ function ProjectGrid({ project }: { project: (typeof PROJECTS)[number] }) {
 
         <div className="relative h-50 sm:h-60 rounded-2xl overflow-hidden">
           <Image
-            src={withBasePath("/projects/project-collage.png")}
+            src="/projects/project-collage.png"
             alt="Project collage"
             fill
             className="object-contain"
@@ -172,7 +171,7 @@ function ProjectGrid({ project }: { project: (typeof PROJECTS)[number] }) {
 
       <div className="relative w-full h-56 sm:h-72 md:h-80 rounded-2xl overflow-hidden border border-[#e5e5e5]">
         <Image
-          src={withBasePath("/projects/project-video.png")}
+          src="/projects/project-video.png"
           alt="Video thumbnail"
           fill
           className="object-cover brightness-50"
@@ -219,7 +218,7 @@ function GuildGrid({ project }: { project: (typeof PROJECTS)[number] }) {
 
       <div className="relative h-52 sm:h-64 rounded-2xl overflow-hidden">
         <Image
-          src={withBasePath("/projects/purple-guild-logo.png")}
+          src="/projects/purple-guild-logo.png"
           alt="Purple Guild"
           fill
           className="object-contain p-6"
@@ -228,7 +227,7 @@ function GuildGrid({ project }: { project: (typeof PROJECTS)[number] }) {
 
       <div className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
         <Image
-          src={withBasePath("/projects/academy-1.png")}
+          src="/projects/academy-1.png"
           alt="Guild meeting"
           fill
           className="object-cover"
@@ -237,7 +236,7 @@ function GuildGrid({ project }: { project: (typeof PROJECTS)[number] }) {
 
       <div className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
         <Image
-          src={withBasePath("/projects/academy-2.png")}
+          src="/projects/academy-2.png"
           alt="Guild graduation"
           fill
           className="object-cover"

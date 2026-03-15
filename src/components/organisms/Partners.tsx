@@ -2,29 +2,15 @@
 
 import Image from "next/image";
 
-import { withBasePath } from "@/constants/paths";
-
 const PARTNERS = [
   {
     id: "yip",
-    src: withBasePath("/partners/yip.png"),
+    src: "/partners/yip.png",
     alt: "YIP – Yebox Internship Program"
   },
-  {
-    id: "gutsy",
-    src: withBasePath("/partners/gutsy-woman.png"),
-    alt: "GIV The Gutsy Woman"
-  },
-  {
-    id: "yebox",
-    src: withBasePath("/partners/yebox.png"),
-    alt: "Yebox Technologies"
-  },
-  {
-    id: "genesys",
-    src: withBasePath("/partners/genesys.png"),
-    alt: "Genesys"
-  }
+  { id: "gutsy", src: "/partners/gutsy-woman.png", alt: "GIV The Gutsy Woman" },
+  { id: "yebox", src: "/partners/yebox.png", alt: "Yebox Technologies" },
+  { id: "genesys", src: "/partners/genesys.png", alt: "Genesys" }
 ];
 
 export default function Partners() {

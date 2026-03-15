@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/atoms/Button";
-import { BASE_PATH } from '@/constants/paths'
 
 function polarToCSS(angleDeg: number, radiusPct: number) {
   const rad = ((angleDeg - 90) * Math.PI) / 180;
@@ -105,7 +104,7 @@ export default function HeroSection() {
         <h1 className="text-[clamp(1.9rem,6vw,4rem)] font-extrabold leading-tight tracking-tight text-[#1a1a2e]">
           Empowering <span className="text-brand-primary italic">Futures,</span>
           <Image
-            src={`${BASE_PATH}/scribble.svg`}
+            src="/scribble.svg"
             alt=""
             width={84}
             height={84}
@@ -146,7 +145,7 @@ export default function HeroSection() {
         {/* Hero image */}
         <div className="absolute inset-0">
           <Image
-            src={`${BASE_PATH}/hero-image.png`}
+            src="/hero-image.png"
             alt="Smiling woman with arms raised"
             fill
             className="object-contain"

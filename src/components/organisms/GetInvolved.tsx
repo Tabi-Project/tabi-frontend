@@ -4,7 +4,6 @@ import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/atoms/Button";
 import DonationModal from "@/components/molecules/DonationModal";
-import { withBasePath } from "@/constants/paths";
 
 export default function GetInvolved() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -61,7 +60,7 @@ export default function GetInvolved() {
 
               <div className="absolute bottom-0 right-0 h-48 w-40 sm:w-52 sm:h-64 pointer-events-none">
                 <Image
-                  src={withBasePath("/donate-jar.png")}
+                  src="/donate-jar.png"
                   alt="Donation jar"
                   fill
                   className="object-contain object-bottom"

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/atoms/Button";
-import { withBasePath } from "@/constants/paths";
 
 const POSTS = [
   {
@@ -10,7 +9,7 @@ const POSTS = [
     date: "July 10, 2024",
     excerpt:
       "The tech industry offers a world of possibilities for those eager to innovate, create, and problem-solve. Whether you're a student exploring career paths or someone...",
-    image: withBasePath("/post-1.png"),
+    image:"/post-1.png",
     href: "/blog/journey-of-a-thousand-mile",
     featured: true
   },
@@ -20,7 +19,7 @@ const POSTS = [
     date: "July 10, 2024",
     excerpt:
       "The tech industry offers a world of possibilities for those eager to innovate, create, and problem-solve. Whether you're a student exploring...",
-    image: withBasePath("/post-2.png"),
+    image:"/post-2.png",
     href: "/blog/journey-of-a-thousand-mile-2",
     featured: false
   },
@@ -30,7 +29,7 @@ const POSTS = [
     date: "July 10, 2024",
     excerpt:
       "The tech industry offers a world of possibilities for those eager to innovate, create, and problem-solve. Whether you're a student exploring...",
-    image: withBasePath("/post-2.png"),
+    image:"/post-2.png",
     href: "/blog/journey-of-a-thousand-mile-3",
     featured: false
   }
