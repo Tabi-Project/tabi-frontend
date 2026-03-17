@@ -86,7 +86,7 @@ export default function AIBusinessHero() {
                 <p className="text-sm text-[#888] font-medium">
                   Next cohort forming.{" "}
                   <span className="text-brand-primary font-semibold">
-                    Limited to 25 participants.
+                    Limited to 50 participants.
                   </span>
                 </p>
               </div>
@@ -161,7 +161,7 @@ export default function AIBusinessHero() {
                   Cohort size
                 </p>
                 <p className="text-2xl font-extrabold text-[#1a1a2e] leading-none">
-                  25
+                  50
                 </p>
                 <p className="text-xs text-brand-primary font-semibold mt-0.5">
                   participants max

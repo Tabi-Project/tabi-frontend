@@ -4,7 +4,7 @@ import { Button } from "@/components/atoms/Button";
 const HIGHLIGHTS = [
   { value: "2 Weeks", label: "Intensive Training" },
   { value: "6 Tools", label: "Learned & Applied" },
-  { value: "25", label: "Participants Max" },
+  { value: "50", label: "Participants Max" },
   { value: "100%", label: "Hands-On Labs" }
 ];
 
@@ -131,7 +131,7 @@ export default function AIBusinessTeaser() {
               Next cohort forming now.
             </p>
             <p className="text-xs text-[#888]">
-              Limited to 25 participants — seats fill fast.
+              Limited to 50 participants — seats fill fast.
             </p>
           </div>
           <Link href="/ai-for-businesses">

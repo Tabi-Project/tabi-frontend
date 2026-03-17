@@ -99,7 +99,7 @@ const ALL_TAGS = [
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full overflow-x-hidden bg-[#fdf7ff] pt-12 md:pt-20 pb-0">
+    <section className="relative w-full overflow-hidden bg-[#fdf7ff] pt-12 md:pt-20 pb-0">
       {/* ── Headline copy ── */}
       <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 mb-8 md:mb-16">
         <h1 className="text-[clamp(1.9rem,6vw,4rem)] font-extrabold leading-tight tracking-tight text-[#1a1a2e]">
@@ -140,7 +140,7 @@ export default function HeroSection() {
         We also add extra bottom padding so orbiting tags don't clip.
       */}
       <div
-        className="relative mx-auto pb-16 sm:pb-10 md:pb-0"
+        className="relative mx-auto pb-16 sm:pb-10 md:pb-0 md:mb-20"
         style={{ width: "min(820px, 92vw)", aspectRatio: "1/1" }}
       >
         {/* Hero image */}
@@ -164,7 +164,7 @@ export default function HeroSection() {
               key={tag.id}
               className="absolute"
               style={{
-                ...polarToCSS(tag.angle, 47),
+                ...polarToCSS(tag.angle, 48),
                 transform: "translate(-50%, -50%)",
                 animation: "orbit-ccw 20s linear infinite"
               }}

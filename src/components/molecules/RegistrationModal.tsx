@@ -18,7 +18,7 @@ export default function RegistrationModal({ onClose }: { onClose: () => void }) 
                 Apply for the Next Cohort
               </h3>
               <p className="text-xs text-[#888] mt-0.5">
-                AI for Businesses Programme — Limited to 25 participants
+                AI for Businesses Programme — Limited to 50 participants
               </p>
             </div>
             <button

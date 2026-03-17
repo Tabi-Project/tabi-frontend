@@ -15,7 +15,7 @@ const FAQS = [
   },
   {
     q: "How many people are in each cohort?",
-    a: "A maximum of 25 participants per cohort. This isn't a webinar — it's a live, interactive learning environment where the facilitators know your name and your business.",
+    a: "A maximum of 50 participants per cohort. This isn't a webinar — it's a live, interactive learning environment where the facilitators know your name and your business.",
     tag: "Programme"
   },
   {

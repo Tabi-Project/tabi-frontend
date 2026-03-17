@@ -7,23 +7,26 @@ import {
   FaYoutube,
   FaLinkedinIn,
   FaXTwitter,
-  FaFacebookF
+  FaFacebookF,
+  FaInstagram,
+  FaTiktok
 } from "react-icons/fa6";
 import { FOOTER_LINKS } from "@/constants/footer";
 
 const NAV_COLUMNS = [
   { heading: "Foundation", links: FOOTER_LINKS.foundation },
-  { heading: "Legal & Compliance", links: FOOTER_LINKS.legal },
-  { heading: "Projects", links: FOOTER_LINKS.projects }
+  { heading: "Projects", links: FOOTER_LINKS.projects },
+  { heading: "Legal & Compliance", links: FOOTER_LINKS.legal }
 ];
 
 const SOCIAL_LINKS = [
   { icon: FaYoutube, label: "YouTube", href: "#" },
   { icon: FaLinkedinIn, label: "LinkedIn", href: "#" },
   { icon: FaXTwitter, label: "X (Twitter)", href: "#" },
-  { icon: FaFacebookF, label: "Facebook", href: "#" }
+  { icon: FaFacebookF, label: "Facebook", href: "#" },
+  { icon: FaInstagram, label: "Instagram", href: "#" },
+  { icon: FaTiktok, label: "TikTok", href: "#" }
 ];
-
 export default function Footer() {
   const [email, setEmail] = useState("");
 
@@ -38,23 +41,23 @@ export default function Footer() {
           </p>
           <p className="text-2xl font-semibold text-black leading-snug tracking-tight">
             <span className="font-bold italic text-brand-primary">
-              Educational 
+              Educational
             </span>{" "}
             Foundation
           </p>
 
           {/* Email subscribe pill */}
-          <div className="mt-8 flex items-center bg-white rounded-full overflow-hidden pl-4 pr-1 py-1 gap-2">
+          <div className="mt-8 flex items-center bg-white border border-gray-300 rounded-full overflow-hidden pl-4 pr-1 py-1 gap-2 focus-within:border-brand-primary/50 focus-within:ring-4 focus-within:ring-brand-primary/5 transition-all duration-300">
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
-              className="flex-1 min-w-0 bg-transparent text-sm text-gray-500 placeholder:text-gray-400 outline-none"
+              className="flex-1 min-w-0 bg-transparent text-sm text-[#1a1a2e] placeholder:text-gray-400 outline-none"
             />
             <button
               type="button"
-              className="shrink-0 bg-brand-primary hover:bg-brand-secondary transition-colors text-white text-sm font-semibold rounded-full px-5 py-2.5 cursor-pointer"
+              className="shrink-0 bg-brand-primary hover:bg-brand-secondary transition-colors text-white text-sm font-semibold rounded-full px-5 py-2.5 cursor-pointer shadow-sm active:scale-95"
             >
               Subscribe
             </button>

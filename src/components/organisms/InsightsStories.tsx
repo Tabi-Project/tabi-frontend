@@ -1,50 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/atoms/Button";
-import { withBasePath } from "@/constants/paths";
+import { BLOG_POSTS } from "@/constants/posts";
 
-const POSTS = [
-  {
-    id: 1,
-    title: "The Journey of a Thousand Mile Begins with a Step",
-    date: "July 10, 2024",
-    excerpt:
-      "The tech industry offers a world of possibilities for those eager to innovate, create, and problem-solve. Whether you're a student exploring career paths or someone...",
-    image:withBasePath("/post-1.png"),
-    href: "/blog/journey-of-a-thousand-mile",
-    featured: true
-  },
-  {
-    id: 2,
-    title: "The Journey of a Thousand Mile Begins with a Step",
-    date: "July 10, 2024",
-    excerpt:
-      "The tech industry offers a world of possibilities for those eager to innovate, create, and problem-solve. Whether you're a student exploring...",
-    image:withBasePath("/post-2.png"),
-    href: "/blog/journey-of-a-thousand-mile-2",
-    featured: false
-  },
-  {
-    id: 3,
-    title: "The Journey of a Thousand Mile Begins with a Step",
-    date: "July 10, 2024",
-    excerpt:
-      "The tech industry offers a world of possibilities for those eager to innovate, create, and problem-solve. Whether you're a student exploring...",
-    image:withBasePath("/post-3.png"),
-    href: "/blog/journey-of-a-thousand-mile-3",
-    featured: false
-  }
-];
-
-const featured = POSTS.find((p) => p.featured)!;
-const secondary = POSTS.filter((p) => !p.featured);
+const featured = BLOG_POSTS.find((p) => p.featured)!;
+const secondary = BLOG_POSTS.filter((p) => !p.featured).slice(0, 2);
 
 export default function InsightsStories() {
   return (
     <section className="w-full bg-white">
       <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
         <div className="text-start mb-14">
-          <h2 className="text-[clamp(1.8rem,3.5vw,3.5rem)] font-bold tracking-tight text-[#1a1a2e] ">
+          <h2 className="text-[clamp(1.8rem,3.5vw,3.5rem)] font-bold tracking-tight text-[#1a1a2e]">
             Insights &amp; Stories
           </h2>
           <p className="mt-4 text-base text-black max-w-5xl leading-relaxed">
@@ -54,8 +21,9 @@ export default function InsightsStories() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-5 mb-10">
+          {/* Featured */}
           <Link
-            href={featured.href}
+            href={`/resources/blog/${featured.slug}`}
             className="group flex flex-col bg-[#F5F5F5] rounded-3xl border border-[#ede8f5] overflow-hidden hover:-translate-y-1 transition-all duration-300"
           >
             <div className="relative w-full aspect-video overflow-hidden">
@@ -93,11 +61,12 @@ export default function InsightsStories() {
             </div>
           </Link>
 
+          {/* Secondary */}
           <div className="flex flex-col gap-5">
             {secondary.map((post) => (
               <Link
                 key={post.id}
-                href={post.href}
+                href={`/resources/blog/${post.slug}`}
                 className="group flex flex-row bg-[#F5F5F5] rounded-3xl border border-[#ede8f5] overflow-hidden hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="relative w-45 shrink-0 overflow-hidden">
@@ -144,7 +113,7 @@ export default function InsightsStories() {
         </div>
 
         <div className="flex justify-center">
-          <Link href="/blog">
+          <Link href="/resources?tab=blog">
             <Button variant="outline" size="md">
               Load More
             </Button>

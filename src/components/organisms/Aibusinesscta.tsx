@@ -111,7 +111,7 @@ export default function AIBusinessCTA() {
             {/* Subtext */}
             <p className="text-base sm:text-lg text-white/50 leading-relaxed max-w-lg mb-10">
               The next cohort is forming now. Places are limited to{" "}
-              <span className="text-white font-semibold">25 participants</span>{" "}
+              <span className="text-white font-semibold">50 participants</span>{" "}
               — so every seat matters and fills fast. Apply today to secure your
               place and begin your onboarding.
             </p>
@@ -150,7 +150,7 @@ export default function AIBusinessCTA() {
                   href="#"
                   className="text-white/60 hover:text-white underline underline-offset-4 transition-colors duration-200 font-medium"
                 >
-                  Access your participant portal →
+                  Access the community group →
                 </Link>
               </p>
             </div>

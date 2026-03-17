@@ -84,7 +84,7 @@ export default function AIBusinessTimeline() {
           </h2>
           <p className="mt-4 max-w-xl text-base text-[#666] leading-relaxed">
             Every stage is designed — not just the live sessions. From the
-            moment you enrol to six months after graduation, you&apos;re supported,
+            moment you enrol to after graduation, you&apos;re supported,
             equipped, and part of something that lasts.
           </p>
         </div>

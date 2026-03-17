@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { Button } from "@/components/atoms/Button";
+
 const OUTCOMES = [
   {
     number: "01",
@@ -56,14 +59,14 @@ export default function AIBusinessOutcomes() {
             Skills You Can Use the Day After Graduation
           </h2>
           <p className="mt-4 max-w-xl text-base text-[#666] leading-relaxed">
-            Every outcome in this programme is tied to something you&apos;ll actually
-            build. Not theory. Not slides. Real deliverables you can show, use,
-            and grow with.
+            Every outcome in this programme is tied to something you&apos;ll
+            actually build. Not theory. Not slides. Real deliverables you can
+            show, use, and grow with.
           </p>
         </div>
 
         {/* ── Outcomes grid ── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {OUTCOMES.map((outcome, i) => (
             <div
               key={outcome.number}
@@ -86,6 +89,38 @@ export default function AIBusinessOutcomes() {
               </p>
             </div>
           ))}
+        </div>
+
+        {/* ── CTA Action Block ── */}
+        <div className="mt-20 flex flex-col items-center text-center bg-white/60 border border-white/80 rounded-[3rem] p-10 md:p-16 shadow-xl shadow-brand-primary/5">
+          <h3 className="text-2xl md:text-3xl font-extrabold text-[#1a1a2e] mb-4">
+            Don’t just learn about AI. Build with it.
+          </h3>
+          <p className="text-[#555] max-w-xl mb-10 text-sm md:text-base leading-relaxed">
+            Stop watching from the sidelines. Join our next cohort to transform
+            your business workflows and walk away with a verified certificate
+            and live projects.
+          </p>
+
+          <div className="flex flex-col items-center gap-5">
+            <Link href="/register">
+              <Button
+                variant="primary"
+                size="lg"
+                className="px-12 py-7 text-lg shadow-lg shadow-brand-primary/20 hover:scale-105 transition-transform"
+              >
+                Apply for Next Cohort
+              </Button>
+            </Link>
+
+            <div className="flex items-center gap-2 text-brand-primary font-semibold text-xs uppercase tracking-widest">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-primary"></span>
+              </span>
+              Registration Closing Soon
+            </div>
+          </div>
         </div>
       </div>
     </section>
