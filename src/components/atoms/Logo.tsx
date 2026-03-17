@@ -13,7 +13,7 @@ export const Logo = () => {
         alt="Tabi Academy Logo"
         width={120}
         height={40}
-        priority
+        // priority
         className="object-contain"
       />
     </Link>
