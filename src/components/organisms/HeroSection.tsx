@@ -104,7 +104,7 @@ export default function HeroSection() {
       <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 mb-8 md:mb-16">
         <h1 className="text-[clamp(1.9rem,6vw,4rem)] font-extrabold leading-tight tracking-tight text-[#1a1a2e]">
           Empowering <span className="text-brand-primary italic">Futures,</span>
-          <Image
+          <img
             src={withBasePath("/scribble.svg")}
             alt=""
             width={84}
