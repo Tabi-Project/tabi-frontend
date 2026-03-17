@@ -60,6 +60,10 @@ jobs:
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
 
+      # FIX: This creates the file in the output folder so GitHub doesn't ignore your CSS/JS/Images
+      - name: Disable Jekyll
+        run: touch ./out/.nojekyll
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

@@ -1,16 +1,17 @@
 "use client";
 
+import { withBasePath } from "@/constants/paths";
 import Image from "next/image";
 
 const PARTNERS = [
   {
     id: "yip",
-    src: "/partners/yip.png",
+    src: withBasePath("/partners/yip.png"),
     alt: "YIP – Yebox Internship Program"
   },
-  { id: "gutsy", src: "/partners/gutsy-woman.png", alt: "GIV The Gutsy Woman" },
-  { id: "yebox", src: "/partners/yebox.png", alt: "Yebox Technologies" },
-  { id: "genesys", src: "/partners/genesys.png", alt: "Genesys" }
+  { id: "gutsy", src: withBasePath("/partners/gutsy-woman.png"), alt: "GIV The Gutsy Woman" },
+  { id: "yebox", src: withBasePath("/partners/yebox.png"), alt: "Yebox Technologies" },
+  { id: "genesys", src: withBasePath("/partners/genesys.png"), alt: "Genesys" }
 ];
 
 export default function Partners() {
