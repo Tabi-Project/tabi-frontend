@@ -1,4 +1,5 @@
 import ResourcesTabs from "@/components/organisms/Resourcestabs";
+import { Suspense } from "react";
 
 export default function ResourcesPage() {
   return (
@@ -12,7 +13,6 @@ export default function ResourcesPage() {
           <span className="mx-2 text-[#ccc]">&gt;&gt;</span>
           <span className="text-brand-primary font-medium">Resources</span>
         </p>
-
         {/* Page header */}
         <div className="mb-10">
           <h1
@@ -32,9 +32,10 @@ export default function ResourcesPage() {
             the latest news, upcoming events, blog posts and webinars.
           </p>
         </div>
-
         {/* Interactive tabs — client boundary here */}
-        <ResourcesTabs />
+        <Suspense fallback={null}>
+          <ResourcesTabs />
+        </Suspense>
       </div>
     </main>
   );

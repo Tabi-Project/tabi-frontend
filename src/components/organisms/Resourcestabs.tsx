@@ -1,21 +1,42 @@
 "use client";
 
-import { useState } from "react";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { BLOG_POSTS, NEWS_POSTS } from "@/constants/posts";
 import PostsPanel from "@/components/organisms/PostsPanel";
 import EventsPanel from "@/components/organisms/EventsPanel";
-// import EmptyTabPanel from "@/components/organisms/EmptyTabPanel";
 
 const TABS = [
   { key: "news", label: "News" },
   { key: "blog", label: "Blog Posts" },
-  { key: "events", label: "Events & Webinars" },
+  { key: "events", label: "Events & Webinars" }
 ] as const;
 
 type TabKey = (typeof TABS)[number]["key"];
 
+const VALID_TABS = TABS.map((t) => t.key);
+
+function isValidTab(value: string | null): value is TabKey {
+  return VALID_TABS.includes(value as TabKey);
+}
+
 export default function ResourcesTabs() {
-  const [activeTab, setActiveTab] = useState<TabKey>("news");
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // Read active tab from URL, fall back to "news"
+  const raw = searchParams.get("tab");
+  const activeTab: TabKey = isValidTab(raw) ? raw : "news";
+
+  function setTab(key: TabKey) {
+    const params = new URLSearchParams(searchParams.toString());
+    if (key === "news") {
+      params.delete("tab"); // keep URL clean for default tab
+    } else {
+      params.set("tab", key);
+    }
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
+  }
 
   return (
     <>
@@ -24,7 +45,7 @@ export default function ResourcesTabs() {
         {TABS.map((tab) => (
           <button
             key={tab.key}
-            onClick={() => setActiveTab(tab.key)}
+            onClick={() => setTab(tab.key)}
             className={`pb-3 text-sm font-medium transition-all border-b-2 -mb-px ${
               activeTab === tab.key
                 ? "border-brand-primary text-brand-primary"
@@ -56,7 +77,6 @@ export default function ResourcesTabs() {
         />
       )}
       {activeTab === "events" && <EventsPanel />}
-      {/* {activeTab === "product" && <EmptyTabPanel label="Product Updates" />} */}
     </>
   );
 }

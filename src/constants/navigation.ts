@@ -23,7 +23,6 @@ export const NAV_LINKS: NavItem[] = [
       { label: "News", href: "/resources" },
       { label: "Blog Posts", href: "/resources?tab=blog" },
       { label: "Events & Webinars", href: "/resources?tab=events" },
-      { label: "Product Update", href: "/resources?tab=product" }
     ]
   },
   { label: "Community", href: "#community" },
