@@ -27,8 +27,51 @@ const SOCIAL_LINKS = [
   { icon: FaInstagram, label: "Instagram", href: "#" },
   { icon: FaTiktok, label: "TikTok", href: "#" }
 ];
+
+type Status = "idle" | "loading" | "success" | "duplicate" | "error";
+
 export default function Footer() {
   const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<Status>("idle");
+
+  async function handleSubscribe() {
+    if (!email.trim()) return;
+    setStatus("loading");
+
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.trim(), source: "footer" })
+      });
+
+      const json = await res.json();
+
+      if (json.success) {
+        setStatus("success");
+        setEmail("");
+      } else if (json.error === "Already subscribed") {
+        setStatus("duplicate");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
+
+    // Reset feedback message after 4s
+    setTimeout(() => setStatus("idle"), 4000);
+  }
+
+  const feedbackMessage: Partial<
+    Record<Status, { text: string; color: string }>
+  > = {
+    success: { text: "You're subscribed! 🎉", color: "text-green-600" },
+    duplicate: { text: "You're already subscribed.", color: "text-yellow-600" },
+    error: { text: "Something went wrong. Try again.", color: "text-red-500" }
+  };
+
+  const feedback = feedbackMessage[status];
 
   return (
     <footer className="w-full bg-white text-black">
@@ -52,16 +95,27 @@ export default function Footer() {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleSubscribe()}
               placeholder="Enter your email"
-              className="flex-1 min-w-0 bg-transparent text-sm text-[#1a1a2e] placeholder:text-gray-400 outline-none"
+              disabled={status === "loading"}
+              className="flex-1 min-w-0 bg-transparent text-sm text-[#1a1a2e] placeholder:text-gray-400 outline-none disabled:opacity-50"
             />
             <button
               type="button"
-              className="shrink-0 bg-brand-primary hover:bg-brand-secondary transition-colors text-white text-sm font-semibold rounded-full px-5 py-2.5 cursor-pointer shadow-sm active:scale-95"
+              onClick={handleSubscribe}
+              disabled={status === "loading" || !email.trim()}
+              className="shrink-0 bg-brand-primary hover:bg-brand-secondary transition-colors text-white text-sm font-semibold rounded-full px-5 py-2.5 cursor-pointer shadow-sm active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Subscribe
+              {status === "loading" ? "..." : "Subscribe"}
             </button>
           </div>
+
+          {/* Feedback message */}
+          {feedback && (
+            <p className={`mt-2 text-xs font-medium ${feedback.color}`}>
+              {feedback.text}
+            </p>
+          )}
         </div>
 
         {/* Right – nav columns */}
@@ -95,7 +149,6 @@ export default function Footer() {
 
       {/* ── Bottom bar ── */}
       <div className="mx-auto max-w-350 px-20 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-        {/* Logo */}
         <div className="shrink-0">
           <Image
             src="/Footer-logo.svg"
@@ -106,20 +159,18 @@ export default function Footer() {
           />
         </div>
 
-        {/* Copyright */}
         <p className="text-xs text-black text-center">
-          ©{new Date().getFullYear()} TEE Foundation Inc. All rights reserved.
+          ©{new Date().getFullYear()} TEE Foundation Inc. All rights reserved.{" "}
           Various trademarks held by their respective owners.
         </p>
 
-        {/* Social icons */}
         <div className="flex items-center gap-4 shrink-0">
           {SOCIAL_LINKS.map(({ icon: Icon, label, href }) => (
             <Link
               key={label}
               href={href}
               aria-label={label}
-              className="text-black hover:text-primary transition-colors"
+              className="text-black hover:text-brand-primary transition-colors"
             >
               <Icon size={18} />
             </Link>

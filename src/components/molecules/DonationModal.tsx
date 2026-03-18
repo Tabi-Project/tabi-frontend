@@ -3,26 +3,61 @@
 import { useState } from "react";
 import { Button } from "@/components/atoms/Button";
 
-const AMOUNTS = ["500 NGN", "1000 NGN", "5000 NGN", "10,000 NGN"];
+const AMOUNTS = ["5000 NGN", "10,000 NGN", "20,000 NGN", "50,000 NGN"];
 const FREQUENCIES = ["One-Time", "Monthly", "Quarterly", "Annually"];
+
+type SubmitStatus = "idle" | "loading" | "success" | "error";
 
 interface DonationModalProps {
   onClose: () => void;
 }
 
 export default function DonationModal({ onClose }: DonationModalProps) {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [selectedAmount, setSelectedAmount] = useState<string | null>(null);
   const [customAmount, setCustomAmount] = useState("");
   const [frequency, setFrequency] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [showBankDetails, setShowBankDetails] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
+  const [submitError, setSubmitError] = useState("");
 
-  const handleDonate = () => {
-    const amount = selectedAmount || customAmount;
-    if (!amount) return;
-    setShowBankDetails(true);
-  };
+  const amount = selectedAmount || customAmount;
+
+  async function handleDonate() {
+    if (!amount || !name.trim() || !email.trim()) return;
+
+    setSubmitStatus("loading");
+    setSubmitError("");
+
+    try {
+      const res = await fetch("/api/donate", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.trim(),
+          email: email.trim(),
+          amount,
+          frequency: frequency || "One-Time"
+        })
+      });
+
+      const json = await res.json();
+
+      if (json.success) {
+        setSubmitStatus("success");
+        setShowBankDetails(true);
+      } else {
+        setSubmitStatus("error");
+        setSubmitError(json.error || "Something went wrong. Please try again.");
+      }
+    } catch {
+      setSubmitStatus("error");
+      setSubmitError("Network error. Please try again.");
+    }
+  }
 
   const copyAccountNumber = () => {
     navigator.clipboard.writeText("3003408026");
@@ -37,13 +72,15 @@ export default function DonationModal({ onClose }: DonationModalProps) {
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
       <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl p-8">
-        {/* ── Bank details screen ── */}
+        {/* ── Bank details screen ───────────────────────────────── */}
         {showBankDetails ? (
           <>
-            {/* Header */}
             <div className="flex items-center justify-between mb-8">
               <button
-                onClick={() => setShowBankDetails(false)}
+                onClick={() => {
+                  setShowBankDetails(false);
+                  setSubmitStatus("idle");
+                }}
                 className="flex items-center gap-2 text-sm text-[#888] hover:text-brand-primary transition-colors duration-200"
               >
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -72,9 +109,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
               </button>
             </div>
 
-            {/* Bank transfer card */}
             <div className="text-center mb-8">
-              {/* Icon */}
               <div
                 className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-5"
                 style={{ background: "#f3e8ff" }}
@@ -124,18 +159,16 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                 Bank Transfer
               </h2>
               <p className="text-sm text-[#888] max-w-xs mx-auto leading-relaxed">
-                Please transfer your donation to the account below and we&apos;ll
-                confirm your contribution.
+                Please transfer your donation to the account below and
+                we&apos;ll confirm your contribution.
               </p>
             </div>
 
-            {/* Account details card */}
             <div
               className="rounded-2xl p-6 mb-6"
               style={{ background: "#fdf7ff", border: "1px solid #ede8f5" }}
             >
               <div className="flex flex-col gap-4">
-                {/* Bank name */}
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-semibold text-[#aaa] uppercase tracking-widest">
                     Bank Name
@@ -144,10 +177,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                     KudaBank
                   </span>
                 </div>
-
                 <div className="h-px bg-[#ede8f5]" />
-
-                {/* Account name */}
                 <div className="flex items-center justify-between gap-4">
                   <span className="text-xs font-semibold text-[#aaa] uppercase tracking-widest shrink-0">
                     Account Name
@@ -156,10 +186,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                     Tabi Empowerment and Educational Foundation
                   </span>
                 </div>
-
                 <div className="h-px bg-[#ede8f5]" />
-
-                {/* Account number + copy */}
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-semibold text-[#aaa] uppercase tracking-widest">
                     Account Number
@@ -227,8 +254,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
               </div>
             </div>
 
-            {/* Donation amount reminder */}
-            {(selectedAmount || customAmount) && (
+            {amount && (
               <div
                 className="rounded-xl px-4 py-3 mb-6 flex items-center gap-3"
                 style={{ background: "#f0fdf4", border: "1px solid #bbf7d0" }}
@@ -250,10 +276,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                   />
                 </svg>
                 <p className="text-sm text-[#166534]">
-                  Please transfer{" "}
-                  <span className="font-bold">
-                    {selectedAmount || customAmount}
-                  </span>
+                  Please transfer <span className="font-bold">{amount}</span>
                   {frequency && <> ({frequency})</>} to the account above.
                 </p>
               </div>
@@ -270,7 +293,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
           </>
         ) : (
           <>
-            {/* ── Donation form ── */}
+            {/* ── Donation form ─────────────────────────────────── */}
             <div className="flex items-center justify-between mb-7">
               <h2 className="text-xl font-extrabold text-[#1a1a2e]">
                 Donation Form
@@ -299,6 +322,8 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                 <input
                   type="text"
                   placeholder="Enter your name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                   className="w-full rounded-full border border-[#e5e5e5] px-4 py-3 text-sm text-[#333] placeholder-[#bbb] focus:outline-none focus:border-brand-primary transition-colors duration-200"
                 />
               </div>
@@ -309,6 +334,8 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                 <input
                   type="email"
                   placeholder="abcd@gmail.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="w-full rounded-full border border-[#e5e5e5] px-4 py-3 text-sm text-[#333] placeholder-[#bbb] focus:outline-none focus:border-brand-primary transition-colors duration-200"
                 />
               </div>
@@ -409,6 +436,13 @@ export default function DonationModal({ onClose }: DonationModalProps) {
               </div>
             </div>
 
+            {/* Error message */}
+            {submitStatus === "error" && (
+              <p className="text-xs text-red-500 font-medium mb-4 text-center">
+                {submitError}
+              </p>
+            )}
+
             {/* Actions */}
             <div className="flex items-center justify-end gap-3">
               <Button variant="outline" size="md" onClick={onClose}>
@@ -418,9 +452,14 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                 variant="primary"
                 size="md"
                 onClick={handleDonate}
-                disabled={!selectedAmount && !customAmount}
+                disabled={
+                  (!selectedAmount && !customAmount) ||
+                  !name.trim() ||
+                  !email.trim() ||
+                  submitStatus === "loading"
+                }
               >
-                Donate Now
+                {submitStatus === "loading" ? "Saving..." : "Donate Now"}
               </Button>
             </div>
           </>
