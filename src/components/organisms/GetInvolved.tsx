@@ -37,7 +37,7 @@ export default function GetInvolved() {
         <CommunityWelcomeModal
           name=""
           onClose={() => setWelcomeOpen(false)}
-          whatsappUrl="https://chat.whatsapp.com/YOUR_GROUP_LINK"
+          whatsappUrl="https://chat.whatsapp.com/CdOuCwdpNez6FgmckwojNo"
         />
       )}
     </>

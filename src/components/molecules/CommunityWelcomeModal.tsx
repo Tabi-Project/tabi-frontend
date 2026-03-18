@@ -12,7 +12,7 @@ interface CommunityWelcomeModalProps {
 export default function CommunityWelcomeModal({
   name,
   onClose,
-  whatsappUrl = "https://chat.whatsapp.com/YOUR_GROUP_LINK"
+  whatsappUrl = "https://chat.whatsapp.com/CdOuCwdpNez6FgmckwojNo"
 }: CommunityWelcomeModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
 
@@ -81,9 +81,9 @@ export default function CommunityWelcomeModal({
             {name ? `, ${name.split(" ")[0]}` : ""}!
           </h2>
           <p className="text-sm text-[#666] leading-relaxed mb-6">
-            Your details have been saved. You&apos;re now part of the TEE Foundation
-            community — stay connected for the latest initiatives, events, and
-            opportunities.
+            Your details have been saved. You&apos;re now part of the TEE
+            Foundation community — stay connected for the latest initiatives,
+            events, and opportunities.
           </p>
 
           {/* Divider */}

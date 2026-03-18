@@ -1,4 +1,4 @@
-export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-
-export const withBasePath = (path: string) =>
-  `${BASE_PATH}${path.startsWith("/") ? path : `/${path}`}`;
+// On Netlify the app is served from the root — no basePath prefix needed.
+// withBasePath is kept so no import changes are required across the codebase.
+export const withBasePath = (path: string): string =>
+  path.startsWith("/") ? path : `/${path}`;
