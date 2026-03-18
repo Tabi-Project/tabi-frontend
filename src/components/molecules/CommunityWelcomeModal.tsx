@@ -16,7 +16,6 @@ export default function CommunityWelcomeModal({
 }: CommunityWelcomeModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
 
-  // Close on Escape
   useEffect(() => {
     function handler(e: KeyboardEvent) {
       if (e.key === "Escape") onClose();
@@ -24,6 +23,8 @@ export default function CommunityWelcomeModal({
     document.addEventListener("keydown", handler);
     return () => document.removeEventListener("keydown", handler);
   }, [onClose]);
+
+  const firstName = name ? name.split(" ")[0] : null;
 
   return (
     <div
@@ -40,7 +41,6 @@ export default function CommunityWelcomeModal({
           className="relative h-36 flex items-center justify-center overflow-hidden"
           style={{ background: "#F5EFE8" }}
         >
-          {/* Dot pattern */}
           <div
             className="absolute inset-0 opacity-30"
             style={{
@@ -49,7 +49,6 @@ export default function CommunityWelcomeModal({
               backgroundSize: "14px 14px"
             }}
           />
-          {/* Celebration icon */}
           <div
             className="relative z-10 w-20 h-20 rounded-full flex items-center justify-center shadow-md"
             style={{ background: "white" }}
@@ -57,7 +56,6 @@ export default function CommunityWelcomeModal({
             <span className="text-4xl select-none">🎉</span>
           </div>
 
-          {/* Close button */}
           <button
             onClick={onClose}
             className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center text-[#888] hover:bg-black/10 transition-colors"
@@ -76,40 +74,42 @@ export default function CommunityWelcomeModal({
 
         {/* ── Content ── */}
         <div className="px-8 pb-8 pt-6 text-center">
-          <h2 className="text-2xl font-extrabold text-[#1a1a2e] mb-2">
-            Welcome to the Community
-            {name ? `, ${name.split(" ")[0]}` : ""}!
+          <h2 className="text-2xl font-extrabold text-[#1a1a2e] mb-3">
+            {firstName
+              ? `You're in, ${firstName}! 🌟`
+              : "You're officially in! 🌟"}
           </h2>
-          <p className="text-sm text-[#666] leading-relaxed mb-6">
-            Your details have been saved. You&apos;re now part of the TEE
-            Foundation community — stay connected for the latest initiatives,
-            events, and opportunities.
+
+          <p className="text-sm text-[#555] leading-relaxed mb-2">
+            We&apos;re so glad you&apos;re here. You&apos;ve just joined a growing family of
+            passionate women shaping the future of technology in Africa — and we
+            can&apos;t wait for you to be part of it.
+          </p>
+
+          <p className="text-sm text-[#555] leading-relaxed mb-6">
+            The best way to stay close to everything happening at TEE Foundation
+            — events, opportunities, stories, and more — is right in our
+            WhatsApp community. Come say hello! 👋
           </p>
 
           {/* Divider */}
           <div className="h-px bg-gray-100 mb-6" />
 
           <p className="text-xs font-semibold text-[#888] uppercase tracking-widest mb-4">
-            Join our WhatsApp Community
+            One last step
           </p>
 
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2.5 w-full py-3.5 rounded-full text-white font-semibold text-sm transition-all active:scale-95 shadow-sm"
+            onClick={onClose}
+            className="flex items-center justify-center gap-2.5 w-full py-3.5 rounded-full text-white font-semibold text-sm transition-all active:scale-95 shadow-sm hover:opacity-90"
             style={{ background: "#25D366" }}
           >
             <FaWhatsapp size={20} />
-            Join WhatsApp Group
+            Join the WhatsApp Community
           </a>
-
-          <button
-            onClick={onClose}
-            className="mt-3 w-full py-3 rounded-full text-sm font-medium text-[#888] hover:text-[#1a1a2e] transition-colors"
-          >
-            Maybe later
-          </button>
         </div>
       </div>
     </div>
