@@ -62,7 +62,10 @@ collections:
       - { label: Role,       name: role,     widget: string }
       - { label: Photo,      name: image,    widget: image }
       - { label: Bio,        name: bio,      widget: text }
-      - { label: Hobbies,    name: hobbies,  widget: list }
+      - label: Hobbies
+        name: hobbies
+        widget: list
+        field: { label: Hobby, name: hobby, widget: string }
       - { label: Order,      name: order,    widget: number, hint: "Display order (1 = first)" }
       - { label: Background Color, name: bgColor, widget: string, hint: "e.g. #f0f0f0", required: false }
 
