@@ -69,7 +69,7 @@ export default function AIBusinessPageFooter() {
           <div className="flex flex-col gap-6">
             {/* Email card */}
             <a
-              href="mailto:academy@teefoundation.org"
+              href="mailto:hello@tabiproject.com"
               className="group flex items-center gap-5 rounded-2xl border border-white/8 bg-white/3 hover:bg-white/[0.07] hover:border-white/15 px-6 py-5 transition-all duration-300"
             >
               <div
@@ -106,7 +106,7 @@ export default function AIBusinessPageFooter() {
                   Questions? Email us
                 </p>
                 <p className="text-sm font-bold text-white/60 group-hover:text-white transition-colors duration-200 truncate">
-                  academy@teefoundation.org
+                  hello@tabiproject.com
                 </p>
               </div>
               <svg

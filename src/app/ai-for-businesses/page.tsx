@@ -8,7 +8,6 @@ import AIBusinessAudience from "@/components/organisms/Aibusinessaudience";
 import AIBusinessCertification from "@/components/organisms/Aibusinesscertification";
 import AIBusinessFAQ from "@/components/organisms/Aibusinessfaq";
 import AIBusinessCTA from "@/components/organisms/Aibusinesscta";
-import AIBusinessPageFooter from "@/components/organisms/Aibusinesspagefooter";
 
 export const metadata = {
   title: "AI for Businesses | Tabi Academy",
@@ -29,8 +28,6 @@ export default function AIForBusinessesPage() {
       <AIBusinessCertification />
       <AIBusinessFAQ />
       <AIBusinessCTA />
-      <AIBusinessPageFooter />
-      {/* More sections added here as we build them */}
     </>
   );
 }

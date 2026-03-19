@@ -13,7 +13,7 @@ export const Button = ({
   ...props
 }: ButtonProps) => {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium transition-all rounded-tabi-pill active:scale-95";
+    "inline-flex items-center justify-center font-medium transition-all rounded-tabi-pill active:scale-95 cursor-pointer";
 
   const variants = {
     primary: "bg-brand-primary text-white hover:bg-brand-secondary shadow-md",

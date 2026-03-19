@@ -1,4 +1,5 @@
 import AIBusinessTeaser from "@/components/organisms/Aibusinessteaser";
+import ConsultancyTeaser from "@/components/organisms/ConsultancyTeaser";
 import FeaturedProjects from "@/components/organisms/FeaturedProjects";
 import GetInvolved from "@/components/organisms/GetInvolved";
 import HeroSection from "@/components/organisms/HeroSection";
@@ -15,6 +16,7 @@ export default function Home() {
       <WhatWeDo />
       <FeaturedProjects />
       <GetInvolved />
+      <ConsultancyTeaser />
       <InsightsStories />
     </>
   );

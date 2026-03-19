@@ -3,6 +3,7 @@ import { Lato } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/organisms/Navbar";
 import Footer from "@/components/organisms/Footer";
+import Script from "next/script";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -21,10 +22,36 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        {/* Netlify Identity Widget — required for Decap CMS login */}
+        <Script
+          src="https://identity.netlify.com/v1/netlify-identity-widget.js"
+          strategy="beforeInteractive"
+        />
+      </head>
       <body className={lato.className}>
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
+
+        {/* Redirect to /admin after Netlify Identity login */}
+        <Script
+          id="netlify-identity-redirect"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              if (window.netlifyIdentity) {
+                window.netlifyIdentity.on("init", function(user) {
+                  if (!user) {
+                    window.netlifyIdentity.on("login", function() {
+                      document.location.href = "/admin/";
+                    });
+                  }
+                });
+              }
+            `
+          }}
+        />
       </body>
     </html>
   );

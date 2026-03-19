@@ -80,7 +80,7 @@ export default function AIBusinessFAQ() {
               responds within one business day.
             </p>
             <a
-              href="mailto:academy@teefoundation.org"
+              href="mailto:hello@tabiproject.com"
               className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary hover:underline underline-offset-4"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -101,7 +101,7 @@ export default function AIBusinessFAQ() {
                   strokeWidth="1.4"
                 />
               </svg>
-              academy@teefoundation.org
+              hello@tabiproject.com
             </a>
           </div>
 

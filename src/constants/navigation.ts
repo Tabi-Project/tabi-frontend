@@ -10,9 +10,9 @@ export const NAV_LINKS: NavItem[] = [
     href: "#projects",
     children: [
       { label: "AI for Business", href: "/ai-for-businesses" },
-      { label: "Tabi's Academy", href: "/projects/academy" },
-      { label: "Tabi's Project", href: "/projects/project" },
-      { label: "Purple Guild", href: "/projects/purple-guild" }
+      { label: "Tabi's Academy", href: "#projects/academy" },
+      { label: "Tabi's Project", href: "#projects/project" },
+      { label: "Purple Guild", href: "#projects/purple-guild" }
     ]
   },
   { label: "AI for Businesses", href: "/ai-for-businesses" },
@@ -22,9 +22,10 @@ export const NAV_LINKS: NavItem[] = [
     children: [
       { label: "News", href: "/resources" },
       { label: "Blog Posts", href: "/resources?tab=blog" },
-      { label: "Events & Webinars", href: "/resources?tab=events" },
+      { label: "Events & Webinars", href: "/resources?tab=events" }
     ]
   },
   { label: "Community", href: "#community" },
+  { label: "Consultancy", href: "/consultancy" },
   { label: "About Us", href: "/about" }
 ];

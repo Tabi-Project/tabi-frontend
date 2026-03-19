@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import {
-  FaYoutube,
+  // FaYoutube,
   FaLinkedinIn,
   FaXTwitter,
   FaFacebookF,
@@ -20,11 +20,11 @@ const NAV_COLUMNS = [
 ];
 
 const SOCIAL_LINKS = [
-  { icon: FaYoutube, label: "YouTube", href: "#" },
-  { icon: FaLinkedinIn, label: "LinkedIn", href: "#" },
-  { icon: FaXTwitter, label: "X (Twitter)", href: "#" },
-  { icon: FaFacebookF, label: "Facebook", href: "#" },
-  { icon: FaInstagram, label: "Instagram", href: "#" },
+  // { icon: FaYoutube, label: "YouTube", href: "#" },
+  { icon: FaLinkedinIn, label: "LinkedIn", href: "https://www.linkedin.com/company/tabi-academy/" },
+  { icon: FaXTwitter, label: "X (Twitter)", href: "https://x.com/tabi_academy" },
+  { icon: FaFacebookF, label: "Facebook", href: "https://www.facebook.com/share/1FCmY31GJe/" },
+  { icon: FaInstagram, label: "Instagram", href: " https://www.instagram.com/tabi_academy?igsh=MTE4b24yMGJ6d29peA==" },
   { icon: FaTiktok, label: "TikTok", href: "#" }
 ];
 

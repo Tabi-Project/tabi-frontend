@@ -1,6 +1,11 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/atoms/Button";
 import { withBasePath } from "@/constants/paths";
+import { LuX } from "react-icons/lu";
 
 /* ─────────────────────────────────────────────
   DATA
@@ -17,14 +22,22 @@ const PROJECTS = [
   {
     id: 2,
     number: "2",
+    title: "AI for Business",
+    description:
+      "A hands-on, live two-week training programme equipping women in business with real AI skills — no technical background required. Build faster, work smarter, and grow with confidence using the tools reshaping the world of business.",
+    hasTestimonial: false
+  },
+  {
+    id: 3,
+    number: "3",
     title: "Tabi Project",
     description:
       "Each project at Tabi Empowerment and Educational (TEE) Foundation is crafted to empower community and foster innovation. Discover how we're creating lasting change and brighter futures.",
     hasTestimonial: false
   },
   {
-    id: 3,
-    number: "3",
+    id: 4,
+    number: "4",
     title: "Purple Guild",
     description:
       "Empowering dreamers with dedicated mentorship resources, and a supportive community. Achieve excellence and resources growth through personalised guidance and focused programs.",
@@ -33,12 +46,45 @@ const PROJECTS = [
 ];
 
 const TESTIMONIAL = {
-  avatar: (withBasePath("/testimonial-image.png")),
+  avatar: withBasePath("/testimonial-image.png"),
   quote:
     '"Tabi Empowerment and Educational Foundation transformed my perspective on learning. Their dedication to innovative education initiatives is truly inspiring! I feel empowered and inspired every day, knowing that I\'m part of a community that truly cares about making a positive impact."',
   name: "John Doe",
   role: "Head of Operations at Yebox"
 };
+
+/* ─────────────────────────────────────────────
+  VIDEO MODAL
+───────────────────────────────────────────── */
+function VideoModal({ src, onClose }: { src: string; onClose: () => void }) {
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      style={{ background: "rgba(0,0,0,0.85)", backdropFilter: "blur(6px)" }}
+      onClick={(e) => e.target === e.currentTarget && onClose()}
+    >
+      <div className="relative w-full max-w-4xl rounded-2xl overflow-hidden shadow-2xl bg-black">
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+          aria-label="Close video"
+        >
+          <LuX size={18} />
+        </button>
+        {/* Native video player — works with local mp4 files */}
+        <video
+          src={src}
+          controls
+          autoPlay
+          className="w-full"
+          style={{ display: "block", maxHeight: "80vh" }}
+        >
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  );
+}
 
 /* ─────────────────────────────────────────────
   TESTIMONIAL STRIP
@@ -47,7 +93,7 @@ function Testimonial() {
   return (
     <div className="w-full bg-[#FFF5FF] py-10 sm:py-14 px-6 sm:px-16 lg:px-24 my-6">
       <div className="mx-auto max-w-3xl flex flex-col sm:flex-row items-start gap-6">
-        <div className="shrink-0 w-16 h-64 sm:w-20 sm:h-32 rounded-full overflow-hidden relative border border-brand-primary/20">
+        <div className="shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-full overflow-hidden relative border border-brand-primary/20">
           <Image
             src={TESTIMONIAL.avatar}
             alt={TESTIMONIAL.name}
@@ -72,18 +118,6 @@ function Testimonial() {
 /* ─────────────────────────────────────────────
   IMAGE GRIDS
 ───────────────────────────────────────────── */
-
-/**
- * Academy — self-contained 2×2 grid (spans full content width):
- *
- *   col 1                   col 2
- *   ┌─────────────────┐  ┌─────────────────┐
- *   │ title + text +  │  │    image 1      │  row 1
- *   │ button          │  │                 │
- *   ├─────────────────┤  ├─────────────────┤
- *   │    image 2      │  │    image 3      │  row 2
- *   └─────────────────┘  └─────────────────┘
- */
 function AcademyGrid({ project }: { project: (typeof PROJECTS)[number] }) {
   return (
     <div className="grid grid-cols-2 gap-3 w-full">
@@ -95,9 +129,11 @@ function AcademyGrid({ project }: { project: (typeof PROJECTS)[number] }) {
           {project.description}
         </p>
         <div className="flex justify-start">
-          <Button variant="outline" size="sm">
-            Learn More
-          </Button>
+          <Link href="/projects/academy">
+            <Button variant="outline" size="sm">
+              Learn More
+            </Button>
+          </Link>
         </div>
       </div>
 
@@ -109,7 +145,6 @@ function AcademyGrid({ project }: { project: (typeof PROJECTS)[number] }) {
           className="object-cover"
         />
       </div>
-
       <div className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
         <Image
           src={withBasePath("/projects/academy-2.png")}
@@ -118,7 +153,6 @@ function AcademyGrid({ project }: { project: (typeof PROJECTS)[number] }) {
           className="object-cover"
         />
       </div>
-
       <div className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
         <Image
           src={withBasePath("/projects/academy-3.png")}
@@ -131,75 +165,136 @@ function AcademyGrid({ project }: { project: (typeof PROJECTS)[number] }) {
   );
 }
 
-/** Tabi Project — matches design exactly:
- *
- *   col 1 (text)        col 2 (diamond collage)
- *   ┌──────────────┐   ┌──────────────────────┐
- *   │ title + desc │   │  ◇  ◇  ◇  ◇  ◇      │  row 1
- *   │ + button     │   │    diagonal collage   │
- *   └──────────────┘   └──────────────────────┘
- *   ┌─────────────────────────────────────────┐
- *   │         full-width video                │  row 2
- *   └─────────────────────────────────────────┘
- */
-function ProjectGrid({ project }: { project: (typeof PROJECTS)[number] }) {
+function AIBusinessGrid({ project }: { project: (typeof PROJECTS)[number] }) {
+  const [videoOpen, setVideoOpen] = useState(false);
+
+  const VIDEO_SRC = withBasePath("/videos/ai-business.mp4");
+
   return (
-    <div className="w-full">
-      <div className="grid grid-cols-2 gap-6 items-start mb-6">
-        <div className="flex flex-col justify-start py-2">
-          <h3 className="text-xl sm:text-2xl font-bold text-brand-primary mb-4">
-            {project.title}
-          </h3>
-          <p className="text-sm text-[#666] leading-relaxed mb-8">
-            {project.description}
-          </p>
-          <div className="flex justify-start">
-            <Button variant="outline" size="sm">
-              Learn More
-            </Button>
+    <>
+      <div className="w-full">
+        {/* Top row: text + image */}
+        <div className="grid grid-cols-2 gap-6 items-start mb-6">
+          <div className="flex flex-col justify-start py-2">
+            <h3 className="text-xl sm:text-2xl font-bold text-brand-primary mb-4">
+              {project.title}
+            </h3>
+            <p className="text-sm text-[#666] leading-relaxed mb-8">
+              {project.description}
+            </p>
+            <div className="flex justify-start">
+              <Link href="/ai-for-businesses">
+                <Button variant="outline" size="sm">
+                  Learn More
+                </Button>
+              </Link>
+            </div>
+          </div>
+          <div className="relative h-50 sm:h-60 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
+            <Image
+              src={withBasePath("/projects/ai-business-1.png")}
+              alt="AI for Business training"
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
 
-        <div className="relative h-50 sm:h-60 rounded-2xl overflow-hidden">
+        {/* Bottom: full-width clickable video */}
+        <button
+          onClick={() => setVideoOpen(true)}
+          className="relative w-full h-56 sm:h-72 md:h-80 rounded-2xl overflow-hidden border border-[#e5e5e5] group cursor-pointer"
+        >
           <Image
-            src={withBasePath("/projects/project-collage.png")}
-            alt="Project collage"
+            src={withBasePath("/projects/ai-business-video-thumb.png")}
+            alt="Watch programme video"
             fill
-            className="object-contain"
+            className="object-cover brightness-50 group-hover:brightness-40 transition-all duration-300"
           />
-        </div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#71286F">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          </div>
+          <div className="absolute bottom-3 left-3 bg-black/60 text-white text-xs font-semibold px-3 py-1 rounded-full">
+            Watch Programme Overview
+          </div>
+        </button>
       </div>
 
-      <div className="relative w-full h-56 sm:h-72 md:h-80 rounded-2xl overflow-hidden border border-[#e5e5e5]">
-        <Image
-          src={withBasePath("/projects/project-video.png")}
-          alt="Video thumbnail"
-          fill
-          className="object-cover brightness-50"
-        />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-xl">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="#1a1a2e">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
+      {videoOpen && (
+        <VideoModal src={VIDEO_SRC} onClose={() => setVideoOpen(false)} />
+      )}
+    </>
   );
 }
 
-/**
- * Purple Guild — self-contained 2×2 grid (same structure as Academy):
- *
- *   col 1                   col 2
- *   ┌─────────────────┐  ┌─────────────────┐
- *   │ title + text +  │  │  guild logo img │  row 1
- *   │ button          │  │                 │
- *   ├─────────────────┤  ├─────────────────┤
- *   │    image 1      │  │    image 2      │  row 2
- *   └─────────────────┘  └─────────────────┘
- */
+function ProjectGrid({ project }: { project: (typeof PROJECTS)[number] }) {
+  const [videoOpen, setVideoOpen] = useState(false);
+  const VIDEO_SRC = withBasePath("/videos/ai-business.mp4");
+
+  return (
+    <>
+      <div className="w-full">
+        <div className="grid grid-cols-2 gap-6 items-start mb-6">
+          <div className="flex flex-col justify-start py-2">
+            <h3 className="text-xl sm:text-2xl font-bold text-brand-primary mb-4">
+              {project.title}
+            </h3>
+            <p className="text-sm text-[#666] leading-relaxed mb-8">
+              {project.description}
+            </p>
+            <div className="flex justify-start">
+              <Link href="/projects/project">
+                <Button variant="outline" size="sm">
+                  Learn More
+                </Button>
+              </Link>
+            </div>
+          </div>
+          <div className="relative h-50 sm:h-60 rounded-2xl overflow-hidden">
+            <Image
+              src={withBasePath("/projects/project-collage.png")}
+              alt="Project collage"
+              fill
+              className="object-contain"
+            />
+          </div>
+        </div>
+
+        {/* Full-width clickable video */}
+        <button
+          onClick={() => setVideoOpen(true)}
+          className="relative w-full h-56 sm:h-72 md:h-80 rounded-2xl overflow-hidden border border-[#e5e5e5] group cursor-pointer"
+        >
+          <Image
+            src={withBasePath("/projects/project-video.png")}
+            alt="Watch Tabi Project video"
+            fill
+            className="object-cover brightness-50 group-hover:brightness-40 transition-all duration-300"
+          />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#1a1a2e">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          </div>
+          <div className="absolute bottom-3 left-3 bg-black/60 text-white text-xs font-semibold px-3 py-1 rounded-full">
+            Watch Project Overview
+          </div>
+        </button>
+      </div>
+
+      {videoOpen && (
+        <VideoModal src={VIDEO_SRC} onClose={() => setVideoOpen(false)} />
+      )}
+    </>
+  );
+}
+
 function GuildGrid({ project }: { project: (typeof PROJECTS)[number] }) {
   return (
     <div className="grid grid-cols-2 gap-3 w-full">
@@ -211,12 +306,13 @@ function GuildGrid({ project }: { project: (typeof PROJECTS)[number] }) {
           {project.description}
         </p>
         <div className="flex justify-start">
-          <Button variant="outline" size="sm">
-            Learn More
-          </Button>
+          <Link href="/projects/purple-guild">
+            <Button variant="outline" size="sm">
+              Learn More
+            </Button>
+          </Link>
         </div>
       </div>
-
       <div className="relative h-52 sm:h-64 rounded-2xl overflow-hidden">
         <Image
           src={withBasePath("/projects/purple-guild-logo.png")}
@@ -225,7 +321,6 @@ function GuildGrid({ project }: { project: (typeof PROJECTS)[number] }) {
           className="object-contain p-6"
         />
       </div>
-
       <div className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
         <Image
           src={withBasePath("/projects/academy-1.png")}
@@ -234,7 +329,6 @@ function GuildGrid({ project }: { project: (typeof PROJECTS)[number] }) {
           className="object-cover"
         />
       </div>
-
       <div className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
         <Image
           src={withBasePath("/projects/academy-2.png")}
@@ -248,20 +342,14 @@ function GuildGrid({ project }: { project: (typeof PROJECTS)[number] }) {
 }
 
 /* ─────────────────────────────────────────────
-    INDIVIDUAL PROJECT BLOCK
-    Each block has its OWN short timeline segment.
-    fullWidth=true → imageGrid spans entire content
-    area (no separate left text col) — used for
-    Academy where text lives inside the grid itself.
+  PROJECT BLOCK
 ───────────────────────────────────────────── */
 function ProjectBlock({
   project,
-  imageGrid,
-  fullWidth = false
+  imageGrid
 }: {
   project: (typeof PROJECTS)[number];
   imageGrid: React.ReactNode;
-  fullWidth?: boolean;
 }) {
   return (
     <div className="flex gap-4 sm:gap-8">
@@ -271,26 +359,8 @@ function ProjectBlock({
         </div>
         <div className="flex-1 w-px bg-[#ddd] mt-2" />
       </div>
-
       <div className="flex-1 pb-4">
-        {fullWidth ? (
-          <div className="pt-1 pb-10">{imageGrid}</div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start pt-1 pb-10">
-            <div className="flex flex-col justify-start">
-              <h3 className="text-xl sm:text-2xl font-bold text-brand-primary mb-4">
-                {project.title}
-              </h3>
-              <p className="text-sm text-[#666] leading-relaxed mb-8">
-                {project.description}
-              </p>
-              <Button variant="outline" size="sm">
-                Learn More
-              </Button>
-            </div>
-            <div>{imageGrid}</div>
-          </div>
-        )}
+        <div className="pt-1 pb-10">{imageGrid}</div>
       </div>
     </div>
   );
@@ -300,8 +370,13 @@ function ProjectBlock({
   MAIN SECTION
 ───────────────────────────────────────────── */
 export default function FeaturedProjects() {
+  const [showAll, setShowAll] = useState(false);
+
+  const visibleProjects = showAll ? PROJECTS : PROJECTS.slice(0, 2);
+
   return (
     <section className="w-full bg-white">
+      {/* Header */}
       <div className="flex flex-col items-center text-center pt-20 pb-10 px-6">
         <h2 className="text-[clamp(1.8rem,4vw,3rem)] font-extrabold text-[#1a1a2e] tracking-tight">
           Our Flagship Projects
@@ -323,16 +398,18 @@ export default function FeaturedProjects() {
         />
       </div>
 
-      <div className="mx-auto max-w-4xl px-6 sm:px-12 lg:px-16 pb-20 flex flex-col gap-0">
-        {PROJECTS.map((project, idx) => (
+      {/* Projects */}
+      <div className="mx-auto max-w-4xl px-6 sm:px-12 lg:px-16 pb-10 flex flex-col gap-0">
+        {visibleProjects.map((project, idx) => (
           <div key={project.id}>
             <ProjectBlock
               project={project}
-              fullWidth={idx === 0 || idx === 1 || idx === 2}
               imageGrid={
                 idx === 0 ? (
                   <AcademyGrid project={project} />
                 ) : idx === 1 ? (
+                  <AIBusinessGrid project={project} />
+                ) : idx === 2 ? (
                   <ProjectGrid project={project} />
                 ) : (
                   <GuildGrid project={project} />
@@ -346,6 +423,32 @@ export default function FeaturedProjects() {
             )}
           </div>
         ))}
+      </div>
+
+      {/* View All toggle */}
+      <div className="flex justify-center pb-20">
+        <Button
+          variant="outline"
+          size="md"
+          onClick={() => setShowAll((v) => !v)}
+        >
+          {showAll ? "Show Less" : "View All Projects"}
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 16 16"
+            fill="none"
+            className={`ml-2 transition-transform duration-300 ${showAll ? "rotate-180" : ""}`}
+          >
+            <path
+              d="M3 6l5 5 5-5"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </Button>
       </div>
     </section>
   );

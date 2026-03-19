@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "@/components/atoms/Button";
 
 const MISSIONS = [
@@ -34,13 +35,13 @@ const MISSIONS = [
 export default function WhatWeDo() {
   return (
     <section className="relative w-full overflow-hidden">
-      {/* Split background: left = brand-surface, right = white */}
+      {/* Split background */}
       <div className="absolute inset-0 flex pointer-events-none" aria-hidden>
         <div className="w-[64.17%] bg-brand-surface" />
         <div className="w-[35.76%] bg-white/75" />
       </div>
 
-      {/* Subtle radial texture on the left panel */}
+      {/* Subtle radial texture */}
       <div
         className="absolute inset-y-0 left-0 w-1/2 pointer-events-none opacity-30"
         style={{
@@ -53,7 +54,6 @@ export default function WhatWeDo() {
       <div className="relative z-10 mx-auto max-w-350 px-6 sm:px-10 lg:px-20 py-20 lg:py-28 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         {/* ── Left: copy ── */}
         <div className="flex flex-col items-start">
-          {/* pill badge */}
           <span className="mb-6 inline-flex items-center rounded-full border border-brand-primary/40 bg-white px-4 py-1.5 text-xs font-medium text-brand-primary">
             The Team
           </span>
@@ -69,13 +69,11 @@ export default function WhatWeDo() {
             change
           </p>
 
-          <Button
-            variant="outline"
-            size="lg"
-            className="mt-10 cursor-pointer bg-white"
-          >
-            Learn More
-          </Button>
+          <Link href="/about" className="mt-10">
+            <Button variant="outline" size="lg" className="bg-white">
+              Learn More
+            </Button>
+          </Link>
         </div>
 
         {/* ── Right: 2×2 card grid ── */}
@@ -89,11 +87,9 @@ export default function WhatWeDo() {
                 transitionDelay: `${i * 40}ms`
               }}
             >
-              {/* icon bubble */}
               <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-3xl shadow-sm">
                 {item.emoji}
               </div>
-
               <h3 className="text-lg font-bold text-[#1a1a2e] mb-3">
                 {item.title}
               </h3>

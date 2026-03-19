@@ -80,12 +80,12 @@ export default function AIBusinessTimeline() {
             The Experience
           </span>
           <h2 className="text-[clamp(1.9rem,4vw,3rem)] font-extrabold tracking-tight text-[#1a1a2e] max-w-2xl leading-tight">
-            From Enrolment to Graduate in Four Phases
+            Here&apos;s Exactly What You&apos;re Signing Up For
           </h2>
           <p className="mt-4 max-w-xl text-base text-[#666] leading-relaxed">
-            Every stage is designed — not just the live sessions. From the
-            moment you enrol to after graduation, you&apos;re supported,
-            equipped, and part of something that lasts.
+            No surprises, no guesswork. From your first day to graduation and
+            beyond, here&apos;s every stage of the experience — so you know exactly
+            what to expect and can show up fully ready.
           </p>
         </div>
 

@@ -1,0 +1,96 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: public/uploads
+public_folder: /uploads
+
+# ── Enable local dev server (comment out in production) ──
+# local_backend: true
+
+collections:
+
+  # ─── Blog & News Posts ───────────────────────────────────────────
+  - name: posts
+    label: Blog & News Posts
+    folder: content/posts
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title,          name: title,     widget: string }
+      - { label: Category,       name: category,  widget: select, options: [blog, news] }
+      - { label: Date,           name: date,      widget: datetime, format: "MMMM D, YYYY" }
+      - { label: Author,         name: author,    widget: string }
+      - { label: Read Time,      name: readTime,  widget: string, hint: "e.g. 6 minutes read", required: false }
+      - { label: Excerpt,        name: excerpt,   widget: text }
+      - { label: Featured Image, name: image,     widget: image }
+      - { label: Featured Post,  name: featured,  widget: boolean, default: false }
+      - { label: Body,           name: body,      widget: markdown }
+
+  # ─── Events ──────────────────────────────────────────────────────
+  - name: events
+    label: Events & Webinars
+    folder: content/events
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title,        name: title,    widget: string }
+      - { label: Category,     name: category, widget: select, options: [BootCamp, Webinar, Workshop, Conference] }
+      - { label: Mode,         name: mode,     widget: select, options: [In-Person, Online, Hybrid] }
+      - { label: Location,     name: location, widget: string }
+      - { label: Address,      name: address,  widget: string, required: false }
+      - { label: Date,         name: date,     widget: datetime, format: "MMMM D, YYYY" }
+      - { label: Month (short),name: month,    widget: string, hint: "e.g. JUL" }
+      - { label: Day,          name: day,      widget: string, hint: "e.g. 28" }
+      - { label: Time,         name: time,     widget: string, hint: "e.g. 8:00 am - 12:00 pm" }
+      - { label: Timezone,     name: timezone, widget: string, hint: "e.g. WAT +1" }
+      - { label: Event Image,  name: image,    widget: image }
+      - { label: Event URL,    name: eventUrl, widget: string, required: false }
+      - { label: CTA Label,    name: ctaLabel, widget: select, options: [Register, "More Info"], default: "More Info" }
+      - { label: Featured,     name: featured, widget: boolean, default: false }
+      - { label: Tags,         name: tags,     widget: list, required: false }
+      - { label: Description,  name: description, widget: text, required: false }
+
+  # ─── Team Members ─────────────────────────────────────────────────
+  - name: team
+    label: Team Members
+    folder: content/team
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Name,       name: name,     widget: string }
+      - { label: Role,       name: role,     widget: string }
+      - { label: Photo,      name: image,    widget: image }
+      - { label: Bio,        name: bio,      widget: text }
+      - { label: Hobbies,    name: hobbies,  widget: list }
+      - { label: Order,      name: order,    widget: number, hint: "Display order (1 = first)" }
+      - { label: Background Color, name: bgColor, widget: string, hint: "e.g. #f0f0f0", required: false }
+
+  # ─── Flagship Projects ────────────────────────────────────────────
+  - name: projects
+    label: Flagship Projects
+    folder: content/projects
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title,       name: title,       widget: string }
+      - { label: Description, name: description, widget: text }
+      - { label: Order,       name: order,       widget: number, hint: "Display order (1 = first)" }
+      - { label: Link,        name: href,        widget: string, hint: "e.g. /ai-for-businesses" }
+      - { label: Images,      name: images,      widget: list, field: { label: Image, name: image, widget: image }, required: false }
+      - { label: Video,       name: video,       widget: file, media_library: { config: { multiple: false } }, hint: "Upload mp4 video", required: false }
+      - { label: Video Thumbnail, name: videoThumb, widget: image, required: false }
+      - { label: Has Testimonial, name: hasTestimonial, widget: boolean, default: false }
+      - { label: Published,   name: published,   widget: boolean, default: true }
+
+  # ─── Consultancy Applications (read-only view) ───────────────────
+  - name: settings
+    label: Site Settings
+    files:
+      - label: General Settings
+        name: general
+        file: content/settings/general.json
+        fields:
+          - { label: Consultancy Slots Available, name: consultancySlots, widget: number, default: 5 }
+          - { label: WhatsApp Community URL,      name: whatsappUrl,       widget: string }
+          - { label: Contact Email,               name: contactEmail,      widget: string }

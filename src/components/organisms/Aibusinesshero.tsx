@@ -152,7 +152,7 @@ export default function AIBusinessHero() {
                   priority
                 />
                 {/* overlay gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/30 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-brand-primary/30 to-transparent" />
               </div>
 
               {/* Floating card — top right */}
