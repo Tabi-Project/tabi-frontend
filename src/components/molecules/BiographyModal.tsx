@@ -19,16 +19,20 @@ export default function BiographyModal({
   member,
   onClose
 }: BiographyModalProps) {
+  // Split on single or double newlines, filter empty lines
+  const bioParagraphs = member.bio
+    .split(/\n+/)
+    .map((p) => p.trim())
+    .filter(Boolean);
+
   return (
     <>
-      {/* Backdrop */}
       <div
         className="fixed inset-0 z-40"
         style={{ background: "rgba(0,0,0,0.18)" }}
         onClick={onClose}
       />
 
-      {/* Drawer */}
       <div
         className="fixed top-0 right-0 h-full z-50 bg-white overflow-y-auto"
         style={{
@@ -71,7 +75,7 @@ export default function BiographyModal({
         {/* Body */}
         <div className="px-5 sm:px-10 pt-8 sm:pt-13 pb-16 sm:pb-18">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 sm:gap-10 mb-10 sm:mb-13">
-            {/* Left — name, role, hobbies */}
+            {/* Left */}
             <div className="flex-1 min-w-0 sm:pt-3">
               <h2
                 style={{
@@ -150,9 +154,9 @@ export default function BiographyModal({
             </div>
           </div>
 
-          {/* Bio */}
-          <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-            {member.bio.split("\n\n").map((para, i) => (
+          {/* Bio — each line/paragraph rendered separately */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            {bioParagraphs.map((para, i) => (
               <p
                 key={i}
                 style={{
