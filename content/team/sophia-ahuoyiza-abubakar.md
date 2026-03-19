@@ -3,12 +3,12 @@ name: Sophia Ahuoyiza Abubakar
 role: DIRECTOR
 image: /uploads/img_4614-edited.png
 bio: >-
-  **Sophia** is a passionate advocate for women's empowerment and the Director
-  at **Tabi (TEE Foundation)**, where she leads and manages programs, designs
-  and implements transformative initiatives, and champions products and
-  solutions built to uplift and reshape the lives of women. With a sharp eye for
-  impact and a heart for purpose-driven work, she brings both strategic vision
-  and hands-on leadership to everything she builds at Tabi — from growing a
+  Sophia is a passionate advocate for women's empowerment and the Director at
+  Tabi (TEE Foundation), where she leads and manages programs, designs and
+  implements transformative initiatives, and champions products and solutions
+  built to uplift and reshape the lives of women. With a sharp eye for impact
+  and a heart for purpose-driven work, she brings both strategic vision and
+  hands-on leadership to everything she builds at Tabi — from growing a
   dedicated team to creating initiatives that open real doors for women in
   meaningful ways.
 
