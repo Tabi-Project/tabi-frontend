@@ -56,7 +56,8 @@ collections:
     label: Team Members
     folder: content/team
     create: true
-    slug: "{{slug}}"
+    slug: "{{name}}"
+    identifier_field: name
     fields:
       - { label: Name,       name: name,     widget: string }
       - { label: Role,       name: role,     widget: string }
