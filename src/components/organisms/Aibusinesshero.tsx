@@ -145,7 +145,7 @@ export default function AIBusinessHero() {
               {/* Main image card */}
               <div className="relative w-72 h-80 rounded-3xl overflow-hidden shadow-2xl border border-brand-primary/20 z-20">
                 <Image
-                  src="/ai-business-hero-2.jpg"
+                  src="/ai-business-hero-3.png"
                   alt="Women learning AI tools"
                   fill
                   className="object-cover"

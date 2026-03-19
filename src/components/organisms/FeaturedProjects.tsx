@@ -192,10 +192,10 @@ function AIBusinessGrid({ project }: { project: (typeof PROJECTS)[number] }) {
           </div>
           <div className="relative h-50 sm:h-60 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
             <Image
-              src={withBasePath("/projects/ai-business-1.png")}
+              src={withBasePath("/ai-business-hero-3.png")}
               alt="AI for Business training"
               fill
-              className="object-cover"
+              className="object-contain"
             />
           </div>
         </div>
