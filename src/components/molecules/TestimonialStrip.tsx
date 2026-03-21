@@ -26,6 +26,7 @@ export default function TestimonialStrip({
               sizes="189px"
               className="object-cover object-top"
               loading="lazy"
+              quality={80}
             />
           ) : (
             <div
@@ -42,16 +43,20 @@ export default function TestimonialStrip({
             </div>
           )}
         </div>
-
         {/* Quote */}
         <div className="flex flex-col justify-center">
+          
           <p className="text-sm sm:text-base text-[#444] leading-relaxed mb-6">
             &ldquo;{testimonial.quote.replace(/^[""]|[""]$/g, "")}&rdquo;
+            
           </p>
+          
           <p className="text-sm font-bold text-[#121212]">
-            {testimonial.name},{" "}
+             {testimonial.name}, //{" "}
             <span className="">{testimonial.role}</span>
+          
           </p>
+        
         </div>
       </div>
     </div>
