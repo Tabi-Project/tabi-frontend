@@ -7,8 +7,8 @@ export const FOOTER_LINKS = {
   ],
   projects: [
     { label: "AI for business", href: "/ai-for-businesses" },
-    { label: "Tabi's Academy", href: "#academy" },
-    { label: "Tabi's Project", href: "#projects" },
+    { label: "Tabi Academy", href: "#academy" },
+    { label: "Tabi Project", href: "#projects" },
     { label: "Purple Guild", href: "#guild" }
   ],
     legal: [

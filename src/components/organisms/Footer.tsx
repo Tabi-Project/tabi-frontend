@@ -141,6 +141,32 @@ export default function Footer() {
             Foundation
           </p>
 
+          {/* Contact email */}
+          <a
+            href="mailto:hello@tabiproject.com"
+            className="inline-flex items-center gap-2 mt-4 mb-2 text-sm text-[#555] hover:text-brand-primary transition-colors"
+          >
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+              <rect
+                x="1"
+                y="3"
+                width="14"
+                height="10"
+                rx="2"
+                stroke="currentColor"
+                strokeWidth="1.4"
+              />
+              <path
+                d="M1 5l7 5 7-5"
+                stroke="currentColor"
+                strokeWidth="1.4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+            hello@tabiproject.com
+          </a>
+
           {/* Email subscribe pill */}
           <div
             className={`mt-8 flex items-center bg-white border rounded-full overflow-hidden pl-4 pr-1 py-1 gap-2 transition-all duration-300 ${

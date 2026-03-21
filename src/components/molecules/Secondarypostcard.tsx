@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Post } from "@/constants/posts";
+import type { CMSPost } from "@/lib/cms";
 import ArrowIcon from "@/components/atoms/Arrowicon";
 
 interface SecondaryPostCardProps {
-  post: Post;
+  post: CMSPost;
   href: string;
 }
 
@@ -17,13 +17,23 @@ export default function SecondaryPostCard({
       href={href}
       className="group flex flex-row bg-[#F5F5F5] rounded-3xl border border-[#ede8f5] overflow-hidden hover:-translate-y-1 transition-all duration-300"
     >
-      <div className="relative w-40 shrink-0 overflow-hidden">
-        <Image
-          src={post.image}
-          alt={post.title}
-          fill
-          className="object-cover group-hover:scale-[1.05] transition-transform duration-500"
-        />
+      <div className="relative w-40 shrink-0 overflow-hidden bg-[#F3E8FF]">
+        {post.image ? (
+          <Image
+            src={post.image}
+            alt={post.title}
+            fill
+            sizes="160px"
+            className="object-cover group-hover:scale-[1.05] transition-transform duration-500"
+            loading="lazy"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center">
+            <span className="text-xl font-extrabold text-brand-primary opacity-20">
+              TEE
+            </span>
+          </div>
+        )}
       </div>
       <div className="flex flex-col flex-1 p-6 min-w-0">
         <h3 className="text-base font-bold text-[#1a1a2e] mb-1.5 leading-snug">

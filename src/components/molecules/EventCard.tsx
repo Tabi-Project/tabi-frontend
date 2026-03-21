@@ -1,9 +1,9 @@
-import { Event } from "@/constants/events";
+import { CMSEvent } from "@/lib/cms";
 import EventTypeBadge from "@/components/atoms/Eventtypebadge";
 import EventDateBlock from "@/components/atoms/EventDateBlock";
 
 interface EventCardProps {
-  event: Event;
+  event: CMSEvent;
   onClick: () => void;
 }
 
@@ -11,12 +11,12 @@ export default function EventCard({ event, onClick }: EventCardProps) {
   return (
     <button
       onClick={onClick}
-      className="flex items-center gap-4 bg-[#F5F5F5] rounded-2xl p-4 hover:-translate-y-0.5 transition-all duration-300 text-left w-full"
+      className="flex items-center gap-4 bg-[#F5F5F5] rounded-2xl p-4 hover:-translate-y-0.5 transition-all duration-300 text-left w-full cursor-pointer"
     >
       <EventDateBlock
         month={event.month}
         day={event.day}
-        image={event.image}
+        image={event.image ?? ""}
         alt={event.title}
         size="md"
       />

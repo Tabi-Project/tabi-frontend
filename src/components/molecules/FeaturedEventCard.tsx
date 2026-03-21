@@ -1,9 +1,9 @@
 import Image from "next/image";
-import { Event } from "@/constants/events";
+import { CMSEvent } from "@/lib/cms";
 import EventTypeBadge from "@/components/atoms/Eventtypebadge";
 
 interface FeaturedEventCardProps {
-  event: Event;
+  event: CMSEvent;
   onClick: () => void;
 }
 
@@ -13,13 +13,22 @@ export default function FeaturedEventCard({
 }: FeaturedEventCardProps) {
   return (
     <div className="flex flex-col sm:flex-row bg-[#F5F5F5] rounded-2xl overflow-hidden">
-      <div className="relative w-full sm:w-[280px] h-[200px] sm:h-auto shrink-0 m-3 sm:m-4 rounded-xl overflow-hidden">
-        <Image
-          src={event.image}
-          alt={event.title}
-          fill
-          className="object-cover"
-        />
+      <div className="relative w-full sm:w-70 h-50 sm:h-auto shrink-0 m-3 sm:m-4 rounded-xl overflow-hidden bg-[#F3E8FF]">
+        {event.image ? (
+          <Image
+            src={event.image}
+            alt={event.title}
+            fill
+            className="object-cover"
+            loading="lazy"
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center">
+            <span className="text-3xl font-extrabold text-brand-primary opacity-20">
+              TEE
+            </span>
+          </div>
+        )}
       </div>
 
       <div className="flex flex-col flex-1 px-6 py-6 lg:px-8 lg:py-8 justify-between min-w-0">
@@ -107,7 +116,7 @@ export default function FeaturedEventCard({
         <div className="flex justify-end">
           <button
             onClick={onClick}
-            className="flex items-center gap-1.5 text-sm font-semibold text-[#1a1a2e] hover:text-brand-primary transition-colors"
+            className="flex items-center gap-1.5 text-sm font-semibold text-[#1a1a2e] hover:text-brand-primary transition-colors cursor-pointer"
           >
             {event.ctaLabel ?? "Register"}
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">

@@ -37,18 +37,23 @@ export type CMSPost = {
   title: string;
   category: "blog" | "news";
   date: string;
-  author: string;
+  author?: string;
+  authorAvatar?: string;
   readTime?: string;
   excerpt: string;
-  image: string;
+  image?: string;
   featured?: boolean;
   body?: string;
 };
 
 export function getAllPosts(): CMSPost[] {
-  return getFiles("posts")
-    .map((f) => readMarkdown<CMSPost>("posts", f))
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  try {
+    return getFiles("posts")
+      .map((f) => readMarkdown<CMSPost>("posts", f))
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  } catch {
+    return [];
+  }
 }
 
 export function getBlogPosts(): CMSPost[] {
@@ -77,7 +82,7 @@ export type CMSEvent = {
   day: string;
   time: string;
   timezone: string;
-  image: string;
+  image?: string;
   eventUrl?: string;
   ctaLabel?: "Register" | "More Info";
   featured?: boolean;
@@ -86,9 +91,13 @@ export type CMSEvent = {
 };
 
 export function getAllEvents(): CMSEvent[] {
-  return getFiles("events")
-    .map((f) => readMarkdown<CMSEvent>("events", f))
-    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  try {
+    return getFiles("events")
+      .map((f) => readMarkdown<CMSEvent>("events", f))
+      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+  } catch {
+    return [];
+  }
 }
 
 export function getFeaturedEvents(): CMSEvent[] {
@@ -113,9 +122,13 @@ export type CMSTeamMember = {
 };
 
 export function getAllTeamMembers(): CMSTeamMember[] {
-  return getFiles("team")
-    .map((f) => readMarkdown<CMSTeamMember>("team", f))
-    .sort((a, b) => a.order - b.order);
+  try {
+    return getFiles("team")
+      .map((f) => readMarkdown<CMSTeamMember>("team", f))
+      .sort((a, b) => a.order - b.order);
+  } catch {
+    return [];
+  }
 }
 
 // ─── Projects ─────────────────────────────────────────────────────────────────

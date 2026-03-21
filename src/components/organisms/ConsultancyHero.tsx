@@ -140,7 +140,7 @@ export default function ConsultancyHero() {
             {/* Main image */}
             <div className="relative rounded-4xl overflow-hidden aspect-3/4 shadow-2xl">
               <Image
-                src={withBasePath("/consultancy/hero.jpg")}
+                src={withBasePath("/consultancy/hero-2.jpg")}
                 alt="Women-led business consultancy"
                 fill
                 className="object-cover"

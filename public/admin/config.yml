@@ -24,6 +24,7 @@ collections:
       - { label: Read Time,      name: readTime,  widget: string, hint: "e.g. 6 minutes read", required: false }
       - { label: Excerpt,        name: excerpt,   widget: text }
       - { label: Featured Image, name: image,     widget: image }
+      - { label: Author Avatar,  name: authorAvatar, widget: image, required: false, hint: "Profile photo of the author" }
       - { label: Featured Post,  name: featured,  widget: boolean, default: false }
       - { label: Body,           name: body,      widget: markdown }
 

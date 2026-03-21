@@ -4,11 +4,14 @@ import "./globals.css";
 import { Navbar } from "@/components/organisms/Navbar";
 import Footer from "@/components/organisms/Footer";
 import Script from "next/script";
+import ScrollRestoration from "@/components/atoms/ScrollRestoration";
 
 const lato = Lato({
   subsets: ["latin"],
   weight: ["100", "300", "400", "700", "900"]
 });
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: "Tabi Academy | Empowering Futures",
@@ -29,7 +32,8 @@ export default function RootLayout({
           strategy="beforeInteractive"
         />
       </head>
-      <body className={lato.className}>
+      <body className={lato.className} suppressHydrationWarning>
+        <ScrollRestoration />
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />

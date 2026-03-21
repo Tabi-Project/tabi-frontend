@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Event } from "@/constants/events";
+import { CMSEvent } from "@/lib/cms";
 import { LuX, LuExternalLink, LuCalendarDays, LuClock } from "react-icons/lu";
 
 const TAG_COLORS = [
@@ -13,7 +13,7 @@ const TAG_COLORS = [
 ];
 
 interface EventDetailDrawerProps {
-  event: Event;
+  event: CMSEvent;
   onClose: () => void;
 }
 
@@ -21,24 +21,16 @@ export default function EventDetailDrawer({
   event,
   onClose
 }: EventDetailDrawerProps) {
-  const tags = event.tags ?? [
-    event.mode,
-    "Students",
-    event.category,
-    "UNN",
-    "Tech Law"
-  ];
+  const tags = event.tags ?? [event.mode, event.category];
 
   return (
     <>
-      {/* Backdrop */}
       <div
         className="fixed inset-0 z-40"
         style={{ background: "rgba(0,0,0,0.18)" }}
         onClick={onClose}
       />
 
-      {/* Drawer */}
       <div
         className="fixed top-0 right-0 h-full z-50 bg-white overflow-y-auto"
         style={{
@@ -46,7 +38,7 @@ export default function EventDetailDrawer({
           boxShadow: "-8px 0 48px rgba(0,0,0,0.10)"
         }}
       >
-        {/* ── Header ─────────────────────────────────────────────── */}
+        {/* Header */}
         <div
           className="relative flex items-center justify-center"
           style={{ padding: "20px 40px", borderBottom: "1px solid #E5E7EB" }}
@@ -62,23 +54,20 @@ export default function EventDetailDrawer({
           >
             Event Details
           </span>
-
           <button
             onClick={onClose}
-            className="absolute right-5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-[#555] hover:bg-[#f3e8ff] hover:text-brand-primary transition-colors duration-200"
+            className="absolute right-5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-[#555] hover:bg-[#f3e8ff] hover:text-brand-primary transition-colors duration-200 cursor-pointer"
             aria-label="Close"
           >
             <LuX size={16} strokeWidth={2.5} />
           </button>
         </div>
 
-        {/* ── Body ───────────────────────────────────────────────── */}
+        {/* Body */}
         <div className="px-6 sm:px-10 pt-8 pb-16">
-          {/* Two-column layout: left content / right image */}
           <div className="flex flex-col sm:flex-row gap-8 sm:gap-10 mb-10">
-            {/* ── Left ─────────────────────────────────────────── */}
+            {/* Left */}
             <div className="flex-1 min-w-0">
-              {/* Event link — clickable when url exists */}
               {event.eventUrl ? (
                 <a
                   href={event.eventUrl}
@@ -86,22 +75,18 @@ export default function EventDetailDrawer({
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-brand-primary text-sm font-semibold mb-4 hover:underline transition-all"
                 >
-                  Event Link
-                  <LuExternalLink size={14} />
+                  Event Link <LuExternalLink size={14} />
                 </a>
               ) : (
                 <div className="inline-flex items-center gap-1.5 text-brand-primary text-sm font-semibold mb-4 opacity-50 cursor-not-allowed">
-                  Event Link
-                  <LuExternalLink size={14} />
+                  Event Link <LuExternalLink size={14} />
                 </div>
               )}
 
-              {/* Title */}
-              <h2 className="font-semibold text-[#121212] mb-6 leading-12 text-[clamp(1.2rem,3.5vw,1.5rem)]">
+              <h2 className="font-semibold text-[#121212] mb-6 leading-snug text-[clamp(1.2rem,3.5vw,1.5rem)]">
                 {event.title}
               </h2>
 
-              {/* Date + time */}
               <div className="flex flex-wrap items-center gap-5 text-sm text-[#444] mb-6">
                 <span className="flex items-center gap-2">
                   <LuCalendarDays size={16} className="text-[#666] shrink-0" />
@@ -113,7 +98,6 @@ export default function EventDetailDrawer({
                 </span>
               </div>
 
-              {/* Tags */}
               <div className="flex flex-wrap gap-2 mb-8">
                 {tags.map((tag, i) => {
                   const c = TAG_COLORS[i % TAG_COLORS.length];
@@ -137,18 +121,26 @@ export default function EventDetailDrawer({
               </div>
             </div>
 
-            {/* ── Right: event image ────────────────────────────── */}
-            <div className="relative w-full sm:w-[340px] lg:w-[380px] h-[220px] sm:h-auto aspect-square shrink-0 rounded-2xl overflow-hidden">
-              <Image
-                src={event.image}
-                alt={event.title}
-                fill
-                className="object-cover"
-              />
+            {/* Right — image */}
+            <div className="relative w-full sm:w-85 lg:w-95 h-55 sm:h-auto aspect-square shrink-0 rounded-2xl overflow-hidden bg-[#F3E8FF]">
+              {event.image ? (
+                <Image
+                  src={event.image}
+                  alt={event.title}
+                  fill
+                  className="object-cover"
+                />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center">
+                  <span className="text-4xl font-extrabold text-brand-primary opacity-20">
+                    TEE
+                  </span>
+                </div>
+              )}
             </div>
           </div>
 
-          {/* ── Details section ──────────────────────────────────── */}
+          {/* Details */}
           <div>
             <h3
               style={{
@@ -170,7 +162,7 @@ export default function EventDetailDrawer({
               }}
             >
               {event.description ??
-                "Join us for an enlightening day dedicated to exploring the intersection of law and technology. This symposium aims to provide law students with insights into how technological advancements are transforming the legal landscape and to equip them with the knowledge and skills needed to thrive in this evolving field."}
+                "More details about this event will be shared soon. Stay tuned."}
             </p>
           </div>
         </div>

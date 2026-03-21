@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
-import { BLOG_POSTS, NEWS_POSTS } from "@/constants/posts";
+import type { CMSPost, CMSEvent } from "@/lib/cms";
 import PostsPanel from "@/components/organisms/PostsPanel";
 import EventsPanel from "@/components/organisms/EventsPanel";
 
@@ -12,26 +12,36 @@ const TABS = [
 ] as const;
 
 type TabKey = (typeof TABS)[number]["key"];
-
 const VALID_TABS = TABS.map((t) => t.key);
 
 function isValidTab(value: string | null): value is TabKey {
   return VALID_TABS.includes(value as TabKey);
 }
 
-export default function ResourcesTabs() {
+interface ResourcesTabsProps {
+  newsPosts: CMSPost[];
+  blogPosts: CMSPost[];
+  allEvents: CMSEvent[];
+  featuredEvents: CMSEvent[];
+}
+
+export default function ResourcesTabs({
+  newsPosts,
+  blogPosts,
+  allEvents,
+  featuredEvents
+}: ResourcesTabsProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
 
-  // Read active tab from URL, fall back to "news"
   const raw = searchParams.get("tab");
   const activeTab: TabKey = isValidTab(raw) ? raw : "news";
 
   function setTab(key: TabKey) {
     const params = new URLSearchParams(searchParams.toString());
     if (key === "news") {
-      params.delete("tab"); // keep URL clean for default tab
+      params.delete("tab");
     } else {
       params.set("tab", key);
     }
@@ -40,13 +50,12 @@ export default function ResourcesTabs() {
 
   return (
     <>
-      {/* Tab bar */}
       <div className="flex gap-6 border-b border-gray-200 mb-12">
         {TABS.map((tab) => (
           <button
             key={tab.key}
             onClick={() => setTab(tab.key)}
-            className={`pb-3 text-sm font-medium transition-all border-b-2 -mb-px ${
+            className={`pb-3 text-sm font-medium transition-all border-b-2 -mb-px cursor-pointer ${
               activeTab === tab.key
                 ? "border-brand-primary text-brand-primary"
                 : "border-transparent text-[#666] hover:text-[#1a1a2e]"
@@ -57,26 +66,29 @@ export default function ResourcesTabs() {
         ))}
       </div>
 
-      {/* Tab panels */}
       {activeTab === "news" && (
         <PostsPanel
           heroTitle="Latest News"
-          gridTitle="More News Update"
-          posts={NEWS_POSTS}
+          gridTitle="More News Updates"
+          posts={newsPosts}
           basePath="/resources/blog"
           searchPlaceholder="Search News"
+          category="news"
         />
       )}
       {activeTab === "blog" && (
         <PostsPanel
-          heroTitle="Latest From our Blog"
+          heroTitle="Latest From Our Blog"
           gridTitle="Discover More Content"
-          posts={BLOG_POSTS}
+          posts={blogPosts}
           basePath="/resources/blog"
           searchPlaceholder="Search Blog"
+          category="blog"
         />
       )}
-      {activeTab === "events" && <EventsPanel />}
+      {activeTab === "events" && (
+        <EventsPanel allEvents={allEvents} featuredEvents={featuredEvents} />
+      )}
     </>
   );
 }
