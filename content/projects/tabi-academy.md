@@ -10,6 +10,6 @@ images:
   - /uploads/academy-1.png
   - /uploads/academy-2.png
   - /uploads/academy-3.png
-hasTestimonial: false
+hasTestimonial: true
 published: true
 ---
