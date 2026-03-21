@@ -13,7 +13,7 @@ featured: true
 ---
 ## TEE Foundation Opens Applications for Its Most Ambitious Programme Yet
 
-TEE Foundation has officially announced the launch of its AI for Business training programme — a free, live two-week cohort designed exclusively for women in business across Africa who want to harness the power of artificial intelligence without any technical background required.
+TEE Foundation has officially announced the launch of its AI for Business training programme — a free, live two-week cohort designed exclusively for women in business across Africa who want to harness the power of artificial intelligence without any technical background required..
 
 The programme, which opens to a maximum of 50 participants per cohort, is set to become one of the most practical and accessible AI training initiatives on the continent targeted specifically at women entrepreneurs and professionals.
 
