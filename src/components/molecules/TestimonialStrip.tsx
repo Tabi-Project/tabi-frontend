@@ -35,12 +35,12 @@ export default function TestimonialStrip() {
 
         {/* Quote */}
         <div className="flex flex-col justify-center">
-          <p className="text-base sm:text-lg text-[#333] leading-relaxed mb-6">
+          <p className="text-sm sm:text-base text-[#444] leading-relaxed mb-6">
             {TESTIMONIAL.quote}
           </p>
-          <p className="text-sm font-bold text-[#1a1a2e]">
+          <p className="text-sm font-bold text-[#121212]">
             {TESTIMONIAL.name},{" "}
-            <span className="font-normal text-[#555]">{TESTIMONIAL.role}</span>
+            <span className="">{TESTIMONIAL.role}</span>
           </p>
         </div>
       </div>
