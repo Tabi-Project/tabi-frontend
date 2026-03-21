@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { CMSProject } from "@/lib/cms";
 import { Button } from "@/components/atoms/Button";
-import TestimonialStrip from "@/components/molecules/TestimonialStrip";
+import TestimonialStripServer from "@/components/molecules/TestimonialStripServer";
 import AcademyGrid from "@/components/molecules/AcademyGrid";
 import AIBusinessGrid from "@/components/molecules/AIBusinessGrid";
 import TabiProjectGrid from "@/components/molecules/TabiProjectGrid";
@@ -171,7 +171,7 @@ export default function FeaturedProjects({
               <ProjectBlock project={project} index={idx} />
               {project.hasTestimonial && (
                 <div className="-mx-6 sm:-mx-12 lg:-mx-16">
-                  <TestimonialStrip />
+                  <TestimonialStripServer />
                 </div>
               )}
             </div>

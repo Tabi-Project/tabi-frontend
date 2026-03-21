@@ -88,6 +88,21 @@ collections:
       - { label: Has Testimonial, name: hasTestimonial, widget: boolean, default: false }
       - { label: Published,   name: published,   widget: boolean, default: true }
 
+  # ─── Testimonials ────────────────────────────────────────────────────
+  - name: testimonials
+    label: Testimonials
+    folder: content/testimonials
+    create: true
+    slug: "{{name}}"
+    identifier_field: name
+    fields:
+      - { label: Name,       name: name,   widget: string }
+      - { label: Role,       name: role,   widget: string, hint: "e.g. Head of Operations at Yebox" }
+      - { label: Quote,      name: quote,  widget: text }
+      - { label: Avatar,     name: avatar, widget: image, required: false }
+      - { label: Featured,   name: featured, widget: boolean, default: false }
+      - { label: Order,      name: order,  widget: number, default: 1 }
+
   # ─── Consultancy Applications (read-only view) ───────────────────
   - name: settings
     label: Site Settings

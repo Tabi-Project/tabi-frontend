@@ -20,9 +20,10 @@ function readMarkdown<T>(
 ): T & { slug: string } {
   const filePath = path.join(CONTENT_DIR, folder, filename);
   const raw = fs.readFileSync(filePath, "utf-8");
-  const { data } = matter(raw);
+  const { data, content } = matter(raw);
   const slug = filename.replace(/\.(md|json)$/, "");
-  return { ...(data as T), slug };
+  // Include the markdown body as "body" so detail pages can render it
+  return { ...(data as T), slug, body: content.trim() } as T & { slug: string };
 }
 
 function readJson<T>(filePath: string): T {
@@ -155,6 +156,33 @@ export function getAllProjects(): CMSProject[] {
   } catch {
     return [];
   }
+}
+
+// ─── Testimonials ─────────────────────────────────────────────────────────────
+
+export type CMSTestimonial = {
+  slug: string;
+  name: string;
+  role: string;
+  quote: string;
+  avatar?: string;
+  featured?: boolean;
+  order?: number;
+};
+
+export function getAllTestimonials(): CMSTestimonial[] {
+  try {
+    return getFiles("testimonials")
+      .map((f) => readMarkdown<CMSTestimonial>("testimonials", f))
+      .sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
+  } catch {
+    return [];
+  }
+}
+
+export function getFeaturedTestimonial(): CMSTestimonial | undefined {
+  const all = getAllTestimonials();
+  return all.find((t) => t.featured) ?? all[0];
 }
 
 // ─── Settings ─────────────────────────────────────────────────────────────────
