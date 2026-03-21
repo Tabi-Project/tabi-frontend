@@ -140,7 +140,7 @@ export default function HeroSection() {
         We also add extra bottom padding so orbiting tags don't clip.
       */}
       <div
-        className="relative mx-auto pb-16 sm:pb-10 md:pb-0 md:mb-20"
+        className="relative mx-auto pb-16 sm:pb-10 md:pb-0 "
         style={{ width: "min(820px, 92vw)", aspectRatio: "1/1" }}
       >
         {/* Hero image */}

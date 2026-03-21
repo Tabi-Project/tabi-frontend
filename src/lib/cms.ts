@@ -134,10 +134,14 @@ export type CMSProject = {
 };
 
 export function getAllProjects(): CMSProject[] {
-  return getFiles("projects")
-    .map((f) => readMarkdown<CMSProject>("projects", f))
-    .filter((p) => p.published !== false)
-    .sort((a, b) => a.order - b.order);
+  try {
+    return getFiles("projects")
+      .map((f) => readMarkdown<CMSProject>("projects", f))
+      .filter((p) => p.published !== false)
+      .sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
+  } catch {
+    return [];
+  }
 }
 
 // ─── Settings ─────────────────────────────────────────────────────────────────

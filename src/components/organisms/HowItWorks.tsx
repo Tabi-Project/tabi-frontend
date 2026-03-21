@@ -1,32 +1,54 @@
-import ProcessStepCard from "@/components/atoms/ProcessStepCard";
 import { PROCESS_STEPS } from "@/constants/consultancy";
 
 export default function HowItWorks() {
   return (
-    <section className="w-full bg-[#FAFAFA]">
+    <section className="w-full" style={{ background: "#1a1a2e" }}>
       <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
-        <div className="text-center mb-14">
+        {/* Header */}
+        <div className="text-center mb-16">
           <span
-            className="inline-flex items-center rounded-full px-5 py-2 text-sm font-semibold text-brand-primary mb-5"
-            style={{ background: "#F3E8FF" }}
+            className="inline-flex items-center rounded-full px-5 py-2 text-sm font-semibold mb-5"
+            style={{ background: "rgba(113,40,111,0.3)", color: "#D4A8F0" }}
           >
             How It Works
           </span>
-          <h2 className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold text-[#1a1a2e] leading-snug">
-            Three simple steps
+          <h2 className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-extrabold text-white leading-snug">
+            Three steps to your session
           </h2>
         </div>
 
-        {/* Steps with connector lines */}
-        <div className="relative grid grid-cols-1 sm:grid-cols-3 gap-10 sm:gap-6">
-          {/* Connector line — desktop only */}
+        {/* Steps */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 relative">
+          {/* Connector — desktop */}
           <div
-            className="hidden sm:block absolute top-7 left-[calc(16.66%+1.75rem)] right-[calc(16.66%+1.75rem)] h-px"
-            style={{ background: "#ede8f5" }}
+            className="hidden sm:block absolute top-8 left-[calc(16.66%+2rem)] right-[calc(16.66%+2rem)] h-px"
+            style={{ background: "rgba(113,40,111,0.4)" }}
           />
 
-          {PROCESS_STEPS.map((step) => (
-            <ProcessStepCard key={step.number} step={step} />
+          {PROCESS_STEPS.map((step, i) => (
+            <div
+              key={step.number}
+              className="flex flex-col items-center text-center relative"
+            >
+              {/* Number circle */}
+              <div
+                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 z-10 shadow-lg"
+                style={{ background: "#71286F" }}
+              >
+                <span className="text-xl font-extrabold text-white">
+                  {step.number}
+                </span>
+              </div>
+              <h3 className="text-base font-extrabold text-white mb-3">
+                {step.title}
+              </h3>
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: "rgba(255,255,255,0.55)" }}
+              >
+                {step.description}
+              </p>
+            </div>
           ))}
         </div>
       </div>

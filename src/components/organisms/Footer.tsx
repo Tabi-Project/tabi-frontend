@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import {
-  // FaYoutube,
   FaLinkedinIn,
   FaXTwitter,
   FaFacebookF,
@@ -20,22 +19,74 @@ const NAV_COLUMNS = [
 ];
 
 const SOCIAL_LINKS = [
-  // { icon: FaYoutube, label: "YouTube", href: "#" },
-  { icon: FaLinkedinIn, label: "LinkedIn", href: "https://www.linkedin.com/company/tabi-academy/" },
-  { icon: FaXTwitter, label: "X (Twitter)", href: "https://x.com/tabi_academy" },
-  { icon: FaFacebookF, label: "Facebook", href: "https://www.facebook.com/share/1FCmY31GJe/" },
-  { icon: FaInstagram, label: "Instagram", href: " https://www.instagram.com/tabi_academy?igsh=MTE4b24yMGJ6d29peA==" },
+  {
+    icon: FaLinkedinIn,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/tabi-academy/"
+  },
+  {
+    icon: FaXTwitter,
+    label: "X (Twitter)",
+    href: "https://x.com/tabi_academy"
+  },
+  {
+    icon: FaFacebookF,
+    label: "Facebook",
+    href: "https://www.facebook.com/share/1FCmY31GJe/"
+  },
+  {
+    icon: FaInstagram,
+    label: "Instagram",
+    href: "https://www.instagram.com/tabi_academy?igsh=MTE4b24yMGJ6d29peA=="
+  },
   { icon: FaTiktok, label: "TikTok", href: "#" }
 ];
 
 type Status = "idle" | "loading" | "success" | "duplicate" | "error";
 
+function Spinner() {
+  return (
+    <svg
+      className="animate-spin"
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      fill="none"
+    >
+      <circle
+        cx="7"
+        cy="7"
+        r="5"
+        stroke="white"
+        strokeWidth="2"
+        strokeDasharray="22"
+        strokeDashoffset="7"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 export default function Footer() {
   const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
   const [status, setStatus] = useState<Status>("idle");
 
+  function validate(): boolean {
+    if (!email.trim()) {
+      setEmailError("Please enter your email address");
+      return false;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
+      setEmailError("Please enter a valid email address");
+      return false;
+    }
+    setEmailError("");
+    return true;
+  }
+
   async function handleSubscribe() {
-    if (!email.trim()) return;
+    if (!validate()) return;
     setStatus("loading");
 
     try {
@@ -50,6 +101,7 @@ export default function Footer() {
       if (json.success) {
         setStatus("success");
         setEmail("");
+        setEmailError("");
       } else if (json.error === "Already subscribed") {
         setStatus("duplicate");
       } else {
@@ -59,7 +111,6 @@ export default function Footer() {
       setStatus("error");
     }
 
-    // Reset feedback message after 4s
     setTimeout(() => setStatus("idle"), 4000);
   }
 
@@ -72,6 +123,7 @@ export default function Footer() {
   };
 
   const feedback = feedbackMessage[status];
+  const isLoading = status === "loading";
 
   return (
     <footer className="w-full bg-white text-black">
@@ -90,28 +142,50 @@ export default function Footer() {
           </p>
 
           {/* Email subscribe pill */}
-          <div className="mt-8 flex items-center bg-white border border-gray-300 rounded-full overflow-hidden pl-4 pr-1 py-1 gap-2 focus-within:border-brand-primary/50 focus-within:ring-4 focus-within:ring-brand-primary/5 transition-all duration-300">
+          <div
+            className={`mt-8 flex items-center bg-white border rounded-full overflow-hidden pl-4 pr-1 py-1 gap-2 transition-all duration-300 ${
+              emailError
+                ? "border-red-400 ring-2 ring-red-100"
+                : "border-gray-300 focus-within:border-brand-primary/50 focus-within:ring-4 focus-within:ring-brand-primary/5"
+            }`}
+          >
             <input
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                if (emailError) setEmailError("");
+              }}
               onKeyDown={(e) => e.key === "Enter" && handleSubscribe()}
               placeholder="Enter your email"
-              disabled={status === "loading"}
+              disabled={isLoading}
               className="flex-1 min-w-0 bg-transparent text-sm text-[#1a1a2e] placeholder:text-gray-400 outline-none disabled:opacity-50"
             />
             <button
               type="button"
               onClick={handleSubscribe}
-              disabled={status === "loading" || !email.trim()}
-              className="shrink-0 bg-brand-primary hover:bg-brand-secondary transition-colors text-white text-sm font-semibold rounded-full px-5 py-2.5 cursor-pointer shadow-sm active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
+              disabled={isLoading}
+              className="shrink-0 bg-brand-primary hover:bg-brand-secondary transition-colors text-white text-sm font-semibold rounded-full px-5 py-2.5 cursor-pointer shadow-sm active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed flex items-center gap-2"
             >
-              {status === "loading" ? "..." : "Subscribe"}
+              {isLoading ? (
+                <>
+                  <Spinner /> Subscribing...
+                </>
+              ) : (
+                "Subscribe"
+              )}
             </button>
           </div>
 
-          {/* Feedback message */}
-          {feedback && (
+          {/* Field error */}
+          {emailError && (
+            <p className="mt-2 text-xs font-medium text-red-500">
+              {emailError}
+            </p>
+          )}
+
+          {/* Status feedback */}
+          {feedback && !emailError && (
             <p className={`mt-2 text-xs font-medium ${feedback.color}`}>
               {feedback.text}
             </p>
@@ -158,12 +232,10 @@ export default function Footer() {
             className="object-contain"
           />
         </div>
-
         <p className="text-xs text-black text-center">
           ©{new Date().getFullYear()} TEE Foundation Inc. All rights reserved.{" "}
           Various trademarks held by their respective owners.
         </p>
-
         <div className="flex items-center gap-4 shrink-0">
           {SOCIAL_LINKS.map(({ icon: Icon, label, href }) => (
             <Link

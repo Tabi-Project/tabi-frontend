@@ -1,15 +1,51 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/atoms/Button";
 
-const AMOUNTS = ["5000 NGN", "10,000 NGN", "20,000 NGN", "50,000 NGN"];
+const AMOUNTS = ["5,000 NGN", "10,000 NGN", "20,000 NGN", "50,000 NGN"];
 const FREQUENCIES = ["One-Time", "Monthly", "Quarterly", "Annually"];
 
 type SubmitStatus = "idle" | "loading" | "success" | "error";
 
 interface DonationModalProps {
   onClose: () => void;
+}
+
+// Format number with commas + NGN suffix
+function formatAmount(raw: string): string {
+  const digits = raw.replace(/\D/g, "");
+  if (!digits) return "";
+  return Number(digits).toLocaleString("en-NG") + " NGN";
+}
+
+// Spinning loader
+function Spinner() {
+  return (
+    <svg
+      className="animate-spin"
+      width="18"
+      height="18"
+      viewBox="0 0 18 18"
+      fill="none"
+    >
+      <circle
+        cx="9"
+        cy="9"
+        r="7"
+        stroke="white"
+        strokeWidth="2"
+        strokeDasharray="30"
+        strokeDashoffset="10"
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
+function FieldError({ msg }: { msg?: string }) {
+  if (!msg) return null;
+  return <p className="text-xs text-red-500 mt-1.5 ml-4 font-medium">{msg}</p>;
 }
 
 export default function DonationModal({ onClose }: DonationModalProps) {
@@ -23,12 +59,43 @@ export default function DonationModal({ onClose }: DonationModalProps) {
   const [copied, setCopied] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>("idle");
   const [submitError, setSubmitError] = useState("");
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const amount = selectedAmount || customAmount;
+  // Close dropdown on outside click
+  useEffect(() => {
+    function handler(e: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
+        setDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handler);
+    return () => document.removeEventListener("mousedown", handler);
+  }, []);
+
+  // Raw custom amount (digits only for input), formatted for display
+  const [customRaw, setCustomRaw] = useState("");
+
+  const displayAmount =
+    selectedAmount ?? (customRaw ? formatAmount(customRaw) : "");
+
+  function validate(): boolean {
+    const newErrors: Record<string, string> = {};
+    if (!name.trim()) newErrors.name = "Please enter your name";
+    if (!email.trim()) newErrors.email = "Please enter your email";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()))
+      newErrors.email = "Please enter a valid email address";
+    if (!displayAmount) newErrors.amount = "Please select or enter an amount";
+    if (!frequency) newErrors.frequency = "Please select a donation frequency";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  }
 
   async function handleDonate() {
-    if (!amount || !name.trim() || !email.trim()) return;
-
+    if (!validate()) return;
     setSubmitStatus("loading");
     setSubmitError("");
 
@@ -39,23 +106,24 @@ export default function DonationModal({ onClose }: DonationModalProps) {
         body: JSON.stringify({
           name: name.trim(),
           email: email.trim(),
-          amount,
+          amount: displayAmount,
           frequency: frequency || "One-Time"
         })
       });
-
       const json = await res.json();
-
       if (json.success) {
         setSubmitStatus("success");
+        setErrors({});
         setShowBankDetails(true);
       } else {
         setSubmitStatus("error");
         setSubmitError(json.error || "Something went wrong. Please try again.");
+        setTimeout(() => setSubmitStatus("idle"), 4000);
       }
     } catch {
       setSubmitStatus("error");
       setSubmitError("Network error. Please try again.");
+      setTimeout(() => setSubmitStatus("idle"), 4000);
     }
   }
 
@@ -65,14 +133,17 @@ export default function DonationModal({ onClose }: DonationModalProps) {
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const inputClass =
+    "w-full rounded-full border border-[#e5e5e5] px-4 py-3 text-sm text-[#333] placeholder-[#bbb] focus:outline-none focus:border-brand-primary transition-colors duration-200";
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
       style={{ background: "rgba(0,0,0,0.45)", backdropFilter: "blur(4px)" }}
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
-      <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl p-8">
-        {/* ── Bank details screen ───────────────────────────────── */}
+      <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl p-8 max-h-[90vh] overflow-y-auto">
+        {/* ── Bank details screen ── */}
         {showBankDetails ? (
           <>
             <div className="flex items-center justify-between mb-8">
@@ -81,7 +152,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                   setShowBankDetails(false);
                   setSubmitStatus("idle");
                 }}
-                className="flex items-center gap-2 text-sm text-[#888] hover:text-brand-primary transition-colors duration-200"
+                className="flex items-center gap-2 text-sm text-[#888] hover:text-brand-primary transition-colors duration-200 cursor-pointer"
               >
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path
@@ -96,7 +167,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
               </button>
               <button
                 onClick={onClose}
-                className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-brand-surface text-[#888] hover:text-brand-primary transition-colors duration-200"
+                className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-brand-surface text-[#888] hover:text-brand-primary transition-colors cursor-pointer"
               >
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path
@@ -197,7 +268,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                     </span>
                     <button
                       onClick={copyAccountNumber}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 active:scale-95"
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 active:scale-95 cursor-pointer"
                       style={{
                         background: copied ? "#71286F" : "#f3e8ff",
                         color: copied ? "white" : "#71286F"
@@ -254,7 +325,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
               </div>
             </div>
 
-            {amount && (
+            {displayAmount && (
               <div
                 className="rounded-xl px-4 py-3 mb-6 flex items-center gap-3"
                 style={{ background: "#f0fdf4", border: "1px solid #bbf7d0" }}
@@ -276,7 +347,8 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                   />
                 </svg>
                 <p className="text-sm text-[#166534]">
-                  Please transfer <span className="font-bold">{amount}</span>
+                  Please transfer{" "}
+                  <span className="font-bold">{displayAmount}</span>
                   {frequency && <> ({frequency})</>} to the account above.
                 </p>
               </div>
@@ -293,14 +365,14 @@ export default function DonationModal({ onClose }: DonationModalProps) {
           </>
         ) : (
           <>
-            {/* ── Donation form ─────────────────────────────────── */}
+            {/* ── Donation form ── */}
             <div className="flex items-center justify-between mb-7">
               <h2 className="text-xl font-extrabold text-[#1a1a2e]">
                 Donation Form
               </h2>
               <button
                 onClick={onClose}
-                className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-brand-surface text-[#888] hover:text-brand-primary transition-colors duration-200"
+                className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-brand-surface text-[#888] hover:text-brand-primary transition-colors cursor-pointer"
               >
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path
@@ -323,9 +395,13 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                   type="text"
                   placeholder="Enter your name"
                   value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="w-full rounded-full border border-[#e5e5e5] px-4 py-3 text-sm text-[#333] placeholder-[#bbb] focus:outline-none focus:border-brand-primary transition-colors duration-200"
+                  onChange={(e) => {
+                    setName(e.target.value);
+                    setErrors((p) => ({ ...p, name: "" }));
+                  }}
+                  className={`${inputClass} ${errors.name ? "border-red-400" : ""}`}
                 />
+                <FieldError msg={errors.name} />
               </div>
               <div>
                 <label className="block text-xs font-semibold text-[#333] mb-2">
@@ -335,9 +411,13 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                   type="email"
                   placeholder="abcd@gmail.com"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full rounded-full border border-[#e5e5e5] px-4 py-3 text-sm text-[#333] placeholder-[#bbb] focus:outline-none focus:border-brand-primary transition-colors duration-200"
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    setErrors((p) => ({ ...p, email: "" }));
+                  }}
+                  className={`${inputClass} ${errors.email ? "border-red-400" : ""}`}
                 />
+                <FieldError msg={errors.email} />
               </div>
             </div>
 
@@ -352,9 +432,11 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                     key={amt}
                     onClick={() => {
                       setSelectedAmount(amt);
+                      setCustomRaw("");
                       setCustomAmount("");
+                      setErrors((p) => ({ ...p, amount: "" }));
                     }}
-                    className="rounded-full px-4 py-2 text-sm font-medium border transition-all duration-200 active:scale-95"
+                    className="rounded-full px-4 py-2 text-sm font-medium border transition-all duration-200 active:scale-95 cursor-pointer"
                     style={{
                       background:
                         selectedAmount === amt ? "#71286F" : "#FDF8F8",
@@ -367,16 +449,27 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                   </button>
                 ))}
               </div>
-              <input
-                type="text"
-                placeholder="Enter custom amount"
-                value={customAmount}
-                onChange={(e) => {
-                  setCustomAmount(e.target.value);
-                  setSelectedAmount(null);
-                }}
-                className="w-full rounded-full border border-[#e5e5e5] px-4 py-3 text-sm text-[#333] placeholder-[#bbb] focus:outline-none focus:border-brand-primary transition-colors duration-200"
-              />
+              {/* Number input — formats on blur */}
+              <div className="relative">
+                <input
+                  type="number"
+                  placeholder="Or enter custom amount"
+                  value={customRaw}
+                  onChange={(e) => {
+                    setCustomRaw(e.target.value);
+                    setSelectedAmount(null);
+                  }}
+                  className={inputClass}
+                  min="0"
+                  style={{ appearance: "none", MozAppearance: "textfield" }}
+                />
+                {customRaw && (
+                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-xs text-brand-primary font-semibold pointer-events-none">
+                    = {formatAmount(customRaw)}
+                  </span>
+                )}
+              </div>
+              <FieldError msg={errors.amount} />
             </div>
 
             {/* Frequency */}
@@ -384,10 +477,10 @@ export default function DonationModal({ onClose }: DonationModalProps) {
               <label className="block text-xs font-semibold text-[#333] mb-3">
                 Donation Frequency
               </label>
-              <div className="relative">
+              <div className="relative" ref={dropdownRef}>
                 <button
                   onClick={() => setDropdownOpen(!dropdownOpen)}
-                  className="w-full flex items-center justify-between rounded-full border border-[#E1E3EA] px-4 py-3 text-sm text-left transition-colors duration-200 focus:outline-none focus:border-brand-primary"
+                  className="w-full flex items-center justify-between rounded-full border border-[#E1E3EA] px-4 py-3 text-sm text-left transition-colors duration-200 focus:outline-none focus:border-brand-primary cursor-pointer"
                   style={{ color: frequency ? "#333" : "#bbb" }}
                 >
                   {frequency || "Select frequency"}
@@ -413,15 +506,16 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                   </svg>
                 </button>
                 {dropdownOpen && (
-                  <div className="absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl border border-[#ede8f5] shadow-lg overflow-hidden z-10">
+                  <div className="absolute bottom-full left-0 right-0 mb-2 bg-white rounded-2xl border border-[#ede8f5] shadow-lg overflow-hidden z-10">
                     {FREQUENCIES.map((f) => (
                       <button
                         key={f}
                         onClick={() => {
                           setFrequency(f);
                           setDropdownOpen(false);
+                          setErrors((p) => ({ ...p, frequency: "" }));
                         }}
-                        className="w-full text-left px-5 py-3.5 text-sm transition-colors duration-150 hover:bg-brand-surface"
+                        className="w-full text-left px-5 py-3.5 text-sm transition-colors duration-150 hover:bg-brand-surface cursor-pointer"
                         style={{
                           background: frequency === f ? "#fdf7ff" : "white",
                           color: frequency === f ? "#71286F" : "#333",
@@ -434,9 +528,10 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                   </div>
                 )}
               </div>
+              <FieldError msg={errors.frequency} />
             </div>
 
-            {/* Error message */}
+            {/* Error */}
             {submitStatus === "error" && (
               <p className="text-xs text-red-500 font-medium mb-4 text-center">
                 {submitError}
@@ -452,14 +547,15 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                 variant="primary"
                 size="md"
                 onClick={handleDonate}
-                disabled={
-                  (!selectedAmount && !customAmount) ||
-                  !name.trim() ||
-                  !email.trim() ||
-                  submitStatus === "loading"
-                }
+                disabled={submitStatus === "loading"}
               >
-                {submitStatus === "loading" ? "Saving..." : "Donate Now"}
+                {submitStatus === "loading" ? (
+                  <span className="flex items-center gap-2">
+                    <Spinner /> Processing...
+                  </span>
+                ) : (
+                  "Donate Now"
+                )}
               </Button>
             </div>
           </>

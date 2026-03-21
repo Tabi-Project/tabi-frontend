@@ -1,4 +1,6 @@
 import { WHO_ITS_FOR } from "@/constants/consultancy";
+import Link from "next/link";
+import { Button } from "@/components/atoms/Button";
 
 export default function WhoItsFor() {
   return (
@@ -13,34 +15,40 @@ export default function WhoItsFor() {
             >
               Who It&apos;s For
             </span>
-            <h2 className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-bold text-[#1a1a2e] leading-snug mb-4">
-              This is for you if&hellip;
+            <h2 className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-extrabold text-[#1a1a2e] leading-snug mb-6">
+              Built for{" "}
+              <span className="text-brand-primary">
+                women who mean business
+              </span>
             </h2>
-            <p className="text-base text-[#666] leading-relaxed">
-              Our consultancy is open to any entrepreneur or business owner who
-              wants to grow — no matter what stage you&apos;re at.
+            <p className="text-base text-[#666] leading-relaxed mb-8">
+              Whether you&apos;re just starting out or already running a
+              business that needs a breakthrough — this consultancy is designed
+              for you.
             </p>
+            <Link href="#apply">
+              <Button variant="primary" size="md">
+                Apply for Your Slot
+              </Button>
+            </Link>
           </div>
 
-          {/* Right — checklist */}
-          <div className="flex flex-col gap-4">
+          {/* Right — checklist cards */}
+          <div className="flex flex-col gap-3">
             {WHO_ITS_FOR.map((item, i) => (
-              <div key={i} className="flex items-start gap-4">
+              <div
+                key={i}
+                className="flex items-center gap-4 rounded-xl px-5 py-4 border border-[#F0E8F5] bg-[#FDF4FF] hover:border-brand-primary hover:bg-white transition-all duration-200"
+              >
                 <span
-                  className="w-6 h-6 rounded-full flex items-center justify-center shrink-0 mt-0.5"
-                  style={{ background: "#F3E8FF" }}
+                  className="w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-white text-xs font-extrabold"
+                  style={{ background: "#71286F" }}
                 >
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                    <path
-                      d="M2 6l3 3 5-5"
-                      stroke="#71286F"
-                      strokeWidth="1.8"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  {i + 1}
                 </span>
-                <p className="text-sm text-[#444] leading-relaxed">{item}</p>
+                <p className="text-sm font-medium text-[#333] leading-snug">
+                  {item}
+                </p>
               </div>
             ))}
           </div>
