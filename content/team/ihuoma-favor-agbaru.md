@@ -14,9 +14,10 @@ bio: >-
 
   My mission is clear: to move women from interest to capability, and from capability to economic power.
 hobbies:
+  - "Reading "
   - "Playing Scrabble "
-  - Reading
   - "Horse racing "
-  - Streaming Movies
+  - Movies
+  - Evangelizing Christ
 order: 2
 ---
