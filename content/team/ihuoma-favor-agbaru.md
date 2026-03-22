@@ -1,7 +1,7 @@
 ---
 name: Ihuoma Favor Agbaru
 role: CO-DIRECTOR
-image: /uploads/img_4614-edited.png
+image: /uploads/1000931386.jpg
 bio: >-
   My bio
 
