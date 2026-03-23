@@ -1,19 +1,19 @@
 ---
-title: Tabi Academy Launches AI for Business Programme for Women Across Africa
+title: Tabi Academy Launches Free AI for Business Programme for Women Across Africa
 category: news
 date: March 20, 2026
 author: TEE Foundation Team
 readTime: 4 minutes read
 excerpt: Tabi Academy by TEE Foundation has officially announced the launch of
-  its AI for Business training programme — a free, live two-week cohort designed
-  exclusively for women in business across Africa who want to harness the power
-  of artificial intelligence without any technical background.
+  its AI for Business training programme — a quality, live two-week cohort
+  designed exclusively for women in business across Africa who want to harness
+  the power of artificial intelligence without any technical background.
 image: /uploads/tee-foundation-free-ai-for-business-programme.jpg
 featured: true
 ---
 ## Tabi Academy Opens Applications for Its Most Ambitious Programme Yet
 
-Tabi Academy by TEE Foundation has officially announced the launch of its AI for Business training programme — a free, live two-week cohort designed exclusively for women in business across Africa who want to harness the power of artificial intelligence without any technical background required..
+Tabi Academy by TEE Foundation has officially announced the launch of its AI for Business training programme — a quality, live two-week cohort designed exclusively for women in business across Africa who want to harness the power of artificial intelligence without any technical background required..
 
 The programme, which opens to a maximum of 50 participants per cohort, is set to become one of the most practical and accessible AI training initiatives on the continent targeted specifically at women entrepreneurs and professionals.
 
@@ -23,7 +23,7 @@ Over the course of two weeks, participants will attend four live sessions, each 
 
 By the end of the programme, graduates will have built a live website or application, deployed an AI agent running a real task in their business, created a complete brand kit using AI-powered design tools, and earned a verified AI for Business certificate upon passing the final assessment.
 
-"We designed this programme because we kept hearing the same thing from women across Africa — they knew AI was changing the world, but they did not know where to start," said Sophia Ahuoyiza Abubakar, Director of TEE Foundation. "This programme removes every barrier. It is free, it is live, it is practical, and it is built specifically for how women in business actually work."
+"We designed this programme because we kept hearing the same thing from women across Africa — they knew AI was changing the world, but they did not know where to start," said [Sophia Ahuoyiza Abubakar](https://www.linkedin.com/in/sophia-abubakar/), Director of TEE Foundation. "This programme removes every barrier. It is free, it is live, it is practical, and it is built specifically for how women in business actually work."
 
 ## Who Can Apply
 
