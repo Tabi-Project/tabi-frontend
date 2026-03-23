@@ -8,7 +8,7 @@ order: 2
 href: " /ai-for-businesses"
 images:
   - /uploads/ai-business-hero-3.png
-video: '"https://www.youtube.com/embed/qsMnoms--EY?si=LP0A3MKQokt3tXxQ'
+video: ""
 videoThumb: /uploads/ai-business-video-thumb.png
 hasTestimonial: false
 published: true
