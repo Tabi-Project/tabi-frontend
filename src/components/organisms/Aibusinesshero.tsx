@@ -11,7 +11,12 @@ export default function AIBusinessHero() {
 
   return (
     <>
-      <section className="relative w-full overflow-hidden bg-white">
+      <section
+        className="relative w-full overflow-hidden bg-white"
+        // ─── NEW UPDATE: Dynamic padding based on Navbar ───
+        style={{ paddingTop: "var(--nav-height, 96px)" }}
+        // 96px is the CSS equivalent of pt-24 (24 * 4px)
+      >
         {/* ── Subtle background texture ── */}
         <div
           className="absolute inset-0 pointer-events-none"
@@ -23,10 +28,13 @@ export default function AIBusinessHero() {
         />
 
         {/* ── Hero content ── */}
-        <div className="relative mx-auto max-w-350 px-6 sm:px-12 lg:px-20 pt-24 pb-0">
+        {/* Removed pt-24 from className since it's now handled by the style prop above */}
+        <div className="relative mx-auto max-w-350 px-6 sm:px-12 lg:px-20 pb-0">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Left: copy */}
-            <div className="flex flex-col items-start">
+            <div className="flex flex-col items-start py-12 lg:py-20">
+              {/* Added vertical padding here to keep the content centered and airy */}
+
               {/* Eyebrow */}
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-primary/30 bg-brand-surface px-4 py-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-primary animate-pulse" />
@@ -150,6 +158,7 @@ export default function AIBusinessHero() {
                   fill
                   className="object-cover"
                   priority
+                  quality={85}
                 />
                 {/* overlay gradient */}
                 <div className="absolute inset-0 bg-linear-to-t from-brand-primary/30 to-transparent" />

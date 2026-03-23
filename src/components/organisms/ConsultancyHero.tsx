@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/atoms/Button";
@@ -10,8 +12,12 @@ import {
 
 export default function ConsultancyHero() {
   return (
-    <section className="w-full bg-white overflow-hidden">
-      {/* Top urgency bar */}
+    <section
+      className="w-full bg-white overflow-hidden"
+      // ─── NEW UPDATE: Dynamic padding to offset the fixed Navbar ───
+      style={{ paddingTop: "var(--nav-height, 80px)" }}
+    >
+      {/* Top urgency bar - will now start exactly where the Nav ends */}
       <div
         className="w-full py-3 px-6 text-center text-sm font-semibold text-white"
         style={{ background: "#71286F" }}
@@ -23,7 +29,7 @@ export default function ConsultancyHero() {
         — Only {TOTAL_SLOTS} slots available
       </div>
 
-      <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 pt-16 lg:pt-24">
+      <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 pt-12 lg:pt-20">
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-20 items-center pb-20 lg:pb-28">
           {/* Left — copy */}
           <div>
@@ -59,6 +65,7 @@ export default function ConsultancyHero() {
                   viewBox="0 0 300 6"
                   fill="none"
                   preserveAspectRatio="none"
+                  aria-hidden
                 >
                   <path
                     d="M0 4 Q37.5 0 75 4 Q112.5 8 150 4 Q187.5 0 225 4 Q262.5 8 300 4"
@@ -75,9 +82,9 @@ export default function ConsultancyHero() {
 
             <p className="text-base sm:text-lg text-[#555] leading-relaxed mb-8 max-w-lg">
               Every month, TEE Foundation selects 5 women-led businesses for a
-              free one-on-one expert consultancy session. We&apos;ll help you solve
-              real challenges across Marketing, Finance, Tech, Strategy and
-              Sales.
+              free one-on-one expert consultancy session. We&apos;ll help you
+              solve real challenges across Marketing, Finance, Tech, Strategy
+              and Sales.
             </p>
 
             {/* Focus area pills */}
@@ -135,6 +142,7 @@ export default function ConsultancyHero() {
                   "radial-gradient(circle, #71286F 1.5px, transparent 1.5px)",
                 backgroundSize: "12px 12px"
               }}
+              aria-hidden
             />
 
             {/* Main image */}
@@ -145,6 +153,7 @@ export default function ConsultancyHero() {
                 fill
                 className="object-cover"
                 priority
+                quality={85}
               />
               <div
                 className="absolute inset-0"

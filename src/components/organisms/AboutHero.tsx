@@ -60,6 +60,8 @@ function InfiniteStrip() {
             fill
             className="object-cover object-center"
             sizes="280px"
+            priority
+            quality={85}
           />
         </div>
       ))}
@@ -69,11 +71,16 @@ function InfiniteStrip() {
 
 export default function AboutHero() {
   return (
-    <section className="w-full bg-white overflow-hidden relative">
+    <section
+      className="w-full bg-white overflow-hidden relative"
+      // ─── NEW UPDATE: Dynamic padding based on Navbar ───
+      style={{ paddingTop: "var(--nav-height, 96px)" }}
+    >
+      {/* ── Background Glow Blobs (Adjusted for Nav height) ── */}
       <div
         className="absolute pointer-events-none"
         style={{
-          top: 0,
+          top: "var(--nav-height, 0px)", // Starts at the bottom of nav
           left: 0,
           width: 120,
           height: 120,
@@ -87,7 +94,7 @@ export default function AboutHero() {
       <div
         className="absolute pointer-events-none"
         style={{
-          top: 240,
+          top: "calc(var(--nav-height, 0px) + 240px)", // Offset by nav height
           right: 60,
           width: 120,
           height: 120,
@@ -99,7 +106,9 @@ export default function AboutHero() {
         }}
       />
 
-      <div className="relative w-full flex flex-col items-center justify-center text-center px-6 pt-24 pb-16">
+      {/* ── Content ── */}
+      {/* Removed pt-24 from className as it's now in the section style */}
+      <div className="relative w-full flex flex-col items-center justify-center text-center px-6 py-16">
         <div className="relative z-10 max-w-3xl mx-auto">
           <h1
             className="text-[clamp(3rem,8vw,6rem)] font-bold leading-tight mb-6"

@@ -99,9 +99,14 @@ const ALL_TAGS = [
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full overflow-hidden bg-[#fdf7ff] pt-12 md:pt-20 pb-0">
+    <section
+      className="relative w-full overflow-hidden bg-[#fdf7ff] pb-0"
+      // ─── NEW UPDATE: Dynamic padding based on Navbar ───
+      style={{ paddingTop: "var(--nav-height, 80px)" }}
+      // ──────────────────────────────────────────────────
+    >
       {/* ── Headline copy ── */}
-      <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 mb-8 md:mb-16">
+      <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 mb-8 md:mb-16 pt-12 md:pt-20">
         <h1 className="text-[clamp(1.9rem,6vw,4rem)] font-extrabold leading-tight tracking-tight text-[#1a1a2e]">
           Empowering <span className="text-brand-primary italic">Futures,</span>
           <Image
@@ -111,6 +116,8 @@ export default function HeroSection() {
             height={84}
             className="inline-block -ml-2 md:-ml-3 mb-4 md:mb-6 w-12 h-12 md:w-20 md:h-20"
             aria-hidden
+            priority
+            quality={85}
           />
           <br />
           Transforming Communities
@@ -134,16 +141,10 @@ export default function HeroSection() {
       </div>
 
       {/* ── Orbit stage ── */}
-      {/*
-        On mobile we shrink the stage and pull the tags closer in (radiusPct 44).
-        On desktop it expands to 820px as before.
-        We also add extra bottom padding so orbiting tags don't clip.
-      */}
       <div
         className="relative mx-auto pb-16 sm:pb-10 md:pb-0 "
         style={{ width: "min(820px, 92vw)", aspectRatio: "1/1" }}
       >
-        {/* Hero image */}
         <div className="absolute inset-0">
           <Image
             src={withBasePath("/hero-image.png")}
@@ -154,7 +155,6 @@ export default function HeroSection() {
           />
         </div>
 
-        {/* Rotating wrapper */}
         <div
           className="absolute inset-0"
           style={{ animation: "orbit-cw 20s linear infinite" }}
@@ -184,13 +184,7 @@ export default function HeroSection() {
           from { transform: translate(-50%, -50%) rotate(0deg); }
           to   { transform: translate(-50%, -50%) rotate(-360deg); }
         }
-
-        /* Slow down orbit on small screens so tags don't feel frantic */
         @media (max-width: 640px) {
-          @keyframes orbit-cw {
-            from { transform: rotate(0deg); }
-            to   { transform: rotate(360deg); }
-          }
           .orbit-stage > div {
             animation-duration: 28s !important;
           }

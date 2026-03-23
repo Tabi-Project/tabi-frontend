@@ -34,9 +34,10 @@ export default function AcademyGrid({ project }: { project: CMSProject }) {
           src={images[0]}
           alt="Students collaborating"
           fill
-          priority
+          loading="lazy"
           sizes="(max-width: 640px) 45vw, 350px"
           className="object-cover"
+          quality={75}
         />
       </div>
       <div className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
@@ -47,6 +48,7 @@ export default function AcademyGrid({ project }: { project: CMSProject }) {
           sizes="(max-width: 640px) 45vw, 350px"
           className="object-cover"
           loading="lazy"
+          quality={75}
         />
       </div>
       <div className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
@@ -57,6 +59,7 @@ export default function AcademyGrid({ project }: { project: CMSProject }) {
           sizes="(max-width: 640px) 45vw, 350px"
           className="object-cover"
           loading="lazy"
+          quality={75}
         />
       </div>
     </div>

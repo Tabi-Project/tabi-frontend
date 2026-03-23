@@ -42,6 +42,8 @@ export default function DonateCard({ onDonateClick }: DonateCardProps) {
           alt="Donation jar"
           fill
           className="object-contain object-bottom"
+          loading="lazy"
+          quality={75}
         />
       </div>
     </div>

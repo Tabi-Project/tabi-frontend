@@ -44,6 +44,7 @@ export default function TabiProjectGrid({ project }: { project: CMSProject }) {
               sizes="(max-width: 640px) 45vw, 350px"
               className="object-contain"
               loading="lazy"
+              quality={75}
             />
           </div>
         </div>

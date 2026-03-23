@@ -34,6 +34,7 @@ export default function PurpleGuildGrid({ project }: { project: CMSProject }) {
           sizes="(max-width: 640px) 45vw, 350px"
           className="object-contain p-6"
           loading="lazy"
+          quality={75}
         />
       </div>
       <div className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
@@ -44,6 +45,7 @@ export default function PurpleGuildGrid({ project }: { project: CMSProject }) {
           sizes="(max-width: 640px) 45vw, 350px"
           className="object-cover"
           loading="lazy"
+          quality={75}
         />
       </div>
       <div className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
@@ -54,6 +56,7 @@ export default function PurpleGuildGrid({ project }: { project: CMSProject }) {
           sizes="(max-width: 640px) 45vw, 350px"
           className="object-cover"
           loading="lazy"
+          quality={75}
         />
       </div>
     </div>
