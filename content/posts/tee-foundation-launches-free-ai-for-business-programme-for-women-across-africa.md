@@ -1,5 +1,5 @@
 ---
-title: Tabi Academy Launches Free AI for Business Programme for Women Across Africa
+title: Tabi Academy Launches AI for Business Programme for Women Across Africa
 category: news
 date: March 20, 2026
 author: TEE Foundation Team
