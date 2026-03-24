@@ -8,7 +8,7 @@ excerpt: Tabi Academy by TEE Foundation has officially announced the launch of
   its AI for Business training programme — a quality, live two-week cohort
   designed exclusively for women in business across Africa who want to harness
   the power of artificial intelligence without any technical background.
-image: /uploads/tee-foundation-free-ai-for-business-programme.jpg
+image: /uploads/tee-foundation-free-ai-for-business-programme.jpeg
 featured: true
 ---
 ## Tabi Academy Opens Applications for Its Most Ambitious Programme Yet
