@@ -4,12 +4,9 @@ import WhoItsFor from "@/components/organisms/WhoItsFor";
 import HowItWorks from "@/components/organisms/HowItWorks";
 import ConsultancyApplySection from "@/components/organisms/ConsultancyApplySection";
 import ConsultancyFAQSection from "@/components/organisms/ConsultancyFAQSection";
+import { consultancyMetadata } from "@/seo/page-metadata";
 
-export const metadata = {
-  title: "Free Business Consultancy | TEE Foundation",
-  description:
-    "Apply for a free one-on-one business consultancy session with TEE Foundation. 5 slots available every month for African entrepreneurs and women-led businesses."
-};
+export const metadata = consultancyMetadata;
 
 export default function ConsultancyPage() {
   return (

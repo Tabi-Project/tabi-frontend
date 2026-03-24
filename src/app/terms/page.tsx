@@ -1,5 +1,8 @@
 import LegalPageLayout from "@/components/organisms/LegalPageLayout";
 import { TERMS_SECTIONS, TERMS_META } from "@/data/terms";
+import { termsMetadata } from "@/seo/page-metadata";
+
+export const metadata = termsMetadata;
 
 export default function TermsPage() {
   return (

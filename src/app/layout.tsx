@@ -8,14 +8,78 @@ import ScrollRestoration from "@/components/atoms/ScrollRestoration";
 
 const lato = Lato({
   subsets: ["latin"],
-  weight: ["100", "300", "400", "700", "900"]
+  weight: ["100", "300", "400", "700", "900"],
+  display: "swap"
 });
 
-export const dynamic = "force-dynamic";
+const BASE_URL = "https://tabiproject.com";
 
 export const metadata: Metadata = {
-  title: "Tabi Academy | Empowering Futures",
-  description: "Transforming communities through education and innovation."
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: "TEE Foundation | Tabi Empowerment & Educational Foundation",
+    template: "%s | TEE Foundation"
+  },
+  description:
+    "Tabi Empowerment and Educational (TEE) Foundation empowers African women through technology education, mentorship, and community programs. Join our growing community.",
+  keywords: [
+    "TEE Foundation",
+    "Tabi Foundation",
+    "women in tech Africa",
+    "tech education Africa",
+    "AI training women",
+    "empowerment foundation Nigeria",
+    "women empowerment technology",
+    "Tabi Academy"
+  ],
+  authors: [{ name: "TEE Foundation", url: BASE_URL }],
+  creator: "TEE Foundation",
+  publisher: "TEE Foundation",
+  openGraph: {
+    type: "website",
+    locale: "en_NG",
+    url: BASE_URL,
+    siteName: "TEE Foundation",
+    title: "TEE Foundation | Tabi Empowerment & Educational Foundation",
+    description:
+      "Empowering African women through technology education, mentorship, and community programs.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "TEE Foundation — Empowering African Women Through Tech"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@tabi_academy",
+    creator: "@tabi_academy",
+    title: "TEE Foundation | Tabi Empowerment & Educational Foundation",
+    description:
+      "Empowering African women through technology education, mentorship, and community programs.",
+    images: ["/og-image.png"]
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1
+    }
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png"
+  },
+  manifest: "/site.webmanifest",
+  alternates: {
+    canonical: BASE_URL
+  }
 };
 
 export default function RootLayout({
@@ -26,7 +90,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        {/* Netlify Identity Widget — required for Decap CMS login */}
         <Script
           src="https://identity.netlify.com/v1/netlify-identity-widget.js"
           strategy="beforeInteractive"
@@ -37,8 +100,6 @@ export default function RootLayout({
         <Navbar />
         <main className="min-h-screen">{children}</main>
         <Footer />
-
-        {/* Redirect to /admin after Netlify Identity login */}
         <Script
           id="netlify-identity-redirect"
           strategy="afterInteractive"

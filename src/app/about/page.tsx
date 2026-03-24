@@ -2,12 +2,9 @@ import AboutHero from "@/components/organisms/AboutHero";
 import GetInvolved from "@/components/organisms/GetInvolved";
 import OurPhilosophy from "@/components/organisms/Ourphilosophy";
 import TheTeam from "@/components/organisms/TheTeam";
+import { aboutMetadata } from "@/seo/page-metadata";
 
-export const metadata = {
-  title: "About Us | TEE Foundation",
-  description:
-    "We are a non-profit organization training 5000 African women in tech — bridging the gap through education, research, and open-source.",
-};
+export const metadata = aboutMetadata;
 
 export default function AboutPage() {
   return (

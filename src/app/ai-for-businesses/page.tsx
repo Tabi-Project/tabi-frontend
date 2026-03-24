@@ -8,12 +8,9 @@ import AIBusinessAudience from "@/components/organisms/Aibusinessaudience";
 import AIBusinessCertification from "@/components/organisms/Aibusinesscertification";
 import AIBusinessFAQ from "@/components/organisms/Aibusinessfaq";
 import AIBusinessCTA from "@/components/organisms/Aibusinesscta";
+import { aiForBusinessMetadata } from "@/seo/page-metadata";
 
-export const metadata = {
-  title: "AI for Businesses | Tabi Academy",
-  description:
-    "A hands-on, live 2-week training programme equipping women in business with real AI skills. No technical background required."
-};
+export const metadata = aiForBusinessMetadata;
 
 export default function AIForBusinessesPage() {
   return (

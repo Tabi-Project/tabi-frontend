@@ -7,12 +7,10 @@ import {
   getFeaturedEvents
 } from "@/lib/cms";
 import ResourcesTabs from "@/components/organisms/Resourcestabs";
+import { resourcesMetadata } from "@/seo/page-metadata";
 
-export const metadata = {
-  title: "Resources | TEE Foundation",
-  description:
-    "Explore the latest news, blog posts, events and webinars from TEE Foundation."
-};
+
+export const metadata = resourcesMetadata;
 
 export default function ResourcesPage() {
   const newsPosts = getNewsPosts();

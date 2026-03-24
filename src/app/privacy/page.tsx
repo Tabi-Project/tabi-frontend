@@ -1,5 +1,8 @@
 import LegalPageLayout from "@/components/organisms/LegalPageLayout";
 import { PRIVACY_SECTIONS, PRIVACY_META } from "@/data/privacy";
+import { privacyMetadata } from "@/seo/page-metadata";
+
+export const metadata = privacyMetadata;
 
 export default function PrivacyPage() {
   return (
