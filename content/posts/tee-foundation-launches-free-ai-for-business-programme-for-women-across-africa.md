@@ -29,11 +29,11 @@ By the end of the programme, graduates will have built a live website or applica
 
 The programme is open to women-led businesses at any stage, professionals looking to future-proof their careers, founders building startups, and entrepreneurs who want to integrate technology into their daily operations.
 
-No prior technical knowledge is required. The only prerequisites are ambition, a real business context, and the commitment to show up for four hours a day across the two-week training period.
+No prior technical knowledge is required. The only prerequisites are ambition, a real business context, and the commitment to show up for four hours a day across the two-week training period. 
 
 ## How to Apply
 
-Applications for the next cohort are now open. Interested participants can apply directly through the TEE Foundation website or click <https://bit.ly/ai-tools-register>. Cohort sizes are limited to 50 participants to ensure every learner receives a high-quality, interactive experience.
+Applications for the next cohort are now open. Interested participants can apply directly through the TEE Foundation website or click** <https://bit.ly/ai-tools-register>**. Cohort sizes are limited to 50 participants to ensure every learner receives a high-quality, interactive experience.
 
 Successful applicants will be notified by email and will receive a full welcome pack including tool setup guides, a complete schedule, and access to the cohort WhatsApp community before the first session begins.
 
@@ -41,4 +41,4 @@ Successful applicants will be notified by email and will receive a full welcome 
 
 Tabi Empowerment and Educational (TEE) Foundation is a non-profit organisation dedicated to bridging the gender gap in technology across Africa. Through education, mentorship, and community building, TEE Foundation empowers women with the skills, confidence, and connections they need to lead and innovate in the digital economy.
 
-To learn more about the AI for Business programme or to submit an application, visit the [TEE Foundation website](https://tabiproject.com/ai-for-businesses) or follow the foundation on [Instagram](https://www.instagram.com/tabi_academy?igsh=MTE4b24yMGJ6d29peA==), [LinkedIn](https://www.linkedin.com/company/tabi-academy/), and [X (formerly twitter)](https://x.com/tabi_academy).
+To learn more about the AI for Business programme or to submit an application, visit the [TEE Foundation website](https://tabiproject.com/ai-for-businesses) or follow the foundation on** [Instagram](https://www.instagram.com/tabi_academy?igsh=MTE4b24yMGJ6d29peA==)**, **[LinkedIn](https://www.linkedin.com/company/tabi-academy/)**, and** [X (formerly twitter)](https://x.com/tabi_academy)**.
