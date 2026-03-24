@@ -8,7 +8,7 @@ excerpt: The tech industry offers a world of possibilities for those eager to
   innovate, create, and problem-solve. Whether you're a student exploring career
   paths or someone looking to pivot, having the right mentor by your side can
   transform your entire journey — and here's exactly how.
-image: /uploads/the-jorney-of-a-thousand-miles.jpg
+image: /uploads/the-jorney-of-a-thousand-miles.jpeg
 featured: true
 ---
 ## Introduction: The Importance of Mentorship in Tech
