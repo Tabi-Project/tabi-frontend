@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import { CMSTeamMember } from "@/lib/cms";
 
@@ -19,7 +21,6 @@ export default function BiographyModal({
   member,
   onClose
 }: BiographyModalProps) {
-  // Split on single or double newlines, filter empty lines
   const bioParagraphs = member.bio
     .split(/\n+/)
     .map((p) => p.trim())
@@ -27,22 +28,27 @@ export default function BiographyModal({
 
   return (
     <>
+      {/* Backdrop with fixed opacity and blur */}
       <div
-        className="fixed inset-0 z-40"
-        style={{ background: "rgba(0,0,0,0.18)" }}
+        className="fixed inset-0 z-40 transition-opacity duration-300"
+        style={{
+          background: "rgba(0, 0, 0, 0.5)", // Darker for better focus
+          backdropFilter: "blur(4px)", // Blurs background content
+          WebkitBackdropFilter: "blur(4px)" // Safari support
+        }}
         onClick={onClose}
       />
 
       <div
-        className="fixed top-0 right-0 h-full z-50 bg-white overflow-y-auto"
+        className="fixed top-0 right-0 h-full z-50 bg-white overflow-y-auto animate-in slide-in-from-right duration-300"
         style={{
           width: "min(816px, 100vw)",
-          boxShadow: "-8px 0 48px rgba(0,0,0,0.10)"
+          boxShadow: "-10px 0 50px rgba(0,0,0,0.15)"
         }}
       >
         {/* Header */}
         <div
-          className="relative flex items-center justify-center"
+          className="sticky top-0 z-10 bg-white flex items-center justify-center"
           style={{ padding: "20px 40px", borderBottom: "1px solid #E5E7EB" }}
         >
           <span
@@ -58,41 +64,47 @@ export default function BiographyModal({
           </span>
           <button
             onClick={onClose}
-            className="absolute right-5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full flex items-center justify-center text-[#555] hover:bg-[#f3e8ff] hover:text-brand-primary transition-colors duration-200 cursor-pointer"
+            className="absolute right-5 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center text-[#6B7280] hover:bg-[#F3F4F6] transition-colors duration-200 cursor-pointer"
             aria-label="Close"
           >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path
-                d="M2 2l12 12M14 2L2 14"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
           </button>
         </div>
 
         {/* Body */}
-        <div className="px-5 sm:px-10 pt-8 sm:pt-13 pb-16 sm:pb-18">
-          <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 sm:gap-10 mb-10 sm:mb-13">
-            {/* Left */}
-            <div className="flex-1 min-w-0 sm:pt-3">
+        <div className="px-6 sm:px-12 pt-8 sm:pt-14 pb-16">
+          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 lg:gap-12 mb-12">
+            {/* Left Info */}
+            <div className="flex-1 min-w-0">
               <h2
                 style={{
-                  fontSize: "clamp(1.6rem, 4.5vw, 2.5rem)",
-                  fontWeight: 700,
+                  fontSize: "clamp(2rem, 5vw, 2.75rem)",
+                  fontWeight: 800,
                   color: "#111827",
-                  lineHeight: 1.15,
-                  margin: "0 0 14px 0"
+                  lineHeight: 1.1,
+                  letterSpacing: "-0.02em",
+                  margin: "0 0 16px 0"
                 }}
               >
                 {member.name}
               </h2>
-              <div className="flex items-center gap-2 mb-7 sm:mb-9">
+              <div className="flex items-center gap-3 mb-8">
                 <span
                   style={{
-                    width: 10,
-                    height: 10,
+                    width: 12,
+                    height: 12,
                     borderRadius: "50%",
                     background: "#71286F",
                     display: "inline-block",
@@ -101,17 +113,18 @@ export default function BiographyModal({
                 />
                 <span
                   style={{
-                    fontSize: 14,
-                    fontWeight: 700,
-                    color: "#111827",
-                    letterSpacing: "0.03em"
+                    fontSize: 16,
+                    fontWeight: 600,
+                    color: "#4B5563",
+                    letterSpacing: "0.01em"
                   }}
                 >
                   {member.role}
                 </span>
               </div>
+
               {member.hobbies && member.hobbies.length > 0 && (
-                <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
                   {member.hobbies.map((hobby, i) => {
                     const c = HOBBY_COLORS[i % HOBBY_COLORS.length];
                     return (
@@ -121,8 +134,8 @@ export default function BiographyModal({
                           background: c.bg,
                           color: c.text,
                           fontSize: 13,
-                          fontWeight: 500,
-                          padding: "7px 18px",
+                          fontWeight: 600,
+                          padding: "8px 20px",
                           borderRadius: 9999,
                           whiteSpace: "nowrap"
                         }}
@@ -135,13 +148,13 @@ export default function BiographyModal({
               )}
             </div>
 
-            {/* Right — avatar */}
+            {/* Avatar */}
             <div
-              className="mx-auto sm:mx-0 rounded-full overflow-hidden relative shrink-0"
+              className="mx-auto lg:mx-0 rounded-full overflow-hidden relative shrink-0 shadow-lg shadow-black/5"
               style={{
-                width: "clamp(160px, 42vw, 383px)",
-                height: "clamp(160px, 42vw, 383px)",
-                background: member.bgColor ?? "#f0f0f0"
+                width: "clamp(180px, 45vw, 320px)",
+                aspectRatio: "1/1",
+                background: member.bgColor ?? "#F9FAFB"
               }}
             >
               <Image
@@ -149,21 +162,21 @@ export default function BiographyModal({
                 alt={member.name}
                 fill
                 style={{ objectFit: "cover", objectPosition: "top center" }}
-                sizes="(max-width: 480px) 160px, (max-width: 816px) 42vw, 383px"
+                sizes="(max-width: 480px) 180px, (max-width: 1024px) 45vw, 320px"
               />
             </div>
           </div>
 
-          {/* Bio — each line/paragraph rendered separately */}
-          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+          {/* Bio Paragraphs */}
+          <div className="space-y-6 max-w-[640px]">
             {bioParagraphs.map((para, i) => (
               <p
                 key={i}
                 style={{
-                  fontSize: 16,
+                  fontSize: 17,
                   fontWeight: 400,
                   color: "#374151",
-                  lineHeight: 1.85,
+                  lineHeight: 1.8,
                   margin: 0
                 }}
               >

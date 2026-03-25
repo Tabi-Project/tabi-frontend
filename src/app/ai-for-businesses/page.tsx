@@ -9,6 +9,7 @@ import AIBusinessCertification from "@/components/organisms/Aibusinesscertificat
 import AIBusinessFAQ from "@/components/organisms/Aibusinessfaq";
 import AIBusinessCTA from "@/components/organisms/Aibusinesscta";
 import { aiForBusinessMetadata } from "@/seo/page-metadata";
+import AIBusinessPricing from "@/components/organisms/Aibusinesspricing";
 
 export const metadata = aiForBusinessMetadata;
 
@@ -22,6 +23,7 @@ export default function AIForBusinessesPage() {
       <AIBusinessCurriculum />
       <AIBusinessInclusions />
       <AIBusinessAudience />
+      <AIBusinessPricing />
       <AIBusinessCertification />
       <AIBusinessFAQ />
       <AIBusinessCTA />

@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const url = `${BASE_URL}/resources/blog/${post.slug}`;
-  const ogImage = post.image ?? "/og-image.png";
+  const ogImage = post.image ?? "/og-image.jpag";
 
   return {
     title: post.title,

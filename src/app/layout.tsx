@@ -17,38 +17,41 @@ const BASE_URL = "https://tabiproject.com";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "TEE Foundation | Tabi Empowerment & Educational Foundation",
-    template: "%s | TEE Foundation"
+    // Lead with Tabi Academy for brand recognition
+    default: "Tabi Academy | Tabi Empowerment & Educational Foundation",
+    template: "%s | Tabi Academy"
   },
   description:
-    "Tabi Empowerment and Educational (TEE) Foundation empowers African women through technology education, mentorship, and community programs. Join our growing community.",
+    "Tabi Academy, by TEE Foundation, empowers African women through technology education, mentorship, and community programs. Join our growing community.",
   keywords: [
-    "TEE Foundation",
+    "Tabi Academy",
+    "Tabi Empowerment and Educational Foundation",
     "Tabi Foundation",
+    "TEE Foundation Tabi Academy",
     "women in tech Africa",
     "tech education Africa",
     "AI training women",
     "empowerment foundation Nigeria",
-    "women empowerment technology",
-    "Tabi Academy"
+    "women empowerment technology"
   ],
-  authors: [{ name: "TEE Foundation", url: BASE_URL }],
-  creator: "TEE Foundation",
-  publisher: "TEE Foundation",
+  authors: [{ name: "Tabi Academy", url: BASE_URL }],
+  creator: "Tabi Academy",
+  publisher: "Tabi Academy",
   openGraph: {
     type: "website",
     locale: "en_NG",
     url: BASE_URL,
-    siteName: "TEE Foundation",
-    title: "TEE Foundation | Tabi Empowerment & Educational Foundation",
+    siteName: "Tabi Academy",
+    title: "Tabi Academy | Tabi Empowerment & Educational Foundation",
     description:
-      "Empowering African women through technology education, mentorship, and community programs.",
+      "Empowering African women through technology education, mentorship, and community programs via Tabi Academy.",
     images: [
       {
-        url: "/og-image.png",
+        url: "/og-image.jpeg",
         width: 1200,
         height: 630,
-        alt: "TEE Foundation — Empowering African Women Through Tech"
+        alt: "Tabi Academy — Empowering African Women Through Tech",
+        type: "image/jpeg"
       }
     ]
   },
@@ -56,10 +59,10 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@tabi_academy",
     creator: "@tabi_academy",
-    title: "TEE Foundation | Tabi Empowerment & Educational Foundation",
+    title: "Tabi Academy | Tabi Empowerment & Educational Foundation",
     description:
       "Empowering African women through technology education, mentorship, and community programs.",
-    images: ["/og-image.png"]
+    images: ["/og-image.jpeg"]
   },
   robots: {
     index: true,

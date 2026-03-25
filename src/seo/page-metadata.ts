@@ -4,82 +4,108 @@ const BASE_URL = "https://tabiproject.com";
 
 // ─── About ───────────────────────────────────────────────────────────────────
 export const aboutMetadata: Metadata = {
-  title: "About Us",
+  title: "About Our Mission",
   description:
-    "Learn about TEE Foundation — our mission, vision, team, and the work we do to empower African women through technology education and community building.",
+    "Discover Tabi Academy's mission to empower African women through tech education. Learn how Tabi Empowerment & Educational Foundation (TEE) is bridging the digital divide.",
   alternates: { canonical: `${BASE_URL}/about` },
   openGraph: {
-    title: "About TEE Foundation",
+    title: "About Tabi Academy | Empowering African Women in Tech",
     description:
-      "Our mission is to empower African women through technology, education and innovation. Meet the team behind TEE Foundation.",
+      "Meet the team behind Tabi Academy. We provide technology and innovation training to transform the lives of women across Africa.",
     url: `${BASE_URL}/about`,
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }]
+    images: [
+      {
+        url: "/og-image.jpeg",
+        width: 1200,
+        height: 630,
+        type: "image/jpeg"
+      }
+    ]
   }
 };
 
 // ─── Resources ───────────────────────────────────────────────────────────────
 export const resourcesMetadata: Metadata = {
-  title: "Resources",
+  title: "Blog & Resources",
   description:
-    "Explore the latest news, blog posts, events and webinars from TEE Foundation. Stay informed and inspired on your tech journey.",
+    "Stay ahead in tech. Explore blog posts, career resources, and upcoming event updates from Tabi Academy and Tabi Empowerment & Educational Foundation.",
   alternates: { canonical: `${BASE_URL}/resources` },
   openGraph: {
-    title: "Resources — News, Blog & Events | TEE Foundation",
+    title: "Resources, News & Blog | Tabi Academy",
     description:
-      "Stay updated with the latest news, stories, and events from TEE Foundation.",
+      "Your hub for tech insights and community updates. Stay inspired on your journey with Tabi Academy.",
     url: `${BASE_URL}/resources`,
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }]
+    images: [
+      {
+        url: "/og-image.jpeg",
+        width: 1200,
+        height: 630,
+        type: "image/jpeg"
+      }
+    ]
   }
 };
 
 // ─── Consultancy ─────────────────────────────────────────────────────────────
 export const consultancyMetadata: Metadata = {
-  title: "Free Business Consultancy",
+  title: "Free Business Strategy Consultancy",
   description:
-    "Apply for a free one-on-one business consultancy session with TEE Foundation. 5 slots available every month for women-led businesses across Africa. No cost, no catch.",
+    "Scale your brand with free 1-on-1 business consultancy from Tabi Academy. Expert tech and marketing support for women-led businesses in Africa. Apply now!",
   keywords: [
     "free business consultancy Nigeria",
-    "women business support Africa",
-    "free business advice",
-    "TEE Foundation consultancy",
-    "small business help Africa"
+    "women in business Africa",
+    "Tabi Academy support",
+    "TEE Foundation business advice"
   ],
   alternates: { canonical: `${BASE_URL}/consultancy` },
   openGraph: {
-    title:
-      "Free Business Consultancy for Women-Led Businesses | TEE Foundation",
+    title: "1-on-1 Free Business Consultancy | Tabi Academy",
     description:
-      "5 free monthly consultancy slots for women-led businesses. Get expert help with Marketing, Finance, Tech, Strategy and Sales.",
+      "Get expert help with Marketing, Finance, and Strategy. We offer 5 free monthly slots for African female founders. Book yours today!",
     url: `${BASE_URL}/consultancy`,
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }]
+    images: [
+      {
+        url: "/og-image.jpeg",
+        width: 1200,
+        height: 630,
+        type: "image/jpeg"
+      }
+    ]
   }
 };
 
 // ─── AI for Business ─────────────────────────────────────────────────────────
 export const aiForBusinessMetadata: Metadata = {
-  title: "AI for Business Training",
+  title: "AI Training for Women Entrepreneurs",
   description:
-    "A hands-on, live 2-week AI training programme for women in business across Africa. Build real AI tools, earn a certificate, and transform how you work. No tech background needed.",
+    "Join Tabi Academy's live 2-week AI training. Learn to build AI tools, automate your workflow, and grow your business. Free for African women in tech.",
   keywords: [
     "AI training women Africa",
     "AI for business Nigeria",
-    "women AI training programme",
     "Tabi Academy AI",
-    "artificial intelligence business training"
+    "artificial intelligence business programme"
   ],
   alternates: { canonical: `${BASE_URL}/ai-for-businesses` },
   openGraph: {
-    title: "AI for Business Training Programme | Tabi Academy",
+    title: "Free AI for Business Training Programme | Tabi Academy",
     description:
-      "Live 2-week AI training for women in business. Build faster, work smarter, grow with confidence. Free and open to 50 participants per cohort.",
+      "Build faster and work smarter. Our 2-week intensive AI cohort helps female entrepreneurs master automation and innovation. Sign up now!",
     url: `${BASE_URL}/ai-for-businesses`,
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }]
+    images: [
+      {
+        url: "/og-image.jpeg",
+        width: 1200,
+        height: 630,
+        type: "image/jpeg"
+      }
+    ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI for Business Training Programme | Tabi Academy",
-    description: "Live 2-week AI training for women in business across Africa.",
-    images: ["/og-image.png"]
+    title: "AI Training for Women in Business | Tabi Academy",
+    description:
+      "Empower your business with AI. Join our 2-week live training programme for African women entrepreneurs.",
+    images: ["/og-image.jpeg"]
   }
 };
 
@@ -87,7 +113,7 @@ export const aiForBusinessMetadata: Metadata = {
 export const termsMetadata: Metadata = {
   title: "Terms of Use",
   description:
-    "Read the Terms of Use for TEE Foundation's website and services.",
+    "Official Terms of Use and service agreements for the Tabi Academy website.",
   alternates: { canonical: `${BASE_URL}/terms` },
   robots: { index: false, follow: false }
 };
@@ -96,7 +122,7 @@ export const termsMetadata: Metadata = {
 export const privacyMetadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Read TEE Foundation's Privacy Policy to understand how we collect, use, and protect your personal information.",
+    "Your data privacy matters. Read the Tabi Academy Privacy Policy to understand how we protect your information.",
   alternates: { canonical: `${BASE_URL}/privacy` },
   robots: { index: false, follow: false }
 };
