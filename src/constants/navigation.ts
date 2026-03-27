@@ -9,6 +9,7 @@ export const NAV_LINKS: NavItem[] = [
     label: "Projects",
     href: "#projects",
     children: [
+      { label: "Case Studies", href: "/projects/case-studies" },
       { label: "AI for Business", href: "/ai-for-businesses" },
       { label: "Tabi Academy", href: "#projects/academy" },
       { label: "Tabi Project", href: "#projects/project" },

@@ -11,10 +11,11 @@ export const Logo = () => {
       <Image
         src={withBasePath("/tabi-logo.svg")}
         alt="Tabi Academy Logo"
-        width={120}
-        height={40}
+        width={120} 
+        height={40} 
         priority
         className="object-contain"
+        style={{ width: "auto", height: "40px" }} 
       />
     </Link>
   );
