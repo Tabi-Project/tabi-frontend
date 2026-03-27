@@ -6,7 +6,7 @@ export interface CaseStudy {
   impact: string;
   image: string;
   themeColor: string;
-  stack: string[];
+  features: string[]; // Swapped 'stack' for 'features'
   stats: { label: string; value: string }[];
   links: {
     live: string;
@@ -25,15 +25,14 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Designed for new mothers and caregivers in Sub-Saharan Africa to reduce maternal isolation and bridge the gap in mental health access.",
     image: "/projects/bloom-mockup.png",
     themeColor: "#00695C",
-    stack: ["HTML", "CSS", "Vanilla JS", "Node.js", "Supabase"],
+    features: ["Specialist Directory", "Clinic Finder", "Self-Assessment", "Resource Library"],
     stats: [
-      { label: "Timeline", value: "4 Weeks" },
+      { label: "Solution", value: "Mental Health Bridge" }, // Changed Timeline to Solution
       { label: "Status", value: "MVP Live" }
     ],
     links: {
       live: "https://the-bloom-after.netlify.app/",
-      github:
-        "https://github.com/Tabi-Project/Bloom-After/blob/main/CONTRIBUTING.md"
+      github: "https://github.com/Tabi-Project/Bloom-After/blob/main/CONTRIBUTING.md"
     }
   },
   {
@@ -46,15 +45,14 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Built for journalists and organizers to discover role models, ensuring female leadership is documented and globally accessible.",
     image: "/projects/luminary-mockup-2.png",
     themeColor: "#c2185b",
-    stack: ["HTML", "CSS", "Vanilla JS", "Node.js", "Supabase"],
+    features: ["Impact Tracking", "Verified Biographies", "News Aggregator", "Mentorship Portal"],
     stats: [
-      { label: "Timeline", value: "4 Weeks" },
+      { label: "Solution", value: "Visibility Engine" }, // Changed Timeline to Solution
       { label: "Status", value: "MVP Live" }
     ],
     links: {
       live: "https://luminary-for-women.netlify.app/",
-      github:
-        "https://github.com/Tabi-Project/Luminary/blob/main/CONTRIBUTING.md"
+      github: "https://github.com/Tabi-Project/Luminary/blob/main/CONTRIBUTING.md"
     }
   },
   {
@@ -67,9 +65,9 @@ export const CASE_STUDIES: CaseStudy[] = [
       "Directly tackling the 'triple penalty' by providing African women-led SMEs with the capital and networks they need to scale.",
     image: "/projects/ekehi-mockup.png",
     themeColor: "#5b2d8e",
-    stack: ["HTML", "CSS", "Vanilla JS", "Node.js", "Supabase"],
+    features: ["Grant Database", "Credit Matchmaking", "Business Training", "Scaling Tools"],
     stats: [
-      { label: "Timeline", value: "4 Weeks" },
+      { label: "Solution", value: "Capital Access Hub" }, // Changed Timeline to Solution
       { label: "Status", value: "MVP Live" }
     ],
     links: {
