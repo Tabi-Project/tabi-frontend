@@ -24,7 +24,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     impact:
       "Designed for new mothers and caregivers in Sub-Saharan Africa to reduce maternal isolation and bridge the gap in mental health access.",
     image: "/projects/bloom-mockup.png",
-    themeColor: "#5b2d8e",
+    themeColor: "#00695C",
     stack: ["HTML", "CSS", "Vanilla JS", "Node.js", "Supabase"],
     stats: [
       { label: "Timeline", value: "4 Weeks" },
@@ -66,7 +66,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     impact:
       "Directly tackling the 'triple penalty' by providing African women-led SMEs with the capital and networks they need to scale.",
     image: "/projects/ekehi-mockup.png",
-    themeColor: "#00695C",
+    themeColor: "#5b2d8e",
     stack: ["HTML", "CSS", "Vanilla JS", "Node.js", "Supabase"],
     stats: [
       { label: "Timeline", value: "4 Weeks" },
