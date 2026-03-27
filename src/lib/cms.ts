@@ -4,6 +4,22 @@ import matter from "gray-matter";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 
+/**
+ * Utility to ensure slugs are always URL-safe.
+ * Removes symbols like ₦, $, commas, and extra spaces.
+ */
+export const slugify = (text: string): string => {
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, "-") // Replace spaces with -
+    .replace(/[^\w\-]+/g, "") // Remove all non-word chars (removes ₦, $, etc.)
+    .replace(/\-\-+/g, "-") // Replace multiple - with single -
+    .replace(/^-+/, "") // Trim - from start
+    .replace(/-+$/, ""); // Trim - from end
+};
+
 // ─── Generic file reader ──────────────────────────────────────────────────────
 
 function getFiles(folder: string): string[] {
@@ -17,13 +33,21 @@ function getFiles(folder: string): string[] {
 function readMarkdown<T>(
   folder: string,
   filename: string
-): T & { slug: string } {
+): T & { slug: string; body: string } {
   const filePath = path.join(CONTENT_DIR, folder, filename);
   const raw = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(raw);
-  const slug = filename.replace(/\.(md|json)$/, "");
+
+  // Generate a clean slug from the filename
+  const rawSlug = filename.replace(/\.(md|json)$/, "");
+  const cleanSlug = slugify(rawSlug);
+
   // Include the markdown body as "body" so detail pages can render it
-  return { ...(data as T), slug, body: content.trim() } as T & { slug: string };
+  return {
+    ...(data as T),
+    slug: cleanSlug,
+    body: content.trim()
+  } as T & { slug: string; body: string };
 }
 
 function readJson<T>(filePath: string): T {
@@ -66,7 +90,9 @@ export function getNewsPosts(): CMSPost[] {
 }
 
 export function getPostBySlug(slug: string): CMSPost | undefined {
-  return getAllPosts().find((p) => p.slug === slug);
+  // Slugify the search term to ensure matches against cleaned slugs
+  const targetSlug = slugify(slug);
+  return getAllPosts().find((p) => p.slug === targetSlug);
 }
 
 // ─── Events ───────────────────────────────────────────────────────────────────

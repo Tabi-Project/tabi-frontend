@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Lato } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/organisms/Navbar";
@@ -13,6 +13,12 @@ const lato = Lato({
 });
 
 const BASE_URL = "https://tabiproject.com";
+
+export const viewport: Viewport = {
+  themeColor: "#71286F",
+  width: "device-width",
+  initialScale: 1
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
@@ -79,7 +85,7 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png"
   },
-  manifest: "/site.webmanifest",
+  
   alternates: {
     canonical: BASE_URL
   }

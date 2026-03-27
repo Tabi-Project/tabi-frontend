@@ -19,14 +19,16 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  // Decode the slug to handle symbols like ₦ correctly
+  const decodedSlug = decodeURIComponent(slug);
+  const post = getPostBySlug(decodedSlug);
 
   if (!post) {
     return { title: "Post Not Found" };
   }
 
   const url = `${BASE_URL}/resources/blog/${post.slug}`;
-  const ogImage = post.image ?? "/og-image.jpag";
+  const ogImage = post.image ?? "/og-image.jpeg";
 
   return {
     title: post.title,
@@ -61,11 +63,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogDetailPage({ params }: Props) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  // Decode the slug to match the CMS data
+  const decodedSlug = decodeURIComponent(slug);
+  const post = getPostBySlug(decodedSlug);
+
   if (!post) notFound();
 
   const currentUrl = `${BASE_URL}/resources/blog/${post.slug}`;
-
 
   return (
     <main className="w-full bg-white min-h-screen">
@@ -152,7 +156,7 @@ export default async function BlogDetailPage({ params }: Props) {
             )}
           </div>
 
-          {/* Body - Updated to use ReactMarkdown + Typography */}
+          {/* Body */}
           <div className="prose prose-slate max-w-2xl text-[#333] text-sm leading-[1.8] mx-auto">
             <ReactMarkdown
               components={{
@@ -192,7 +196,6 @@ export default async function BlogDetailPage({ params }: Props) {
             </ReactMarkdown>
           </div>
 
-          {/* --- NEW SHARE SECTION --- */}
           <div className="max-w-2xl mx-auto">
             <ShareButtons title={post.title} url={currentUrl} />
           </div>
