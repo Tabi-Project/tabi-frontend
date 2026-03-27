@@ -1,5 +1,5 @@
 ---
-title: Tabi Academy Is Supporting Women-Led Businesses With a ₦500,000 Grant
+title: Tabi Academy Is Supporting Women-Led Businesses With a ₦500,000k Grant
   Through Its AI Tools for Businesses Programme
 category: news
 date: March 25, 2026
