@@ -488,9 +488,9 @@ scalable solutions to bridge the gap for women in Africa.
                 </div>
 
                 <div className="flex flex-wrap gap-2 mb-10">
-                  {project.stack.map((t) => (
+                  {project.features.map((feature) => (
                     <span
-                      key={t}
+                      key={feature}
                       className="px-3 py-1 rounded-full text-[10px] font-bold text-gray-500 border border-gray-200 bg-white"
                     >
                       {t}
