@@ -533,9 +533,7 @@ scalable solutions to bridge the gap for women in Africa.
             Ready to <span className="opacity-40">Contribute?</span>
           </h2>
           <p className="text-white/60 mb-12 max-w-xl mx-auto">
-            These are open-source projects designed to help women. We are
-            looking for engineers to scale these into production-grade community
-            tools.
+            These are open-source projects primarily being built and maintained by Rise Academy Cohort 2. If you find this project interesting and you have good engineering skills, you're welcome to contribute to the project. 
           </p>
           <a
             href="https://github.com/tabi-project"
