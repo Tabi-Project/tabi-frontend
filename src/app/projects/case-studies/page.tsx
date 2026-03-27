@@ -493,7 +493,7 @@ scalable solutions to bridge the gap for women in Africa.
                       key={feature}
                       className="px-3 py-1 rounded-full text-[10px] font-bold text-gray-500 border border-gray-200 bg-white"
                     >
-                      {t}
+                      {feature}
                     </span>
                   ))}
                 </div>
