@@ -375,7 +375,7 @@ export default function CaseStudiesPage() {
                 transition={{ delay: 0.4 }}
                 className="mt-8 text-lg text-[#555] leading-relaxed max-w-xl font-light"
               >
-                A collaborative IWD sprint with Risevest Academy X Tabi Academy, engineering
+                A collaborative IWD sprint with Rise Academy by Risevest X Tabi Academy, engineering
 
 scalable solutions to bridge the gap for women in Africa.
               </motion.p>
