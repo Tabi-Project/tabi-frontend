@@ -349,7 +349,7 @@ export default function CaseStudiesPage() {
                 Building for{" "}
                 <span className="relative inline-block">
                   <span className="relative z-10 text-brand-primary italic">
-                    The Community.
+                    Women.
                   </span>
                   <svg
                     className="absolute -bottom-2 left-0 w-full"
@@ -375,8 +375,9 @@ export default function CaseStudiesPage() {
                 transition={{ delay: 0.4 }}
                 className="mt-8 text-lg text-[#555] leading-relaxed max-w-xl font-light"
               >
-                Engineering scalable, open-source solutions to bridge the gap
-                for women in Africa through technology and collaborative design.
+                A collaborative IWD sprint with Risevest Academy X Tabi Academy, engineering
+
+scalable solutions to bridge the gap for women in Africa.
               </motion.p>
             </div>
 
