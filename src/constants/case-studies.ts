@@ -6,7 +6,7 @@ export interface CaseStudy {
   impact: string;
   image: string;
   themeColor: string;
-  features: string[]; 
+  features: string[];
   stats: { label: string; value: string }[];
   buttonText: string;
   contributors: { github: string; avatar: string }[];
@@ -191,5 +191,28 @@ export const CASE_STUDIES: CaseStudy[] = [
       live: "https://ekehi.netlify.app/",
       github: "https://github.com/Tabi-Project/Ekehi/blob/main/CONTRIBUTING.md"
     }
+  }
+];
+
+export const IMPACT_STATS = [
+  {
+    label: "Total Women Reached",
+    value: "2,500+",
+    description: "Across all platforms"
+  },
+  {
+    label: "Open Source Stars",
+    value: "120+",
+    description: "Community recognition"
+  },
+  {
+    label: "Active Contributors",
+    value: "15+",
+    description: "Rise Academy engineers"
+  },
+  {
+    label: "Success Stories",
+    value: "45",
+    description: "Documented career/health shifts"
   }
 ];

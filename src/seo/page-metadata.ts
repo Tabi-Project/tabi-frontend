@@ -126,3 +126,15 @@ export const privacyMetadata: Metadata = {
   alternates: { canonical: `${BASE_URL}/privacy` },
   robots: { index: false, follow: false }
 };
+
+// ─── Open Source Case Studies ─────────────────────────────────────────────────────────────────
+
+export const caseStudiesMetadata = {
+  title: "Case Studies | Engineering Impact at Tabi Academy",
+  description: "Explore open-source solutions engineered by Tabi Academy and Rise Academy. From maternal health to SME growth, see how we're building for the community.",
+  openGraph: {
+    title: "Case Studies | Tabi Academy",
+    description: "Engineering scalable solutions to bridge the gap for women in Africa.",
+    images: [{ url: "/projects/hero-composite.png" }],
+  },
+};
