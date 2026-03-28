@@ -1,5 +1,5 @@
 ---
-name: Sophia Ahuoyiza Abubakar
+name: Sophia Ahuoyiza
 role: DIRECTOR
 image: /uploads/img_4614-edited.png
 bio: >-
