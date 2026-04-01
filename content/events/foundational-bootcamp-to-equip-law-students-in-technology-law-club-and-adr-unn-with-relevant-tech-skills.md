@@ -13,7 +13,7 @@ timezone: WAT +1
 image: /uploads/a09452eecb9252a45f5101053a64f510a4a72046.png
 eventUrl: https://tabiproject.com
 ctaLabel: Register
-featured: true
+featured: false
 tags:
   - in-person
 description: Join us for an enlightening day dedicated to exploring the
