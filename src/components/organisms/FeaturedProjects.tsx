@@ -7,6 +7,7 @@ import AcademyGrid from "@/components/molecules/AcademyGrid";
 import AIBusinessGrid from "@/components/molecules/AIBusinessGrid";
 import TabiProjectGrid from "@/components/molecules/TabiProjectGrid";
 import PurpleGuildGrid from "@/components/molecules/PurpleGuildGrid";
+import { motion, Variants } from "framer-motion";
 
 function ProjectGrid({
   project,
@@ -27,6 +28,7 @@ function ProjectGrid({
   }
 }
 
+// Fixed & Animated Timeline Block
 function ProjectBlock({
   project,
   index
@@ -35,17 +37,64 @@ function ProjectBlock({
   index: number;
 }) {
   return (
-    <div className="flex gap-4 sm:gap-8 pb-10">
+    <motion.div
+      className="flex gap-4 sm:gap-8 pb-10"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={{
+        hidden: {},
+        visible: {
+          transition: { staggerChildren: 0.2 }
+        }
+      }}
+    >
+      {/* Timeline graphical track */}
       <div className="flex flex-col items-center shrink-0 w-8">
-        <div className="w-8 h-8 rounded-full border-2 border-[#555] bg-white flex items-center justify-center text-xs font-bold text-[#333] z-10 shrink-0">
+        {/* The Numbered Node pops in */}
+        <motion.div
+          variants={{
+            hidden: { opacity: 0, scale: 0.5 },
+            visible: {
+              opacity: 1,
+              scale: 1,
+              transition: { type: "spring", stiffness: 200, damping: 15 }
+            }
+          }}
+          className="w-8 h-8 rounded-full border-2 border-[#555] bg-white flex items-center justify-center text-xs font-bold text-[#333] z-10 shrink-0"
+        >
           {project.order}
-        </div>
-        <div className="flex-1 w-px bg-[#ddd] mt-2" />
+        </motion.div>
+
+        {/* The connecting line draws downwards */}
+        <motion.div
+          variants={{
+            hidden: { scaleY: 0 },
+            visible: {
+              scaleY: 1,
+              transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+            }
+          }}
+          style={{ originY: 0 }}
+          className="flex-1 w-px bg-[#ddd] mt-2"
+        />
       </div>
-      <div className="flex-1 pt-1">
+
+      {/* The project card itself slides up smoothly */}
+      <motion.div
+        className="flex-1 pt-1"
+        variants={{
+          hidden: { opacity: 0, y: 30 },
+          visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] }
+          }
+        }}
+      >
         <ProjectGrid project={project} index={index} />
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
 
@@ -53,6 +102,29 @@ interface FeaturedProjectsProps {
   projects?: CMSProject[];
   testimonialSlot?: React.ReactNode;
 }
+
+// Reusable header variants to avoid standard inferring errors
+const headerVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.16, 1, 0.3, 1],
+      staggerChildren: 0.15
+    }
+  }
+};
+
+const headerItem: Variants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" }
+  }
+};
 
 export default function FeaturedProjects({
   projects = [],
@@ -62,18 +134,33 @@ export default function FeaturedProjects({
   const visible = showAll ? projects : projects.slice(0, 2);
 
   return (
-    <section className="w-full bg-white">
+    <section className="w-full bg-white overflow-hidden">
       {/* Header */}
-      <div className="flex flex-col items-center text-center pt-20 pb-10 px-6">
-        <h2 className="text-[clamp(1.8rem,4vw,3rem)] font-extrabold text-[#1a1a2e] tracking-tight">
+      <motion.div
+        className="flex flex-col items-center text-center pt-20 pb-10 px-6"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={headerVariants}
+      >
+        <motion.h2
+          variants={headerItem}
+          className="text-[clamp(1.8rem,4vw,3rem)] font-extrabold text-[#1a1a2e] tracking-tight"
+        >
           Our Flagship Projects
-        </h2>
-        <p className="mt-3 max-w-lg text-sm text-[#777] leading-relaxed">
+        </motion.h2>
+        <motion.p
+          variants={headerItem}
+          className="mt-3 max-w-lg text-sm text-[#777] leading-relaxed"
+        >
           Each project at Tabi Empowerment and Educational (TEE) Foundation is
           crafted to empower community and foster innovation. Discover how
           we&apos;re creating lasting change and brighter futures.
-        </p>
-        <div
+        </motion.p>
+
+        {/* Animated the arrow indicator pointing down */}
+        <motion.div
+          variants={headerItem}
           className="mt-6"
           style={{
             width: 0,
@@ -83,11 +170,17 @@ export default function FeaturedProjects({
             borderBottom: "24px solid #71286F"
           }}
         />
-      </div>
+      </motion.div>
 
-      {/* Projects — each rendered with its own container so testimonial can break out */}
+      {/* Projects */}
       {visible.length === 0 ? (
-        <div className="mx-auto max-w-4xl px-6 sm:px-12 lg:px-16 pb-20 flex flex-col items-center justify-center py-20 text-center">
+        <motion.div
+          className="mx-auto max-w-4xl px-6 sm:px-12 lg:px-16 pb-20 flex flex-col items-center justify-center py-20 text-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+        >
+          {/* ...SVG remains exactly the same... */}
           <svg
             width="160"
             height="140"
@@ -145,16 +238,14 @@ export default function FeaturedProjects({
           <p className="text-sm text-[#888] max-w-xs leading-relaxed">
             Our flagship projects will appear here soon. Check back shortly.
           </p>
-        </div>
+        </motion.div>
       ) : (
         <>
           {visible.map((project, idx) => (
             <div key={project.slug}>
-              {/* Project inside constrained container */}
               <div className="mx-auto max-w-4xl px-6 sm:px-12 lg:px-16">
                 <ProjectBlock project={project} index={idx} />
               </div>
-              {/* Testimonial renders at section level — truly full width, no overflow issues */}
               {project.hasTestimonial && testimonialSlot}
             </div>
           ))}

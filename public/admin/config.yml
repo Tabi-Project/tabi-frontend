@@ -6,7 +6,7 @@ media_folder: public/uploads
 public_folder: /uploads
 
 # ── Enable local dev server (comment out in production) ──
-# local_backend: true
+local_backend: true
 
 collections:
 
@@ -114,3 +114,17 @@ collections:
           - { label: Consultancy Slots Available, name: consultancySlots, widget: number, default: 5 }
           - { label: WhatsApp Community URL,      name: whatsappUrl,       widget: string }
           - { label: Contact Email,               name: contactEmail,      widget: string }
+
+# ─── Community Gallery ────────────────────────────────────────────
+  - name: gallery
+    label: Community Gallery
+    folder: content/gallery
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title (Internal), name: title, widget: string }
+      - { label: Category, name: category, widget: select, options: [learnable, meetup, sprints] }
+      - { label: Image, name: src, widget: image }
+      - { label: Alt Text, name: alt, widget: string }
+      - { label: Caption (Shows on hover), name: caption, widget: string }
+      - { label: Order, name: order, widget: number, default: 99, required: false }

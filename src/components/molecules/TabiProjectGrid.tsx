@@ -20,12 +20,13 @@ export default function TabiProjectGrid({ project }: { project: CMSProject }) {
   return (
     <>
       <div className="w-full">
-        <div className="grid grid-cols-2 gap-6 items-start mb-6">
+        {/* CHANGED: grid-cols-1 by default, grid-cols-2 on sm up */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 items-start mb-6">
           <div className="flex flex-col justify-start py-2">
             <h3 className="text-xl sm:text-2xl font-bold text-brand-primary mb-4">
               {project.title}
             </h3>
-            <p className="text-sm text-[#666] leading-relaxed mb-8">
+            <p className="text-sm text-[#666] leading-relaxed mb-6 sm:mb-8">
               {project.description}
             </p>
             <div className="flex justify-start">
@@ -36,12 +37,12 @@ export default function TabiProjectGrid({ project }: { project: CMSProject }) {
               </Link>
             </div>
           </div>
-          <div className="relative h-50 sm:h-60 rounded-2xl overflow-hidden">
+          <div className="relative h-56 sm:h-60 rounded-2xl overflow-hidden">
             <Image
               src={collageImage}
               alt="Project collage"
               fill
-              sizes="(max-width: 640px) 45vw, 350px"
+              sizes="(max-width: 640px) 100vw, 350px"
               className="object-contain"
               loading="lazy"
               quality={75}

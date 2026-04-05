@@ -216,6 +216,7 @@ import { Logo } from "../atoms/Logo";
 import { NAV_LINKS } from "@/constants/navigation";
 import DonationModal from "../molecules/DonationModal";
 import { ChevronDown, Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const Navbar = () => {
   const pathname = usePathname();
@@ -224,7 +225,7 @@ export const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // ─── NEW UPDATE: Measure Navbar Height ───
+  // ─── Measure Navbar Height ───
   const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -241,8 +242,8 @@ export const Navbar = () => {
     window.addEventListener("resize", updateHeight);
     return () => window.removeEventListener("resize", updateHeight);
   }, []);
-  // ─────────────────────────────────────────
 
+  // ─── Click Outside to Close Dropdowns ───
   useEffect(() => {
     function handleClick(e: MouseEvent) {
       if (
@@ -273,6 +274,7 @@ export const Navbar = () => {
               <Logo />
             </div>
 
+            {/* ── DESKTOP NAVIGATION ── */}
             <div
               className="hidden lg:flex items-center gap-8"
               ref={dropdownRef}
@@ -342,8 +344,9 @@ export const Navbar = () => {
               })}
             </div>
 
+            {/* ── DESKTOP BUTTONS ── */}
             <div className="hidden lg:flex items-center gap-6">
-              <Link
+              {/* <Link
                 href="/ai-for-businesses#register"
                 className="text-sm font-medium transition-colors duration-200"
                 style={{
@@ -352,7 +355,7 @@ export const Navbar = () => {
                 }}
               >
                 Register
-              </Link>
+              </Link> */}
               <Button
                 variant="primary"
                 size="md"
@@ -363,6 +366,7 @@ export const Navbar = () => {
               </Button>
             </div>
 
+            {/* ── MOBILE MENU ICON ── */}
             <div className="lg:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -375,50 +379,116 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {isOpen && (
-          <div className="lg:hidden bg-white border-b border-gray-100 px-6 py-6 space-y-1 shadow-2xl">
-            {NAV_LINKS.map((link) => {
-              const active = isActive(link.href);
-              return (
-                <Link
-                  key={link.label}
-                  href={link.href}
+        {/* ── MOBILE NAVIGATION (UPGRADED) ── */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: "auto", opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:hidden bg-white border-b border-gray-100 px-6 py-6 space-y-1 shadow-2xl overflow-hidden max-h-[80vh] overflow-y-auto"
+            >
+              {NAV_LINKS.map((link) => {
+                const active = isActive(link.href);
+                const hasChildren = link.children && link.children.length > 0;
+                const isDropdownOpen = openDropdown === link.label;
+
+                return (
+                  <div key={link.label} className="flex flex-col">
+                    {hasChildren ? (
+                      <button
+                        onClick={() =>
+                          setOpenDropdown(isDropdownOpen ? null : link.label)
+                        }
+                        className="flex items-center justify-between py-3 px-3 rounded-xl text-sm font-medium transition-colors duration-200 w-full text-left"
+                        style={{
+                          color:
+                            active || isDropdownOpen ? "#71286F" : "#374151",
+                          background:
+                            active || isDropdownOpen ? "#fdf7ff" : "transparent"
+                        }}
+                      >
+                        {link.label}
+                        <ChevronDown
+                          size={14}
+                          className="transition-transform duration-200 opacity-60"
+                          style={{
+                            transform: isDropdownOpen
+                              ? "rotate(180deg)"
+                              : "rotate(0deg)"
+                          }}
+                        />
+                      </button>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        onClick={() => setIsOpen(false)}
+                        className="flex items-center justify-between py-3 px-3 rounded-xl text-sm font-medium transition-colors duration-200"
+                        style={{
+                          color: active ? "#71286F" : "#374151",
+                          background: active ? "#fdf7ff" : "transparent"
+                        }}
+                      >
+                        {link.label}
+                      </Link>
+                    )}
+
+                    {/* ── ANIMATED SUB-MENUS ── */}
+                    <AnimatePresence initial={false}>
+                      {hasChildren && isDropdownOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.25, ease: "easeInOut" }}
+                          className="overflow-hidden"
+                        >
+                          <div className="pl-6 mt-1 flex flex-col space-y-1 bg-gray-50/50 rounded-lg py-2">
+                            {link.children!.map((child) => (
+                              <Link
+                                key={child.label}
+                                href={child.href}
+                                onClick={() => {
+                                  setIsOpen(false);
+                                  setOpenDropdown(null);
+                                }}
+                                className="block px-4 py-2.5 text-sm text-[#374151] hover:text-brand-primary transition-colors duration-150"
+                              >
+                                {child.label}
+                              </Link>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
+
+              <div className="pt-5 flex flex-col gap-3 border-t border-gray-100 mt-4">
+                {/* <Link
+                  href="/ai-for-businesses#register"
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-between py-3 px-3 rounded-xl text-sm font-medium transition-colors duration-200"
-                  style={{
-                    color: active ? "#71286F" : "#374151",
-                    background: active ? "#fdf7ff" : "transparent"
+                >
+                  <Button variant="outline" className="w-full">
+                    Register
+                  </Button>
+                </Link> */}
+                <Button
+                  variant="primary"
+                  className="w-full"
+                  onClick={() => {
+                    setIsOpen(false);
+                    setDonateOpen(true);
                   }}
                 >
-                  {link.label}
-                  {link.children && (
-                    <ChevronDown size={14} className="opacity-60" />
-                  )}
-                </Link>
-              );
-            })}
-            <div className="pt-5 flex flex-col gap-3 border-t border-gray-100 mt-4">
-              <Link
-                href="/ai-for-businesses#register"
-                onClick={() => setIsOpen(false)}
-              >
-                <Button variant="outline" className="w-full">
-                  Register
+                  Donate Now
                 </Button>
-              </Link>
-              <Button
-                variant="primary"
-                className="w-full"
-                onClick={() => {
-                  setIsOpen(false);
-                  setDonateOpen(true);
-                }}
-              >
-                Donate Now
-              </Button>
-            </div>
-          </div>
-        )}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
 
       {donateOpen && <DonationModal onClose={() => setDonateOpen(false)} />}

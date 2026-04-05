@@ -131,10 +131,34 @@ export const privacyMetadata: Metadata = {
 
 export const caseStudiesMetadata = {
   title: "Case Studies | Engineering Impact at Tabi Academy",
-  description: "Explore open-source solutions engineered by Tabi Academy and Rise Academy. From maternal health to SME growth, see how we're building for the community.",
+  description:
+    "Explore open-source solutions engineered by Tabi Academy and Rise Academy. From maternal health to SME growth, see how we're building for the community.",
   openGraph: {
     title: "Case Studies | Tabi Academy",
-    description: "Engineering scalable solutions to bridge the gap for women in Africa.",
-    images: [{ url: "/projects/hero-composite.png" }],
-  },
+    description:
+      "Engineering scalable solutions to bridge the gap for women in Africa.",
+    images: [{ url: "/projects/hero-composite.png" }]
+  }
+};
+
+// ─── Community page ─────────────────────────────────────────────────────────────────
+
+export const communityMetadata = {
+  title: "Community | Tabi Academy × Rise Academy",
+  description:
+    "Join the Tabi Academy sisterhood. Explore pathways and possibilities for African women in tech to grow, excel, thrive, and lead through sustainable impact.",
+  openGraph: {
+    title: "Join the Tabi Academy Sisterhood",
+    description:
+      "Empowering women in tech to build, create, and lead. Explore our open-source community and training events.",
+    url: "https://yourdomain.com/community",
+    images: [
+      {
+        url: "/images/community/og-share.jpg", // Create a high-quality preview image later
+        width: 1200,
+        height: 630,
+        alt: "Tabi Academy Community"
+      }
+    ]
+  }
 };

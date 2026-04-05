@@ -211,6 +211,27 @@ export function getFeaturedTestimonial(): CMSTestimonial | undefined {
   return all.find((t) => t.featured) ?? all[0];
 }
 
+// ─── Gallery ─────────────────────────────────────────────────────────────────
+
+export type CMSGalleryImage = {
+  slug: string;
+  category: "learnable" | "meetup" | "sprints";
+  src: string;
+  alt: string;
+  caption: string;
+  order?: number;
+};
+
+export function getAllGalleryImages(): CMSGalleryImage[] {
+  try {
+    return getFiles("gallery")
+      .map((f) => readMarkdown<CMSGalleryImage>("gallery", f))
+      .sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
+  } catch {
+    return [];
+  }
+}
+
 // ─── Settings ─────────────────────────────────────────────────────────────────
 
 export type CMSSettings = {

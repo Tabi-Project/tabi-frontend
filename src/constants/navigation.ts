@@ -26,7 +26,7 @@ export const NAV_LINKS: NavItem[] = [
       { label: "Events & Webinars", href: "/resources?tab=events" }
     ]
   },
-  // { label: "Community", href: "#community" },
+  { label: "Community", href: "/community" },
   { label: "Consultancy", href: "/consultancy" },
   { label: "About Us", href: "/about" }
 ];

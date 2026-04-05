@@ -3,7 +3,8 @@ import { withBasePath } from "@/constants/paths";
 
 export default function EventsLocationBanner() {
   return (
-    <div className="relative w-screen left-1/2 -translate-x-1/2 mt-16 h-[140px] sm:h-[200px] lg:h-[260px] overflow-hidden">
+    <div className="relative w-screen left-1/2 -translate-x-1/2 mt-16 h-35 sm:h-50 lg:h-65 overflow-hidden">
+
       {/* Full-width map background */}
       <Image
         src={withBasePath("/events/map.png")}
@@ -20,7 +21,7 @@ export default function EventsLocationBanner() {
         <div className="text-white">
           {/* Logo + name row */}
           <div className="flex items-center gap-2 sm:gap-3 pb-2 sm:pb-3 border-b-2 sm:border-b-4 border-white mb-3 sm:mb-4">
-            <div className="relative shrink-0 w-[32px] h-[22px] sm:w-[60px] sm:h-[42px] lg:w-[90px] lg:h-[64px]">
+            <div className="relative shrink-0 w-8 h-5.5 sm:w-15 sm:h-10.5 lg:w-22.5 lg:h-16">
               <Image
                 src={withBasePath("/tabi-logo-white.svg")}
                 alt="TEE Foundation"
@@ -55,9 +56,8 @@ export default function EventsLocationBanner() {
                 strokeWidth="1.3"
               />
             </svg>
-            <span className="max-w-[200px] sm:max-w-xs lg:max-w-sm leading-snug">
-              Golden Point Hotel &amp; Suites, along Mbanefo Street, Enugu,
-              Nigeria.
+            <span className="max-w-50 sm:max-w-xs lg:max-w-sm leading-snug">
+              Enugu, Nigeria.
             </span>
           </div>
         </div>

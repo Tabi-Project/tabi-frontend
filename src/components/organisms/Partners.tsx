@@ -11,7 +11,8 @@ const PARTNERS = [
   },
   { id: "gutsy", src: withBasePath("/partners/gutsy-woman.png"), alt: "GIV The Gutsy Woman" },
   { id: "yebox", src: withBasePath("/partners/yebox.png"), alt: "Yebox Technologies" },
-  { id: "genesys", src: withBasePath("/partners/genesys.png"), alt: "Genesys" }
+  { id: "genesys", src: withBasePath("/partners/genesys.png"), alt: "Genesys" },
+  { id: "risevest", src: withBasePath("/partners/rise.png"), alt: "Rise Academy" }
 ];
 
 export default function Partners() {

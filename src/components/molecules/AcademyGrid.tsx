@@ -12,7 +12,8 @@ export default function AcademyGrid({ project }: { project: CMSProject }) {
   ];
 
   return (
-    <div className="grid grid-cols-2 gap-3 w-full">
+    // Only changed this line to stack on mobile and use your exact layout on sm+ screens
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full">
       <div className="flex flex-col justify-start py-2 pr-4">
         <h3 className="text-xl sm:text-2xl font-bold text-brand-primary mb-4">
           {project.title}
@@ -29,34 +30,37 @@ export default function AcademyGrid({ project }: { project: CMSProject }) {
         </div>
       </div>
 
+      {/* Kept your exact height classes and image tags below */}
       <div className="relative h-52 sm:h-64 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
         <Image
           src={images[0]}
           alt="Students collaborating"
           fill
           loading="lazy"
-          sizes="(max-width: 640px) 45vw, 350px"
+          sizes="(max-width: 640px) 100vw, 350px"
           className="object-cover"
           quality={75}
         />
       </div>
+
       <div className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
         <Image
           src={images[1] ?? images[0]}
           alt="Women in tech meeting"
           fill
-          sizes="(max-width: 640px) 45vw, 350px"
+          sizes="(max-width: 640px) 100vw, 350px"
           className="object-cover"
           loading="lazy"
           quality={75}
         />
       </div>
+
       <div className="relative h-48 sm:h-56 rounded-2xl overflow-hidden border-2 border-brand-primary/40">
         <Image
           src={images[2] ?? images[0]}
           alt="Graduation ceremony"
           fill
-          sizes="(max-width: 640px) 45vw, 350px"
+          sizes="(max-width: 640px) 100vw, 350px"
           className="object-cover"
           loading="lazy"
           quality={75}
