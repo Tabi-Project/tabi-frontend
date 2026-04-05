@@ -1,5 +1,5 @@
 ---
-name: Ihuoma Favor Agbaru
+name: Ihuoma Favour Agbaru
 role: CO-DIRECTOR
 image: /uploads/1000931386.jpg
 bio: >-
@@ -16,7 +16,6 @@ bio: >-
 hobbies:
   - "Reading "
   - "Playing Scrabble "
-  - "Horse racing "
   - Movies
   - Evangelizing Christ
 order: 2
