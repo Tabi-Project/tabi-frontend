@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion"; // Added Variants import here
 import { Code2, Users, HeartHandshake, ArrowUpRight } from "lucide-react";
 
 const HOW_WE_THRIVE = [
@@ -25,7 +25,8 @@ const HOW_WE_THRIVE = [
 ];
 
 // ── ANIMATION VARIANTS ──
-const containerVariants = {
+const containerVariants: Variants = {
+  // Added explicit type here
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -33,7 +34,8 @@ const containerVariants = {
   }
 };
 
-const cardVariants = {
+const cardVariants: Variants = {
+  // Added explicit type here
   hidden: { opacity: 0, y: 40, scale: 0.95 },
   visible: {
     opacity: 1,
@@ -84,8 +86,8 @@ export default function HowWeThrive() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="max-w-md text-gray-500 text-sm md:text-base font-light border-l-2 border-brand-primary/30 pl-6"
           >
-            &quot;Structured growth designed for the modern African woman in tech. No
-            fluff, just execution.&quot;
+            &quot;Structured growth designed for the modern African woman in
+            tech. No fluff, just execution.&quot;
           </motion.p>
         </div>
 
