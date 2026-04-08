@@ -1,6 +1,6 @@
 ---
 name: Eronini Gabriel
-role: " software engineer"
+role: " Associate Product Manager"
 image: /uploads/eronini_gabriel-1.png
 bio: >-
   Gabriel is a product-driven software engineer and systems builder who thrives
