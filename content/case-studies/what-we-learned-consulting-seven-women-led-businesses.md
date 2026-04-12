@@ -53,7 +53,7 @@ The selection was deliberate. We chose for diversity of challenge type, sector, 
 
 These patterns emerged across businesses in different industries, at different stages, in different cities. They came up again and again. We are documenting them because we believe they are broadly true — not just for the businesses we consulted with, but for most women-led businesses at similar stages across Nigeria and Africa.
 
-![](/uploads/ai-business-video-thumb.png)
+![tabi-woman-pointing-down](/uploads/ai-business-video-thumb.png "Tabi-women-ai-for-business")
 
 ### 01 — The stated problem is rarely the real problem.
 
