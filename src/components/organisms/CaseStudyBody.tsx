@@ -109,7 +109,9 @@ const components: Components = {
     </div>
   ),
 
-  thead: ({ children }) => <thead className="bg-brand-primary">{children}</thead>,
+  thead: ({ children }) => (
+    <thead className="bg-brand-primary">{children}</thead>
+  ),
 
   th: ({ children }) => (
     <th className="px-4 py-3 text-left bg-brand-primary text-white font-bold text-xs uppercase tracking-wider">
@@ -179,24 +181,28 @@ const components: Components = {
   ),
 
   // ── Images in body ────────────────────────────────────────────────
-  img: ({ src, alt }) => (
-    <span className="block my-8 rounded-2xl overflow-hidden">
-      <Image
-        src={src ?? ""}
-        alt={alt ?? ""}
-        width={780}
-        height={440}
-        className="w-full h-auto object-cover rounded-2xl"
-        loading="lazy"
-        quality={80}
-      />
-      {alt && (
-        <span className="block text-xs text-[#888] text-center mt-2 italic">
-          {alt}
-        </span>
-      )}
-    </span>
-  ),
+  img: ({ src, alt }) => {
+    // Ensure src is a string (convert Blob or undefined to empty string)
+    const imageSrc = typeof src === "string" ? src : "";
+    return (
+      <span className="block my-8 rounded-2xl overflow-hidden">
+        <Image
+          src={imageSrc}
+          alt={alt ?? ""}
+          width={780}
+          height={440}
+          className="w-full h-auto object-cover rounded-2xl"
+          loading="lazy"
+          quality={80}
+        />
+        {alt && (
+          <span className="block text-xs text-[#888] text-center mt-2 italic">
+            {alt}
+          </span>
+        )}
+      </span>
+    );
+  },
 
   // ── Code ──────────────────────────────────────────────────────────
   code: ({ children }) => (
