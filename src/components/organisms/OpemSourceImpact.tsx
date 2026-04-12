@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useSpring, useTransform, useInView } from "framer-motion";
-import { IMPACT_STATS } from "@/constants/case-studies";
+import { IMPACT_STATS } from "@/constants/open-source";
 import { useEffect, useRef } from "react";
 
 // --- Animated Number Component ---

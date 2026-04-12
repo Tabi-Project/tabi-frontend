@@ -128,3 +128,37 @@ collections:
       - { label: Alt Text, name: alt, widget: string }
       - { label: Caption (Shows on hover), name: caption, widget: string }
       - { label: Order, name: order, widget: number, default: 99, required: false }
+
+
+  # ─── Case Studies ─────────────────────────────────────────────────
+  - name: case-studies
+    label: Case Studies
+    folder: content/case-studies
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: Title,        name: title,       widget: string }
+      - { label: Author,       name: author,      widget: string, required: false }
+      - { label: Author Role,  name: authorRole,  widget: string, required: false, hint: "e.g. Director, Tabi Academy" }
+      - { label: Date,         name: date,        widget: string, hint: "e.g. March 2026" }
+      - { label: Programme,    name: programme,   widget: string, required: false, hint: "e.g. Free Business Consultancy — Cohort 1" }
+      - { label: Excerpt,      name: excerpt,     widget: text }
+      - { label: Cover Image,  name: coverImage,  widget: image, required: false }
+      - { label: Featured,     name: featured,    widget: boolean, default: false }
+      - label: Stats
+        name: stats
+        widget: list
+        required: false
+        hint: "Key numbers shown at the top (e.g. 26 Applications)"
+        fields:
+          - { label: Value, name: value, widget: string, hint: "e.g. 26" }
+          - { label: Label, name: label, widget: string, hint: "e.g. Applications" }
+      - label: Tags
+        name: tags
+        widget: list
+        required: false
+        field: { label: Tag, name: tag, widget: string }
+      - label: Body
+        name: body
+        widget: markdown
+        hint: "Use ## for section headings, ### 01 — Title for numbered findings, | Table | format for tables, > for blockquotes"

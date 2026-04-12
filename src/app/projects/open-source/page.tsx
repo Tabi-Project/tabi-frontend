@@ -289,21 +289,21 @@
 //   );
 // }
 
-import CaseStudiesHero from "@/components/organisms/CaseStudiesHero";
-import CaseStudiesList from "@/components/organisms/CaseStudiesList";
-import CaseStudiesImpact from "@/components/organisms/CaseStudiesImpact"; // New
-import CaseStudiesCTA from "@/components/organisms/CaseStudiesCTA";
-import { caseStudiesMetadata } from "@/seo/page-metadata";
+import OpenSourceHero from "@/components/organisms/OpenSourceHero";
+import OpenSourceList from "@/components/organisms/OpenSourceList";
+import OpemSourceImpact from "@/components/organisms/OpemSourceImpact"; // New
+import OpenSourceCTA from "@/components/organisms/OpenSourceCTA";
+import { openSourceMetadata } from "@/seo/page-metadata";
 
-export const metadata = caseStudiesMetadata;
+export const metadata = openSourceMetadata;
 
 export default function CaseStudiesPage() {
   return (
     <main className="min-h-screen bg-white">
-      <CaseStudiesHero />
-      <CaseStudiesList />
-      <CaseStudiesImpact />
-      <CaseStudiesCTA />
+      <OpenSourceHero />
+      <OpenSourceList />
+      <OpemSourceImpact />
+      <OpenSourceCTA />
     </main>
   );
 }

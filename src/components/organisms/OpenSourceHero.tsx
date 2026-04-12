@@ -62,7 +62,7 @@ import Image from "next/image";
 
 export default function CaseStudiesHero() {
   return (
-    <section className="relative w-full overflow-hidden bg-white pt-24 lg:pt-20">
+    <section className="relative w-full overflow-hidden bg-white">
       {/* ── BACKGROUND ELEMENTS ── */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Subtle Grid Pattern */}

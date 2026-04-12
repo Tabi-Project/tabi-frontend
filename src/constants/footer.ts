@@ -1,7 +1,7 @@
 export const FOOTER_LINKS = {
   foundation: [
     { label: "About Us", href: "/about" },
-    { label: "News", href: "/news" },
+        { label: "News", href: "/resources" },
     { label: "Showcase", href: "#showcase" },
     { label: "Careers", href: "#careers" }
   ],

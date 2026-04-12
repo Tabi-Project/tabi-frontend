@@ -128,7 +128,7 @@ export default function Footer() {
   return (
     <footer className="w-full bg-white text-black">
       {/* ── Main grid ── */}
-      <div className="mx-auto max-w-350 px-20 pt-16 pb-12 flex flex-col lg:flex-row justify-between gap-12">
+      <div className="mx-auto max-w-350 px-6 sm:px-10 lg:px-16  pt-16 pb-12 flex flex-col lg:flex-row justify-between gap-12">
         {/* Left – brand + subscribe */}
         <div className="shrink-0 max-w-xs">
           <p className="text-2xl font-semibold text-black leading-snug tracking-tight">

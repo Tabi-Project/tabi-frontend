@@ -232,6 +232,44 @@ export function getAllGalleryImages(): CMSGalleryImage[] {
   }
 }
 
+
+// ─── Case Studies ─────────────────────────────────────────────────────────────
+
+export type CMSCaseStat = {
+  value: string;
+  label: string;
+};
+
+export type CMSCaseStudy = {
+  slug: string;
+  title: string;
+  author?: string;
+  authorRole?: string;
+  date: string;
+  programme?: string;
+  excerpt: string;
+  coverImage?: string;
+  featured?: boolean;
+  stats?: CMSCaseStat[];
+  tags?: string[];
+  body: string;
+};
+
+export function getAllCaseStudies(): CMSCaseStudy[] {
+  try {
+    return getFiles("case-studies")
+      .map((f) => readMarkdown<CMSCaseStudy>("case-studies", f))
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  } catch {
+    return [];
+  }
+}
+
+export function getCaseStudyBySlug(slug: string): CMSCaseStudy | undefined {
+  const target = slugify(slug);
+  return getAllCaseStudies().find((c) => c.slug === target);
+}
+
 // ─── Settings ─────────────────────────────────────────────────────────────────
 
 export type CMSSettings = {

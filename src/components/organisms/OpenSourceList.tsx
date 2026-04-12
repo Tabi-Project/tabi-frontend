@@ -2,7 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import { Github } from "lucide-react";
-import { CASE_STUDIES } from "@/constants/case-studies";
+import { CASE_STUDIES } from "@/constants/open-source";
 
 const fadeInUp: Variants = {
   initial: { opacity: 0, y: 30 },
@@ -16,6 +16,17 @@ const fadeInUp: Variants = {
 export default function CaseStudiesList() {
   return (
     <section className="bg-white">
+
+      <style>
+          {`
+          .browser-container:hover .screenshot-img {
+            transform: translateY(calc(-100% + 440px));
+          }
+          .screenshot-img {
+            transition: transform 6000ms ease-in-out;
+          }
+        `}
+      </style>
       {CASE_STUDIES.map((project, index) => (
         <article
           key={project.id}
@@ -50,7 +61,7 @@ export default function CaseStudiesList() {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="screenshot-img w-full absolute top-0 left-0 transition-transform duration-[6000ms] ease-in-out"
+                    className="screenshot-img w-full absolute top-0 left-0"
                   />
                   <div className="absolute inset-0 bg-linear-to-t from-white/20 to-transparent pointer-events-none" />
                 </div>

@@ -1,4 +1,4 @@
-export interface CaseStudy {
+export interface OpenSource {
   id: string;
   title: string;
   tagline: string;
@@ -16,7 +16,7 @@ export interface CaseStudy {
   };
 }
 
-export const CASE_STUDIES: CaseStudy[] = [
+export const CASE_STUDIES: OpenSource[] = [
   {
     id: "bloom-after",
     title: "Bloom After",

@@ -152,7 +152,7 @@ export default function CommunityCTA() {
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-3 px-10 py-5 bg-white text-[#71286F] rounded-full font-bold text-lg transition-colors"
             >
-              Join the Sisterhood{" "}
+              Join Tabi{" "}
               <WhatsAppIcon className="w-6 h-6 fill-current" />
             </motion.a>
 

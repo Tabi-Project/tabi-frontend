@@ -10,7 +10,7 @@ export const NAV_LINKS: NavItem[] = [
     href: "#projects",
     children: [
       { label: "Open Source ", href: "/projects/open-source" },
-      { label: "AI for Business", href: "/ai-for-businesses" },
+      { label: "AI for Business", href: "/ai-for-businesses" }
       // { label: "Tabi Academy", href: "#projects/academy" },
       // { label: "Tabi Project", href: "#projects/project" },
       // { label: "Purple Guild", href: "#projects/purple-guild" }
@@ -23,7 +23,8 @@ export const NAV_LINKS: NavItem[] = [
     children: [
       { label: "News", href: "/resources" },
       { label: "Blog Posts", href: "/resources?tab=blog" },
-      { label: "Events & Webinars", href: "/resources?tab=events" }
+      { label: "Events & Webinars", href: "/resources?tab=events" },
+      { label: "Case Studies", href: "/resources/case-studies" }
     ]
   },
   { label: "Community", href: "/community" },

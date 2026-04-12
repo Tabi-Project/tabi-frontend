@@ -91,9 +91,9 @@ export default function CommunityHero() {
                 variant="primary"
                 size="lg"
                 onClick={() => (window.location.hash = "join")}
-                className="gap-2 text-sm md:text-base px-6 md:px-8"
+                className="gap-2 text-sm md:text-base px-6 md:px-6"
               >
-                Join the Sisterhood <ArrowRight size={16} />
+                Join Tabi <ArrowRight size={16} />
               </Button>
 
               {/* FOMO Pulse */}

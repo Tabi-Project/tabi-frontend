@@ -129,7 +129,7 @@ export const privacyMetadata: Metadata = {
 
 // ─── Open Source Case Studies ─────────────────────────────────────────────────────────────────
 
-export const caseStudiesMetadata = {
+export const openSourceMetadata = {
   title: "Case Studies | Engineering Impact at Tabi Academy",
   description:
     "Explore open-source solutions engineered by Tabi Academy and Rise Academy. From maternal health to SME growth, see how we're building for the community.",
