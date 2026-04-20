@@ -5,6 +5,14 @@ import { useTranslations } from "next-intl";
 import { Button } from "@/components/atoms/Button";
 import RegistrationModal from "@/components/molecules/RegistrationModal";
 
+// Define the expected shape of a profile from translations
+interface ProfileTranslation {
+  label: string;
+  hook: string;
+  description: string;
+  traits: string[];
+}
+
 export default function AIBusinessAudience() {
   const t = useTranslations("AIBusiness.audience");
   const [hovered, setHovered] = useState<string | null>(null);
@@ -13,7 +21,7 @@ export default function AIBusinessAudience() {
   const PROFILES = [
     {
       id: "owner",
-      ...t.raw("profiles.owner"),
+      ...(t.raw("profiles.owner") as ProfileTranslation),
       emoji: "🏢",
       accent: "#a855f7",
       bg: "linear-gradient(135deg, #1a0a2e 0%, #2d1045 100%)",
@@ -22,7 +30,7 @@ export default function AIBusinessAudience() {
     },
     {
       id: "professional",
-      ...t.raw("profiles.professional"),
+      ...(t.raw("profiles.professional") as ProfileTranslation),
       emoji: "💼",
       accent: "#f472b6",
       bg: "linear-gradient(135deg, #2d0a1e 0%, #450a2e 100%)",
@@ -31,7 +39,7 @@ export default function AIBusinessAudience() {
     },
     {
       id: "founder",
-      ...t.raw("profiles.founder"),
+      ...(t.raw("profiles.founder") as ProfileTranslation),
       emoji: "🚀",
       accent: "#34d399",
       bg: "linear-gradient(135deg, #0a2e1a 0%, #0a3d24 100%)",
@@ -117,7 +125,7 @@ export default function AIBusinessAudience() {
                       {profile.description}
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      {profile.traits.map((trait) => (
+                      {profile.traits.map((trait: string) => (
                         <span
                           key={trait}
                           className="text-[11px] font-bold tracking-[0.12em] uppercase px-3 py-1.5 rounded-full transition-colors duration-300"
