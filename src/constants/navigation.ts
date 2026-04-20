@@ -41,6 +41,22 @@ export interface NavItem {
 
 export const NAV_LINKS: NavItem[] = [
   {
+    label: "Navigation.aiForBusinesses",
+    href: "/ai-for-businesses"
+  },
+  { label: "Navigation.community", href: "/community" },
+  { label: "Navigation.consultancy", href: "/consultancy" },
+  {
+    label: "Navigation.resources",
+    href: "/resources",
+    children: [
+      { label: "Navigation.news", href: "/resources" },
+      { label: "Navigation.blog", href: "/resources?tab=blog" },
+      { label: "Navigation.events", href: "/resources?tab=events" },
+      { label: "Navigation.caseStudies", href: "/resources/case-studies" }
+    ]
+  },
+  {
     label: "Navigation.projects",
     href: "#projects",
     children: [
@@ -52,21 +68,5 @@ export const NAV_LINKS: NavItem[] = [
       { label: "Navigation.aiForBusiness", href: "/ai-for-businesses" }
     ]
   },
-  {
-    label: "Navigation.aiForBusinesses",
-    href: "/ai-for-businesses"
-  },
-  {
-    label: "Navigation.resources",
-    href: "/resources",
-    children: [
-      { label: "Navigation.news", href: "/resources" },
-      { label: "Navigation.blog", href: "/resources?tab=blog" },
-      { label: "Navigation.events", href: "/resources?tab=events" },
-      { label: "Navigation.caseStudies", href: "/resources/case-studies" }
-    ]
-  },
-  { label: "Navigation.community", href: "/community" },
-  { label: "Navigation.consultancy", href: "/consultancy" },
   { label: "Navigation.aboutUs", href: "/about" }
 ];
