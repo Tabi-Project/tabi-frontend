@@ -1,33 +1,54 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { withBasePath } from "@/constants/paths";
 import Image from "next/image";
 
-const PARTNERS = [
-  {
-    id: "yip",
-    src: withBasePath("/partners/yip.png"),
-    alt: "YIP – Yebox Internship Program"
-  },
-  { id: "gutsy", src: withBasePath("/partners/gutsy-woman.png"), alt: "GIV The Gutsy Woman" },
-  { id: "yebox", src: withBasePath("/partners/yebox.png"), alt: "Yebox Technologies" },
-  { id: "genesys", src: withBasePath("/partners/genesys.png"), alt: "Genesys" },
-  { id: "risevest", src: withBasePath("/partners/rise.png"), alt: "Rise Academy" }
-];
-
 export default function Partners() {
+  const t = useTranslations("Partners");
+
+  const PARTNERS = [
+    {
+      id: "yip",
+      src: withBasePath("/partners/yip.png"),
+      alt: t("logos.yip")
+    },
+    {
+      id: "gutsy",
+      src: withBasePath("/partners/gutsy-woman.png"),
+      alt: t("logos.gutsy")
+    },
+    {
+      id: "yebox",
+      src: withBasePath("/partners/yebox.png"),
+      alt: t("logos.yebox")
+    },
+    {
+      id: "genesys",
+      src: withBasePath("/partners/genesys.png"),
+      alt: t("logos.genesys")
+    },
+    {
+      id: "risevest",
+      src: withBasePath("/partners/rise.png"),
+      alt: t("logos.risevest")
+    },
+    {
+      id: "cchub",
+      src: withBasePath("/partners/cchub.png"),
+      alt: t("logos.cchub")
+    }
+  ];
+
   return (
     <section className="w-full bg-white py-10 sm:py-14">
       <div className="mx-auto max-w-350 px-6 sm:px-10 lg:px-20 flex flex-col sm:flex-row items-center gap-10 sm:gap-16">
-        {/* ── Left: label ── */}
         <p className="shrink-0 max-w-96 text-2xl font-semibold text-black leading-relaxed text-center sm:text-left">
-          Partners with Tabi Empowerment and Education (TEE) Foundation
+          {t("title")}
         </p>
 
-        {/* thin vertical divider – desktop only */}
         <div className="hidden sm:block h-12 w-px bg-white/10 shrink-0" />
 
-        {/* ── Right: logo row ── */}
         <div className="flex flex-wrap justify-center sm:justify-start items-center gap-8 sm:gap-12 flex-1">
           {PARTNERS.map((p) => (
             <div

@@ -1,0 +1,683 @@
+{
+  "Navigation": {
+    "projects": "Projects",
+    "tabiWomenNetwork": "Tabi Women Network",
+    "openSource": "Open Source",
+    "aiForBusiness": "AI for Business",
+    "aiForBusinesses": "AI for Businesses",
+    "resources": "Resources",
+    "news": "News",
+    "blog": "Blog Posts",
+    "events": "Events & Webinars",
+    "caseStudies": "Case Studies",
+    "community": "Community",
+    "consultancy": "Consultancy",
+    "aboutUs": "About Us",
+    "donateNow": "Donate Now"
+  },
+  "Footer": {
+    "brandLine1": "Tabi Empowerment and",
+    "brandLine2": "Educational",
+    "brandLine3": "Foundation",
+    "emailPlaceholder": "Enter your email",
+    "subscribeButton": "Subscribe",
+    "subscribing": "Subscribing...",
+    "validation": {
+      "emailRequired": "Please enter your email address",
+      "emailInvalid": "Please enter a valid email address"
+    },
+    "feedback": {
+      "success": "You're subscribed! 🎉",
+      "duplicate": "You're already subscribed.",
+      "error": "Something went wrong. Try again."
+    },
+    "columns": {
+      "foundation": "Foundation",
+      "projects": "Projects",
+      "legal": "Legal & Compliance"
+    },
+    "copyright": "©{year} TEE Foundation Inc. All rights reserved. Various trademarks held by their respective owners.",
+    "social": {
+      "linkedin": "LinkedIn",
+      "x": "X (Twitter)",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "tiktok": "TikTok"
+    },
+    "links": {
+      "about": "About Us",
+      "community": "Community",
+      "news": "News",
+      "showcase": "Showcase",
+      "careers": "Careers",
+      "tabiWomenNetwork": "Tabi Women Network",
+      "openSource": "Open Source",
+      "aiForBusiness": "AI for business",
+      "tabiAcademy": "Tabi Academy",
+      "tabiProject": "Tabi Project",
+      "purpleGuild": "Purple Guild",
+      "privacyPolicy": "Privacy Policy",
+      "termsOfService": "Terms of Service"
+    }
+  },
+  "HomePage": {
+    "metadata": {
+      "title": "Home",
+      "description": "Tabi Academy empowers African women through free technology education, AI training, and mentorship. A TEE Foundation initiative transforming lives across Africa.",
+      "ogTitle": "Tabi Academy | Empowering Futures, Transforming Communities",
+      "ogDescription": "Free technology education, AI training and mentorship for women across Africa. Join Tabi Academy by TEE Foundation today."
+    }
+  },
+  "HeroSection": {
+    "headlinePart1": "Empowering ",
+    "headlinePart2": "Futures,",
+    "headlinePart3": "Transforming Communities",
+    "subheadline": "Unlocking potential through innovative technology, community engagement and educational program which creates a dynamic environment where individuals thrive",
+    "cta": "Join ai for business training",
+    "heroImageAlt": "Smiling woman with arms raised",
+    "tags": {
+      "academy": {
+        "subtitle": "Tabi",
+        "title": "Academy"
+      },
+      "project": {
+        "subtitle": "Tabi",
+        "title": "Project"
+      },
+      "guild": {
+        "subtitle": "guild"
+      },
+      "volunteers": {
+        "number": "500+",
+        "label": "Volunteers involved"
+      },
+      "trained": {
+        "number": "10K+",
+        "label": "Individuals Trained"
+      },
+      "participation": {
+        "number": "80%",
+        "label": "Active community participation"
+      }
+    }
+  },
+  "Partners": {
+    "title": "Partners with Tabi Empowerment and Education (TEE) Foundation",
+    "logos": {
+      "yip": "YIP – Yebox Internship Program",
+      "gutsy": "GIV The Gutsy Woman",
+      "yebox": "Yebox Technologies",
+      "genesys": "Genesys",
+      "risevest": "Rise Academy",
+      "cchub": "CcHUB"
+    }
+  },
+  "AIBusinessTeaser": {
+    "badge": "Tabi Academy",
+    "headlinePart1": "Learn to Use AI.",
+    "headlinePart2": "Build with It.",
+    "headlinePart3": "Grow Your Business.",
+    "description": "A hands-on, live 2-week programme for women in business — no tech background required. You'll leave with real deliverables, a verified certificate, and skills you can use the very next day.",
+    "cta": {
+      "primary": "Explore the Programme",
+      "secondary": "View Full Programme →"
+    },
+    "highlights": {
+      "training": {
+        "value": "2 Weeks",
+        "label": "Intensive Training"
+      },
+      "tools": {
+        "value": "6 Tools",
+        "label": "Learned & Applied"
+      },
+      "participants": {
+        "value": "50",
+        "label": "Participants Max"
+      },
+      "handsOn": {
+        "value": "100%",
+        "label": "Hands-On Labs"
+      }
+    },
+    "pillars": {
+      "strategy": {
+        "title": "AI Strategy",
+        "description": "Map AI tools directly to your biggest business challenges."
+      },
+      "design": {
+        "title": "Design & Brand",
+        "description": "Build a complete brand kit and UI mockups with AI — no design background needed."
+      },
+      "build": {
+        "title": "Build & Publish",
+        "description": "Walk away with a live, working website or app you built yourself."
+      },
+      "automate": {
+        "title": "Automate",
+        "description": "Deploy an AI agent running a real task in your business from week one."
+      }
+    },
+    "footer": {
+      "headline": "Next cohort forming now.",
+      "subtext": "Limited to 50 participants — seats fill fast."
+    }
+  },
+  "WhatWeDo": {
+    "badge": "The Team",
+    "title": "What We Do",
+    "description": "We at Tabi Empowerment and Educational (TEE) Foundation believe in the transformative power of education and innovation. Explore our guiding philosophy and the missions that propel us towards positive change",
+    "cta": "Learn More",
+    "missions": {
+      "empower": {
+        "title": "Empower",
+        "description": "Equip individuals with essential digital skills to enhance their educational and career opportunities."
+      },
+      "unite": {
+        "title": "Unite",
+        "description": "Encourage active collaboration within communities to drive sustainable development and growth"
+      },
+      "innovate": {
+        "title": "Innovate",
+        "description": "Provide resources and funding to implement innovative solutions that address society needs and challenges"
+      },
+      "educate": {
+        "title": "Educate",
+        "description": "Improve access to quality education and learning resources for underprivileged but willing individuals"
+      }
+    }
+  },
+  "GetInvolved": {
+    "heading": "Get Involved,",
+    "headingHighlight": "Support",
+    "subheading": "Our Mission",
+    "description": "Your support fuels our mission to empower communities through education and innovation, transforming lives one step at a time.",
+    "donateCard": {
+      "title": "Make a Donation",
+      "description": "Your contribution helps us provide free tech education, mentorship, and resources to women across Africa.",
+      "button": "Donate Now"
+    },
+    "communityCard": {
+      "title": "Join the Community",
+      "description": "Connect with like-minded women, access exclusive events, and be part of a supportive network.",
+      "button": "Join Community",
+      "placeholder": "Your name",
+      "emailPlaceholder": "Your email"
+    },
+    "welcomeModal": {
+      "titleWithName": "You're in, {name}! 🌟",
+      "titleDefault": "You're officially in! 🌟",
+      "message1": "We're so glad you're here. You've just joined a growing circle of passionate women shaping the future of technology in Africa — and we can't wait for you to be part of it.",
+      "message2": "Stay close to everything happening at TEE Foundation — events, opportunities, stories, and more — by joining our WhatsApp community. Come say hello! 👋",
+      "joinButton": "Join the WhatsApp Community"
+    }
+  },
+  "DonationModal": {
+    "title": "Donation Form",
+    "bankTransfer": {
+      "title": "Bank Transfer",
+      "description": "Please transfer your donation to the account below and we'll confirm your contribution.",
+      "bankNameLabel": "Bank Name",
+      "accountNameLabel": "Account Name",
+      "accountNumberLabel": "Account Number",
+      "copyButton": "Copy",
+      "copied": "Copied!",
+      "transferReminder": "Please transfer {amount} {frequency, select, One-Time {} other {({frequency})}} to the account above.",
+      "done": "Done",
+      "back": "Back"
+    },
+    "form": {
+      "donorName": "Donor Name",
+      "emailAddress": "Email Address",
+      "selectAmount": "Select Amount",
+      "customAmountPlaceholder": "Or enter custom amount",
+      "frequency": "Donation Frequency",
+      "frequencyPlaceholder": "Select frequency",
+      "cancel": "Cancel",
+      "donateNow": "Donate Now",
+      "processing": "Processing...",
+      "validation": {
+        "nameRequired": "Please enter your name",
+        "emailRequired": "Please enter your email",
+        "emailInvalid": "Please enter a valid email address",
+        "amountRequired": "Please select or enter an amount",
+        "frequencyRequired": "Please select a donation frequency"
+      },
+      "error": {
+        "generic": "Something went wrong. Please try again.",
+        "network": "Network error. Please try again."
+      }
+    },
+    "frequencies": {
+      "One-Time": "One-Time",
+      "Monthly": "Monthly",
+      "Quarterly": "Quarterly",
+      "Annually": "Annually"
+    }
+  },
+  "ConsultancyTeaser": {
+    "badge": "✦ 100% Free",
+    "deadlinePrefix": "Closes",
+    "heading": "Free Business Consultancy to",
+    "headingHighlight": "5 Women-Led Businesses",
+    "description": "We'll help solve challenges in Marketing, Finance, Tech, Strategy and Sales. Only {remaining} of {total} slots available this month.",
+    "focusAreas": {
+      "marketing": "Marketing",
+      "finance": "Finance",
+      "tech": "Tech",
+      "strategy": "Strategy",
+      "sales": "Sales"
+    },
+    "cta": "Apply for a Free Session →",
+    "terms": "T&Cs Apply",
+    "freeText": "FREE"
+  },
+  "AIBusiness": {
+    "hero": {
+      "badge": "Tabi Academy · AI Training Programme",
+      "headlinePart1": "AI Tools for",
+      "headlinePart2": "Business.",
+      "headlinePart3": "Two Weeks.",
+      "headlinePart4": "Real Results.",
+      "description": "A hands-on, live training programme that equips women in business with the AI skills to build faster, work smarter, and grow with confidence — no technical background required.",
+      "cta": "Apply Now",
+      "cohortMessage": "Next cohort forming.",
+      "cohortLimit": "Limited to 50 participants.",
+      "trustSignals": {
+        "noTech": "No tech background needed",
+        "virtual": "Fully virtual & live",
+        "certified": "Certified on completion"
+      },
+      "floatingCards": {
+        "cohortSize": "Cohort size",
+        "participantsMax": "participants max",
+        "youWillBuild": "You'll build",
+        "buildItems": {
+          "liveWebsite": "Live website",
+          "aiAgent": "AI agent",
+          "brandKit": "Brand kit"
+        },
+        "certifiedOn": "Certified on",
+        "completion": "completion"
+      }
+    },
+    "stats": {
+      "training": { "value": "2 Weeks", "label": "Intensive Live Training" },
+      "sessions": { "value": "4 Days", "label": "Hands-On Live Sessions" },
+      "tools": { "value": "6 Tools", "label": "Learned & Applied" },
+      "handsOn": { "value": "100%", "label": "Practical, Real-World Labs" }
+    },
+    "outcomes": {
+      "badge": "What You'll Achieve",
+      "heading": "Skills You Can Use the Day After Graduation",
+      "description": "Every outcome in this programme is tied to something you'll actually build. Not theory. Not slides. Real deliverables you can show, use, and grow with.",
+      "items": {
+        "fluency": {
+          "title": "AI Fluency for Business",
+          "description": "Understand how AI tools work and how to apply them strategically to your specific business context — with confidence."
+        },
+        "brand": {
+          "title": "Professional Brand & Design Assets",
+          "description": "Create a complete brand kit, visual identity, and UI mockups using AI-powered design tools — no design background needed."
+        },
+        "website": {
+          "title": "A Live, Working Website or App",
+          "description": "Build and publish a fully functional landing page or simple application using AI — and walk away with a live URL."
+        },
+        "agent": {
+          "title": "An AI Agent Running for Your Business",
+          "description": "Deploy an automation workflow or AI agent handling a real task in your business — saving you time from week one."
+        },
+        "capstone": {
+          "title": "A Capstone Project You're Proud Of",
+          "description": "Complete and present a full AI-powered business solution built around your own work — assessed by a live panel."
+        },
+        "certificate": {
+          "title": "An Official AI for Business Certificate",
+          "description": "Earn a verified digital certificate upon passing the combined assessment — recognised proof of your new capabilities."
+        }
+      },
+      "ctaHeading": "Don't just learn about AI. Build with it.",
+      "ctaDescription": "Stop watching from the sidelines. Join our next cohort to transform your business workflows and walk away with a verified certificate and live projects.",
+      "ctaButton": "Apply for Next Cohort",
+      "closingSoon": "Registration Closing Soon"
+    },
+    "metadata": {
+      "title": "AI Training for Women Entrepreneurs",
+      "description": "Join Tabi Academy's live 2-week AI training. Learn to build AI tools, automate your workflow, and grow your business. Free for African women in tech.",
+      "ogTitle": "Free AI for Business Training Programme | Tabi Academy",
+      "ogDescription": "Build faster and work smarter. Our 2-week intensive AI cohort helps female entrepreneurs master automation and innovation. Sign up now!"
+    },
+    "timeline": {
+      "badge": "The Experience",
+      "heading": "Here's Exactly What You're Signing Up For",
+      "description": "No surprises, no guesswork. From your first day to graduation and beyond, here's every stage of the experience — so you know exactly what to expect and can show up fully ready.",
+      "phases": {
+        "onboarding": {
+          "tag": "Before Day 1",
+          "title": "Pre-Programme Onboarding",
+          "description": "Get set up, get excited, and arrive ready. You'll receive your welcome pack, participant agreement, full schedule, tool setup guides, and direct access to your cohort community — all before the first session begins.",
+          "highlights": [
+            "Signed participant agreement",
+            "Tool setup guide (6 free accounts)",
+            "Full schedule + Google Calendar invites",
+            "WhatsApp community access",
+            "Pre-programme reflection worksheet"
+          ]
+        },
+        "week1": {
+          "tag": "4 Days · 4 Hours Each",
+          "title": "Week 1 · Live Training",
+          "description": "Four full-day live sessions covering AI fundamentals, design tools, app building, and automation. Every session follows a learn → demo → build → share cycle. You'll leave each day with something tangible.",
+          "highlights": [
+            "Day 1 — AI Foundations & Business Strategy",
+            "Day 2 — Design, Branding & Visual Content",
+            "Day 3 — Build & Publish with AI",
+            "Day 4 — Automation, AI Agents & Workflows"
+          ]
+        },
+        "week2": {
+          "tag": "Project + Presentation + Exam",
+          "title": "Week 2 · Capstone & Certification",
+          "description": "Apply everything you've learned to a real business challenge. Build your capstone project, present live to the cohort, and sit your certification exam. This is where it all comes together.",
+          "highlights": [
+            "1:1 coaching slots available",
+            "Wednesday mid-week group check-in",
+            "Live 10-minute capstone presentation",
+            "60-minute online certification exam",
+            "Certificate issued within 5 business days"
+          ]
+        },
+        "postProgramme": {
+          "tag": "Ongoing Support & Access",
+          "title": "Post-Programme · Alumni Community",
+          "description": "Six months of access to all recordings and materials. Two weeks of dedicated post-programme support. And permanent membership in the Tabi Academy alumni community — a network that keeps giving.",
+          "highlights": [
+            "2-week post-programme support window",
+            "6-month access to all recordings & materials",
+            "Permanent alumni community membership",
+            "Priority access to future programmes",
+            "Peer network across all cohorts"
+          ]
+        }
+      }
+    },
+    "curriculum": {
+      "badge": "The Curriculum",
+      "heading": "Four Days That Change How You Work",
+      "description": "Each day is structured around a core AI capability — and each one builds on the last. By Day 4, you'll have gone from AI foundations to deploying autonomous agents for your business.",
+      "scrollHint": "Go to {day}",
+      "days": {
+        "day1": {
+          "day": "Day 1",
+          "tag": "Foundations",
+          "title": "AI Foundations & Business Strategy",
+          "description": "Understand what AI tools actually are, how they work, and where they create the most leverage in a business. Map your own biggest challenges to AI solutions. Leave with a strategic AI roadmap for your business.",
+          "deliverableLabel": "Lab deliverable:",
+          "deliverable": "AI opportunity map for your business"
+        },
+        "day2": {
+          "day": "Day 2",
+          "tag": "Design",
+          "title": "Design, Branding & Visual Content",
+          "description": "Use AI design tools to create professional graphics, a complete brand kit, and UI wireframes or mockups. No design experience needed — just your vision.",
+          "deliverableLabel": "Lab deliverable:",
+          "deliverable": "Brand kit + UI mockup or wireframe"
+        },
+        "day3": {
+          "day": "Day 3",
+          "tag": "Build",
+          "title": "Build & Publish with AI",
+          "description": "Build a fully functional landing page or simple application using AI-powered development tools. Publish it live. Walk away with a real URL.",
+          "deliverableLabel": "Lab deliverable:",
+          "deliverable": "Live published landing page or app"
+        },
+        "day4": {
+          "day": "Day 4",
+          "tag": "Automate",
+          "title": "Automation, AI Agents & Workflows",
+          "description": "Create an AI agent or automation workflow running a real task for your business. From lead capture to content scheduling — this is where AI works for you, not the other way around.",
+          "deliverableLabel": "Lab deliverable:",
+          "deliverable": "Deployed automation or AI agent workflow"
+        }
+      }
+    },
+    "inclusions": {
+      "badge": "What's Included",
+      "headingLine1": "Everything",
+      "headingLine2": "You Need.",
+      "headingLine3": "Nothing",
+      "headingLine4": "You Don't.",
+      "freeToolsNote": "Every tool used in this programme has a free tier that's sufficient for all labs. No paid subscriptions required.",
+      "categories": {
+        "Training": "Training",
+        "Support": "Support",
+        "Materials": "Materials",
+        "Certification": "Certification",
+        "Community": "Community"
+      },
+      "items": [
+        {
+          "text": "4 live 4-hour facilitated sessions via Google Meet",
+          "category": "Training"
+        },
+        { "text": "1:1 coaching slots during Week 2", "category": "Support" },
+        {
+          "text": "Wednesday mid-week group check-in session",
+          "category": "Training"
+        },
+        {
+          "text": "All slides, lab templates, and resource guides",
+          "category": "Materials"
+        },
+        {
+          "text": "Session recordings (6-month access window)",
+          "category": "Materials"
+        },
+        {
+          "text": "Daily facilitator feedback on your work",
+          "category": "Support"
+        },
+        {
+          "text": "Certification examination + one free retake",
+          "category": "Certification"
+        },
+        {
+          "text": "Verified digital certificate with verification link",
+          "category": "Certification"
+        },
+        {
+          "text": "2-week post-programme support window",
+          "category": "Support"
+        },
+        {
+          "text": "Permanent alumni community membership",
+          "category": "Community"
+        },
+        {
+          "text": "Priority access to future Tabi Academy programmes",
+          "category": "Community"
+        },
+        {
+          "text": "Access to alumni network across all cohorts",
+          "category": "Community"
+        }
+      ],
+      "bottomBanner": {
+        "title": "No paid subscriptions needed",
+        "description": "Every tool has a free tier that covers 100% of the programme labs and assignments.",
+        "badge": "Free to use ✓"
+      }
+    },
+    "audience": {
+      "badge": "Who It's For",
+      "heading": "Built for Women Who Mean Business",
+      "description": "You don't need a tech background. You need ambition, a real business context, and four hours a day for two weeks.",
+      "profiles": {
+        "owner": {
+          "label": "The Business Owner",
+          "hook": "You're running a business and you know AI could save you time.",
+          "description": "You just haven't had the space to figure it out properly. This programme gives you that space, with expert guidance and a live cohort around you.",
+          "traits": ["Time-poor", "Growth-focused", "Already operating"]
+        },
+        "professional": {
+          "label": "The Professional",
+          "hook": "You're employed, ambitious, and watching AI reshape your industry.",
+          "description": "You want to be ahead of the curve, not scrambling to catch up. This programme gives you tangible skills, not just awareness.",
+          "traits": ["Career-driven", "Industry-aware", "Future-proofing"]
+        },
+        "founder": {
+          "label": "The Founder",
+          "hook": "You're building something and every resource counts.",
+          "description": "AI tools can stretch your capacity without stretching your budget. This programme teaches you to build, automate, and design like a team of one — that operates like a team of ten.",
+          "traits": ["Resource-savvy", "Building fast", "Wearing every hat"]
+        }
+      },
+      "cta": {
+        "heading": "Not sure if you fit the profile?",
+        "description": "The only real requirement is a business goal you want to achieve. We teach you everything else from the ground up.",
+        "button": "Join the Cohort"
+      },
+      "footerLine": "Whichever describes you —",
+      "footerHighlight": "you belong in this cohort."
+    },
+    "pricing": {
+      "badge": "Investment & Access",
+      "heading": "50% Off Limited Time Offer",
+      "description": "We've discounted the standard tuition by 50% for this cohort to support more African women in tech.",
+      "tuitionLabel": "Tuition Fee",
+      "features": [
+        "Full Course Access",
+        "Professional Certification",
+        "Lifetime Alumni Community"
+      ],
+      "cta": "Proceed to Payment",
+      "international": {
+        "heading": "Not in Nigeria?",
+        "description": "We provide tailored payment links for international students to ensure a seamless enrollment process.",
+        "link": "View International Options →"
+      }
+    },
+    "certification": {
+      "badge": "Certification",
+      "headingLine1": "Earn a Certificate",
+      "headingLine2": "That Means Something",
+      "description": "Certification isn't handed out. It's earned. To receive your verified AI for Business certificate, you need to show up, do the work, and demonstrate real capability.",
+      "steps": {
+        "attendance": {
+          "title": "80% Attendance",
+          "detail": "Across all 4 live Week 1 sessions — 3 out of 4 days minimum."
+        },
+        "assignments": {
+          "title": "Daily Assignments",
+          "detail": "Completed and submitted from Days 1–3. They feed directly into your capstone."
+        },
+        "capstone": {
+          "title": "Capstone Project",
+          "detail": "Full written report + 10-minute live presentation to the panel on Day 9."
+        },
+        "exam": {
+          "title": "Certification Exam",
+          "detail": "60 minutes, online, on Day 10. Auto-submits at the time limit."
+        },
+        "score": {
+          "title": "Combined Score of 70%+",
+          "detail": "Capstone weighted at 60%, exam at 40%. Both must be submitted to qualify."
+        }
+      },
+      "certificate": {
+        "subtitle": "Certificate of Completion",
+        "awardedTo": "Awarded to",
+        "placeholderName": "Your Name Here",
+        "description": "For successfully completing the AI for Businesses intensive programme and demonstrating applied competency across all four training domains.",
+        "capstone": "Capstone",
+        "exam": "Exam",
+        "verification": "Digitally verified · Issued within 5 business days"
+      },
+      "retake": {
+        "title": "One free retake included",
+        "description": "Didn't pass first time? You have 14 days to retake the exam at no extra cost. No pressure — just another shot."
+      }
+    },
+    "faq": {
+      "badge": "Questions",
+      "headingLine1": "Everything",
+      "headingLine2": "You've Been",
+      "headingHighlight": "Wondering",
+      "contactMessage": "Can't find your answer here? Reach out directly — the team responds within one business day.",
+      "contactEmail": "hello@tabiproject.com",
+      "items": [
+        {
+          "q": "Do I need a technical background?",
+          "a": "No. This programme is designed specifically for business owners and professionals — not developers. If you can use a smartphone and a laptop, you have everything you need to start.",
+          "tag": "Getting Started"
+        },
+        {
+          "q": "What tools will I use?",
+          "a": "ChatGPT, Canva, Uizard, GitHub, Zapier, and Vercel or Netlify — plus additional platforms introduced per session. Every tool has a free tier. No paid subscriptions are required.",
+          "tag": "Tools"
+        },
+        {
+          "q": "How many people are in each cohort?",
+          "a": "A maximum of 50 participants per cohort. This isn't a webinar — it's a live, interactive learning environment where the facilitators know your name and your business.",
+          "tag": "Programme"
+        },
+        {
+          "q": "What if I miss a session?",
+          "a": "Recordings are made available within 24 hours. Missing one session keeps you within the 80% attendance threshold. Missing two or more makes you ineligible for certification. Notify the team in advance if you need to miss a session.",
+          "tag": "Attendance"
+        },
+        {
+          "q": "Is this programme fully virtual?",
+          "a": "Yes. All sessions are delivered live via Google Meet. You'll need a laptop or desktop, a stable internet connection, a working webcam, and a quiet environment.",
+          "tag": "Delivery"
+        },
+        {
+          "q": "What happens after the programme ends?",
+          "a": "You get two weeks of dedicated post-programme support, six months of access to all recordings and materials, and permanent membership in the Tabi Academy alumni community.",
+          "tag": "Post-Programme"
+        },
+        {
+          "q": "What is the refund policy?",
+          "a": "Full refund for cancellations more than 14 days before the start date. 50% refund between 7–14 days. No refund within 7 days or after the programme has commenced. A one-time deferral to the next cohort is available if requested at least 5 days before the start date.",
+          "tag": "Payment"
+        },
+        {
+          "q": "Can I defer to a future cohort?",
+          "a": "Yes — once. If you notify the team at least 5 days before the programme start date, you can defer your place to the next available cohort.",
+          "tag": "Payment"
+        }
+      ],
+      "tags": {
+        "Getting Started": "Getting Started",
+        "Tools": "Tools",
+        "Programme": "Programme",
+        "Attendance": "Attendance",
+        "Delivery": "Delivery",
+        "Post-Programme": "Post-Programme",
+        "Payment": "Payment"
+      }
+    },
+    "cta": {
+      "badge": "Apply",
+      "headingLine1": "Ready to Build",
+      "headingHighlight": "with AI?",
+      "description": "The next cohort is forming now. Places are limited to",
+      "descriptionHighlight": "50 participants",
+      "descriptionSuffix": "— so every seat matters and fills fast. Apply today to secure your place and begin your onboarding.",
+      "button": "Apply for the Next Cohort",
+      "enrolledLink": "Access the community group →",
+      "enrolledText": "Already enrolled?",
+      "trustSignals": [
+        "No technical background required",
+        "Live, expert-facilitated",
+        "Fully virtual",
+        "Certified on completion"
+      ]
+    }
+  },
+  "RegistrationModal": {
+    "title": "Apply for the Next Cohort",
+    "subtitle": "AI for Businesses Programme — Limited to 50 participants"
+  }
+}

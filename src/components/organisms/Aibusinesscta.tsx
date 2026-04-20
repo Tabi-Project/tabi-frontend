@@ -1,24 +1,20 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 import RegistrationModal from "../molecules/RegistrationModal";
 
-const TRUST_SIGNALS = [
-  "No technical background required",
-  "Live, expert-facilitated",
-  "Fully virtual",
-  "Certified on completion"
-];
-
 export default function AIBusinessCTA() {
+  const t = useTranslations("AIBusiness.cta");
   const [formOpen, setFormOpen] = useState(false);
+
+  const trustSignals = t.raw("trustSignals") as string[];
 
   return (
     <>
       <section id="register" className="w-full bg-[#0d0d0d] overflow-hidden">
-        <div className="relative mx-auto max-w-[1400px] px-6 sm:px-12 lg:px-20 py-24 lg:py-32">
-          {/* ── Background decorations ── */}
+        <div className="relative mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-24 lg:py-32">
           <div
             className="absolute inset-0 pointer-events-none"
             aria-hidden
@@ -27,7 +23,6 @@ export default function AIBusinessCTA() {
                 "radial-gradient(ellipse 60% 70% at 50% 50%, rgba(113,40,111,0.18) 0%, transparent 70%)"
             }}
           />
-          {/* Top-left corner grid lines */}
           <svg
             className="absolute top-0 left-0 w-64 h-64 opacity-[0.04]"
             viewBox="0 0 200 200"
@@ -55,7 +50,6 @@ export default function AIBusinessCTA() {
               </g>
             ))}
           </svg>
-          {/* Bottom-right mirror */}
           <svg
             className="absolute bottom-0 right-0 w-64 h-64 opacity-[0.04] rotate-180"
             viewBox="0 0 200 200"
@@ -84,17 +78,14 @@ export default function AIBusinessCTA() {
             ))}
           </svg>
 
-          {/* ── Content ── */}
           <div className="relative flex flex-col items-center text-center">
-            {/* Label pill */}
             <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold text-white/50 tracking-wide uppercase">
               <span className="w-1.5 h-1.5 rounded-full bg-[#c084fc] animate-pulse" />
-              Apply
+              {t("badge")}
             </span>
 
-            {/* Heading */}
             <h2 className="text-[clamp(2.4rem,6vw,5rem)] font-extrabold tracking-tight leading-[1.05] text-white max-w-3xl mb-6">
-              Ready to Build
+              {t("headingLine1")}
               <br />
               <span
                 className="italic"
@@ -104,19 +95,18 @@ export default function AIBusinessCTA() {
                   WebkitTextFillColor: "transparent"
                 }}
               >
-                with AI?
+                {t("headingHighlight")}
               </span>
             </h2>
 
-            {/* Subtext */}
             <p className="text-base sm:text-lg text-white/50 leading-relaxed max-w-lg mb-10">
-              The next cohort is forming now. Places are limited to{" "}
-              <span className="text-white font-semibold">50 participants</span>{" "}
-              — so every seat matters and fills fast. Apply today to secure your
-              place and begin your onboarding.
+              {t("description")}{" "}
+              <span className="text-white font-semibold">
+                {t("descriptionHighlight")}
+              </span>{" "}
+              {t("descriptionSuffix")}
             </p>
 
-            {/* CTA */}
             <div className="flex flex-col items-center gap-4 mb-10">
               <button
                 onClick={() => setFormOpen(true)}
@@ -126,7 +116,7 @@ export default function AIBusinessCTA() {
                   boxShadow: "0 0 40px rgba(113,40,111,0.4)"
                 }}
               >
-                Apply for the Next Cohort
+                {t("button")}
                 <svg
                   width="18"
                   height="18"
@@ -145,19 +135,18 @@ export default function AIBusinessCTA() {
               </button>
 
               <p className="text-sm text-white/30">
-                Already enrolled?{" "}
+                {t("enrolledText")}{" "}
                 <Link
                   href="#"
                   className="text-white/60 hover:text-white underline underline-offset-4 transition-colors duration-200 font-medium"
                 >
-                  Access the community group →
+                  {t("enrolledLink")}
                 </Link>
               </p>
             </div>
 
-            {/* Trust signals */}
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-3">
-              {TRUST_SIGNALS.map((item, i) => (
+              {trustSignals.map((item, i) => (
                 <span
                   key={item}
                   className="flex items-center gap-2 text-xs text-white/30"
@@ -194,8 +183,6 @@ export default function AIBusinessCTA() {
           </div>
         </div>
       </section>
-
-      {/* Registration form modal */}
       {formOpen && <RegistrationModal onClose={() => setFormOpen(false)} />}
     </>
   );

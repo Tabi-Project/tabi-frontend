@@ -1,77 +1,69 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/atoms/Button";
 import RegistrationModal from "@/components/molecules/RegistrationModal";
 
-const OUTCOMES = [
-  {
-    number: "01",
-    title: "AI Fluency for Business",
-    description:
-      "Understand how AI tools work and how to apply them strategically to your specific business context — with confidence.",
-    icon: "🧠"
-  },
-  {
-    number: "02",
-    title: "Professional Brand & Design Assets",
-    description:
-      "Create a complete brand kit, visual identity, and UI mockups using AI-powered design tools — no design background needed.",
-    icon: "🎨"
-  },
-  {
-    number: "03",
-    title: "A Live, Working Website or App",
-    description:
-      "Build and publish a fully functional landing page or simple application using AI — and walk away with a live URL.",
-    icon: "🌐"
-  },
-  {
-    number: "04",
-    title: "An AI Agent Running for Your Business",
-    description:
-      "Deploy an automation workflow or AI agent handling a real task in your business — saving you time from week one.",
-    icon: "⚡"
-  },
-  {
-    number: "05",
-    title: "A Capstone Project You're Proud Of",
-    description:
-      "Complete and present a full AI-powered business solution built around your own work — assessed by a live panel.",
-    icon: "🏆"
-  },
-  {
-    number: "06",
-    title: "An Official AI for Business Certificate",
-    description:
-      "Earn a verified digital certificate upon passing the combined assessment — recognised proof of your new capabilities.",
-    icon: "📜"
-  }
-];
-
 export default function AIBusinessOutcomes() {
+  const t = useTranslations("AIBusiness.outcomes");
   const [formOpen, setFormOpen] = useState(false);
+
+  const OUTCOMES = [
+    {
+      number: "01",
+      icon: "🧠",
+      titleKey: "items.fluency.title",
+      descriptionKey: "items.fluency.description"
+    },
+    {
+      number: "02",
+      icon: "🎨",
+      titleKey: "items.brand.title",
+      descriptionKey: "items.brand.description"
+    },
+    {
+      number: "03",
+      icon: "🌐",
+      titleKey: "items.website.title",
+      descriptionKey: "items.website.description"
+    },
+    {
+      number: "04",
+      icon: "⚡",
+      titleKey: "items.agent.title",
+      descriptionKey: "items.agent.description"
+    },
+    {
+      number: "05",
+      icon: "🏆",
+      titleKey: "items.capstone.title",
+      descriptionKey: "items.capstone.description"
+    },
+    {
+      number: "06",
+      icon: "📜",
+      titleKey: "items.certificate.title",
+      descriptionKey: "items.certificate.description"
+    }
+  ];
 
   return (
     <>
       <section className="w-full bg-[#fdf7ff]">
         <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
-          {/* ── Section header ── */}
           <div className="flex flex-col items-center text-center mb-16">
             <span className="mb-4 inline-flex items-center rounded-full border border-brand-primary/30 bg-white px-4 py-1.5 text-xs font-semibold text-brand-primary tracking-wide uppercase">
-              What You&apos;ll Achieve
+              {t("badge")}
             </span>
             <h2 className="text-[clamp(1.9rem,4vw,3rem)] font-extrabold tracking-tight text-[#1a1a2e] max-w-2xl leading-tight">
-              Skills You Can Use the Day After Graduation
+              {t("heading")}
             </h2>
             <p className="mt-4 max-w-xl text-base text-[#666] leading-relaxed">
-              Every outcome in this programme is tied to something you&apos;ll
-              actually build. Not theory. Not slides. Real deliverables you can
-              show, use, and grow with.
+              {t("description")}
             </p>
           </div>
 
-          {/* ── Outcomes grid ── */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {OUTCOMES.map((outcome, i) => (
               <div
@@ -86,26 +78,22 @@ export default function AIBusinessOutcomes() {
                   {outcome.icon}
                 </div>
                 <h3 className="text-lg font-bold text-[#1a1a2e] mb-3">
-                  {outcome.title}
+                  {t(outcome.titleKey)}
                 </h3>
                 <p className="text-sm text-[#777] leading-relaxed">
-                  {outcome.description}
+                  {t(outcome.descriptionKey)}
                 </p>
               </div>
             ))}
           </div>
 
-          {/* ── CTA block ── */}
           <div className="mt-20 flex flex-col items-center text-center bg-white/60 border border-white/80 rounded-[3rem] p-10 md:p-16 shadow-xl shadow-brand-primary/5">
             <h3 className="text-2xl md:text-3xl font-extrabold text-[#1a1a2e] mb-4">
-              Don&apos;t just learn about AI. Build with it.
+              {t("ctaHeading")}
             </h3>
             <p className="text-[#555] max-w-xl mb-10 text-sm md:text-base leading-relaxed">
-              Stop watching from the sidelines. Join our next cohort to
-              transform your business workflows and walk away with a verified
-              certificate and live projects.
+              {t("ctaDescription")}
             </p>
-
             <div className="flex flex-col items-center gap-5">
               <Button
                 variant="primary"
@@ -113,21 +101,19 @@ export default function AIBusinessOutcomes() {
                 className="px-12 py-7 text-lg shadow-lg shadow-brand-primary/20 hover:scale-105 transition-transform cursor-pointer"
                 onClick={() => setFormOpen(true)}
               >
-                Apply for Next Cohort
+                {t("ctaButton")}
               </Button>
-
               <div className="flex items-center gap-2 text-brand-primary font-semibold text-xs uppercase tracking-widest">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-primary"></span>
                 </span>
-                Registration Closing Soon
+                {t("closingSoon")}
               </div>
             </div>
           </div>
         </div>
       </section>
-
       {formOpen && <RegistrationModal onClose={() => setFormOpen(false)} />}
     </>
   );

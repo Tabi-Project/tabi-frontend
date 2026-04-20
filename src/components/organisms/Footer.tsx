@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import {
   FaLinkedinIn,
   FaXTwitter,
@@ -11,36 +12,6 @@ import {
   FaTiktok
 } from "react-icons/fa6";
 import { FOOTER_LINKS } from "@/constants/footer";
-
-const NAV_COLUMNS = [
-  { heading: "Foundation", links: FOOTER_LINKS.foundation },
-  { heading: "Projects", links: FOOTER_LINKS.projects },
-  { heading: "Legal & Compliance", links: FOOTER_LINKS.legal }
-];
-
-const SOCIAL_LINKS = [
-  {
-    icon: FaLinkedinIn,
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/company/tabi-academy/"
-  },
-  {
-    icon: FaXTwitter,
-    label: "X (Twitter)",
-    href: "https://x.com/tabi_academy"
-  },
-  {
-    icon: FaFacebookF,
-    label: "Facebook",
-    href: "https://www.facebook.com/share/1FCmY31GJe/"
-  },
-  {
-    icon: FaInstagram,
-    label: "Instagram",
-    href: "https://www.instagram.com/tabi_academy?igsh=MTE4b24yMGJ6d29peA=="
-  },
-  { icon: FaTiktok, label: "TikTok", href: "#" }
-];
 
 type Status = "idle" | "loading" | "success" | "duplicate" | "error";
 
@@ -68,17 +39,20 @@ function Spinner() {
 }
 
 export default function Footer() {
+  const t = useTranslations("Footer");
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
   const [status, setStatus] = useState<Status>("idle");
 
+  const currentYear = new Date().getFullYear();
+
   function validate(): boolean {
     if (!email.trim()) {
-      setEmailError("Please enter your email address");
+      setEmailError(t("validation.emailRequired"));
       return false;
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim())) {
-      setEmailError("Please enter a valid email address");
+      setEmailError(t("validation.emailInvalid"));
       return false;
     }
     setEmailError("");
@@ -95,9 +69,7 @@ export default function Footer() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email: email.trim(), source: "footer" })
       });
-
       const json = await res.json();
-
       if (json.success) {
         setStatus("success");
         setEmail("");
@@ -110,38 +82,65 @@ export default function Footer() {
     } catch {
       setStatus("error");
     }
-
     setTimeout(() => setStatus("idle"), 4000);
   }
 
   const feedbackMessage: Partial<
     Record<Status, { text: string; color: string }>
   > = {
-    success: { text: "You're subscribed! 🎉", color: "text-green-600" },
-    duplicate: { text: "You're already subscribed.", color: "text-yellow-600" },
-    error: { text: "Something went wrong. Try again.", color: "text-red-500" }
+    success: { text: t("feedback.success"), color: "text-green-600" },
+    duplicate: { text: t("feedback.duplicate"), color: "text-yellow-600" },
+    error: { text: t("feedback.error"), color: "text-red-500" }
   };
 
   const feedback = feedbackMessage[status];
   const isLoading = status === "loading";
 
+  const SOCIAL_LINKS = [
+    {
+      icon: FaLinkedinIn,
+      label: t("social.linkedin"),
+      href: "https://www.linkedin.com/company/tabi-academy/"
+    },
+    {
+      icon: FaXTwitter,
+      label: t("social.x"),
+      href: "https://x.com/tabi_academy"
+    },
+    {
+      icon: FaFacebookF,
+      label: t("social.facebook"),
+      href: "https://www.facebook.com/share/1FCmY31GJe/"
+    },
+    {
+      icon: FaInstagram,
+      label: t("social.instagram"),
+      href: "https://www.instagram.com/tabi_academy?igsh=MTE4b24yMGJ6d29peA=="
+    },
+    { icon: FaTiktok, label: t("social.tiktok"), href: "#" }
+  ];
+
+  const NAV_COLUMNS = [
+    { heading: t("columns.foundation"), links: FOOTER_LINKS.foundation },
+    { heading: t("columns.projects"), links: FOOTER_LINKS.projects },
+    { heading: t("columns.legal"), links: FOOTER_LINKS.legal }
+  ];
+
   return (
     <footer className="w-full bg-white text-black">
-      {/* ── Main grid ── */}
-      <div className="mx-auto max-w-350 px-6 sm:px-10 lg:px-16  pt-16 pb-12 flex flex-col lg:flex-row justify-between gap-12">
+      <div className="mx-auto max-w-350 px-6 sm:px-10 lg:px-16 pt-16 pb-12 flex flex-col lg:flex-row justify-between gap-12">
         {/* Left – brand + subscribe */}
         <div className="shrink-0 max-w-xs">
           <p className="text-2xl font-semibold text-black leading-snug tracking-tight">
-            Tabi Empowerment and
+            {t("brandLine1")}
           </p>
           <p className="text-2xl font-semibold text-black leading-snug tracking-tight">
             <span className="font-bold italic text-brand-primary">
-              Educational
+              {t("brandLine2")}
             </span>{" "}
-            Foundation
+            {t("brandLine3")}
           </p>
 
-          {/* Contact email */}
           <a
             href="mailto:hello@tabiproject.com"
             className="inline-flex items-center gap-2 mt-4 mb-2 text-sm text-[#555] hover:text-brand-primary transition-colors"
@@ -167,7 +166,6 @@ export default function Footer() {
             hello@tabiproject.com
           </a>
 
-          {/* Email subscribe pill */}
           <div
             className={`mt-8 flex items-center bg-white border rounded-full overflow-hidden pl-4 pr-1 py-1 gap-2 transition-all duration-300 ${
               emailError
@@ -183,7 +181,7 @@ export default function Footer() {
                 if (emailError) setEmailError("");
               }}
               onKeyDown={(e) => e.key === "Enter" && handleSubscribe()}
-              placeholder="Enter your email"
+              placeholder={t("emailPlaceholder")}
               disabled={isLoading}
               className="flex-1 min-w-0 bg-transparent text-sm text-[#1a1a2e] placeholder:text-gray-400 outline-none disabled:opacity-50"
             />
@@ -195,22 +193,20 @@ export default function Footer() {
             >
               {isLoading ? (
                 <>
-                  <Spinner /> Subscribing...
+                  <Spinner /> {t("subscribing")}
                 </>
               ) : (
-                "Subscribe"
+                t("subscribeButton")
               )}
             </button>
           </div>
 
-          {/* Field error */}
           {emailError && (
             <p className="mt-2 text-xs font-medium text-red-500">
               {emailError}
             </p>
           )}
 
-          {/* Status feedback */}
           {feedback && !emailError && (
             <p className={`mt-2 text-xs font-medium ${feedback.color}`}>
               {feedback.text}
@@ -226,13 +222,13 @@ export default function Footer() {
                 {heading}
               </h4>
               <ul className="space-y-4">
-                {links.map(({ label, href }) => (
-                  <li key={label}>
+                {links.map(({ labelKey, href }) => (
+                  <li key={labelKey}>
                     <Link
                       href={href}
                       className="text-sm text-black/70 hover:text-brand-primary transition-colors"
                     >
-                      {label}
+                      {t(labelKey as any)}
                     </Link>
                   </li>
                 ))}
@@ -242,12 +238,10 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* ── Divider ── */}
       <div className="mx-auto max-w-350 px-20">
         <hr className="border-white/10" />
       </div>
 
-      {/* ── Bottom bar ── */}
       <div className="mx-auto max-w-350 px-20 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
         <div className="shrink-0">
           <Image
@@ -260,8 +254,7 @@ export default function Footer() {
           />
         </div>
         <p className="text-xs text-black text-center">
-          ©{new Date().getFullYear()} TEE Foundation Inc. All rights reserved.{" "}
-          Various trademarks held by their respective owners.
+          {t("copyright", { year: currentYear })}
         </p>
         <div className="flex items-center gap-4 shrink-0">
           {SOCIAL_LINKS.map(({ icon: Icon, label, href }) => (

@@ -1,6 +1,7 @@
 "use client";
 
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/atoms/Button";
 import {
   APPLICATION_DEADLINE,
@@ -10,7 +11,8 @@ import {
 import { motion, Variants } from "framer-motion";
 
 export default function ConsultancyTeaser() {
-  // Container will choreograph text and button to appear one after another
+  const t = useTranslations("ConsultancyTeaser");
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -46,6 +48,14 @@ export default function ConsultancyTeaser() {
     }
   };
 
+  const focusAreas = [
+    "marketing",
+    "finance",
+    "tech",
+    "strategy",
+    "sales"
+  ] as const;
+
   return (
     <section className="w-full bg-white overflow-hidden">
       <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
@@ -80,7 +90,7 @@ export default function ConsultancyTeaser() {
               }
             }}
           >
-            FREE
+            {t("freeText")}
           </motion.span>
 
           {/* Left Text Block */}
@@ -98,46 +108,45 @@ export default function ConsultancyTeaser() {
                   background: "rgba(192,132,232,0.1)"
                 }}
               >
-                ✦ 100% Free
+                {t("badge")}
               </span>
               <span
                 className="text-xs font-semibold px-3 py-1.5 rounded-full"
                 style={{ background: "rgba(113,40,111,0.4)", color: "#E4B8F5" }}
               >
-                Closes {APPLICATION_DEADLINE}
+                {t("deadlinePrefix")} {APPLICATION_DEADLINE}
               </span>
             </div>
 
             <h2 className="text-[clamp(1.6rem,3.5vw,2.4rem)] font-extrabold text-white leading-snug mb-3">
-              Free Business Consultancy to{" "}
-              <span style={{ color: "#C084E8" }}>5 Women-Led Businesses</span>
+              {t("heading")}{" "}
+              <span style={{ color: "#C084E8" }}>{t("headingHighlight")}</span>
             </h2>
 
             <p
               className="text-base leading-relaxed mb-5"
               style={{ color: "rgba(255,255,255,0.6)" }}
             >
-              We&apos;ll help solve challenges in Marketing, Finance, Tech,
-              Strategy and Sales. Only {SLOTS_REMAINING} of {TOTAL_SLOTS} slots
-              available this month.
+              {t("description", {
+                remaining: SLOTS_REMAINING,
+                total: TOTAL_SLOTS
+              })}
             </p>
 
             {/* Focus area pills */}
             <div className="flex flex-wrap gap-2">
-              {["Marketing", "Finance", "Tech", "Strategy", "Sales"].map(
-                (area) => (
-                  <span
-                    key={area}
-                    className="text-xs font-semibold px-3 py-1.5 rounded-full"
-                    style={{
-                      background: "rgba(113,40,111,0.35)",
-                      color: "#E4B8F5"
-                    }}
-                  >
-                    {area}
-                  </span>
-                )
-              )}
+              {focusAreas.map((area) => (
+                <span
+                  key={area}
+                  className="text-xs font-semibold px-3 py-1.5 rounded-full"
+                  style={{
+                    background: "rgba(113,40,111,0.35)",
+                    color: "#E4B8F5"
+                  }}
+                >
+                  {t(`focusAreas.${area}`)}
+                </span>
+              ))}
             </div>
           </motion.div>
 
@@ -148,11 +157,11 @@ export default function ConsultancyTeaser() {
           >
             <Link href="/consultancy#apply">
               <Button variant="primary" size="md">
-                Apply for a Free Session →
+                {t("cta")}
               </Button>
             </Link>
             <p className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
-              T&Cs Apply
+              {t("terms")}
             </p>
           </motion.div>
         </motion.div>

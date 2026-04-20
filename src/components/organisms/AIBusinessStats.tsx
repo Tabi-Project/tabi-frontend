@@ -1,14 +1,20 @@
-const STATS = [
-  { value: "2 Weeks", label: "Intensive Live Training" },
-  { value: "4 Days", label: "Hands-On Live Sessions" },
-  { value: "6 Tools", label: "Learned & Applied" },
-  { value: "100%", label: "Practical, Real-World Labs" }
-];
+"use client";
+
+import { useTranslations } from "next-intl";
 
 export default function AIBusinessStats() {
+  const t = useTranslations("AIBusiness.stats");
+
+  const STATS = [
+    { value: t("training.value"), label: t("training.label") },
+    { value: t("sessions.value"), label: t("sessions.label") },
+    { value: t("tools.value"), label: t("tools.label") },
+    { value: t("handsOn.value"), label: t("handsOn.label") }
+  ];
+
   return (
     <section className="w-full bg-white">
-      <div className="mx-auto max-w-[1400px] px-6 sm:px-12 lg:px-20 py-16">
+      <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 border border-[#ede8f5] rounded-3xl overflow-hidden bg-brand-surface/60">
           {STATS.map((stat, i) => (
             <div
@@ -20,12 +26,8 @@ export default function AIBusinessStats() {
                 ${i === 1 ? "border-b md:border-b-0" : ""}
               `}
             >
-              <p className="text-2xl sm:text-3xl font-extrabold text-brand-primary leading-none">
-                {stat.value}
-              </p>
-              <p className="mt-2 text-xs sm:text-sm text-[#777] font-medium max-w-[120px]">
-                {stat.label}
-              </p>
+              <p className="text-2xl sm:text-3xl font-extrabold text-brand-primary leading-none">{stat.value}</p>
+              <p className="mt-2 text-xs sm:text-sm text-[#777] font-medium max-w-[120px]">{stat.label}</p>
             </div>
           ))}
         </div>

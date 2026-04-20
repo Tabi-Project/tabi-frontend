@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import DonationModal from "@/components/molecules/DonationModal";
 import CommunityWelcomeModal from "@/components/molecules/CommunityWelcomeModal";
 import DonateCard from "@/components/organisms/DonateCard";
@@ -8,10 +9,10 @@ import CommunityCard from "@/components/organisms/CommunityCard";
 import { motion, Variants } from "framer-motion";
 
 export default function GetInvolved() {
+  const t = useTranslations("GetInvolved");
   const [donateOpen, setDonateOpen] = useState(false);
   const [welcomeOpen, setWelcomeOpen] = useState(false);
 
-  // Parent variants to handle staggering of children
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -23,7 +24,6 @@ export default function GetInvolved() {
     }
   };
 
-  // Reusable child variant for smooth slide up
   const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
@@ -31,7 +31,7 @@ export default function GetInvolved() {
       y: 0,
       transition: {
         duration: 0.8,
-        ease: [0.16, 1, 0.3, 1] // Custom professional cubic bezier
+        ease: [0.16, 1, 0.3, 1]
       }
     }
   };
@@ -47,12 +47,14 @@ export default function GetInvolved() {
         >
           <motion.div className="text-center mb-14" variants={itemVariants}>
             <h2 className="text-[clamp(3.5rem,4.5vw,3.5rem)] font-bold tracking-tight text-[#1a1a2e] leading-tight">
-              Get Involved, <span className="text-brand-primary">Support</span>{" "}
-              Our Mission
+              {t("heading")}{" "}
+              <span className="text-brand-primary">
+                {t("headingHighlight")}
+              </span>{" "}
+              {t("subheading")}
             </h2>
             <p className="mt-4 text-base text-[#777] max-w-5xl mx-auto leading-relaxed">
-              Your support fuels our mission to empower communities through
-              education and innovation, transforming lives one step at a time.
+              {t("description")}
             </p>
           </motion.div>
 

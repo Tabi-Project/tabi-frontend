@@ -1,74 +1,61 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/atoms/Button";
 import RegistrationModal from "@/components/molecules/RegistrationModal";
 
-const PROFILES = [
-  {
-    id: "owner",
-    label: "The Business Owner",
-    emoji: "🏢",
-    hook: "You're running a business and you know AI could save you time.",
-    description:
-      "You just haven't had the space to figure it out properly. This programme gives you that space, with expert guidance and a live cohort around you.",
-    traits: ["Time-poor", "Growth-focused", "Already operating"],
-    accent: "#a855f7",
-    bg: "linear-gradient(135deg, #1a0a2e 0%, #2d1045 100%)",
-    border: "rgba(168,85,247,0.2)",
-    tagBg: "rgba(168,85,247,0.12)"
-  },
-  {
-    id: "professional",
-    label: "The Professional",
-    emoji: "💼",
-    hook: "You're employed, ambitious, and watching AI reshape your industry.",
-    description:
-      "You want to be ahead of the curve, not scrambling to catch up. This programme gives you tangible skills, not just awareness.",
-    traits: ["Career-driven", "Industry-aware", "Future-proofing"],
-    accent: "#f472b6",
-    bg: "linear-gradient(135deg, #2d0a1e 0%, #450a2e 100%)",
-    border: "rgba(244,114,182,0.2)",
-    tagBg: "rgba(244,114,182,0.12)"
-  },
-  {
-    id: "founder",
-    label: "The Founder",
-    emoji: "🚀",
-    hook: "You're building something and every resource counts.",
-    description:
-      "AI tools can stretch your capacity without stretching your budget. This programme teaches you to build, automate, and design like a team of one — that operates like a team of ten.",
-    traits: ["Resource-savvy", "Building fast", "Wearing every hat"],
-    accent: "#34d399",
-    bg: "linear-gradient(135deg, #0a2e1a 0%, #0a3d24 100%)",
-    border: "rgba(52,211,153,0.2)",
-    tagBg: "rgba(52,211,153,0.12)"
-  }
-];
-
 export default function AIBusinessAudience() {
+  const t = useTranslations("AIBusiness.audience");
   const [hovered, setHovered] = useState<string | null>(null);
   const [formOpen, setFormOpen] = useState(false);
+
+  const PROFILES = [
+    {
+      id: "owner",
+      ...t.raw("profiles.owner"),
+      emoji: "🏢",
+      accent: "#a855f7",
+      bg: "linear-gradient(135deg, #1a0a2e 0%, #2d1045 100%)",
+      border: "rgba(168,85,247,0.2)",
+      tagBg: "rgba(168,85,247,0.12)"
+    },
+    {
+      id: "professional",
+      ...t.raw("profiles.professional"),
+      emoji: "💼",
+      accent: "#f472b6",
+      bg: "linear-gradient(135deg, #2d0a1e 0%, #450a2e 100%)",
+      border: "rgba(244,114,182,0.2)",
+      tagBg: "rgba(244,114,182,0.12)"
+    },
+    {
+      id: "founder",
+      ...t.raw("profiles.founder"),
+      emoji: "🚀",
+      accent: "#34d399",
+      bg: "linear-gradient(135deg, #0a2e1a 0%, #0a3d24 100%)",
+      border: "rgba(52,211,153,0.2)",
+      tagBg: "rgba(52,211,153,0.12)"
+    }
+  ];
 
   return (
     <>
       <section className="w-full bg-white overflow-hidden">
         <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
-          {/* ── Section header ── */}
           <div className="flex flex-col items-center text-center mb-16">
             <span className="mb-4 inline-flex items-center rounded-full border border-brand-primary/30 bg-[#fdf7ff] px-4 py-1.5 text-xs font-semibold text-brand-primary tracking-wide uppercase">
-              Who It&apos;s For
+              {t("badge")}
             </span>
             <h2 className="text-[clamp(1.9rem,4vw,3rem)] font-extrabold tracking-tight text-[#1a1a2e] max-w-2xl leading-tight">
-              Built for Women Who Mean Business
+              {t("heading")}
             </h2>
             <p className="mt-4 max-w-lg text-base text-[#666] leading-relaxed">
-              You don&apos;t need a tech background. You need ambition, a real
-              business context, and four hours a day for two weeks.
+              {t("description")}
             </p>
           </div>
 
-          {/* ── Profile cards ── */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
             {PROFILES.map((profile) => {
               const isHovered = hovered === profile.id;
@@ -152,15 +139,13 @@ export default function AIBusinessAudience() {
             })}
           </div>
 
-          {/* ── CTA block ── */}
           <div className="mt-16 flex flex-col md:flex-row items-center justify-between gap-8 p-8 md:p-12 rounded-tabi-card bg-[#fdf7ff] border border-brand-primary/10">
             <div className="flex-1 text-center md:text-left">
               <h4 className="text-2xl font-bold text-[#1a1a2e] mb-3">
-                Not sure if you fit the profile?
+                {t("cta.heading")}
               </h4>
               <p className="text-[#666] text-sm md:text-base max-w-md">
-                The only real requirement is a business goal you want to
-                achieve. We teach you everything else from the ground up.
+                {t("cta.description")}
               </p>
             </div>
             <Button
@@ -169,20 +154,18 @@ export default function AIBusinessAudience() {
               className="px-10"
               onClick={() => setFormOpen(true)}
             >
-              Join the Cohort
+              {t("cta.button")}
             </Button>
           </div>
 
-          {/* ── Bottom line ── */}
           <p className="text-center text-sm text-[#aaa] mt-12">
-            Whichever describes you —{" "}
+            {t("footerLine")}{" "}
             <span className="text-brand-primary font-semibold">
-              you belong in this cohort.
+              {t("footerHighlight")}
             </span>
           </p>
         </div>
       </section>
-
       {formOpen && <RegistrationModal onClose={() => setFormOpen(false)} />}
     </>
   );

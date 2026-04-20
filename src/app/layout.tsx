@@ -1,15 +1,13 @@
+// src/app/layout.tsx
 import type { Metadata, Viewport } from "next";
 import { Lato } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/organisms/Navbar";
-import Footer from "@/components/organisms/Footer";
-import Script from "next/script";
-import ScrollRestoration from "@/components/atoms/ScrollRestoration";
 
 const lato = Lato({
   subsets: ["latin"],
   weight: ["100", "300", "400", "700", "900"],
-  display: "swap"
+  display: "swap",
+  variable: "--font-lato" // optional: makes font available via CSS variable
 });
 
 const BASE_URL = "https://tabiproject.com";
@@ -23,7 +21,6 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    // Lead with Tabi Academy for brand recognition
     default: "Tabi Academy | Tabi Empowerment & Educational Foundation",
     template: "%s | Tabi Academy"
   },
@@ -85,7 +82,6 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png"
   },
-  
   alternates: {
     canonical: BASE_URL
   }
@@ -96,37 +92,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html lang="en" className="scroll-smooth">
-      <head>
-        <Script
-          src="https://identity.netlify.com/v1/netlify-identity-widget.js"
-          strategy="beforeInteractive"
-        />
-      </head>
-      <body className={lato.className} suppressHydrationWarning>
-        <ScrollRestoration />
-        <Navbar />
-        <main className="min-h-screen">{children}</main>
-        <Footer />
-        <Script
-          id="netlify-identity-redirect"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-              if (window.netlifyIdentity) {
-                window.netlifyIdentity.on("init", function(user) {
-                  if (!user) {
-                    window.netlifyIdentity.on("login", function() {
-                      document.location.href = "/admin/";
-                    });
-                  }
-                });
-              }
-            `
-          }}
-        />
-      </body>
-    </html>
-  );
+  // The actual <html> and <body> are now inside [locale]/layout.tsx
+  return children;
 }

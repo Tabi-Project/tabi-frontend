@@ -1,49 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-const FAQS = [
-  {
-    q: "Do I need a technical background?",
-    a: "No. This programme is designed specifically for business owners and professionals — not developers. If you can use a smartphone and a laptop, you have everything you need to start.",
-    tag: "Getting Started"
-  },
-  {
-    q: "What tools will I use?",
-    a: "ChatGPT, Canva, Uizard, GitHub, Zapier, and Vercel or Netlify — plus additional platforms introduced per session. Every tool has a free tier. No paid subscriptions are required.",
-    tag: "Tools"
-  },
-  {
-    q: "How many people are in each cohort?",
-    a: "A maximum of 50 participants per cohort. This isn't a webinar — it's a live, interactive learning environment where the facilitators know your name and your business.",
-    tag: "Programme"
-  },
-  {
-    q: "What if I miss a session?",
-    a: "Recordings are made available within 24 hours. Missing one session keeps you within the 80% attendance threshold. Missing two or more makes you ineligible for certification. Notify the team in advance if you need to miss a session.",
-    tag: "Attendance"
-  },
-  {
-    q: "Is this programme fully virtual?",
-    a: "Yes. All sessions are delivered live via Google Meet. You'll need a laptop or desktop, a stable internet connection, a working webcam, and a quiet environment.",
-    tag: "Delivery"
-  },
-  {
-    q: "What happens after the programme ends?",
-    a: "You get two weeks of dedicated post-programme support, six months of access to all recordings and materials, and permanent membership in the Tabi Academy alumni community.",
-    tag: "Post-Programme"
-  },
-  {
-    q: "What is the refund policy?",
-    a: "Full refund for cancellations more than 14 days before the start date. 50% refund between 7–14 days. No refund within 7 days or after the programme has commenced. A one-time deferral to the next cohort is available if requested at least 5 days before the start date.",
-    tag: "Payment"
-  },
-  {
-    q: "Can I defer to a future cohort?",
-    a: "Yes — once. If you notify the team at least 5 days before the programme start date, you can defer your place to the next available cohort.",
-    tag: "Payment"
-  }
-];
+import { useTranslations } from "next-intl";
 
 const TAG_COLORS: Record<string, { bg: string; text: string }> = {
   "Getting Started": { bg: "rgba(168,85,247,0.1)", text: "#a855f7" },
@@ -56,31 +14,33 @@ const TAG_COLORS: Record<string, { bg: string; text: string }> = {
 };
 
 export default function AIBusinessFAQ() {
+  const t = useTranslations("AIBusiness.faq");
   const [open, setOpen] = useState<number | null>(null);
+
+  const faqs = t.raw("items") as Array<{ q: string; a: string; tag: string }>;
 
   return (
     <section className="w-full bg-white">
       <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
-        {/* ── Header ── */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-16 items-start">
-          {/* Left: sticky label + heading */}
           <div className="lg:sticky lg:top-28">
             <span className="mb-5 inline-flex items-center rounded-full border border-brand-primary/30 bg-brand-surface px-4 py-1.5 text-xs font-semibold text-brand-primary tracking-wide uppercase">
-              Questions
+              {t("badge")}
             </span>
             <h2 className="text-[clamp(1.9rem,3.5vw,2.8rem)] font-extrabold tracking-tight text-[#1a1a2e] leading-tight mt-4 mb-6">
-              Everything
+              {t("headingLine1")}
               <br />
-              You&apos;ve Been
+              {t("headingLine2")}
               <br />
-              <span className="text-brand-primary">Wondering</span>
+              <span className="text-brand-primary">
+                {t("headingHighlight")}
+              </span>
             </h2>
             <p className="text-sm text-[#888] leading-relaxed max-w-xs mb-10">
-              Can&apos;t find your answer here? Reach out directly — the team
-              responds within one business day.
+              {t("contactMessage")}
             </p>
             <a
-              href="mailto:hello@tabiproject.com"
+              href={`mailto:${t("contactEmail")}`}
               className="inline-flex items-center gap-2 text-sm font-semibold text-brand-primary hover:underline underline-offset-4"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -101,13 +61,12 @@ export default function AIBusinessFAQ() {
                   strokeWidth="1.4"
                 />
               </svg>
-              hello@tabiproject.com
+              {t("contactEmail")}
             </a>
           </div>
 
-          {/* Right: accordion list */}
           <div className="flex flex-col divide-y divide-[#f0ebf8]">
-            {FAQS.map((faq, i) => {
+            {faqs.map((faq, i) => {
               const isOpen = open === i;
               const color = TAG_COLORS[faq.tag];
               return (
@@ -116,12 +75,9 @@ export default function AIBusinessFAQ() {
                     onClick={() => setOpen(isOpen ? null : i)}
                     className="w-full flex items-start gap-4 py-6 text-left"
                   >
-                    {/* Number */}
                     <span className="shrink-0 text-xs font-bold text-[#ccc] mt-0.5 w-6 tabular-nums">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-
-                    {/* Question + tag */}
                     <div className="flex-1 min-w-0">
                       <div className="flex flex-wrap items-center gap-3 mb-1">
                         <p
@@ -134,12 +90,10 @@ export default function AIBusinessFAQ() {
                           className="shrink-0 text-[10px] font-bold tracking-[0.12em] uppercase px-2.5 py-1 rounded-full"
                           style={{ background: color.bg, color: color.text }}
                         >
-                          {faq.tag}
+                          {t(`tags.${faq.tag}`)}
                         </span>
                       </div>
                     </div>
-
-                    {/* Chevron */}
                     <div
                       className="shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-300 mt-0.5"
                       style={{
@@ -163,8 +117,6 @@ export default function AIBusinessFAQ() {
                       </svg>
                     </div>
                   </button>
-
-                  {/* Answer */}
                   <div
                     className="overflow-hidden transition-all duration-400"
                     style={{ maxHeight: isOpen ? "300px" : "0px" }}

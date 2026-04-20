@@ -8,6 +8,7 @@
 // import { NAV_LINKS } from "@/constants/navigation";
 // import DonationModal from "../molecules/DonationModal";
 // import { ChevronDown, Menu, X } from "lucide-react";
+// import { motion, AnimatePresence } from "framer-motion";
 
 // export const Navbar = () => {
 //   const pathname = usePathname();
@@ -16,7 +17,25 @@
 //   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 //   const dropdownRef = useRef<HTMLDivElement>(null);
 
-//   // Close dropdown on outside click
+//   // ─── Measure Navbar Height ───
+//   const navRef = useRef<HTMLElement>(null);
+
+//   useEffect(() => {
+//     const updateHeight = () => {
+//       if (navRef.current) {
+//         document.documentElement.style.setProperty(
+//           "--nav-height",
+//           `${navRef.current.offsetHeight}px`
+//         );
+//       }
+//     };
+
+//     updateHeight();
+//     window.addEventListener("resize", updateHeight);
+//     return () => window.removeEventListener("resize", updateHeight);
+//   }, []);
+
+//   // ─── Click Outside to Close Dropdowns ───
 //   useEffect(() => {
 //     function handleClick(e: MouseEvent) {
 //       if (
@@ -37,15 +56,17 @@
 
 //   return (
 //     <>
-//       <nav className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+//       <nav
+//         ref={navRef}
+//         className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100"
+//       >
 //         <div className="max-w-350 mx-auto px-6 sm:px-10 lg:px-16">
 //           <div className="flex justify-between items-center h-20">
-//             {/* ── Logo ── */}
 //             <div className="shrink-0 transition-transform hover:scale-105">
 //               <Logo />
 //             </div>
 
-//             {/* ── Desktop nav links ── */}
+//             {/* ── DESKTOP NAVIGATION ── */}
 //             <div
 //               className="hidden lg:flex items-center gap-8"
 //               ref={dropdownRef}
@@ -89,7 +110,6 @@
 //                       </Link>
 //                     )}
 
-//                     {/* Active underline */}
 //                     {active && (
 //                       <span
 //                         className="absolute rounded-full bg-brand-primary"
@@ -97,7 +117,6 @@
 //                       />
 //                     )}
 
-//                     {/* Dropdown */}
 //                     {hasChildren && ddOpen && (
 //                       <div className="absolute top-full left-4 mt-4 w-48 bg-white rounded-2xl border border-[#ede8f5] shadow-lg overflow-hidden z-50">
 //                         {link.children!.map((child) => (
@@ -117,10 +136,9 @@
 //               })}
 //             </div>
 
-//             {/* ── Desktop actions ── */}
+//             {/* ── DESKTOP BUTTONS ── */}
 //             <div className="hidden lg:flex items-center gap-6">
-//               {/* Register → ai-for-businesses CTA section */}
-//               <Link
+//               {/* <Link
 //                 href="/ai-for-businesses#register"
 //                 className="text-sm font-medium transition-colors duration-200"
 //                 style={{
@@ -129,7 +147,7 @@
 //                 }}
 //               >
 //                 Register
-//               </Link>
+//               </Link> */}
 //               <Button
 //                 variant="primary"
 //                 size="md"
@@ -140,7 +158,7 @@
 //               </Button>
 //             </div>
 
-//             {/* ── Mobile hamburger ── */}
+//             {/* ── MOBILE MENU ICON ── */}
 //             <div className="lg:hidden">
 //               <button
 //                 onClick={() => setIsOpen(!isOpen)}
@@ -153,54 +171,118 @@
 //           </div>
 //         </div>
 
-//         {/* ── Mobile drawer ── */}
-//         {isOpen && (
-//           <div className="lg:hidden bg-white border-b border-gray-100 px-6 py-6 space-y-1 shadow-2xl">
-//             {NAV_LINKS.map((link) => {
-//               const active = isActive(link.href);
-//               return (
-//                 <Link
-//                   key={link.label}
-//                   href={link.href}
+//         {/* ── MOBILE NAVIGATION (UPGRADED) ── */}
+//         <AnimatePresence>
+//           {isOpen && (
+//             <motion.div
+//               initial={{ height: 0, opacity: 0 }}
+//               animate={{ height: "auto", opacity: 1 }}
+//               exit={{ height: 0, opacity: 0 }}
+//               transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+//               className="lg:hidden bg-white border-b border-gray-100 px-6 py-6 space-y-1 shadow-2xl overflow-hidden max-h-[80vh] overflow-y-auto"
+//             >
+//               {NAV_LINKS.map((link) => {
+//                 const active = isActive(link.href);
+//                 const hasChildren = link.children && link.children.length > 0;
+//                 const isDropdownOpen = openDropdown === link.label;
+
+//                 return (
+//                   <div key={link.label} className="flex flex-col">
+//                     {hasChildren ? (
+//                       <button
+//                         onClick={() =>
+//                           setOpenDropdown(isDropdownOpen ? null : link.label)
+//                         }
+//                         className="flex items-center justify-between py-3 px-3 rounded-xl text-sm font-medium transition-colors duration-200 w-full text-left"
+//                         style={{
+//                           color:
+//                             active || isDropdownOpen ? "#71286F" : "#374151",
+//                           background:
+//                             active || isDropdownOpen ? "#fdf7ff" : "transparent"
+//                         }}
+//                       >
+//                         {link.label}
+//                         <ChevronDown
+//                           size={14}
+//                           className="transition-transform duration-200 opacity-60"
+//                           style={{
+//                             transform: isDropdownOpen
+//                               ? "rotate(180deg)"
+//                               : "rotate(0deg)"
+//                           }}
+//                         />
+//                       </button>
+//                     ) : (
+//                       <Link
+//                         href={link.href}
+//                         onClick={() => setIsOpen(false)}
+//                         className="flex items-center justify-between py-3 px-3 rounded-xl text-sm font-medium transition-colors duration-200"
+//                         style={{
+//                           color: active ? "#71286F" : "#374151",
+//                           background: active ? "#fdf7ff" : "transparent"
+//                         }}
+//                       >
+//                         {link.label}
+//                       </Link>
+//                     )}
+
+//                     {/* ── ANIMATED SUB-MENUS ── */}
+//                     <AnimatePresence initial={false}>
+//                       {hasChildren && isDropdownOpen && (
+//                         <motion.div
+//                           initial={{ height: 0, opacity: 0 }}
+//                           animate={{ height: "auto", opacity: 1 }}
+//                           exit={{ height: 0, opacity: 0 }}
+//                           transition={{ duration: 0.25, ease: "easeInOut" }}
+//                           className="overflow-hidden"
+//                         >
+//                           <div className="pl-6 mt-1 flex flex-col space-y-1 bg-gray-50/50 rounded-lg py-2">
+//                             {link.children!.map((child) => (
+//                               <Link
+//                                 key={child.label}
+//                                 href={child.href}
+//                                 onClick={() => {
+//                                   setIsOpen(false);
+//                                   setOpenDropdown(null);
+//                                 }}
+//                                 className="block px-4 py-2.5 text-sm text-[#374151] hover:text-brand-primary transition-colors duration-150"
+//                               >
+//                                 {child.label}
+//                               </Link>
+//                             ))}
+//                           </div>
+//                         </motion.div>
+//                       )}
+//                     </AnimatePresence>
+//                   </div>
+//                 );
+//               })}
+
+//               <div className="pt-5 flex flex-col gap-3 border-t border-gray-100 mt-4">
+//                 {/* <Link
+//                   href="/ai-for-businesses#register"
 //                   onClick={() => setIsOpen(false)}
-//                   className="flex items-center justify-between py-3 px-3 rounded-xl text-sm font-medium transition-colors duration-200"
-//                   style={{
-//                     color: active ? "#71286F" : "#374151",
-//                     background: active ? "#fdf7ff" : "transparent"
+//                 >
+//                   <Button variant="outline" className="w-full">
+//                     Register
+//                   </Button>
+//                 </Link> */}
+//                 <Button
+//                   variant="primary"
+//                   className="w-full"
+//                   onClick={() => {
+//                     setIsOpen(false);
+//                     setDonateOpen(true);
 //                   }}
 //                 >
-//                   {link.label}
-//                   {link.children && (
-//                     <ChevronDown size={14} className="opacity-60" />
-//                   )}
-//                 </Link>
-//               );
-//             })}
-//             <div className="pt-5 flex flex-col gap-3 border-t border-gray-100 mt-4">
-//               <Link
-//                 href="/ai-for-businesses#register"
-//                 onClick={() => setIsOpen(false)}
-//               >
-//                 <Button variant="outline" className="w-full">
-//                   Register
+//                   Donate Now
 //                 </Button>
-//               </Link>
-//               <Button
-//                 variant="primary"
-//                 className="w-full"
-//                 onClick={() => {
-//                   setIsOpen(false);
-//                   setDonateOpen(true);
-//                 }}
-//               >
-//                 Donate Now
-//               </Button>
-//             </div>
-//           </div>
-//         )}
+//               </div>
+//             </motion.div>
+//           )}
+//         </AnimatePresence>
 //       </nav>
 
-//       {/* Donation modal */}
 //       {donateOpen && <DonationModal onClose={() => setDonateOpen(false)} />}
 //     </>
 //   );
@@ -211,21 +293,23 @@
 import { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
+import { useTranslations } from "next-intl"; // 👈 new
 import { Button } from "../atoms/Button";
 import { Logo } from "../atoms/Logo";
 import { NAV_LINKS } from "@/constants/navigation";
 import DonationModal from "../molecules/DonationModal";
+import LanguageSwitcher from "../molecules/LanguageSwitcher";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export const Navbar = () => {
   const pathname = usePathname();
+  const t = useTranslations(); // 👈 new
   const [isOpen, setIsOpen] = useState(false);
   const [donateOpen, setDonateOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // ─── Measure Navbar Height ───
   const navRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -237,13 +321,11 @@ export const Navbar = () => {
         );
       }
     };
-
     updateHeight();
     window.addEventListener("resize", updateHeight);
     return () => window.removeEventListener("resize", updateHeight);
   }, []);
 
-  // ─── Click Outside to Close Dropdowns ───
   useEffect(() => {
     function handleClick(e: MouseEvent) {
       if (
@@ -274,7 +356,7 @@ export const Navbar = () => {
               <Logo />
             </div>
 
-            {/* ── DESKTOP NAVIGATION ── */}
+            {/* DESKTOP NAVIGATION */}
             <div
               className="hidden lg:flex items-center gap-8"
               ref={dropdownRef}
@@ -297,7 +379,7 @@ export const Navbar = () => {
                         className="flex items-center gap-1 text-sm font-medium transition-colors duration-200"
                         style={{ color: active ? "#71286F" : "#374151" }}
                       >
-                        {link.label}
+                        {t(link.label)} {/* 👈 translated */}
                         <ChevronDown
                           size={14}
                           className="transition-transform duration-200 opacity-70"
@@ -314,7 +396,7 @@ export const Navbar = () => {
                         className="flex items-center gap-1 text-sm font-medium transition-colors duration-200"
                         style={{ color: active ? "#71286F" : "#374151" }}
                       >
-                        {link.label}
+                        {t(link.label)} {/* 👈 translated */}
                       </Link>
                     )}
 
@@ -334,7 +416,7 @@ export const Navbar = () => {
                             onClick={() => setOpenDropdown(null)}
                             className="block px-5 py-3 text-sm text-[#374151] hover:bg-[#fdf7ff] hover:text-brand-primary transition-colors duration-150"
                           >
-                            {child.label}
+                            {t(child.label)} {/* 👈 translated */}
                           </Link>
                         ))}
                       </div>
@@ -344,30 +426,23 @@ export const Navbar = () => {
               })}
             </div>
 
-            {/* ── DESKTOP BUTTONS ── */}
+            {/* DESKTOP BUTTONS */}
             <div className="hidden lg:flex items-center gap-6">
-              {/* <Link
-                href="/ai-for-businesses#register"
-                className="text-sm font-medium transition-colors duration-200"
-                style={{
-                  color:
-                    pathname === "/ai-for-businesses" ? "#71286F" : "#374151"
-                }}
-              >
-                Register
-              </Link> */}
+              {/* Language Switcher */}
+              <LanguageSwitcher /> {/* 👈 new */}
               <Button
                 variant="primary"
                 size="md"
                 className="rounded-full px-8"
                 onClick={() => setDonateOpen(true)}
               >
-                Donate Now
+                {t("Navigation.donateNow")} {/* 👈 translated */}
               </Button>
             </div>
 
-            {/* ── MOBILE MENU ICON ── */}
-            <div className="lg:hidden">
+            {/* MOBILE MENU ICON */}
+            <div className="lg:hidden flex items-center gap-4">
+              <LanguageSwitcher /> {/* 👈 new (mobile) */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="p-2 text-brand-primary focus:outline-none"
@@ -379,7 +454,7 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* ── MOBILE NAVIGATION (UPGRADED) ── */}
+        {/* MOBILE NAVIGATION */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -409,7 +484,7 @@ export const Navbar = () => {
                             active || isDropdownOpen ? "#fdf7ff" : "transparent"
                         }}
                       >
-                        {link.label}
+                        {t(link.label)} {/* 👈 translated */}
                         <ChevronDown
                           size={14}
                           className="transition-transform duration-200 opacity-60"
@@ -430,11 +505,10 @@ export const Navbar = () => {
                           background: active ? "#fdf7ff" : "transparent"
                         }}
                       >
-                        {link.label}
+                        {t(link.label)} {/* 👈 translated */}
                       </Link>
                     )}
 
-                    {/* ── ANIMATED SUB-MENUS ── */}
                     <AnimatePresence initial={false}>
                       {hasChildren && isDropdownOpen && (
                         <motion.div
@@ -455,7 +529,7 @@ export const Navbar = () => {
                                 }}
                                 className="block px-4 py-2.5 text-sm text-[#374151] hover:text-brand-primary transition-colors duration-150"
                               >
-                                {child.label}
+                                {t(child.label)} {/* 👈 translated */}
                               </Link>
                             ))}
                           </div>
@@ -467,14 +541,6 @@ export const Navbar = () => {
               })}
 
               <div className="pt-5 flex flex-col gap-3 border-t border-gray-100 mt-4">
-                {/* <Link
-                  href="/ai-for-businesses#register"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <Button variant="outline" className="w-full">
-                    Register
-                  </Button>
-                </Link> */}
                 <Button
                   variant="primary"
                   className="w-full"
@@ -483,7 +549,7 @@ export const Navbar = () => {
                     setDonateOpen(true);
                   }}
                 >
-                  Donate Now
+                  {t("Navigation.donateNow")} {/* 👈 translated */}
                 </Button>
               </div>
             </motion.div>

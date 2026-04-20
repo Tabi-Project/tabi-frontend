@@ -1,10 +1,16 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/atoms/Button";
 
 const AMOUNTS = ["5,000 NGN", "10,000 NGN", "20,000 NGN", "50,000 NGN"];
-const FREQUENCIES = ["One-Time", "Monthly", "Quarterly", "Annually"];
+const FREQUENCY_KEYS = [
+  "One-Time",
+  "Monthly",
+  "Quarterly",
+  "Annually"
+] as const;
 
 type SubmitStatus = "idle" | "loading" | "success" | "error";
 
@@ -12,14 +18,12 @@ interface DonationModalProps {
   onClose: () => void;
 }
 
-// Format number with commas + NGN suffix
 function formatAmount(raw: string): string {
   const digits = raw.replace(/\D/g, "");
   if (!digits) return "";
   return Number(digits).toLocaleString("en-NG") + " NGN";
 }
 
-// Spinning loader
 function Spinner() {
   return (
     <svg
@@ -49,6 +53,9 @@ function FieldError({ msg }: { msg?: string }) {
 }
 
 export default function DonationModal({ onClose }: DonationModalProps) {
+  const t = useTranslations("DonationModal");
+  const tFreq = useTranslations("DonationModal.frequencies");
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [selectedAmount, setSelectedAmount] = useState<string | null>(null);
@@ -62,7 +69,6 @@ export default function DonationModal({ onClose }: DonationModalProps) {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Close dropdown on outside click
   useEffect(() => {
     function handler(e: MouseEvent) {
       if (
@@ -76,20 +82,19 @@ export default function DonationModal({ onClose }: DonationModalProps) {
     return () => document.removeEventListener("mousedown", handler);
   }, []);
 
-  // Raw custom amount (digits only for input), formatted for display
   const [customRaw, setCustomRaw] = useState("");
-
   const displayAmount =
     selectedAmount ?? (customRaw ? formatAmount(customRaw) : "");
 
   function validate(): boolean {
     const newErrors: Record<string, string> = {};
-    if (!name.trim()) newErrors.name = "Please enter your name";
-    if (!email.trim()) newErrors.email = "Please enter your email";
+    if (!name.trim()) newErrors.name = t("form.validation.nameRequired");
+    if (!email.trim()) newErrors.email = t("form.validation.emailRequired");
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()))
-      newErrors.email = "Please enter a valid email address";
-    if (!displayAmount) newErrors.amount = "Please select or enter an amount";
-    if (!frequency) newErrors.frequency = "Please select a donation frequency";
+      newErrors.email = t("form.validation.emailInvalid");
+    if (!displayAmount) newErrors.amount = t("form.validation.amountRequired");
+    if (!frequency)
+      newErrors.frequency = t("form.validation.frequencyRequired");
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   }
@@ -117,12 +122,12 @@ export default function DonationModal({ onClose }: DonationModalProps) {
         setShowBankDetails(true);
       } else {
         setSubmitStatus("error");
-        setSubmitError(json.error || "Something went wrong. Please try again.");
+        setSubmitError(json.error || t("form.error.generic"));
         setTimeout(() => setSubmitStatus("idle"), 4000);
       }
     } catch {
       setSubmitStatus("error");
-      setSubmitError("Network error. Please try again.");
+      setSubmitError(t("form.error.network"));
       setTimeout(() => setSubmitStatus("idle"), 4000);
     }
   }
@@ -143,9 +148,9 @@ export default function DonationModal({ onClose }: DonationModalProps) {
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
       <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl p-8 max-h-[90vh] overflow-y-auto">
-        {/* ── Bank details screen ── */}
         {showBankDetails ? (
           <>
+            {/* Bank Details Screen */}
             <div className="flex items-center justify-between mb-8">
               <button
                 onClick={() => {
@@ -163,7 +168,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                     strokeLinejoin="round"
                   />
                 </svg>
-                Back
+                {t("bankTransfer.back")}
               </button>
               <button
                 onClick={onClose}
@@ -227,11 +232,10 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                 </svg>
               </div>
               <h2 className="text-xl font-extrabold text-[#1a1a2e] mb-2">
-                Bank Transfer
+                {t("bankTransfer.title")}
               </h2>
               <p className="text-sm text-[#888] max-w-xs mx-auto leading-relaxed">
-                Please transfer your donation to the account below and
-                we&apos;ll confirm your contribution.
+                {t("bankTransfer.description")}
               </p>
             </div>
 
@@ -242,7 +246,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
               <div className="flex flex-col gap-4">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-semibold text-[#aaa] uppercase tracking-widest">
-                    Bank Name
+                    {t("bankTransfer.bankNameLabel")}
                   </span>
                   <span className="text-sm font-bold text-[#1a1a2e]">
                     KudaBank
@@ -251,7 +255,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                 <div className="h-px bg-[#ede8f5]" />
                 <div className="flex items-center justify-between gap-4">
                   <span className="text-xs font-semibold text-[#aaa] uppercase tracking-widest shrink-0">
-                    Account Name
+                    {t("bankTransfer.accountNameLabel")}
                   </span>
                   <span className="text-sm font-bold text-[#1a1a2e] text-right leading-snug">
                     Tabi Empowerment and Educational Foundation
@@ -260,7 +264,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                 <div className="h-px bg-[#ede8f5]" />
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-semibold text-[#aaa] uppercase tracking-widest">
-                    Account Number
+                    {t("bankTransfer.accountNumberLabel")}
                   </span>
                   <div className="flex items-center gap-3">
                     <span className="text-lg font-extrabold text-brand-primary tracking-wider">
@@ -290,7 +294,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                               strokeLinejoin="round"
                             />
                           </svg>
-                          Copied!
+                          {t("bankTransfer.copied")}
                         </>
                       ) : (
                         <>
@@ -316,7 +320,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                               strokeLinecap="round"
                             />
                           </svg>
-                          Copy
+                          {t("bankTransfer.copyButton")}
                         </>
                       )}
                     </button>
@@ -347,9 +351,10 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                   />
                 </svg>
                 <p className="text-sm text-[#166534]">
-                  Please transfer{" "}
-                  <span className="font-bold">{displayAmount}</span>
-                  {frequency && <> ({frequency})</>} to the account above.
+                  {t("bankTransfer.transferReminder", {
+                    amount: displayAmount,
+                    frequency: frequency
+                  }).replace(/\s+/g, " ")}
                 </p>
               </div>
             )}
@@ -360,15 +365,15 @@ export default function DonationModal({ onClose }: DonationModalProps) {
               className="w-full"
               onClick={onClose}
             >
-              Done
+              {t("bankTransfer.done")}
             </Button>
           </>
         ) : (
           <>
-            {/* ── Donation form ── */}
+            {/* Donation Form */}
             <div className="flex items-center justify-between mb-7">
               <h2 className="text-xl font-extrabold text-[#1a1a2e]">
-                Donation Form
+                {t("title")}
               </h2>
               <button
                 onClick={onClose}
@@ -385,15 +390,14 @@ export default function DonationModal({ onClose }: DonationModalProps) {
               </button>
             </div>
 
-            {/* Name + Email */}
             <div className="grid grid-cols-2 gap-4 mb-6">
               <div>
                 <label className="block text-xs font-semibold text-[#333] mb-2">
-                  Donor Name
+                  {t("form.donorName")}
                 </label>
                 <input
                   type="text"
-                  placeholder="Enter your name"
+                  placeholder={t("form.donorName")}
                   value={name}
                   onChange={(e) => {
                     setName(e.target.value);
@@ -405,7 +409,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
               </div>
               <div>
                 <label className="block text-xs font-semibold text-[#333] mb-2">
-                  Email Address
+                  {t("form.emailAddress")}
                 </label>
                 <input
                   type="email"
@@ -421,10 +425,9 @@ export default function DonationModal({ onClose }: DonationModalProps) {
               </div>
             </div>
 
-            {/* Amount */}
             <div className="mb-6">
               <label className="block text-xs font-semibold text-[#333] mb-3">
-                Select Amount
+                {t("form.selectAmount")}
               </label>
               <div className="flex flex-wrap gap-2 mb-3">
                 {AMOUNTS.map((amt) => (
@@ -449,11 +452,10 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                   </button>
                 ))}
               </div>
-              {/* Number input — formats on blur */}
               <div className="relative">
                 <input
                   type="number"
-                  placeholder="Or enter custom amount"
+                  placeholder={t("form.customAmountPlaceholder")}
                   value={customRaw}
                   onChange={(e) => {
                     setCustomRaw(e.target.value);
@@ -472,10 +474,9 @@ export default function DonationModal({ onClose }: DonationModalProps) {
               <FieldError msg={errors.amount} />
             </div>
 
-            {/* Frequency */}
             <div className="mb-8">
               <label className="block text-xs font-semibold text-[#333] mb-3">
-                Donation Frequency
+                {t("form.frequency")}
               </label>
               <div className="relative" ref={dropdownRef}>
                 <button
@@ -483,7 +484,9 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                   className="w-full flex items-center justify-between rounded-full border border-[#E1E3EA] px-4 py-3 text-sm text-left transition-colors duration-200 focus:outline-none focus:border-brand-primary cursor-pointer"
                   style={{ color: frequency ? "#333" : "#bbb" }}
                 >
-                  {frequency || "Select frequency"}
+                  {frequency
+                    ? tFreq(frequency as any)
+                    : t("form.frequencyPlaceholder")}
                   <svg
                     width="18"
                     height="18"
@@ -507,7 +510,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                 </button>
                 {dropdownOpen && (
                   <div className="absolute bottom-full left-0 right-0 mb-2 bg-white rounded-2xl border border-[#ede8f5] shadow-lg overflow-hidden z-10">
-                    {FREQUENCIES.map((f) => (
+                    {FREQUENCY_KEYS.map((f) => (
                       <button
                         key={f}
                         onClick={() => {
@@ -522,7 +525,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                           fontWeight: frequency === f ? 600 : 400
                         }}
                       >
-                        {f}
+                        {tFreq(f)}
                       </button>
                     ))}
                   </div>
@@ -531,17 +534,15 @@ export default function DonationModal({ onClose }: DonationModalProps) {
               <FieldError msg={errors.frequency} />
             </div>
 
-            {/* Error */}
             {submitStatus === "error" && (
               <p className="text-xs text-red-500 font-medium mb-4 text-center">
                 {submitError}
               </p>
             )}
 
-            {/* Actions */}
             <div className="flex items-center justify-end gap-3">
               <Button variant="outline" size="md" onClick={onClose}>
-                Cancel
+                {t("form.cancel")}
               </Button>
               <Button
                 variant="primary"
@@ -551,10 +552,10 @@ export default function DonationModal({ onClose }: DonationModalProps) {
               >
                 {submitStatus === "loading" ? (
                   <span className="flex items-center gap-2">
-                    <Spinner /> Processing...
+                    <Spinner /> {t("form.processing")}
                   </span>
                 ) : (
-                  "Donate Now"
+                  t("form.donateNow")
                 )}
               </Button>
             </div>

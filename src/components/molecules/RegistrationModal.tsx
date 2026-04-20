@@ -1,4 +1,14 @@
-export default function RegistrationModal({ onClose }: { onClose: () => void }) {
+"use client";
+
+import { useTranslations } from "next-intl";
+
+export default function RegistrationModal({
+  onClose
+}: {
+  onClose: () => void;
+}) {
+  const t = useTranslations("RegistrationModal");
+
   return (
     <>
       {/* Backdrop */}
@@ -15,15 +25,13 @@ export default function RegistrationModal({ onClose }: { onClose: () => void }) 
           <div className="flex items-center justify-between px-6 py-4 border-b border-[#f0ebf8] shrink-0">
             <div>
               <h3 className="text-base font-extrabold text-[#1a1a2e]">
-                Apply for the Next Cohort
+                {t("title")}
               </h3>
-              <p className="text-xs text-[#888] mt-0.5">
-                AI for Businesses Programme — Limited to 50 participants
-              </p>
+              <p className="text-xs text-[#888] mt-0.5">{t("subtitle")}</p>
             </div>
             <button
               onClick={onClose}
-              className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-[#f3e8ff] text-[#888] hover:text-[#71286F] transition-colors duration-200 shrink-0"
+              className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-[#f3e8ff] text-[#888] hover:text-brand-primary transition-colors duration-200 shrink-0"
               aria-label="Close"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -46,7 +54,7 @@ export default function RegistrationModal({ onClose }: { onClose: () => void }) 
               frameBorder="0"
               marginHeight={0}
               marginWidth={0}
-              title="AI for Businesses Registration Form"
+              title={t("title")}
               className="w-full"
             >
               Loading…

@@ -1,18 +1,18 @@
 export const FOOTER_LINKS = {
   foundation: [
-    { label: "About Us", href: "/about" },
-        { label: "News", href: "/resources" },
-    { label: "Showcase", href: "#showcase" },
-    { label: "Careers", href: "#careers" }
+    { labelKey: "links.about", href: "/about" },
+    { labelKey: "links.news", href: "/resources" },
+    { labelKey: "links.showcase", href: "#showcase" },
+    { labelKey: "links.careers", href: "#careers" }
   ],
   projects: [
-    { label: "AI for business", href: "/ai-for-businesses" },
-    { label: "Tabi Academy", href: "#academy" },
-    { label: "Tabi Project", href: "#projects" },
-    { label: "Purple Guild", href: "#guild" }
+    { labelKey: "links.aiForBusiness", href: "/ai-for-businesses" },
+    { labelKey: "links.tabiAcademy", href: "#academy" },
+    { labelKey: "links.tabiProject", href: "#projects" },
+    { labelKey: "links.purpleGuild", href: "#guild" }
   ],
-    legal: [
-    { label: "Privacy Policy", href: "/privacy" },
-    { label: "Terms of Service", href: "/terms" }
-  ],
+  legal: [
+    { labelKey: "links.privacyPolicy", href: "/privacy" },
+    { labelKey: "links.termsOfService", href: "/terms" }
+  ]
 };

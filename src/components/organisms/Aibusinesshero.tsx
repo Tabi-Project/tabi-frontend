@@ -1,23 +1,33 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/atoms/Button";
 import Image from "next/image";
-// import Link from "next/link";
 import RegistrationModal from "@/components/molecules/RegistrationModal";
 
 export default function AIBusinessHero() {
+  const t = useTranslations("AIBusiness.hero");
   const [formOpen, setFormOpen] = useState(false);
+
+  const trustSignals = [
+    t("trustSignals.noTech"),
+    t("trustSignals.virtual"),
+    t("trustSignals.certified")
+  ];
+
+const buildItems = [
+  t("floatingCards.buildItems.liveWebsite"),
+  t("floatingCards.buildItems.aiAgent"),
+  t("floatingCards.buildItems.brandKit")
+];
 
   return (
     <>
       <section
         className="relative w-full overflow-hidden bg-white"
-        // ─── NEW UPDATE: Dynamic padding based on Navbar ───
         style={{ paddingTop: "var(--nav-height, 96px)" }}
-        // 96px is the CSS equivalent of pt-24 (24 * 4px)
       >
-        {/* ── Subtle background texture ── */}
         <div
           className="absolute inset-0 pointer-events-none"
           aria-hidden
@@ -26,31 +36,22 @@ export default function AIBusinessHero() {
               "radial-gradient(ellipse 80% 60% at 70% 40%, rgba(113,40,111,0.06) 0%, transparent 70%)"
           }}
         />
-
-        {/* ── Hero content ── */}
-        {/* Removed pt-24 from className since it's now handled by the style prop above */}
         <div className="relative mx-auto max-w-350 px-6 sm:px-12 lg:px-20 pb-0">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            {/* Left: copy */}
             <div className="flex flex-col items-start py-12 lg:py-20">
-              {/* Added vertical padding here to keep the content centered and airy */}
-
-              {/* Eyebrow */}
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-brand-primary/30 bg-brand-surface px-4 py-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-brand-primary animate-pulse" />
                 <span className="text-xs font-semibold text-brand-primary tracking-wide uppercase">
-                  Tabi Academy · AI Training Programme
+                  {t("badge")}
                 </span>
               </div>
 
-              {/* Headline */}
               <h1 className="text-[clamp(2.4rem,5vw,4rem)] font-extrabold leading-[1.08] tracking-tight text-[#1a1a2e]">
-                AI Tools for{" "}
+                {t("headlinePart1")}{" "}
                 <span className="relative inline-block">
                   <span className="relative z-10 text-brand-primary italic">
-                    Business.
+                    {t("headlinePart2")}
                   </span>
-                  {/* underline squiggle */}
                   <svg
                     className="absolute -bottom-2 left-0 w-full"
                     height="6"
@@ -70,42 +71,33 @@ export default function AIBusinessHero() {
                   </svg>
                 </span>
                 <br />
-                Two Weeks.
+                {t("headlinePart3")}
                 <br />
-                Real Results.
+                {t("headlinePart4")}
               </h1>
 
-              {/* Subheadline */}
               <p className="mt-6 max-w-lg text-base sm:text-lg text-[#555] leading-relaxed">
-                A hands-on, live training programme that equips women in
-                business with the AI skills to build faster, work smarter, and
-                grow with confidence — no technical background required.
+                {t("description")}
               </p>
 
-              {/* CTAs */}
               <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
                 <Button
                   variant="primary"
                   size="lg"
                   onClick={() => setFormOpen(true)}
                 >
-                  Apply Now
+                  {t("cta")}
                 </Button>
                 <p className="text-sm text-[#888] font-medium">
-                  Next cohort forming.{" "}
+                  {t("cohortMessage")}{" "}
                   <span className="text-brand-primary font-semibold">
-                    Limited to 50 participants.
+                    {t("cohortLimit")}
                   </span>
                 </p>
               </div>
 
-              {/* Trust signals */}
               <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2">
-                {[
-                  "No tech background needed",
-                  "Fully virtual & live",
-                  "Certified on completion"
-                ].map((item) => (
+                {trustSignals.map((item) => (
                   <span
                     key={item}
                     className="flex items-center gap-1.5 text-xs text-[#777]"
@@ -138,9 +130,7 @@ export default function AIBusinessHero() {
               </div>
             </div>
 
-            {/* Right: visual card stack */}
             <div className="relative hidden lg:flex items-center justify-center h-120">
-              {/* Background glow blob */}
               <div
                 className="absolute inset-0 pointer-events-none"
                 aria-hidden
@@ -149,8 +139,6 @@ export default function AIBusinessHero() {
                     "radial-gradient(ellipse 70% 60% at 50% 50%, rgba(113,40,111,0.1) 0%, transparent 70%)"
                 }}
               />
-
-              {/* Main image card */}
               <div className="relative w-72 h-80 rounded-3xl overflow-hidden shadow-2xl border border-brand-primary/20 z-20">
                 <Image
                   src="/ai-business-hero-3.png"
@@ -160,30 +148,27 @@ export default function AIBusinessHero() {
                   priority
                   quality={85}
                 />
-                {/* overlay gradient */}
                 <div className="absolute inset-0 bg-linear-to-t from-brand-primary/30 to-transparent" />
               </div>
 
-              {/* Floating card — top right */}
               <div className="absolute top-8 right-4 z-30 bg-white rounded-2xl shadow-lg border border-[#ede8f5] px-5 py-4 w-48">
                 <p className="text-[11px] text-[#888] font-medium uppercase tracking-wider mb-1">
-                  Cohort size
+                  {t("floatingCards.cohortSize")}
                 </p>
                 <p className="text-2xl font-extrabold text-[#1a1a2e] leading-none">
                   50
                 </p>
                 <p className="text-xs text-brand-primary font-semibold mt-0.5">
-                  participants max
+                  {t("floatingCards.participantsMax")}
                 </p>
               </div>
 
-              {/* Floating card — bottom left */}
               <div className="absolute bottom-16 left-0 z-30 bg-white rounded-2xl shadow-lg border border-[#ede8f5] px-5 py-4 w-52">
                 <p className="text-[11px] text-[#888] font-medium uppercase tracking-wider mb-2">
-                  You&apos;ll build
+                  {t("floatingCards.youWillBuild")}
                 </p>
                 <div className="flex flex-col gap-1.5">
-                  {["Live website", "AI agent", "Brand kit"].map((item) => (
+                  {buildItems.map((item) => (
                     <div key={item} className="flex items-center gap-2">
                       <span className="w-1.5 h-1.5 rounded-full bg-brand-primary shrink-0" />
                       <span className="text-xs font-medium text-[#333]">
@@ -194,7 +179,6 @@ export default function AIBusinessHero() {
                 </div>
               </div>
 
-              {/* Certificate badge — bottom right */}
               <div className="absolute bottom-8 right-2 z-30 bg-brand-primary rounded-2xl shadow-lg px-4 py-3 flex items-center gap-3 w-44">
                 <svg
                   width="28"
@@ -211,16 +195,17 @@ export default function AIBusinessHero() {
                 </svg>
                 <div>
                   <p className="text-white text-xs font-bold leading-tight">
-                    Certified on
+                    {t("floatingCards.certifiedOn")}
                   </p>
-                  <p className="text-white/70 text-[10px]">completion</p>
+                  <p className="text-white/70 text-[10px]">
+                    {t("floatingCards.completion")}
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
-
       {formOpen && <RegistrationModal onClose={() => setFormOpen(false)} />}
     </>
   );

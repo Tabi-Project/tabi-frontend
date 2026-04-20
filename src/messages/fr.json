@@ -1,0 +1,674 @@
+{
+  "Navigation": {
+    "projects": "Projets",
+    "tabiWomenNetwork": "Réseau des femmes Tabi",
+    "openSource": "Source ouverte",
+    "aiForBusiness": "IA pour les entreprises",
+    "aiForBusinesses": "L'IA pour les entreprises",
+    "resources": "Ressources",
+    "news": "Nouvelles",
+    "blog": "Articles de blog",
+    "events": "Événements et webinaires",
+    "caseStudies": "Études de cas",
+    "community": "Communauté",
+    "consultancy": "Conseil",
+    "aboutUs": "À propos de nous",
+    "donateNow": "Faites un don maintenant"
+  },
+  "Footer": {
+    "brandLine1": "Autonomisation des Tabi et",
+    "brandLine2": "Pédagogique",
+    "brandLine3": "Fondation",
+    "emailPlaceholder": "Entrez votre email",
+    "subscribeButton": "S'abonner",
+    "subscribing": "S'abonner...",
+    "validation": {
+      "emailRequired": "Veuillez entrer votre adresse e-mail",
+      "emailInvalid": "S'il vous plaît, mettez une adresse email valide"
+    },
+    "feedback": {
+      "success": "Vous êtes abonné ! 🎉",
+      "duplicate": "Vous êtes déjà abonné.",
+      "error": "Quelque chose s'est mal passé. Essayer à nouveau."
+    },
+    "columns": {
+      "foundation": "Fondation",
+      "projects": "Projets",
+      "legal": "Juridique et conformité"
+    },
+    "copyright": "©{year} TEE Foundation Inc. Tous droits réservés. Diverses marques détenues par leurs propriétaires respectifs.",
+    "social": {
+      "linkedin": "LinkedIn",
+      "x": "X (Twitter)",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "tiktok": "Tik Tok"
+    },
+    "links": {
+      "about": "À propos de nous",
+      "community": "Communauté",
+      "news": "Nouvelles",
+      "showcase": "Vitrine",
+      "careers": "Carrières",
+      "tabiWomenNetwork": "Réseau des femmes Tabi",
+      "openSource": "Source ouverte",
+      "aiForBusiness": "L'IA pour les entreprises",
+      "tabiAcademy": "Académie Tabi",
+      "tabiProject": "Projet Tabi",
+      "purpleGuild": "Guilde violette",
+      "privacyPolicy": "politique de confidentialité",
+      "termsOfService": "Conditions d'utilisation"
+    }
+  },
+  "HomePage": {
+    "metadata": {
+      "title": "Maison",
+      "description": "Tabi Academy autonomise les femmes africaines grâce à une éducation technologique gratuite, une formation en IA et un mentorat. Une initiative de la Fondation TEE qui transforme des vies à travers l’Afrique.",
+      "ogTitle": "Académie Tabi | Autonomiser l’avenir, transformer les communautés",
+      "ogDescription": "Éducation technologique gratuite, formation en IA et mentorat pour les femmes à travers l’Afrique. Rejoignez la Tabi Academy de la TEE Foundation dès aujourd'hui."
+    }
+  },
+  "HeroSection": {
+    "headlinePart1": "Autonomisation",
+    "headlinePart2": "les contrats à terme,",
+    "headlinePart3": "Transformer les communautés",
+    "subheadline": "Libérer le potentiel grâce à une technologie innovante, un engagement communautaire et un programme éducatif qui crée un environnement dynamique où les individus s'épanouissent",
+    "cta": "Rejoignez ai pour une formation commerciale",
+    "heroImageAlt": "Femme souriante avec les bras levés",
+    "tags": {
+      "academy": {
+        "subtitle": "Ou",
+        "title": "Académie"
+      },
+      "project": {
+        "subtitle": "Ou",
+        "title": "Projet"
+      },
+      "guild": {
+        "subtitle": "guilde"
+      },
+      "volunteers": {
+        "number": "500+",
+        "label": "Des bénévoles impliqués"
+      },
+      "trained": {
+        "number": "10 000+",
+        "label": "Personnes formées"
+      },
+      "participation": {
+        "number": "80%",
+        "label": "Participation active de la communauté"
+      }
+    }
+  },
+  "Partners": {
+    "title": "Partenariat avec la Fondation Tabi Empowerment and Education (TEE)",
+    "logos": {
+      "yip": "YIP – Programme de stages Yebox",
+      "gutsy": "GIV La femme courageuse",
+      "yebox": "Yebox Technologies",
+      "genesys": "Genesys",
+      "risevest": "Académie Rise",
+      "cchub": "CcHUB"
+    }
+  },
+  "AIBusinessTeaser": {
+    "badge": "Académie Tabi",
+    "headlinePart1": "Apprenez à utiliser l'IA.",
+    "headlinePart2": "Construisez avec.",
+    "headlinePart3": "Développez votre entreprise.",
+    "description": "Un programme pratique et en direct de 2 semaines pour les femmes d'affaires — aucune formation technique n'est requise. Vous repartirez avec de vrais livrables, un certificat vérifié et des compétences que vous pourrez utiliser dès le lendemain.",
+    "cta": {
+      "primary": "Explorez le programme",
+      "secondary": "Voir le programme complet →"
+    },
+    "highlights": {
+      "training": {
+        "value": "2 semaines",
+        "label": "Formation intensive"
+      },
+      "tools": {
+        "value": "6 outils",
+        "label": "Appris et appliqué"
+      },
+      "participants": {
+        "value": "50",
+        "label": "Nombre maximum de participants"
+      },
+      "handsOn": {
+        "value": "100%",
+        "label": "Laboratoires pratiques"
+      }
+    },
+    "pillars": {
+      "strategy": {
+        "title": "Stratégie d'IA",
+        "description": "Mappez les outils d’IA directement sur vos plus grands défis commerciaux."
+      },
+      "design": {
+        "title": "Conception et marque",
+        "description": "Créez un kit de marque complet et des maquettes d’interface utilisateur avec l’IA – aucune expérience en conception n’est nécessaire."
+      },
+      "build": {
+        "title": "Construire et publier",
+        "description": "Repartez avec un site Web ou une application opérationnel et fonctionnel que vous avez créé vous-même."
+      },
+      "automate": {
+        "title": "Automatiser",
+        "description": "Déployez un agent IA exécutant une tâche réelle dans votre entreprise dès la première semaine."
+      }
+    },
+    "footer": {
+      "headline": "La prochaine cohorte se forme maintenant.",
+      "subtext": "Limité à 50 participants, les places se remplissent rapidement."
+    }
+  },
+  "WhatWeDo": {
+    "badge": "L'équipe",
+    "title": "Ce que nous faisons",
+    "description": "À la Tabi Empowerment and Educational (TEE) Foundation, nous croyons au pouvoir transformateur de l’éducation et de l’innovation. Explorez notre philosophie directrice et les missions qui nous propulsent vers un changement positif",
+    "cta": "Apprendre encore plus",
+    "missions": {
+      "empower": {
+        "title": "Habiliter",
+        "description": "Doter les individus de compétences numériques essentielles pour améliorer leurs opportunités éducatives et professionnelles."
+      },
+      "unite": {
+        "title": "Unir",
+        "description": "Encourager la collaboration active au sein des communautés pour stimuler le développement et la croissance durables"
+      },
+      "innovate": {
+        "title": "Innover",
+        "description": "Fournir des ressources et des financements pour mettre en œuvre des solutions innovantes qui répondent aux besoins et aux défis de la société"
+      },
+      "educate": {
+        "title": "Éduquer",
+        "description": "Améliorer l’accès à une éducation et à des ressources d’apprentissage de qualité pour les individus défavorisés mais volontaires"
+      }
+    }
+  },
+  "GetInvolved": {
+    "heading": "Impliquez-vous,",
+    "headingHighlight": "Soutien",
+    "subheading": "Notre mission",
+    "description": "Votre soutien alimente notre mission visant à responsabiliser les communautés grâce à l'éducation et à l'innovation, en transformant la vie une étape à la fois.",
+    "donateCard": {
+      "title": "Faire un don",
+      "description": "Votre contribution nous aide à fournir une formation technologique gratuite, un mentorat et des ressources aux femmes à travers l’Afrique.",
+      "button": "Faites un don maintenant"
+    },
+    "communityCard": {
+      "title": "Rejoignez la communauté",
+      "description": "Connectez-vous avec des femmes partageant les mêmes idées, accédez à des événements exclusifs et faites partie d'un réseau de soutien.",
+      "button": "Rejoindre la communauté",
+      "placeholder": "Votre nom",
+      "emailPlaceholder": "Votre email"
+    },
+    "welcomeModal": {
+      "titleWithName": "Vous y êtes, {name} ! 🌟",
+      "titleDefault": "Vous y êtes officiellement ! 🌟",
+      "message1": "Nous sommes si heureux que vous soyez ici. Vous venez de rejoindre un cercle croissant de femmes passionnées qui façonnent l'avenir de la technologie en Afrique — et nous avons hâte que vous en fassiez partie.",
+      "message2": "Restez proche de tout ce qui se passe à la Fondation TEE (événements, opportunités, histoires et bien plus encore) en rejoignant notre communauté WhatsApp. Venez dire bonjour ! 👋",
+      "joinButton": "Rejoignez la communauté WhatsApp"
+    }
+  },
+  "DonationModal": {
+    "title": "Formulaire de don",
+    "bankTransfer": {
+      "title": "Virement bancaire",
+      "description": "Veuillez transférer votre don sur le compte ci-dessous et nous confirmerons votre contribution.",
+      "bankNameLabel": "Nom de la banque",
+      "accountNameLabel": "Nom du compte",
+      "accountNumberLabel": "Numéro de compte",
+      "copyButton": "Copie",
+      "copied": "Copié!",
+      "transferReminder": "Veuillez transférer {montant} {fréquence, select, One-Time {} other {({fréquence})}} sur le compte ci-dessus.",
+      "done": "Fait",
+      "back": "Dos"
+    },
+    "form": {
+      "donorName": "Nom du donateur",
+      "emailAddress": "Adresse email",
+      "selectAmount": "Sélectionnez le montant",
+      "customAmountPlaceholder": "Ou entrez un montant personnalisé",
+      "frequency": "Fréquence des dons",
+      "frequencyPlaceholder": "Sélectionnez la fréquence",
+      "cancel": "Annuler",
+      "donateNow": "Faites un don maintenant",
+      "processing": "Traitement...",
+      "validation": {
+        "nameRequired": "Veuillez entrer votre nom",
+        "emailRequired": "Veuillez entrer votre email",
+        "emailInvalid": "S'il vous plaît, mettez une adresse email valide",
+        "amountRequired": "Veuillez sélectionner ou saisir un montant",
+        "frequencyRequired": "Veuillez sélectionner une fréquence de don"
+      },
+      "error": {
+        "generic": "Quelque chose s'est mal passé. Veuillez réessayer.",
+        "network": "Erreur réseau. Veuillez réessayer."
+      }
+    },
+    "frequencies": {
+      "One-Time": "Une fois",
+      "Monthly": "Mensuelle",
+      "Quarterly": "Trimestrielle",
+      "Annually": "Annuellement"
+    }
+  },
+  "ConsultancyTeaser": {
+    "badge": "✦ 100% gratuit",
+    "deadlinePrefix": "Ferme",
+    "heading": "Conseil commercial gratuit pour",
+    "headingHighlight": "5 entreprises dirigées par des femmes",
+    "description": "Nous vous aiderons à résoudre les défis en matière de marketing, de finance, de technologie, de stratégie et de ventes. Seulement {restant} des {total} emplacements disponibles ce mois-ci.",
+    "focusAreas": {
+      "marketing": "Commercialisation",
+      "finance": "Finance",
+      "tech": "Technologie",
+      "strategy": "Stratégie",
+      "sales": "Ventes"
+    },
+    "cta": "Postuler pour une séance gratuite →",
+    "terms": "Conditions générales applicables",
+    "freeText": "GRATUITE"
+  },
+  "AIBusiness": {
+    "hero": {
+      "badge": "Tabi Academy · Programme de formation en IA",
+      "headlinePart1": "Outils d'IA pour",
+      "headlinePart2": "Entreprise.",
+      "headlinePart3": "Quinze jours.",
+      "headlinePart4": "De vrais résultats.",
+      "description": "Un programme de formation pratique et en direct qui permet aux femmes d'affaires d'acquérir les compétences en IA nécessaires pour créer plus rapidement, travailler plus intelligemment et grandir en toute confiance – aucune formation technique n'est requise.",
+      "cta": "Postulez maintenant",
+      "cohortMessage": "Formation de la prochaine cohorte.",
+      "cohortLimit": "Limité à 50 participants.",
+      "trustSignals": {
+        "noTech": "Aucune expérience technique n'est nécessaire",
+        "virtual": "Entièrement virtuel et en direct",
+        "certified": "Certifié à la fin"
+      },
+      "floatingCards": {
+        "cohortSize": "Taille de la cohorte",
+        "participantsMax": "nombre maximum de participants",
+        "youWillBuild": "Vous construirez",
+        "buildItems": {
+          "liveWebsite": "Site Web en direct",
+          "aiAgent": "j'ai un agent",
+          "brandKit": "Trousse de marque"
+        },
+        "certifiedOn": "Certifié le",
+        "completion": "achèvement"
+      }
+    },
+    "stats": {
+      "training": {
+        "value": "2 semaines",
+        "label": "Formation intensive en direct"
+      },
+      "sessions": {
+        "value": "4 jours",
+        "label": "Séances pratiques en direct"
+      },
+      "tools": {
+        "value": "6 outils",
+        "label": "Appris et appliqué"
+      },
+      "handsOn": {
+        "value": "100%",
+        "label": "Laboratoires pratiques et concrets"
+      }
+    },
+    "outcomes": {
+      "badge": "Ce que vous réaliserez",
+      "heading": "Compétences que vous pouvez utiliser le lendemain de l'obtention de votre diplôme",
+      "description": "Chaque résultat de ce programme est lié à quelque chose que vous allez réellement construire. Pas de théorie. Pas des diapositives. De vrais livrables que vous pouvez montrer, utiliser et avec lesquels vous pouvez évoluer.",
+      "items": {
+        "fluency": {
+          "title": "Maîtrise de l'IA pour les entreprises",
+          "description": "Comprenez comment fonctionnent les outils d'IA et comment les appliquer de manière stratégique à votre contexte commercial spécifique, en toute confiance."
+        },
+        "brand": {
+          "title": "Actifs professionnels de marque et de design",
+          "description": "Créez un kit de marque complet, une identité visuelle et des maquettes d'interface utilisateur à l'aide d'outils de conception basés sur l'IA — aucune expérience en conception n'est nécessaire."
+        },
+        "website": {
+          "title": "Un site Web ou une application en direct et fonctionnel",
+          "description": "Créez et publiez une page de destination entièrement fonctionnelle ou une application simple à l'aide de l'IA – et repartez avec une URL en direct."
+        },
+        "agent": {
+          "title": "Un agent IA au service de votre entreprise",
+          "description": "Déployez un workflow d'automatisation ou un agent IA gérant une tâche réelle dans votre entreprise, ce qui vous fera gagner du temps dès la première semaine."
+        },
+        "capstone": {
+          "title": "Un projet Capstone dont vous êtes fier",
+          "description": "Complétez et présentez une solution commerciale entièrement basée sur l'IA, construite autour de votre propre travail, évaluée par un panel en direct."
+        },
+        "certificate": {
+          "title": "Un certificat officiel d’IA pour les entreprises",
+          "description": "Obtenez un certificat numérique vérifié après avoir réussi l'évaluation combinée – une preuve reconnue de vos nouvelles capacités."
+        }
+      },
+      "ctaHeading": "Ne vous contentez pas d’en apprendre davantage sur l’IA. Construisez avec.",
+      "ctaDescription": "Arrêtez de regarder de côté. Rejoignez notre prochaine cohorte pour transformer les flux de travail de votre entreprise et repartez avec un certificat vérifié et des projets en direct.",
+      "ctaButton": "Postuler pour la prochaine cohorte",
+      "closingSoon": "Clôture des inscriptions bientôt"
+    },
+    "metadata": {
+      "title": "Formation en IA pour les femmes entrepreneures",
+      "description": "Rejoignez la formation en direct de 2 semaines sur l'IA de la Tabi Academy. Apprenez à créer des outils d'IA, à automatiser votre flux de travail et à développer votre entreprise. Gratuit pour les femmes africaines en technologie.",
+      "ogTitle": "Programme gratuit de formation en IA pour les entreprises | Académie Tabi",
+      "ogDescription": "Construisez plus rapidement et travaillez plus intelligemment. Notre cohorte intensive de 2 semaines en IA aide les femmes entrepreneures à maîtriser l'automatisation et l'innovation. Inscrivez-vous maintenant !"
+    },
+    "timeline": {
+      "badge": "L'expérience",
+      "heading": "Voici exactement ce à quoi vous vous inscrivez",
+      "description": "Pas de surprises, pas de suppositions. De votre premier jour à l'obtention de votre diplôme et au-delà, voici chaque étape de l'expérience pour que vous sachiez exactement à quoi vous attendre et que vous puissiez vous présenter pleinement prêt.",
+      "phases": {
+        "onboarding": {
+          "tag": "Avant le premier jour",
+          "title": "Intégration pré-programme",
+          "description": "Préparez-vous, soyez excité et arrivez prêt. Vous recevrez votre pack de bienvenue, votre accord de participant, votre emploi du temps complet, vos guides de configuration des outils et un accès direct à votre communauté de cohorte, le tout avant le début de la première session.",
+          "highlights": [
+            "Accord de participation signé",
+            "Guide de configuration de l'outil (6 comptes gratuits)",
+            "Programme complet + invitations Google Agenda",
+            "Accès à la communauté WhatsApp",
+            "Feuille de travail de réflexion pré-programme"
+          ]
+        },
+        "week1": {
+          "tag": "4 jours · 4 heures chacun",
+          "title": "Semaine 1 · Formation en direct",
+          "description": "Quatre sessions en direct d'une journée complète couvrant les principes fondamentaux de l'IA, les outils de conception, la création d'applications et l'automatisation. Chaque session suit un cycle d'apprentissage → démo → construction → partage. Vous repartirez chaque journée avec quelque chose de tangible.",
+          "highlights": [
+            "Jour 1 — Fondements de l'IA et stratégie commerciale",
+            "Jour 2 — Conception, image de marque et contenu visuel",
+            "Jour 3 — Créer et publier avec l'IA",
+            "Jour 4 — Automatisation, agents IA et flux de travail"
+          ]
+        },
+        "week2": {
+          "tag": "Projet + Présentation + Examen",
+          "title": "Semaine 2  · Capstone et certification",
+          "description": "Appliquez tout ce que vous avez appris à un véritable défi commercial. Construisez votre projet de synthèse, présentez-le en direct à la cohorte et passez votre examen de certification. C’est là que tout se réunit.",
+          "highlights": [
+            "Places de coaching 1:1 disponibles",
+            "Enregistrement de groupe le mercredi en milieu de semaine",
+            "Présentation de synthèse en direct de 10 minutes",
+            "Examen de certification en ligne de 60 minutes",
+            "Certificat délivré dans les 5 jours ouvrables"
+          ]
+        },
+        "postProgramme": {
+          "tag": "Assistance et accès continus",
+          "title": "Post-programme · Communauté des anciens élèves",
+          "description": "Six mois d'accès à tous les enregistrements et matériels. Deux semaines de soutien post-programme dédié. Et une adhésion permanente à la communauté des anciens élèves de la Tabi Academy – un réseau qui ne cesse de donner.",
+          "highlights": [
+            "Fenêtre de support post-programme de 2 semaines",
+            "Accès pendant 6 mois à tous les enregistrements et matériels",
+            "Adhésion permanente à la communauté des anciens élèves",
+            "Accès prioritaire aux futurs programmes",
+            "Réseau de pairs dans toutes les cohortes"
+          ]
+        }
+      }
+    },
+    "curriculum": {
+      "badge": "Le programme",
+      "heading": "Quatre jours qui changent votre façon de travailler",
+      "description": "Chaque journée est structurée autour d’une capacité essentielle de l’IA – et chacune s’appuie sur la précédente. Au jour 4, vous serez passé des bases de l'IA au déploiement d'agents autonomes pour votre entreprise.",
+      "scrollHint": "Allez à {day}",
+      "days": {
+        "day1": {
+          "day": "Jour 1",
+          "tag": "Fondations",
+          "title": "Fondements de l'IA et stratégie d'entreprise",
+          "description": "Comprenez ce que sont réellement les outils d’IA, comment ils fonctionnent et où ils créent le plus de levier dans une entreprise. Cartographiez vos propres plus grands défis avec des solutions d'IA. Repartez avec une feuille de route stratégique en matière d'IA pour votre entreprise.",
+          "deliverableLabel": "Livrable du laboratoire :",
+          "deliverable": "Carte des opportunités d'IA pour votre entreprise"
+        },
+        "day2": {
+          "day": "Jour 2",
+          "tag": "Conception",
+          "title": "Conception, image de marque et contenu visuel",
+          "description": "Utilisez les outils de conception d'IA pour créer des graphiques professionnels, un kit de marque complet et des wireframes ou des maquettes d'interface utilisateur. Aucune expérience en conception n'est requise, juste votre vision.",
+          "deliverableLabel": "Livrable du laboratoire :",
+          "deliverable": "Kit de marque + maquette d'interface utilisateur ou wireframe"
+        },
+        "day3": {
+          "day": "Jour 3",
+          "tag": "Construire",
+          "title": "Créer et publier avec l'IA",
+          "description": "Créez une page de destination entièrement fonctionnelle ou une application simple à l'aide d'outils de développement basés sur l'IA. Publiez-le en direct. Repartez avec une vraie URL.",
+          "deliverableLabel": "Livrable du laboratoire :",
+          "deliverable": "Page de destination ou application publiée en direct"
+        },
+        "day4": {
+          "day": "Jour 4",
+          "tag": "Automatiser",
+          "title": "Automatisation, agents IA et flux de travail",
+          "description": "Créez un agent IA ou un workflow d'automatisation exécutant une tâche réelle pour votre entreprise. De la capture de leads à la planification de contenu, c'est là que l'IA fonctionne pour vous, et non l'inverse.",
+          "deliverableLabel": "Livrable du laboratoire :",
+          "deliverable": "Automatisation déployée ou workflow d'agent IA"
+        }
+      }
+    },
+    "inclusions": {
+      "badge": "Ce qui est inclus",
+      "headingLine1": "Tout",
+      "headingLine2": "Vous avez besoin.",
+      "headingLine3": "Rien",
+      "headingLine4": "Vous ne le faites pas.",
+      "freeToolsNote": "Chaque outil utilisé dans ce programme dispose d'un niveau gratuit suffisant pour tous les laboratoires. Aucun abonnement payant requis.",
+      "categories": {
+        "Training": "Entraînement",
+        "Support": "Soutien",
+        "Materials": "Matériels",
+        "Certification": "Attestation",
+        "Community": "Communauté"
+      },
+      "bottomBanner": {
+        "title": "Aucun abonnement payant n'est nécessaire",
+        "description": "Chaque outil dispose d'un niveau gratuit qui couvre 100 % des laboratoires et des devoirs du programme.",
+        "badge": "Utilisation gratuite ✓"
+      },
+      "items": [
+        { "text": "4 sessions animées en direct de 4 heures via Google Meet", "category": "Training" },
+        { "text": "Créneaux de coaching 1:1 pendant la semaine 2", "category": "Support" },
+        { "text": "Session d'enregistrement de groupe du mercredi en milieu de semaine", "category": "Training" },
+        { "text": "Toutes les diapositives, modèles de laboratoire et guides de ressources", "category": "Materials" },
+        { "text": "Enregistrements de sessions (fenêtre d'accès de 6 mois)", "category": "Materials" },
+        { "text": "Commentaires quotidiens de l'animateur sur votre travail", "category": "Support" },
+        { "text": "Examen de certification + une reprise gratuite", "category": "Certification" },
+        { "text": "Certificat numérique vérifié avec lien de vérification", "category": "Certification" },
+        { "text": "Fenêtre de support post-programme de 2 semaines", "category": "Support" },
+        { "text": "Adhésion permanente à la communauté des anciens élèves", "category": "Community" },
+        { "text": "Accès prioritaire aux futurs programmes de la Tabi Academy", "category": "Community" },
+        { "text": "Accès au réseau d'anciens élèves dans toutes les cohortes", "category": "Community" }
+      ]
+    },
+    "audience": {
+      "badge": "À qui s'adresse-t-il",
+      "heading": "Conçu pour les femmes qui sont sérieuses",
+      "description": "Vous n'avez pas besoin d'une formation technique. Il faut de l'ambition, un vrai contexte business, et quatre heures par jour pendant deux semaines.",
+      "profiles": {
+        "owner": {
+          "label": "Le propriétaire d'entreprise",
+          "hook": "Vous dirigez une entreprise et vous savez que l’IA pourrait vous faire gagner du temps.",
+          "description": "Vous n’avez tout simplement pas eu l’espace nécessaire pour le comprendre correctement. Ce programme vous offre cet espace, avec des conseils d'experts et une cohorte en direct autour de vous.",
+          "traits": [
+            "Manque de temps",
+            "Axé sur la croissance",
+            "Déjà opérationnel"
+          ]
+        },
+        "professional": {
+          "label": "Le professionnel",
+          "hook": "Vous êtes employé, ambitieux et vous regardez l’IA remodeler votre secteur.",
+          "description": "Vous voulez avoir une longueur d’avance, sans vous démener pour rattraper votre retard. Ce programme vous donne des compétences tangibles, pas seulement une prise de conscience.",
+          "traits": [
+            "Axé sur la carrière",
+            "Conscient de l'industrie",
+            "Pérennité"
+          ]
+        },
+        "founder": {
+          "label": "Le Fondateur",
+          "hook": "Vous construisez quelque chose et chaque ressource compte.",
+          "description": "Les outils d’IA peuvent étendre vos capacités sans augmenter votre budget. Ce programme vous apprend à créer, automatiser et concevoir comme une équipe composée d'un seul membre, qui fonctionne comme une équipe de dix personnes.",
+          "traits": [
+            "Économe en ressources",
+            "Construire rapidement",
+            "Porter tous les chapeaux"
+          ]
+        }
+      },
+      "cta": {
+        "heading": "Vous ne savez pas si vous correspondez au profil ?",
+        "description": "La seule véritable exigence est un objectif commercial que vous souhaitez atteindre. Nous vous apprenons tout le reste à partir de zéro.",
+        "button": "Rejoignez la cohorte"
+      },
+      "footerLine": "Quel que soit votre description -",
+      "footerHighlight": "vous appartenez à cette cohorte."
+    },
+    "pricing": {
+      "badge": "Investissement et accès",
+      "heading": "50 % de réduction sur l'offre à durée limitée",
+      "description": "Nous avons réduit les frais de scolarité standard de 50 % pour cette cohorte afin de soutenir davantage de femmes africaines dans le domaine de la technologie.",
+      "tuitionLabel": "Frais de scolarité",
+      "features": [
+        "Accès complet au cours",
+        "Certification professionnelle",
+        "Communauté d'anciens élèves à vie"
+      ],
+      "cta": "Procéder au paiement",
+      "international": {
+        "heading": "Pas au Nigéria ?",
+        "description": "Nous fournissons des liens de paiement sur mesure pour les étudiants internationaux afin de garantir un processus d'inscription fluide.",
+        "link": "Afficher les options internationales →"
+      }
+    },
+    "certification": {
+      "badge": "Attestation",
+      "headingLine1": "Gagnez un certificat",
+      "headingLine2": "Cela veut dire quelque chose",
+      "description": "La certification n'est pas délivrée. C'est mérité. Pour recevoir votre certificat AI for Business vérifié, vous devez vous présenter, effectuer le travail et démontrer de réelles capacités.",
+      "steps": {
+        "attendance": {
+          "title": "80% de fréquentation",
+          "detail": "Au cours des 4 sessions en direct de la semaine 1 – 3 jours sur 4 minimum."
+        },
+        "assignments": {
+          "title": "Missions quotidiennes",
+          "detail": "Complété et soumis des jours 1 à 3. Ils alimentent directement votre synthèse."
+        },
+        "capstone": {
+          "title": "Projet de synthèse",
+          "detail": "Rapport écrit complet + présentation en direct de 10 minutes au panel le jour 9."
+        },
+        "exam": {
+          "title": "Examen de certification",
+          "detail": "60 minutes, en ligne, le jour 10. Soumissions automatiques à la limite de temps."
+        },
+        "score": {
+          "title": "Score combiné de 70 %+",
+          "detail": "Capstone pondéré à 60 %, examen à 40 %. Les deux doivent être soumis pour être admissibles."
+        }
+      },
+      "certificate": {
+        "subtitle": "Certificat d'achèvement",
+        "awardedTo": "Attribué à",
+        "placeholderName": "Votre nom ici",
+        "description": "Pour avoir terminé avec succès le programme intensif AI for Businesses et démontré des compétences appliquées dans les quatre domaines de formation.",
+        "capstone": "Pierre de synthèse",
+        "exam": "Examen",
+        "verification": "Vérifié numériquement · Émis dans les 5 jours ouvrables"
+      },
+      "retake": {
+        "title": "Une reprise gratuite incluse",
+        "description": "Vous n'avez pas réussi la première fois ? Vous disposez de 14 jours pour repasser l’examen sans frais supplémentaires. Pas de pression, juste un autre coup."
+      }
+    },
+    "faq": {
+      "badge": "Questions",
+      "headingLine1": "Tout",
+      "headingLine2": "Vous avez été",
+      "headingHighlight": "Se demandant",
+      "contactMessage": "Vous ne trouvez pas votre réponse ici ? Contactez-nous directement : l'équipe répond dans un délai d'un jour ouvrable.",
+      "contactEmail": "bonjour@tabiproject.com",
+      "tags": {
+        "Getting Started": "Commencer",
+        "Tools": "Outils",
+        "Programme": "Programme",
+        "Attendance": "Présence",
+        "Delivery": "Livraison",
+        "Post-Programme": "Post-programme",
+        "Payment": "Paiement"
+      },
+      "items": [
+        {
+          "q": "Ai-je besoin d’une formation technique ?",
+          "a": "Non. Ce programme est conçu spécifiquement pour les propriétaires d’entreprise et les professionnels, et non pour les développeurs. Si vous savez utiliser un smartphone et un ordinateur portable, vous disposez de tout ce dont vous avez besoin pour démarrer.",
+          "tag": "Getting Started"
+        },
+        {
+          "q": "Quels outils vais-je utiliser ?",
+          "a": "ChatGPT, Canva, Uizard, GitHub, Zapier et Vercel ou Netlify — ainsi que des plateformes supplémentaires introduites par session. Chaque outil a un niveau gratuit. Aucun abonnement payant n'est requis.",
+          "tag": "Tools"
+        },
+        {
+          "q": "Combien de personnes compte chaque cohorte ?",
+          "a": "Un maximum de 50 participants par cohorte. Il ne s'agit pas d'un webinaire, c'est un environnement d'apprentissage en direct et interactif dans lequel les animateurs connaissent votre nom et celui de votre entreprise.",
+          "tag": "Programme"
+        },
+        {
+          "q": "Et si je manque une séance ?",
+          "a": "Les enregistrements sont mis à disposition dans les 24 heures. Manquer une séance vous maintient dans le seuil de participation de 80 %. En manquer deux ou plus vous rend inéligible à la certification. Prévenez l’équipe à l’avance si vous devez manquer une séance.",
+          "tag": "Attendance"
+        },
+        {
+          "q": "Ce programme est-il entièrement virtuel ?",
+          "a": "Oui. Toutes les sessions sont dispensées en direct via Google Meet. Vous aurez besoin d'un ordinateur portable ou de bureau, d'une connexion Internet stable, d'une webcam fonctionnelle et d'un environnement calme.",
+          "tag": "Delivery"
+        },
+        {
+          "q": "Que se passe-t-il une fois le programme terminé ?",
+          "a": "Vous bénéficiez de deux semaines de soutien post-programme dédié, de six mois d'accès à tous les enregistrements et matériels et d'une adhésion permanente à la communauté des anciens élèves de la Tabi Academy.",
+          "tag": "Post-Programme"
+        },
+        {
+          "q": "Quelle est la politique de remboursement ?",
+          "a": "Remboursement intégral en cas d'annulation plus de 14 jours avant la date de début. Remboursement de 50 % entre 7 et 14 jours. Aucun remboursement dans les 7 jours ou après le début du programme. Un report unique vers la cohorte suivante est disponible sur demande au moins 5 jours avant la date de début.",
+          "tag": "Payment"
+        },
+        {
+          "q": "Puis-je m'en remettre à une future cohorte ?",
+          "a": "Oui, une fois. Si vous prévenez l'équipe au moins 5 jours avant la date de début du programme, vous pourrez reporter votre place à la prochaine cohorte disponible.",
+          "tag": "Payment"
+        }
+      ]
+    },
+    "cta": {
+      "badge": "Appliquer",
+      "headingLine1": "Prêt à construire",
+      "headingHighlight": "avec l'IA ?",
+      "description": "La prochaine cohorte se forme maintenant. Les places sont limitées à",
+      "descriptionHighlight": "50 participants",
+      "descriptionSuffix": "– donc chaque siège compte et se remplit rapidement. Postulez dès aujourd'hui pour garantir votre place et commencer votre intégration.",
+      "button": "Postuler pour la prochaine cohorte",
+      "enrolledLink": "Accéder au groupe communautaire →",
+      "enrolledText": "Déjà inscrit ?",
+      "trustSignals": [
+        "Aucune formation technique requise",
+        "En direct, animé par des experts",
+        "Entièrement virtuel",
+        "Certifié à la fin"
+      ]
+    }
+  },
+  "RegistrationModal": {
+    "title": "Postuler pour la prochaine cohorte",
+    "subtitle": "Programme AI pour les entreprises – Limité à 50 participants"
+  }
+}
