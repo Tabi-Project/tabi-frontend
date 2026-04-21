@@ -77,7 +77,7 @@ export default function TabiWomenNetworkPage() {
             </div>
             {/* Pointer link to community page */}
             <Link
-              to="/community"
+              href="/community"
               className="group flex items-center gap-4 text-brand-primary font-black uppercase text-xs tracking-[0.2em] bg-brand-surface px-8 py-5 rounded-full border border-brand-primary/5 hover:bg-brand-primary hover:text-white transition-all duration-500"
             >
               See Community Gallery{" "}
@@ -99,7 +99,7 @@ export default function TabiWomenNetworkPage() {
               <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-500" />
             </div>
             <div className="col-span-12 md:col-span-4 grid grid-rows-2 gap-6">
-              <div className="relative rounded-[2.5rem] overflow-hidden shadow-xl group">
+              <div className="relative rounded-tabi-card overflow-hidden shadow-xl group">
                 <Image
                   src="/events/tw-side-1.jpg"
                   alt="Collaborative Session"
