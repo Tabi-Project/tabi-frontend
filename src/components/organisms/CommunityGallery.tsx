@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Lock, Camera, ArrowRight } from "lucide-react";
+import { Camera, ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 // Import Lightbox and its CSS
@@ -33,11 +33,12 @@ export default function CommunityGallery({
   const [isOpen, setIsOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
 
+  // 3. Updated Categories: "meetup" is now "Tabi Women Network" and unlocked
   const CATEGORIES = [
     {
       id: "all",
       label: "All Moments",
-      count: cmsImages.length // Total count of everything
+      count: cmsImages.length
     },
     {
       id: "learnable",
@@ -49,16 +50,21 @@ export default function CommunityGallery({
       label: "Open Source Sprints",
       count: cmsImages.filter((img) => img.category === "sprints").length
     },
-    { id: "meetup", label: "Women in Business", count: 0, locked: true }
+    {
+      id: "meetup",
+      label: "Tabi Women Network",
+      count: cmsImages.filter((img) => img.category === "meetup").length,
+      locked: false // Explicitly unlocked
+    }
   ];
 
-  // 3. Filter images dynamically. If "all", show everything!
+  // 4. Filter images dynamically
   const filteredImages =
     activeTab === "all"
       ? cmsImages
       : cmsImages.filter((img) => img.category === activeTab);
 
-  // 4. Prepare images for the lightbox array
+  // 5. Prepare images for the lightbox array
   const lightboxSlides = filteredImages.map((img) => ({
     src: img.src,
     alt: img.alt,
@@ -78,8 +84,8 @@ export default function CommunityGallery({
             <span className="italic text-brand-primary">Possibilities.</span>
           </h2>
           <p className="mt-4 text-gray-600 font-light leading-relaxed">
-            We don’t just talk about change; we document it. See how our members
-            grow, excel, and thrive across our specialized tracks.
+            We don’t just talk about growth; we document it. See how our members
+            excel across our specialized network tracks and global editions.
           </p>
         </div>
 
@@ -91,29 +97,24 @@ export default function CommunityGallery({
             return (
               <Button
                 key={category.id}
-                onClick={() => !category.locked && setActiveTab(category.id)}
+                onClick={() => setActiveTab(category.id)}
                 variant={isActive ? "primary" : "ghost"}
                 size="sm"
                 className={`
                   relative gap-2 font-bold transition-all duration-300
                   ${
-                    category.locked
-                      ? "bg-gray-50 text-gray-400 cursor-not-allowed border border-gray-100"
-                      : isActive
-                        ? "shadow-lg"
-                        : "bg-white text-gray-600 border border-gray-200 hover:border-brand-primary/40 hover:text-brand-primary"
+                    isActive
+                      ? "shadow-lg"
+                      : "bg-white text-gray-600 border border-gray-200 hover:border-brand-primary/40 hover:text-brand-primary"
                   }
                 `}
               >
-                {category.locked && <Lock size={12} className="opacity-60" />}
-                {!category.locked && (
-                  <Camera
-                    size={12}
-                    className={
-                      isActive ? "text-white" : "text-brand-primary opacity-60"
-                    }
-                  />
-                )}
+                <Camera
+                  size={12}
+                  className={
+                    isActive ? "text-white" : "text-brand-primary opacity-60"
+                  }
+                />
 
                 {category.label}
 
@@ -128,18 +129,12 @@ export default function CommunityGallery({
                     {category.count}
                   </span>
                 )}
-
-                {category.locked && (
-                  <span className="absolute -top-2 -right-2 bg-brand-surface text-brand-primary text-[8px] px-1.5 py-0.5 rounded-full font-black uppercase border border-brand-primary/20">
-                    Soon
-                  </span>
-                )}
               </Button>
             );
           })}
         </div>
 
-        {/* ── UPGRADED PREMIUM BENTO GRID ── */}
+        {/* ── BENTO GRID ── */}
         <div className="relative min-h-100">
           <AnimatePresence mode="wait">
             <motion.div
@@ -170,16 +165,14 @@ export default function CommunityGallery({
                     <div className="relative w-full h-full">
                       <Image
                         src={image.src}
-                        alt={image.alt || "Tabi community moment"}
+                        alt={image.alt || "Tabi Women Network moment"}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
 
-                      {/* Gradient Overlay for captions */}
-                      <div className="absolute inset-0 bg-linear-to-t from-[#1a1a2e]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a2e]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                      {/* Caption */}
                       <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
                         <p className="text-white text-sm font-bold mb-1">
                           {image.caption}
@@ -200,11 +193,11 @@ export default function CommunityGallery({
                     <Camera size={24} />
                   </div>
                   <h3 className="text-lg font-bold text-[#1a1a2e] mb-1">
-                    No images shipped yet
+                    No images uploaded yet
                   </h3>
                   <p className="text-sm text-gray-500 max-w-sm">
-                    We are currently documenting this track. Check back after
-                    the next sprint!
+                    We are currently documenting this track. The gallery for
+                    Tabi Women Network will appear here shortly.
                   </p>
                 </div>
               )}
@@ -213,7 +206,7 @@ export default function CommunityGallery({
         </div>
       </div>
 
-      {/* 5. Lightbox Modal Component */}
+      {/* Lightbox Modal */}
       <Lightbox
         open={isOpen}
         close={() => setIsOpen(false)}
