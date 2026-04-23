@@ -20,7 +20,7 @@ const directoryMembers = [
     name: "Sophia Ahuoyiza",
     role: "Software Engineer & Executive Director, Tabi",
     industry: "Technology",
-    city: "Lagos",
+    city: "Enugu",
     focus: ["Product Management", "Yelobyte Studios", "AI Automation"],
     bio: "Software Engineer and Co-founder of Yelobyte Studios, focused on making technology education accessible to women across Africa.",
     socials: {
@@ -87,7 +87,7 @@ const directoryMembers = [
     name: "Amarachi Okeke",
     role: "Product Manager & NGO Lead",
     industry: "Technology",
-    city: "Lagos",
+    city: "Enugu",
     focus: ["Sustainability", "Product Strategy", "Social Initiatives"],
     bio: "Product Manager co-running Sustainable Initiatives NGO, bridging the gap between tech efficiency and social good.",
     socials: {
@@ -112,7 +112,7 @@ const directoryMembers = [
     name: "Ijeoma Achu",
     role: "Program’s Manager, Tabi",
     industry: "Management",
-    city: "Lagos",
+    city: "Enugu",
     focus: ["Program Strategy", "Operational Excellence", "Community"],
     bio: "Orchestrating the framework and delivery of Tabi’s missions to ensure impactful results for every cohort.",
     socials: {
@@ -138,7 +138,7 @@ export const TWNDirectory = () => {
     "Management",
     "Education"
   ];
-  const cities = ["All Cities", "Enugu", "Lagos", "Accra", "Benin Republic"];
+  const cities = ["All Cities", "Enugu", "Enugu", "Accra", "Benin Republic"];
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {

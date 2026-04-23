@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { Button } from "@/components/atoms/Button";
 import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export default function TWNPastEditions() {
   return (
@@ -12,7 +13,7 @@ export default function TWNPastEditions() {
             <div className="absolute -top-6 -left-6 w-full h-full border-2 border-brand-primary/10 rounded-[3.5rem] -z-10" />
             <div className="relative aspect-4/5 md:aspect-video lg:aspect-square rounded-[3rem] overflow-hidden shadow-2xl border-8 border-white">
               <Image
-                src="/tfwwl.png"
+                src="/tfwf.png"
                 alt="Tabi Women Network Enugu Edition"
                 fill
                 className="object-cover"
@@ -41,12 +42,14 @@ export default function TWNPastEditions() {
               and infrastructure roadmaps for every member in the room.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button
-                className="bg-brand-primary text-white rounded-full px-10 py-7 font-bold hover:shadow-2xl transition-all"
-                onClick={() => window.open("https://yourlink.com", "_blank")}
-              >
-                Read the Enugu Report <ArrowRight className="ml-2" size={18} />
-              </Button>
+              <Link href="/resources/blog/tabi-women-network-debuts-pan-african-series-in-enugu">
+                <Button
+                  className="bg-brand-primary text-white rounded-full px-10 py-7 font-bold hover:shadow-2xl transition-all"
+                >
+                  Read the Enugu Report{" "}
+                  <ArrowRight className="ml-2" size={18} />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

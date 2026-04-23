@@ -104,8 +104,7 @@ export default function TWNManifestoMission() {
                 Our Operating Principles
               </h3>
               <p className="text-gray-500 mt-4 text-lg">
-                These are not aspirational statements. They are the principles
-                that shape every decision we make.
+                They are the principles that shape every decision we make at Tabi Women Network.
               </p>
             </div>
             <div className="hidden md:block h-px grow bg-gray-100 mx-12 mb-4" />

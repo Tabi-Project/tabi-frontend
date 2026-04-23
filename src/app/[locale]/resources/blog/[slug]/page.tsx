@@ -214,17 +214,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { getPostBySlug, getAllPosts } from "@/lib/cms";
-// import dynamic from "next/dynamic";
 import ShareButtons from "@/components/atoms/ShareButtons";
 import ClientMarkdownRenderer from "@/components/molecules/ClientMarkdownRenderer";
 
 const BASE_URL = "https://tabiproject.com";
-
-// Dynamically import the markdown renderer – client‑only
-// const MarkdownBody = dynamic(() => import("@/components/molecules/MarkdownBody"), {
-//   ssr: false,
-//   loading: () => <div className="animate-pulse bg-gray-100 h-40 rounded" />,
-// });
 
 interface Props {
   params: Promise<{ slug: string; locale: string }>;

@@ -1,9 +1,19 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components/atoms/Button";
 import { MoveRight, Users, Globe } from "lucide-react";
 import { motion } from "framer-motion";
 
 export const TWNHero = () => {
+  // Smooth scroll function for the internal link
+  const scrollToPhilosophy = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const element = document.getElementById("philosophy");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -11,7 +21,6 @@ export const TWNHero = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="relative pt-32 pb-20 overflow-hidden border-b border-purple-100 bg-[#FDFCFE]"
     >
-      {/* Background Grid Pattern – unchanged */}
       <div
         className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none"
         style={{
@@ -23,7 +32,6 @@ export const TWNHero = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left column with staggered children */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -49,28 +57,36 @@ export const TWNHero = () => {
             </div>
 
             <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-              className="text-6xl md:text-7xl font-bold text-[#2D102D] leading-[0.95] tracking-tighter mb-8"
-            >
-              A Table for <br />
-              Women who <br />
-              <span className="relative inline-block">
-                Lead!
-                <svg
-                  className="absolute -inset-2 w-[120%] h-[120%] text-brand-primary/40 -rotate-3"
-                  viewBox="0 0 100 40"
-                  fill="none"
-                >
-                  <path
-                    d="M5,20 Q15,5 50,5 Q85,5 95,20 Q85,35 50,35 Q15,35 5,20"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                className="text-6xl md:text-7xl font-bold text-[#2D102D] leading-[0.95] tracking-tighter mb-8"
+              >
+                A Table for <br />
+                Women who <br />
+                <span className="relative inline-block">
+                  Lead!
+                  <svg
+                    viewBox="0 0 280 100"
+                    className="absolute top-1/2 left-[-10%] -translate-y-1/2 w-[140%] h-[200%] text-brand-primary/40 pointer-events-none"
+                    fill="none"
                     stroke="currentColor"
-                    strokeWidth="2"
+                    strokeWidth="3.5"
                     strokeLinecap="round"
-                  />
-                </svg>
-              </span>
+                    preserveAspectRatio="none"
+                  >
+                    <motion.path
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={{
+                        delay: 0.8,
+                        duration: 1.2,
+                        ease: "easeInOut",
+                      }}
+                      d="M10,50 C10,10 270,10 270,50 C270,90 10,90 15,55"
+                    />
+                  </svg>
+                </span>
             </motion.h1>
 
             <motion.p
@@ -89,19 +105,24 @@ export const TWNHero = () => {
               transition={{ delay: 0.5, duration: 0.5 }}
               className="flex flex-wrap gap-6"
             >
+              {/* Updated CTA: Anchor Scroll */}
               <Button
                 size="lg"
+                onClick={scrollToPhilosophy}
                 className="rounded-full px-12 shadow-lg shadow-brand-primary/20 font-semibold"
               >
-                Join the Directory
+                Learn More
               </Button>
-              <button className="group flex items-center gap-3 font-bold text-gray-900 hover:text-brand-primary transition-colors border border-gray-200 px-8 py-3 rounded-full hover:bg-gray-50">
-                View Enugu Report
-                <MoveRight className="group-hover:translate-x-2 transition-transform" />
-              </button>
+
+              {/* Updated Button: Navigates to Enugu Blog Post */}
+              <Link href="/resources/blog/tabi-women-network-debuts-pan-african-series-in-enugu">
+                <button className="group h-full flex items-center gap-3 font-bold text-gray-900 hover:text-brand-primary transition-colors border border-gray-200 px-8 py-3 rounded-full hover:bg-gray-50">
+                  View Enugu Report
+                  <MoveRight className="group-hover:translate-x-2 transition-transform" />
+                </button>
+              </Link>
             </motion.div>
 
-            {/* Social Proof Mini-badge */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -127,7 +148,6 @@ export const TWNHero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right side – image container with scale and fade */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -156,7 +176,7 @@ export const TWNHero = () => {
                       Enugu Cohort
                     </h4>
                     <p className="text-xs text-white/80">
-                      8 Multi-hyphenate Leaders • Mar 2026
+                      8 Multi-hyphenate Leaders • 4th Apr 2026
                     </p>
                   </div>
                 </div>
