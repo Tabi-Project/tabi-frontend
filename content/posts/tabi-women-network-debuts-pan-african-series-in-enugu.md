@@ -1,13 +1,11 @@
 ---
-title: Tabi Women Network Debuts Pan-African Series in Enugu
+title: "Tabi Women Network Debuts Pan-African Series in Enugu"
 category: news
-date: April 6, 2026
-author: Tabi Team
-readTime: 6 Minutes
-excerpt: On April 4th, 2026, Tabi Women Network hosted an intimate invite‑only
-  lunch for eight high‑level women leaders in Enugu. Structured conversation,
-  real outcomes, and a new pan‑African directory took center stage.
-image: /uploads/tabi-group-shot-enugu.jpeg
+date: "April 6, 2026"
+author: "Tabi Team"
+readTime: "6 minutes"
+excerpt: "On April 4th, 2026, Tabi Women Network hosted an intimate invite‑only lunch for eight high‑level women leaders in Enugu. Structured conversation, real outcomes, and a new pan‑African directory took center stage."
+image: "/uploads/tabi-group-shot-enugu.jpeg"
 featured: true
 ---
 # Tabi Women Network Debuts Pan‑African Series in Enugu
