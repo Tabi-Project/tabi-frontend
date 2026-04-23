@@ -25,7 +25,7 @@ export default function TWNPastEditions() {
                 <h4 className="text-white text-2xl font-bold">
                   Enugu, Nigeria
                 </h4>
-                <p className="text-white/70 text-sm">March 2026 Cohort</p>
+                <p className="text-white/70 text-sm">4th April 2026 Cohort</p>
               </div>
             </div>
           </div>
