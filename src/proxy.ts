@@ -8,6 +8,6 @@ export default createMiddleware({
 });
 
 export const config = {
-  // matcher: ["/", "/(fr|en)/:path*"]
-  matcher: ["/((?!api|_next|_vercel|.*\\..*).*)"]
+  // Added "admin" to the exclusion list
+  matcher: ["/((?!api|_next|_vercel|admin|.*\\..*).*)"]
 };
