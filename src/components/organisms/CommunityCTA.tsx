@@ -1,17 +1,9 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+import { animate, motion, useInView, useMotionValue, useTransform } from "framer-motion";
 import { useEffect, useRef } from "react";
-// import Image from "next/image";
-import {
-  motion,
-  useInView,
-  useMotionValue,
-  animate,
-  useTransform
-} from "framer-motion";
-import { Star } from "lucide-react";
 
-// ── ACTUAL WHATSAPP SVG ICON ──
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="currentColor">
@@ -20,12 +12,10 @@ function WhatsAppIcon({ className }: { className?: string }) {
   );
 }
 
-// ── ROLLING COUNTER ──
+// Rolling counter – unchanged logic
 function RollingCounter({ value }: { value: string }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
-
-  // Strip non-numbers like "+" and ","
   const numericValue = parseInt(value.replace(/[^0-9]/g, ""), 10);
   const count = useMotionValue(0);
   const rounded = useTransform(count, (latest) => {
@@ -42,27 +32,23 @@ function RollingCounter({ value }: { value: string }) {
   return <motion.span ref={ref}>{rounded}</motion.span>;
 }
 
-// Hardcoded partners list mapped from your details
+// Partners list – keep static (proper nouns)
 const PARTNERS = [
   { id: "yip", name: "YIP", alt: "YIP – Yebox Internship Program" },
   { id: "gutsy", name: "GUTSY WOMAN", alt: "GIV The Gutsy Woman" },
   { id: "yebox", name: "YEBOX", alt: "Yebox Technologies" },
   { id: "genesys", name: "GENESYS", alt: "Genesys" },
-  { id: "risevest", name: "RISEVEST", alt: "Rise Academy" }
+  { id: "risevest", name: "RISEVEST", alt: "Rise Academy" },
+  { id: "cchub", name: "CCHUB", alt: "Co-creation HUB Africa" }
 ];
 
 export default function CommunityCTA() {
-  const stats = [
-    { label: "Active Sisters", value: "500+" },
-    { label: "Lines of Code Shipped", value: "12,000+" },
-    { label: "Strategic Partners", value: "5" },
-    { label: "Unified Goal", value: "1" }
-  ];
+  const t = useTranslations("Community.cta");
+  const stats = t.raw("stats") as Array<{ label: string; value: string }>;
 
   return (
-    <section className="pb-20">
+    <section id="join" className="pb-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-20">
-        {/* ── THE PULSE (Stats Bar) ── */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-gray-100 border border-gray-100 rounded-3xl overflow-hidden mb-8">
           {stats.map((stat, i) => (
             <div key={i} className="bg-white p-8 text-center">
@@ -76,7 +62,6 @@ export default function CommunityCTA() {
           ))}
         </div>
 
-        {/* ── THE CLOSING CARD ── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -87,17 +72,15 @@ export default function CommunityCTA() {
             background: "linear-gradient(160deg, #0f0a1a 0%, #71286F 100%)"
           }}
         >
-          {/* Animated Glow in Card */}
           <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-3xl pointer-events-none" />
 
-          {/* ── CONTINUOUS PARTNER BANNER ── */}
+          {/* Partner banner */}
           <div className="relative mb-14 overflow-hidden py-3">
             <motion.div
               className="flex gap-16 items-center whitespace-nowrap"
               animate={{ x: ["0%", "-50%"] }}
               transition={{ repeat: Infinity, ease: "linear", duration: 15 }}
             >
-              {/* Render array twice for infinite illusion */}
               {[...PARTNERS, ...PARTNERS].map((partner, index) => (
                 <div
                   key={`${partner.id}-${index}`}
@@ -111,7 +94,6 @@ export default function CommunityCTA() {
             </motion.div>
           </div>
 
-          {/* Texts Header with Stagger Effect */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -119,8 +101,10 @@ export default function CommunityCTA() {
             transition={{ delay: 0.2, duration: 0.6 }}
           >
             <h2 className="text-4xl lg:text-7xl font-black mb-6 tracking-tighter">
-              Stop Standing on the <br />
-              <span className="text-white/40 italic">Sidelines.</span>
+              {t("headingLine1")} <br />
+              <span className="text-white/40 italic">
+                {t("headingHighlight")}
+              </span>
             </h2>
           </motion.div>
 
@@ -131,9 +115,7 @@ export default function CommunityCTA() {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="max-w-2xl mx-auto text-white/70 text-base md:text-lg font-light mb-12"
           >
-            Access to our private WhatsApp community, exclusive partnership
-            events, and direct mentorship from senior engineers isn&apos;t open
-            forever. Claim your seat among the leaders.
+            {t("description")}
           </motion.p>
 
           <motion.div
@@ -144,23 +126,25 @@ export default function CommunityCTA() {
             className="flex flex-col items-center gap-6"
           >
             <motion.a
-              href="#" // Your WhatsApp Link here
+              href="https://chat.whatsapp.com/CdOuCwdpNez6FgmckwojNo"
+              target="_blank"
               whileHover={{
                 scale: 1.05,
                 boxShadow: "0px 20px 40px rgba(0,0,0,0.3)"
               }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 px-10 py-5 bg-white text-[#71286F] rounded-full font-bold text-lg transition-colors"
+              className="inline-flex items-center gap-3 px-10 py-5 bg-white text-brand-primary rounded-full font-bold text-lg transition-colors"
             >
-              Join Tabi{" "}
+              {t("joinButton")}{" "}
               <WhatsAppIcon className="w-6 h-6 fill-current" />
             </motion.a>
 
-            {/* <div className="flex items-center gap-2 text-white/50 text-xs font-bold uppercase tracking-[0.2em]">
-              <Star size={12} className="text-yellow-400 
-              fill-current" />
-              Next cohort onboarding starts in 4 days
-            </div> */}
+            {/* Uncomment if you want the next cohort indicator back
+            <div className="flex items-center gap-2 text-white/50 text-xs font-bold uppercase tracking-[0.2em]">
+              <Star size={12} className="text-yellow-400 fill-current" />
+              {t("nextCohort")}
+            </div>
+            */}
           </motion.div>
         </motion.div>
       </div>

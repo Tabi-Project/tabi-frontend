@@ -1,6 +1,4 @@
 // app/tabi-women-network/page.tsx
-"use client";
-
 import { TWNHero } from "@/components/organisms/TWNHero";
 import { TWNDirectory } from "@/components/organisms/TWNDirectory";
 import TWNNextEdition from "@/components/organisms/TWNNextEdition";
@@ -15,6 +13,39 @@ import TWNValuePillars from "@/components/organisms/TWNValuePillars";
 import TWNFaq from "@/components/organisms/TWNFaq";
 import TWNTestimonial from "@/components/organisms/TWNTestimonial";
 import FadeInSection from "@/components/atoms/FadeInSection";
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
+
+
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({
+    locale,
+    namespace: "TWN.metadata"
+  });
+
+  return {
+    title: t("title"),
+    description: t("description"),
+    openGraph: {
+      title: t("ogTitle"),
+      description: t("ogDescription"),
+      url: "https://tabiproject.com/projects/tabi-women-network",
+      images: [
+        {
+          url: "/og-image.jpeg",
+          width: 1200,
+          height: 630,
+          type: "image/jpeg"
+        }
+      ]
+    }
+  };
+}
 
 export default function TabiWomenNetworkPage() {
   return (

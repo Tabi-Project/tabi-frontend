@@ -1,13 +1,13 @@
 "use client";
 
+import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink, Users } from "lucide-react";
-import { useParams } from "next/navigation";
 
 export default function TWNGallery() {
-  const params = useParams();
-  const locale = params?.locale || "en";
+  const t = useTranslations("TWN.gallery");
+  const locale = useLocale();
 
   const galleryUrl = `/${locale}/community?tab=meetup#community-gallery`;
 
@@ -17,13 +17,13 @@ export default function TWNGallery() {
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <div className="max-w-xl">
             <h3 className="text-4xl md:text-5xl font-bold tracking-tight text-[#2D102D] mb-4">
-              Captured{" "}
+              {t("headingPart1")}{" "}
               <span className="text-brand-primary font-serif italic">
-                Moments.
+                {t("headingHighlight")}
               </span>
             </h3>
             <p className="text-gray-500 text-lg leading-relaxed">
-              A glimpse into the high-growth atmosphere of our cohorts.
+              {t("description")}
             </p>
           </div>
 
@@ -31,7 +31,7 @@ export default function TWNGallery() {
             href={galleryUrl}
             className="group flex items-center gap-4 text-brand-primary font-black uppercase text-xs tracking-[0.2em] bg-brand-surface px-8 py-5 rounded-full border border-brand-primary/5 hover:bg-brand-primary hover:text-white transition-all duration-500"
           >
-            See Community Gallery{" "}
+            {t("cta")}{" "}
             <ExternalLink
               size={16}
               className="group-hover:rotate-12 transition-transform"
@@ -39,7 +39,7 @@ export default function TWNGallery() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-12 gap-6 h-[600px]">
+        <div className="grid grid-cols-12 gap-6 h-150">
           <div className="col-span-12 md:col-span-8 h-full relative rounded-[3rem] overflow-hidden shadow-2xl group">
             <Image
               src="/events/enugu-group-shot.jpeg"
@@ -69,9 +69,9 @@ export default function TWNGallery() {
               />
               <div className="relative z-10 flex flex-col items-center">
                 <Users size={40} className="mb-4 opacity-50" />
-                <h4 className="text-xl font-bold mb-2">+ More Photos</h4>
+                <h4 className="text-xl font-bold mb-2">{t("archiveTitle")}</h4>
                 <p className="text-white/60 text-xs font-bold uppercase tracking-widest">
-                  Visit Community Archive
+                  {t("archiveSubtext")}
                 </p>
               </div>
             </Link>

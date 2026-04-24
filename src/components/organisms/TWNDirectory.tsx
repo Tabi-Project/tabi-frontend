@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
+import { useTranslations } from "next-intl";
 import {
   ChevronDown,
   Linkedin,
@@ -14,131 +15,45 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { BsSubstack, BsTwitterX } from "react-icons/bs";
 
-// Full data from the Enugu Report
-const directoryMembers = [
-  {
-    name: "Sophia Ahuoyiza",
-    role: "Software Engineer & Executive Director, Tabi",
-    industry: "Technology",
-    city: "Enugu",
-    focus: ["Product Management", "Yelobyte Studios", "AI Automation"],
-    bio: "Software Engineer and Co-founder of Yelobyte Studios, focused on making technology education accessible to women across Africa.",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/sophia-abubakar/",
-      website: "https://tabiproject.com",
-      instagram:
-        "https://www.instagram.com/sophiaoyiza?igsh=MWg5eXV2d2RhZ28xcA=="
-    },
-    image: "/directory/sophia-ahuoyiza.png"
-  },
-  {
-    name: "Lady Benedeth Maduka",
-    role: "Executive Director, Benedeth Maduka Foundation",
-    industry: "Policy",
-    city: "Enugu",
-    focus: ["GBV Specialist", "Security Advocacy", "Leadership"],
-    bio: "A retired Senior Police Officer and GBV specialist advocating for the belief that impact has no retirement age.",
-    socials: {
-      facebook: "https://www.facebook.com/share/1E84b1pQwJ/"
-    },
-    image: "/directory/benedeth.png"
-  },
-  {
-    name: "Barrister Sylvia Agbana",
-    role: "Chairperson, League of Women Voters Nigeria (Enugu)",
-    industry: "Governance",
-    city: "Enugu",
-    focus: ["FIDA Enugu", "Legal Advocacy", "Women Rights"],
-    bio: "Former Chairperson of FIDA Enugu, dedicated to creating safe spaces for women to lead and thrive in governance.",
-    socials: { linkedin: "#", website: "#" },
-    image: "/directory/image.png"
-  },
-  {
-    name: "Augusta Nneka Nnadi",
-    role: "SA on Strategy & Communications (SEDC)",
-    industry: "Governance",
-    city: "Enugu",
-    focus: ["Politics", "Policy Specialist", "Strategic Comms"],
-    bio: "Politics and Policy specialist pushing for qualified women with 'proof of work' to take up space in political systems.",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/augusta-nneka-b32b981b4/",
-      twitter: "https://twitter.com/nneka_augusta",
-      instagram: "https://www.instagram.com/n.n.e.k.a/?hl=en",
-      facebook: "https://www.facebook.com/augusta.nneka.7?mibextid=LQQJ4d",
-      substack: "https://augustanneka.substack.com/"
-    },
-    image: "/directory/augusta.jpeg"
-  },
-  {
-    name: "Betty Agbo",
-    role: "Creative Director, Betscents",
-    industry: "Creative",
-    city: "Enugu",
-    focus: ["Filmmaking", "Acting", "Creative Branding"],
-    bio: "Filmmaker and Actor leading through storytelling, encouraging women to take bold actions in the creative economy.",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/betty-agbo-080617170/",
-      instagram:
-        "https://www.instagram.com/officialbettyagbo?igsh=MWwxa3czbXAweGg4eA=="
-    },
-    image: "/directory/betty.png"
-  },
-  {
-    name: "Amarachi Okeke",
-    role: "Product Manager & NGO Lead",
-    industry: "Technology",
-    city: "Enugu",
-    focus: ["Sustainability", "Product Strategy", "Social Initiatives"],
-    bio: "Product Manager co-running Sustainable Initiatives NGO, bridging the gap between tech efficiency and social good.",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/amarachi-okeke-b4b486236/"
-    },
-    image: "/directory/amara.png"
-  },
-  {
-    name: "Tracy Jerry Ugwu",
-    role: "Product Marketing Lead & Co-founder",
-    industry: "Education",
-    city: "Enugu",
-    focus: ["Special Needs Education", "Inclusive Learning", "PMM"],
-    bio: "Co-founder of an inclusive school for special needs children and a seasoned lead in Product Marketing.",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/tracy-jerry-ugwu/",
-      instagram: "https://www.instagram.com/tracy_ug?igsh=MTk3eDlsejFxOGw1dQ=="
-    },
-    image: "/directory/tracy.png"
-  },
-  {
-    name: "Ijeoma Achu",
-    role: "Program’s Manager, Tabi",
-    industry: "Management",
-    city: "Enugu",
-    focus: ["Program Strategy", "Operational Excellence", "Community"],
-    bio: "Orchestrating the framework and delivery of Tabi’s missions to ensure impactful results for every cohort.",
-    socials: {
-      linkedin: "https://www.linkedin.com/in/ijeoma-achu/"
-    },
-    image: "/directory/ijeoma.png"
-  }
-];
+// Define the member shape matching the JSON data
+interface DirectoryMember {
+  name: string;
+  role: string;
+  industry: string;
+  city: string;
+  focus: string[];
+  bio: string;
+  socials: {
+    linkedin?: string;
+    website?: string;
+    instagram?: string;
+    facebook?: string;
+    twitter?: string;
+    substack?: string;
+  };
+  image: string;
+}
 
 export const TWNDirectory = () => {
+  const t = useTranslations("TWN.directory");
+  const members = t.raw("members") as DirectoryMember[];
+
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-  const [filterIndustry, setFilterIndustry] = useState("All Industries");
-  const [filterCity, setFilterCity] = useState("All Cities");
+  const [filterIndustry, setFilterIndustry] = useState(t("filterIndustry"));
+  const [filterCity, setFilterCity] = useState(t("filterCity"));
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const industries = [
-    "All Industries",
-    "Technology",
-    "Policy",
-    "Governance",
-    "Creative",
-    "Management",
-    "Education"
-  ];
-  const cities = ["All Cities", "Enugu", "Enugu", "Accra", "Benin Republic"];
+  // Industry and city lists derived from translated members
+  const industries = useMemo(() => {
+    const unique = Array.from(new Set(members.map((m) => m.industry)));
+    return [t("filterIndustry"), ...unique.sort()];
+  }, [members, t]);
+
+  const cities = useMemo(() => {
+    const unique = Array.from(new Set(members.map((m) => m.city)));
+    return [t("filterCity"), ...unique.sort()];
+  }, [members, t]);
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
@@ -154,16 +69,18 @@ export const TWNDirectory = () => {
   }, []);
 
   const resetFilters = () => {
-    setFilterIndustry("All Industries");
-    setFilterCity("All Cities");
+    setFilterIndustry(t("filterIndustry"));
+    setFilterCity(t("filterCity"));
     setOpenDropdown(null);
   };
 
-  const filteredMembers = directoryMembers.filter((member) => {
+  // Filtering logic using translated members
+  const filteredMembers = members.filter((member) => {
     const matchesIndustry =
-      filterIndustry === "All Industries" || member.industry === filterIndustry;
+      filterIndustry === t("filterIndustry") ||
+      member.industry === filterIndustry;
     const matchesCity =
-      filterCity === "All Cities" || member.city === filterCity;
+      filterCity === t("filterCity") || member.city === filterCity;
     return matchesIndustry && matchesCity;
   });
 
@@ -184,16 +101,11 @@ export const TWNDirectory = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <h2 className="text-4xl font-bold text-[#2D102D] mb-4">
-              The Living Directory
+              {t("heading")}
             </h2>
-            <p className="text-gray-500 mb-10 max-w-2xl">
-              A living resource for women who lead. Find collaborators, build
-              partnerships, and access opportunities across Africa. Every
-              attendee is added to this growing pan‑African directory.
-            </p>
+            <p className="text-gray-500 mb-10 max-w-2xl">{t("description")}</p>
           </motion.div>
 
-          {/* Filter Bar (no animation needed – stays interactive) */}
           <div
             className="flex flex-wrap items-center gap-4 mb-12"
             ref={dropdownRef}
@@ -210,7 +122,7 @@ export const TWNDirectory = () => {
                 style={{
                   color:
                     openDropdown === "industry" ||
-                    filterIndustry !== "All Industries"
+                    filterIndustry !== t("filterIndustry")
                       ? "#71286F"
                       : "#374151"
                 }}
@@ -255,7 +167,7 @@ export const TWNDirectory = () => {
                 className="flex items-center gap-2 px-6 py-3 bg-white border border-[#ede8f5] rounded-full text-sm font-medium transition-colors duration-200"
                 style={{
                   color:
-                    openDropdown === "city" || filterCity !== "All Cities"
+                    openDropdown === "city" || filterCity !== t("filterCity")
                       ? "#71286F"
                       : "#374151"
                 }}
@@ -291,25 +203,24 @@ export const TWNDirectory = () => {
               </AnimatePresence>
             </div>
 
-            {/* Clear All */}
-            {(filterIndustry !== "All Industries" ||
-              filterCity !== "All Cities") && (
+            {(filterIndustry !== t("filterIndustry") ||
+              filterCity !== t("filterCity")) && (
               <button
                 onClick={resetFilters}
                 className="flex items-center gap-1 text-xs font-bold text-brand-primary uppercase tracking-tighter ml-2"
               >
-                <X size={14} /> Clear
+                <X size={14} /> {t("clearFilters")}
               </button>
             )}
           </div>
         </div>
 
-        {/* DIRECTORY LIST / EMPTY STATE */}
+        {/* DIRECTORY LIST */}
         <div className="space-y-4 min-h-75">
           {filteredMembers.length > 0 ? (
             filteredMembers.map((member, index) => (
               <motion.div
-                key={index}
+                key={member.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -328,11 +239,7 @@ export const TWNDirectory = () => {
                 >
                   <div className="flex items-center gap-6">
                     <div
-                      className={`relative w-12 h-12 rounded-full overflow-hidden transition-all duration-300 ${
-                        expandedIndex === index
-                          ? "opacity-0 scale-50"
-                          : "opacity-100"
-                      }`}
+                      className={`relative w-12 h-12 rounded-full overflow-hidden transition-all duration-300 ${expandedIndex === index ? "opacity-0 scale-50" : "opacity-100"}`}
                     >
                       <Image
                         src={member.image}
@@ -351,11 +258,7 @@ export const TWNDirectory = () => {
                     </div>
                   </div>
                   <div
-                    className={`w-10 h-10 rounded-full border border-[#ede8f5] flex items-center justify-center transition-all ${
-                      expandedIndex === index
-                        ? "rotate-180 bg-brand-primary text-white border-brand-primary"
-                        : "text-gray-400"
-                    }`}
+                    className={`w-10 h-10 rounded-full border border-[#ede8f5] flex items-center justify-center transition-all ${expandedIndex === index ? "rotate-180 bg-brand-primary text-white border-brand-primary" : "text-gray-400"}`}
                   >
                     <ChevronDown size={18} />
                   </div>
@@ -387,7 +290,7 @@ export const TWNDirectory = () => {
                           <div className="grid md:grid-cols-2 gap-6">
                             <div>
                               <h4 className="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-2">
-                                Focus Areas
+                                {t("detailLabels.focusAreas")}
                               </h4>
                               <div className="flex flex-wrap gap-2">
                                 {member.focus.map((f) => (
@@ -402,18 +305,20 @@ export const TWNDirectory = () => {
                             </div>
                             <div>
                               <h4 className="text-[10px] font-black uppercase text-gray-400 tracking-widest mb-2">
-                                Current Role
+                                {t("detailLabels.currentRole")}
                               </h4>
                               <p className="text-sm font-bold text-gray-900">
                                 {member.role}
                               </p>
                             </div>
                           </div>
+
+                          {/* Social links unchanged */}
                           <div className="pt-6 border-t border-gray-50 flex gap-4">
                             {member.socials.linkedin && (
                               <a
                                 href={member.socials.linkedin}
-                                className="p-2.5 bg-gray-50 rounded-full hover:bg-brand-surface text-gray-600 hover:text-brand-primary transition-all"
+                                className="social-link"
                               >
                                 <Linkedin size={20} />
                               </a>
@@ -421,7 +326,7 @@ export const TWNDirectory = () => {
                             {member.socials.website && (
                               <a
                                 href={member.socials.website}
-                                className="p-2.5 bg-gray-50 rounded-full hover:bg-brand-surface text-gray-600 hover:text-brand-primary transition-all"
+                                className="social-link"
                               >
                                 <Globe size={20} />
                               </a>
@@ -429,7 +334,7 @@ export const TWNDirectory = () => {
                             {member.socials.instagram && (
                               <a
                                 href={member.socials.instagram}
-                                className="p-2.5 bg-gray-50 rounded-full hover:bg-brand-surface text-gray-600 hover:text-brand-primary transition-all"
+                                className="social-link"
                               >
                                 <Instagram size={20} />
                               </a>
@@ -437,7 +342,7 @@ export const TWNDirectory = () => {
                             {member.socials.facebook && (
                               <a
                                 href={member.socials.facebook}
-                                className="p-2.5 bg-gray-50 rounded-full hover:bg-brand-surface text-gray-600 hover:text-brand-primary transition-all"
+                                className="social-link"
                               >
                                 <Facebook size={20} />
                               </a>
@@ -445,7 +350,7 @@ export const TWNDirectory = () => {
                             {member.socials.twitter && (
                               <a
                                 href={member.socials.twitter}
-                                className="p-2.5 bg-gray-50 rounded-full hover:bg-brand-surface text-gray-600 hover:text-brand-primary transition-all"
+                                className="social-link"
                               >
                                 <BsTwitterX size={20} />
                               </a>
@@ -453,7 +358,7 @@ export const TWNDirectory = () => {
                             {member.socials.substack && (
                               <a
                                 href={member.socials.substack}
-                                className="p-2.5 bg-gray-50 rounded-full hover:bg-brand-surface text-gray-600 hover:text-brand-primary transition-all"
+                                className="social-link"
                               >
                                 <BsSubstack size={20} />
                               </a>
@@ -468,27 +373,22 @@ export const TWNDirectory = () => {
             ))
           ) : (
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="flex flex-col items-center justify-center py-20 bg-white/40 border-2 border-dashed border-[#ede8f5] rounded-[3rem] text-center px-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="flex flex-col items-center justify-center py-20 text-center"
             >
               <div className="w-20 h-20 bg-purple-50 rounded-full flex items-center justify-center mb-6 text-brand-primary/40">
                 <SearchX size={40} />
               </div>
               <h3 className="text-xl font-bold text-[#2D102D] mb-2">
-                No matching leaders found
+                {t("emptyTitle")}
               </h3>
-              <p className="text-gray-500 max-w-sm mb-8 leading-relaxed">
-                We couldn&apos;t find any members matching the &quot;
-                {filterIndustry}&quot; category in {filterCity}. Try expanding
-                your search or resetting the filters.
-              </p>
+              <p className="text-gray-500 max-w-sm mb-8">{t("emptyMessage")}</p>
               <button
                 onClick={resetFilters}
-                className="px-8 py-3 bg-brand-primary text-white rounded-full text-sm font-bold shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all active:scale-95"
+                className="px-8 py-3 bg-brand-primary text-white rounded-full text-sm font-bold shadow-md hover:shadow-xl transition-all"
               >
-                Reset All Filters
+                {t("resetButton")}
               </button>
             </motion.div>
           )}

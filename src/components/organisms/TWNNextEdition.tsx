@@ -1,11 +1,14 @@
-// components/organisms/TWNNextEdition.tsx
+"use client";
+
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/atoms/Button";
 import { Star, Calendar, Info } from "lucide-react";
 import CityRequestModal from "@/components/molecules/CityRequestModal";
 import Image from "next/image";
 
 export default function TWNNextEdition() {
+  const t = useTranslations("TWN.nextEdition");
   const [modalOpen, setModalOpen] = useState(false);
   const [language, setLanguage] = useState<"en" | "fr">("en");
 
@@ -18,32 +21,27 @@ export default function TWNNextEdition() {
             <div className="space-y-8 order-2 lg:order-1">
               <div className="space-y-4">
                 <div className="flex items-center gap-2 text-brand-primary text-[10px] font-black uppercase tracking-[0.2em]">
-                  <Star size={14} fill="currentColor" /> Upcoming Edition
+                  <Star size={14} fill="currentColor" /> {t("badge")}
                 </div>
                 <h2 className="text-4xl md:text-5xl font-extrabold text-[#2D102D] leading-tight">
-                  Cotonou, <br />
+                  {t("headingLine1")} <br />
                   <span className="text-brand-primary italic font-serif lowercase">
-                    Benin Republic
+                    {t("headingHighlight")}
                   </span>
                 </h2>
                 <p className="text-gray-500 text-lg font-medium max-w-md">
-                  A strategic leadership mixer for women executives and founders
-                  across West Africa.
+                  {t("description")}
                 </p>
               </div>
 
               <div className="flex items-start gap-6 p-6 bg-white rounded-3xl shadow-sm border border-gray-100">
                 <div className="w-14 h-14 bg-brand-primary rounded-2xl flex flex-col items-center justify-center text-white shrink-0">
-                  <span className="text-[8px] font-black uppercase">May</span>
-                  <span className="text-2xl font-black leading-none">04</span>
+                  <span className="text-[8px] font-black uppercase">{t("month")}</span>
+                  <span className="text-2xl font-black leading-none">{t("day")}</span>
                 </div>
                 <div>
-                  <p className="text-[#1a1a2e] font-bold">
-                    The Strategic Table
-                  </p>
-                  <p className="text-sm text-gray-500">
-                    12:00 PM — Strictly by invitation only.
-                  </p>
+                  <p className="text-[#1a1a2e] font-bold">{t("eventTitle")}</p>
+                  <p className="text-sm text-gray-500">{t("eventTime")}</p>
                 </div>
               </div>
 
@@ -52,15 +50,12 @@ export default function TWNNextEdition() {
                   onClick={() => setModalOpen(true)}
                   className="w-full md:w-auto bg-[#2D102D] hover:bg-brand-primary text-white px-10 py-6 rounded-2xl font-bold transition-all flex items-center justify-center gap-3 shadow-xl"
                 >
-                  Indicate Interest <Calendar size={18} />
+                  {t("cta")} <Calendar size={18} />
                 </Button>
 
                 <div className="flex items-center gap-2 text-[11px] text-gray-400 font-medium">
                   <Info size={14} className="text-brand-primary" />
-                  <span>
-                    Attendance is limited to 15 women. Invitations are personal
-                    and non-transferable.
-                  </span>
+                  <span>{t("footnote")}</span>
                 </div>
               </div>
             </div>

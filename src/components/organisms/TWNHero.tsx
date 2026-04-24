@@ -1,11 +1,16 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/atoms/Button";
 import { MoveRight, Users, Globe } from "lucide-react";
 import { motion } from "framer-motion";
+import { directoryMembers } from "@/constants/directory";
 
 export const TWNHero = () => {
-  // Smooth scroll function for the internal link
+  const t = useTranslations("TWN.hero");
+
   const scrollToPhilosophy = (e: React.MouseEvent) => {
     e.preventDefault();
     const element = document.getElementById("philosophy");
@@ -13,6 +18,8 @@ export const TWNHero = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  const featuredMembers = directoryMembers.slice(0, 4);
 
   return (
     <motion.section
@@ -44,7 +51,7 @@ export const TWNHero = () => {
                 transition={{ delay: 0.2 }}
                 className="inline-block px-4 py-1.5 rounded-full bg-brand-surface text-brand-primary text-xs font-bold uppercase tracking-[0.2em]"
               >
-                Tabi Women Network
+                {t("badge")}
               </motion.span>
               <motion.span
                 initial={{ opacity: 0, y: 10 }}
@@ -52,41 +59,43 @@ export const TWNHero = () => {
                 transition={{ delay: 0.25 }}
                 className="flex items-center gap-1 text-[10px] font-bold text-gray-400 uppercase tracking-widest"
               >
-                <Globe size={12} /> Pan-African Series
+                <Globe size={12} /> {t("panAfrican")}
               </motion.span>
             </div>
 
             <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-                className="text-6xl md:text-7xl font-bold text-[#2D102D] leading-[0.95] tracking-tighter mb-8"
-              >
-                A Table for <br />
-                Women who <br />
-                <span className="relative inline-block">
-                  Lead!
-                  <svg
-                    viewBox="0 0 280 100"
-                    className="absolute top-1/2 left-[-10%] -translate-y-1/2 w-[140%] h-[200%] text-brand-primary/40 pointer-events-none"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="3.5"
-                    strokeLinecap="round"
-                    preserveAspectRatio="none"
-                  >
-                    <motion.path
-                      initial={{ pathLength: 0 }}
-                      animate={{ pathLength: 1 }}
-                      transition={{
-                        delay: 0.8,
-                        duration: 1.2,
-                        ease: "easeInOut",
-                      }}
-                      d="M10,50 C10,10 270,10 270,50 C270,90 10,90 15,55"
-                    />
-                  </svg>
-                </span>
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="text-6xl md:text-7xl font-bold text-[#2D102D] leading-[0.95] tracking-tighter mb-8"
+            >
+              {t("headlineLine1")}
+              <br />
+              {t("headlineLine2")}
+              <br />
+              <span className="relative inline-block">
+                {t("headlineHighlight")}
+                <svg
+                  viewBox="0 0 280 100"
+                  className="absolute top-1/2 left-[-10%] -translate-y-1/2 w-[140%] h-[200%] text-brand-primary/40 pointer-events-none"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3.5"
+                  strokeLinecap="round"
+                  preserveAspectRatio="none"
+                >
+                  <motion.path
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: 1 }}
+                    transition={{
+                      delay: 0.8,
+                      duration: 1.2,
+                      ease: "easeInOut"
+                    }}
+                    d="M10,50 C10,10 270,10 270,50 C270,90 10,90 15,55"
+                  />
+                </svg>
+              </span>
             </motion.h1>
 
             <motion.p
@@ -95,8 +104,7 @@ export const TWNHero = () => {
               transition={{ delay: 0.4, duration: 0.5 }}
               className="text-lg md:text-xl text-gray-600 max-w-lg leading-relaxed mb-10"
             >
-              A Pan-African network of women Executives, Founders, and Senior
-              Leaders to align, collaborate, and open doors for one another.
+              {t("description")}
             </motion.p>
 
             <motion.div
@@ -105,19 +113,17 @@ export const TWNHero = () => {
               transition={{ delay: 0.5, duration: 0.5 }}
               className="flex flex-wrap gap-6"
             >
-              {/* Updated CTA: Anchor Scroll */}
               <Button
                 size="lg"
                 onClick={scrollToPhilosophy}
                 className="rounded-full px-12 shadow-lg shadow-brand-primary/20 font-semibold"
               >
-                Learn More
+                {t("ctaLearnMore")}
               </Button>
 
-              {/* Updated Button: Navigates to Enugu Blog Post */}
               <Link href="/resources/blog/tabi-women-network-debuts-pan-african-series-in-enugu">
                 <button className="group h-full flex items-center gap-3 font-bold text-gray-900 hover:text-brand-primary transition-colors border border-gray-200 px-8 py-3 rounded-full hover:bg-gray-50">
-                  View Enugu Report
+                  {t("ctaReport")}
                   <MoveRight className="group-hover:translate-x-2 transition-transform" />
                 </button>
               </Link>
@@ -130,21 +136,29 @@ export const TWNHero = () => {
               className="mt-10 flex items-center gap-4 text-sm text-gray-500"
             >
               <div className="flex -space-x-3">
-                {[1, 2, 3, 4].map((i) => (
+                {featuredMembers.map((member, i) => (
                   <div
                     key={i}
-                    className="w-8 h-8 rounded-full border-2 border-white bg-gray-200 overflow-hidden"
+                    className="w-10 h-10 rounded-full border-2 border-white bg-gray-100 overflow-hidden relative"
                   >
                     <Image
-                      src={`/members/avatar-${i}.jpg`}
-                      alt="Member"
-                      width={32}
-                      height={32}
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
                     />
                   </div>
                 ))}
               </div>
-              <p>Joined by 50+ Executives across Nigeria & Ghana</p>
+              <p>
+                {t("socialProof")}{" "}
+                <span className="text-brand-primary font-bold">
+                  {t("socialProofHighlight", {
+                    count: directoryMembers.length
+                  })}
+                </span>{" "}
+                {t("socialProofSuffix")}
+              </p>
             </motion.div>
           </motion.div>
 
@@ -163,7 +177,7 @@ export const TWNHero = () => {
               />
               <div className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-xl border border-white">
                 <p className="text-[10px] font-black text-brand-primary uppercase tracking-tighter">
-                  Next Edition: Benin Republic 🇧🇯
+                  {t("editionBadge")}
                 </p>
               </div>
               <div className="absolute bottom-8 left-8 right-8 backdrop-blur-md bg-white/20 border border-white/30 p-6 rounded-3xl text-white">
@@ -173,10 +187,10 @@ export const TWNHero = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-lg leading-none mb-1">
-                      Enugu Cohort
+                      {t("cohortTitle")}
                     </h4>
                     <p className="text-xs text-white/80">
-                      8 Multi-hyphenate Leaders • 4th Apr 2026
+                      {t("cohortDetails")}
                     </p>
                   </div>
                 </div>

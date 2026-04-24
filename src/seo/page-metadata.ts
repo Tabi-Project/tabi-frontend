@@ -151,7 +151,7 @@ export const communityMetadata = {
     title: "Join the Tabi Academy Sisterhood",
     description:
       "Empowering women in tech to build, create, and lead. Explore our open-source community and training events.",
-    url: "https://yourdomain.com/community",
+    url: "https://tabiproject.com/community",
     images: [
       {
         url: "/images/community/og-share.jpg", // Create a high-quality preview image later

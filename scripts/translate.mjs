@@ -10,6 +10,24 @@ const SOURCE = path.join(__dirname, "../src/messages/en.json");
 const TARGET = path.join(__dirname, "../src/messages/fr.json");
 const LANG = "fr";
 
+// Fields that should NOT be translated (keep original English values)
+const PROTECTED_FIELDS = new Set([
+  "tag",
+  "category",
+  "id",
+  "key",
+  "slug",
+  "type",
+  "status",
+  "image", // member photo paths
+  "linkedin", // social URLs
+  "website", // social URLs
+  "instagram", // social URLs
+  "facebook", // social URLs
+  "twitter", // social URLs
+  "substack" // social URLs
+]);
+
 let existingFr = {};
 if (fs.existsSync(TARGET)) {
   try {
@@ -41,7 +59,6 @@ async function translateMissing(sourceObj, targetObj = {}, currentPath = "") {
         result[key] = targetObj[key];
       }
     } else if (Array.isArray(val)) {
-      // Handle arrays: translate each string or process each object
       if (!(key in targetObj)) {
         console.log(`🔄 Translating array (${fullKey})`);
         const translatedArray = [];
@@ -59,9 +76,13 @@ async function translateMissing(sourceObj, targetObj = {}, currentPath = "") {
               translatedArray.push(item);
             }
           } else if (item && typeof item === "object") {
-            // Translate each property of the object
             const translatedItem = {};
             for (const [prop, propVal] of Object.entries(item)) {
+              // 🔒 Skip translation for protected fields
+              if (PROTECTED_FIELDS.has(prop)) {
+                translatedItem[prop] = propVal; // Keep original English value
+                continue;
+              }
               if (typeof propVal === "string") {
                 try {
                   const res = await translate(propVal, { to: LANG });
@@ -71,6 +92,27 @@ async function translateMissing(sourceObj, targetObj = {}, currentPath = "") {
                   console.error(`❌ Failed on ${fullKey}[${prop}]:`, e.message);
                   translatedItem[prop] = propVal;
                 }
+              } else if (Array.isArray(propVal)) {
+                // Handle nested arrays (like `focus`)
+                const translatedArray = [];
+                for (const arrItem of propVal) {
+                  if (typeof arrItem === "string") {
+                    try {
+                      const res = await translate(arrItem, { to: LANG });
+                      translatedArray.push(res.text);
+                      await new Promise((resolve) => setTimeout(resolve, 300));
+                    } catch (e) {
+                      console.error(
+                        `❌ Failed on ${fullKey}[${prop}] array item:`,
+                        e.message
+                      );
+                      translatedArray.push(arrItem);
+                    }
+                  } else {
+                    translatedArray.push(arrItem);
+                  }
+                }
+                translatedItem[prop] = translatedArray;
               } else {
                 translatedItem[prop] = propVal;
               }
@@ -110,6 +152,9 @@ async function main() {
   fs.writeFileSync(TARGET, JSON.stringify(frContent, null, 2));
 
   console.log("✅ Done! New keys translated, existing preserved.");
+  console.log(
+    "🔒 Protected fields (tag, category, image, social URLs, etc.) kept in English."
+  );
 }
 
 main().catch(console.error);

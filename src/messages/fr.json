@@ -474,18 +474,54 @@
         "badge": "Utilisation gratuite ✓"
       },
       "items": [
-        { "text": "4 sessions animées en direct de 4 heures via Google Meet", "category": "Training" },
-        { "text": "Créneaux de coaching 1:1 pendant la semaine 2", "category": "Support" },
-        { "text": "Session d'enregistrement de groupe du mercredi en milieu de semaine", "category": "Training" },
-        { "text": "Toutes les diapositives, modèles de laboratoire et guides de ressources", "category": "Materials" },
-        { "text": "Enregistrements de sessions (fenêtre d'accès de 6 mois)", "category": "Materials" },
-        { "text": "Commentaires quotidiens de l'animateur sur votre travail", "category": "Support" },
-        { "text": "Examen de certification + une reprise gratuite", "category": "Certification" },
-        { "text": "Certificat numérique vérifié avec lien de vérification", "category": "Certification" },
-        { "text": "Fenêtre de support post-programme de 2 semaines", "category": "Support" },
-        { "text": "Adhésion permanente à la communauté des anciens élèves", "category": "Community" },
-        { "text": "Accès prioritaire aux futurs programmes de la Tabi Academy", "category": "Community" },
-        { "text": "Accès au réseau d'anciens élèves dans toutes les cohortes", "category": "Community" }
+        {
+          "text": "4 sessions animées en direct de 4 heures via Google Meet",
+          "category": "Training"
+        },
+        {
+          "text": "Créneaux de coaching 1:1 pendant la semaine 2",
+          "category": "Support"
+        },
+        {
+          "text": "Session d'enregistrement de groupe du mercredi en milieu de semaine",
+          "category": "Training"
+        },
+        {
+          "text": "Toutes les diapositives, modèles de laboratoire et guides de ressources",
+          "category": "Materials"
+        },
+        {
+          "text": "Enregistrements de sessions (fenêtre d'accès de 6 mois)",
+          "category": "Materials"
+        },
+        {
+          "text": "Commentaires quotidiens de l'animateur sur votre travail",
+          "category": "Support"
+        },
+        {
+          "text": "Examen de certification + une reprise gratuite",
+          "category": "Certification"
+        },
+        {
+          "text": "Certificat numérique vérifié avec lien de vérification",
+          "category": "Certification"
+        },
+        {
+          "text": "Fenêtre de support post-programme de 2 semaines",
+          "category": "Support"
+        },
+        {
+          "text": "Adhésion permanente à la communauté des anciens élèves",
+          "category": "Community"
+        },
+        {
+          "text": "Accès prioritaire aux futurs programmes de la Tabi Academy",
+          "category": "Community"
+        },
+        {
+          "text": "Accès au réseau d'anciens élèves dans toutes les cohortes",
+          "category": "Community"
+        }
       ]
     },
     "audience": {
@@ -670,5 +706,522 @@
   "RegistrationModal": {
     "title": "Postuler pour la prochaine cohorte",
     "subtitle": "Programme AI pour les entreprises – Limité à 50 participants"
+  },
+  "TWN": {
+    "hero": {
+      "badge": "Réseau des femmes Tabi",
+      "panAfrican": "Série panafricaine",
+      "headlineLine1": "Un tableau pour",
+      "headlineLine2": "Les femmes qui",
+      "headlineHighlight": "Plomb!",
+      "description": "Un réseau panafricain de femmes cadres, fondatrices et hautes dirigeantes pour s'aligner, collaborer et s'ouvrir les unes aux autres.",
+      "ctaLearnMore": "Apprendre encore plus",
+      "ctaReport": "Voir le rapport Enugu",
+      "socialProof": "Rejoint par",
+      "socialProofHighlight": "{count}+ Dirigeants",
+      "socialProofSuffix": "à travers l'Afrique",
+      "editionBadge": "Prochaine Édition : République du Bénin 🇧🇯",
+      "cohortTitle": "Cohorte Enugu",
+      "cohortDetails": "8 leaders à traits d'union multiples • 4 avril 2026"
+    },
+    "nextEdition": {
+      "badge": "Édition à venir",
+      "headingLine1": "Cotonou,",
+      "headingHighlight": "République du Bénin",
+      "description": "Un mixeur de leadership stratégique pour les femmes cadres et fondatrices à travers l’Afrique de l’Ouest.",
+      "eventTitle": "La table stratégique",
+      "eventTime": "12h00 — Strictement sur invitation uniquement.",
+      "cta": "Indiquer votre intérêt",
+      "footnote": "La participation est limitée à 15 femmes. Les invitations sont personnelles et incessibles.",
+      "month": "Peut",
+      "day": "04"
+    },
+    "manifestoMission": {
+      "badge": "Le Manifeste",
+      "headingLine1": "Ce n'est pas un",
+      "headingLine2": "conférence.",
+      "headingHighlight": "Ceci est un tableau.",
+      "paragraph1": "Tabi Women Network est né d'une conviction simple : lorsque les bonnes femmes sont dans la même pièce, des choses réelles se produisent : des partenariats se forment, des idées se précisent et des portes s'ouvrent.",
+      "paragraph2": "Nous sommes une communauté panafricaine de dirigeants, de fondateurs et d’acteurs du changement. Nous ne faisons pas de réseautage performatif ni de sommets bondés. Au lieu de cela, nous organisons des rassemblements intimes, sur invitation uniquement, de 10 à 15 femmes, conçus pour vous faire passer d'une simple introduction à une véritable relation en un seul après-midi.",
+      "quote": "\"La chose la plus puissante qu'une femme puisse faire pour une autre femme est de la mettre dans la bonne pièce.\"",
+      "quoteAuthor": "—Sophia Ahuoyiza",
+      "principlesHeading": "Nos principes de fonctionnement",
+      "principlesDescription": "Ce sont les principes qui façonnent chaque décision que nous prenons au sein de Tabi Women Network.",
+      "pillarsCount": "06 Piliers",
+      "principles": [
+        {
+          "title": "L'intentionnalité plutôt que le volume",
+          "desc": "Chaque femme présente dans la pièce est là pour une raison. La qualité plutôt que la quantité, toujours."
+        },
+        {
+          "title": "La chaleur plutôt que la formalité",
+          "desc": "Jamais raide, jamais performatif. Ceci est une table, pas une scène."
+        },
+        {
+          "title": "L'authenticité en standard",
+          "desc": "Présentez-vous tel que vous êtes. L’honnêteté et la vulnérabilité sont les bienvenues ici."
+        },
+        {
+          "title": "Une sororité pleine de substance",
+          "desc": "De l’introduction à une véritable relation – avec structure et intention."
+        },
+        {
+          "title": "Excellence dans l'exécution",
+          "desc": "Le temps est respecté. Les promesses sont tenues. L'expérience est cohérente."
+        },
+        {
+          "title": "Une vision panafricaine",
+          "desc": "Construit pour s’étendre sur tout le continent, reliant les femmes au-delà des frontières et des secteurs."
+        }
+      ]
+    },
+    "whatItIsNot": {
+      "badge": "La distinction Tabi",
+      "heading": "La table contre la scène",
+      "description": "Nous construisons quelque chose de différent. Nous avons troqué le bruit contre de la profondeur et les panneaux contre des partenariats.",
+      "comparison": [
+        {
+          "is": "Un rassemblement intime et organisé",
+          "not": "Une conférence ou un sommet"
+        },
+        {
+          "is": "Une table pour une vraie conversation",
+          "not": "Un événement de réseautage"
+        },
+        {
+          "is": "Structuré pour de véritables résultats",
+          "not": "Un séminaire sur l'autonomisation des femmes"
+        },
+        {
+          "is": "Panafricain par sa portée et son ambition",
+          "not": "Un panel ou une série de discussions"
+        }
+      ],
+      "footerTagline": "Culture Tabi",
+      "footerTags": [
+        "Pas de panneaux",
+        "Pas de discours",
+        "Pas de réseautage performant"
+      ]
+    },
+    "gallery": {
+      "headingPart1": "Capturé",
+      "headingHighlight": "Des instants.",
+      "description": "Un aperçu de l’atmosphère de forte croissance de nos cohortes.",
+      "cta": "Voir la galerie communautaire",
+      "archiveTitle": "+ Plus de photos",
+      "archiveSubtext": "Visitez les archives de la communauté"
+    },
+    "valuePillars": {
+      "pillars": [
+        {
+          "title": "Réseautage organisé",
+          "desc": "Cartographie stratégique des sièges avec des leaders qui s'alignent spécifiquement sur votre secteur."
+        },
+        {
+          "title": "Équité des connaissances",
+          "desc": "Un espace privé et de haute confiance pour échanger les règles « tacites » de la technologie et des affaires."
+        },
+        {
+          "title": "Portes ouvertes",
+          "desc": "Accès direct à la collaboration sur notre base de données mondiale."
+        }
+      ]
+    },
+    "impactSummary": {
+      "stats": [
+        {
+          "label": "Applications réseau",
+          "value": "26"
+        },
+        {
+          "label": "Pays africains",
+          "value": "02"
+        },
+        {
+          "label": "Secteurs industriels",
+          "value": "06"
+        },
+        {
+          "label": "Taux de réussite numérique",
+          "value": "100%"
+        }
+      ]
+    },
+    "testimonial": {
+      "quote": "\"Les idées et les délais fixés pour apporter de la croissance à l'entreprise sont ceux que je n'avais pas avant les réunions.\"",
+      "attribution": "— Participant, cohorte Enugu",
+      "footer": "Session stratégique 2026"
+    },
+    "pastEditions": {
+      "badge": "Édition passée",
+      "location": "Enugu, Nigéria",
+      "date": "Cohorte du 4 avril 2026",
+      "headingLine1": "Affiner le leadership dans le",
+      "headingHighlight": "Ville du charbon.",
+      "description": "Notre édition inaugurale à Enugu a réalisé des audits numériques approfondis et des feuilles de route d'infrastructure pour chaque membre présent dans la salle.",
+      "cta": "Lire le rapport Enugu"
+    },
+    "directory": {
+      "heading": "L'annuaire vivant",
+      "description": "Une ressource vivante pour les femmes qui dirigent. Trouvez des collaborateurs, établissez des partenariats et accédez à des opportunités à travers l’Afrique. Chaque participant est ajouté à cet annuaire panafricain en pleine croissance.",
+      "filterIndustry": "Tous les secteurs",
+      "filterCity": "Toutes les villes",
+      "clearFilters": "Claire",
+      "emptyTitle": "Aucun leader correspondant trouvé",
+      "emptyMessage": "Essayez d'élargir votre recherche ou de réinitialiser les filtres.",
+      "resetButton": "Réinitialiser tous les filtres",
+      "detailLabels": {
+        "focusAreas": "Domaines d'intervention",
+        "currentRole": "Rôle actuel"
+      },
+      "members": [
+        {
+          "name": "Sophia Ahuoyiza",
+          "role": "Ingénieur logiciel et directeur exécutif, Tabi",
+          "industry": "Technologie",
+          "city": "Enugu",
+          "focus": [
+            "Gestion des produits",
+            "Studios Yelobyte",
+            "Automatisation de l'IA"
+          ],
+          "bio": "Ingénieur logiciel et co-fondateur de Yelobyte Studios, dont l'objectif est de rendre l'éducation technologique accessible aux femmes à travers l'Afrique.",
+          "socials": {
+            "linkedin": "https://www.linkedin.com/in/sophia-abubakar/",
+            "website": "https://tabiproject.com",
+            "instagram": "https://www.instagram.com/sophiaoyiza?igsh=MWg5eXV2d2RhZ28xcA=="
+          },
+          "image": "/directory/sophia-ahuoyiza.png"
+        },
+        {
+          "name": "Magasins Lady Benedeth",
+          "role": "Directeur exécutif, Fondation Benedeth Maduka",
+          "industry": "Politique",
+          "city": "Enugu",
+          "focus": [
+            "Spécialiste de la VBG",
+            "Plaidoyer en matière de sécurité",
+            "Direction"
+          ],
+          "bio": "Officier de police supérieur à la retraite et spécialiste de la VBG, il prône la conviction selon laquelle l'impact n'a pas d'âge de retraite.",
+          "socials": {
+            "facebook": "https://www.facebook.com/share/1E84b1pQwJ/"
+          },
+          "image": "/directory/benedeth.png"
+        },
+        {
+          "name": "Maître Sylvia Agbana",
+          "role": "Présidente de la Ligue des électrices du Nigeria (Enugu)",
+          "industry": "Gouvernance",
+          "city": "Enugu",
+          "focus": [
+            "CHIRURGIE Enugu",
+            "Plaidoyer juridique",
+            "Droits des femmes"
+          ],
+          "bio": "Ancienne présidente de FIDA Enugu, dédiée à la création d'espaces sûrs permettant aux femmes de diriger et de prospérer dans la gouvernance.",
+          "socials": {
+            "linkedin": "#",
+            "website": "#"
+          },
+          "image": "/directory/image.png"
+        },
+        {
+          "name": "Augusta Nneka Nnadi",
+          "role": "SA sur la stratégie et la communication (SEDC)",
+          "industry": "Gouvernance",
+          "city": "Enugu",
+          "focus": [
+            "Politique",
+            "Spécialiste des politiques",
+            "Communication stratégique"
+          ],
+          "bio": "Spécialiste de la politique et des politiques qui milite pour que les femmes qualifiées possédant une « preuve de travail » occupent une place dans les systèmes politiques.",
+          "socials": {
+            "linkedin": "https://www.linkedin.com/in/augusta-nneka-b32b981b4/",
+            "twitter": "https://twitter.com/nneka_augusta",
+            "instagram": "https://www.instagram.com/n.n.e.k.a/?hl=en",
+            "facebook": "https://www.facebook.com/augusta.nneka.7?mibextid=LQQJ4d",
+            "substack": "https://augustanneka.substack.com/"
+          },
+          "image": "/directory/augusta.jpeg"
+        },
+        {
+          "name": "Betty Agbo",
+          "role": "Directeur créatif, Betscents",
+          "industry": "Créative",
+          "city": "Enugu",
+          "focus": [
+            "Réalisation",
+            "Par intérim",
+            "Image de marque créative"
+          ],
+          "bio": "Cinéaste et acteur leader à travers la narration, encourageant les femmes à prendre des mesures audacieuses dans l'économie créative.",
+          "socials": {
+            "linkedin": "https://www.linkedin.com/in/betty-agbo-080617170/",
+            "instagram": "https://www.instagram.com/officialbettyagbo?igsh=MWwxa3czbXAweGg4eA=="
+          },
+          "image": "/directory/betty.png"
+        },
+        {
+          "name": "Amachi Okeke",
+          "role": "Chef de produit et responsable d'ONG",
+          "industry": "Technologie",
+          "city": "Enugu",
+          "focus": [
+            "Durabilité",
+            "Stratégie produit",
+            "Initiatives sociales"
+          ],
+          "bio": "Chef de produit co-dirige l'ONG Sustainable Initiatives, comblant le fossé entre l'efficacité technologique et le bien social.",
+          "socials": {
+            "linkedin": "https://www.linkedin.com/in/amarachi-okeke-b4b486236/"
+          },
+          "image": "/directory/amara.png"
+        },
+        {
+          "name": "Tracy Jerry Hill",
+          "role": "Responsable marketing produit et co-fondateur",
+          "industry": "Éducation",
+          "city": "Enugu",
+          "focus": [
+            "Éducation ayant des besoins spéciaux",
+            "Apprentissage inclusif",
+            "MGP"
+          ],
+          "bio": "Co-fondateur d'une école inclusive pour enfants ayant des besoins spéciaux et responsable chevronné du marketing produit.",
+          "socials": {
+            "linkedin": "https://www.linkedin.com/in/tracy-jerry-ugwu/",
+            "instagram": "https://www.instagram.com/tracy_ug?igsh=MTk3eDlsejFxOGw1dQ=="
+          },
+          "image": "/directory/tracy.png"
+        },
+        {
+          "name": "Ijeoma Achu",
+          "role": "Gestionnaire du programme, Tabi",
+          "industry": "Gestion",
+          "city": "Enugu",
+          "focus": [
+            "Stratégie du programme",
+            "Excellence opérationnelle",
+            "Communauté"
+          ],
+          "bio": "Orchestrer le cadre et la réalisation des missions de Tabi pour garantir des résultats percutants pour chaque cohorte.",
+          "socials": {
+            "linkedin": "https://www.linkedin.com/in/ijeoma-achu/"
+          },
+          "image": "/directory/ijeoma.png"
+        }
+      ]
+    },
+    "cityRequest": {
+      "badge": "Expansion participative",
+      "headingLine1": "Où devrait Tabi",
+      "headingHighlight": "atterrir ensuite ?",
+      "description": "Nous ne choisissons pas les emplacements au hasard. Indiquez votre intérêt pour votre ville à apporter l’expérience TWN à votre région.",
+      "cardTitle": "Vous voulez Tabi dans votre ville ?",
+      "cardText": "Soyez le premier informé de notre expansion. Soumettez votre intérêt et nous donnerons la priorité à votre emplacement.",
+      "cta": "Indiquer votre intérêt →"
+    },
+    "cityRequestModal": {
+      "title": "Amenez Tabi dans votre ville",
+      "subtitle": "Remplissez vos coordonnées et nous donnerons la priorité à votre emplacement.",
+      "successTitle": "Merci!",
+      "successMessage": "Nous vous avertirons lorsque nous atterrirons à {city}.",
+      "labels": {
+        "name": "Nom et prénom *",
+        "email": "E-mail *",
+        "mobile": "Numéro de portable *",
+        "linkedin": "Profil LinkedIn (facultatif)",
+        "city": "Quelle ville ? *",
+        "cityPlaceholder": "par exemple, Nairobi, Accra, Kigali"
+      },
+      "cancel": "Annuler",
+      "submit": "Soumettre votre intérêt",
+      "sending": "Envoi...",
+      "errors": {
+        "nameRequired": "Le nom complet est requis",
+        "emailRequired": "L'e-mail est requis",
+        "emailInvalid": "E-mail invalide",
+        "mobileRequired": "Le numéro de portable est requis",
+        "cityRequired": "La ville est obligatoire",
+        "generic": "Quelque chose s'est mal passé",
+        "network": "Erreur réseau. Veuillez réessayer."
+      }
+    },
+    "faq": {
+      "badge": "Clarté",
+      "heading": "Questions courantes",
+      "description": "Tout ce que vous devez savoir sur l’expérience Tabi Women Network.",
+      "contactText": "Vous avez d'autres questions ? Contact",
+      "contactEmail": "sophia@tabiproject.com",
+      "items": [
+        {
+          "q": "Qui peut assister aux événements du Tabi Women Network ?",
+          "a": "La participation se fait uniquement sur invitation personnelle. Chaque édition est spécialement conçue pour les femmes occupant des postes de direction, de direction, de fondatrice ou de direction dans les domaines de la technologie, des affaires et de la gouvernance. Si vous avez reçu une invitation, votre place est dans la salle."
+        },
+        {
+          "q": "Puis-je demander une invitation ?",
+          "a": "Les femmes intéressées à assister à une future édition ou à en accueillir une dans leur ville peuvent exprimer leur intérêt via notre formulaire de demande de ville ou en contactant sophia@tabiproject.com. La curation est intentionnelle, donc toutes les manifestations d’intérêt ne donneront pas lieu à une invitation."
+        },
+        {
+          "q": "Puis-je amener un invité ?",
+          "a": "Chaque invitation n'admet qu'une seule personne. Pour préserver l'intimité de la table, nous n'autorisons pas les +1. Cependant, si vous pensez qu’une autre femme devrait être à la table, nous vous encourageons à en parler à l’hôte. L’équipe envisagera de lancer une invitation distincte."
+        },
+        {
+          "q": "Y a-t-il un coût pour y assister ?",
+          "a": "Les détails de la participation, y compris les frais applicables à l'expérience culinaire organisée, sont communiqués directement aux invités lors de la confirmation de leur invitation."
+        },
+        {
+          "q": "Quelle est la politique concernant l'heure d'arrivée ?",
+          "a": "Nous construisons une culture du respect du temps. Chaque événement commence exactement à l'heure indiquée. Les invités sont accueillis à partir de 15 minutes avant le début, et nous vous demandons d'arriver tôt pour vous installer avant le début des tables rondes."
+        },
+        {
+          "q": "Comment puis-je obtenir le réseau Tabi Women Network dans ma ville ?",
+          "a": "Nous nous développons chaque mois à travers l’Afrique. Si vous souhaitez que nous atterrissions dans votre ville la prochaine fois, veuillez utiliser notre formulaire « Indiquer votre intérêt ». Nous donnons la priorité aux nouveaux emplacements en fonction des endroits où la demande de notre communauté est la plus forte."
+        },
+        {
+          "q": "Que se passe-t-il après l'événement ?",
+          "a": "Chaque participante est ajoutée au répertoire des membres du Tabi Women Network, une ressource vivante conçue pour aider les membres à trouver des collaborateurs et à établir de véritables partenariats au-delà des frontières et des secteurs."
+        },
+        {
+          "q": "L'événement est-il enregistré ?",
+          "a": "Le programme principal et les conversations à table ne sont jamais enregistrés pour garantir l'authenticité et la vulnérabilité. Ce qui est dit à table reste à table. Nous disposons cependant d'une équipe de médias disponible pour des interviews assises facultatives pendant le segment de réseautage ouvert."
+        },
+        {
+          "q": "À quelle fréquence le réseau se réunit-il ?",
+          "a": "Des éditions ont lieu mensuellement dans différentes villes d'Afrique. Les membres sont invités à assister aux éditions dans leur ville d'origine et peuvent être invités à des éditions dans d'autres villes où ils ont une présence professionnelle."
+        }
+      ]
+    },
+    "manifestoQuote": {
+      "line1": "Le réseau des femmes Tabi est l'endroit où",
+      "highlight1": "accéder",
+      "line2": "rencontre",
+      "highlight2": "opportunité.",
+      "quote": "\"Nous construisons un écosystème décentralisé pour les femmes dirigeantes africaines. Pas de gardiens. Pas de superflu. Juste la technologie, la gouvernance et le capital social nécessaires pour construire un héritage mondial.\""
+    },
+    "metadata": {
+      "title": "Réseau des femmes Tabi | Réseau panafricain de leadership",
+      "description": "Une table pour les femmes qui dirigent. Rejoignez le Tabi Women Network – une communauté panafricaine organisée de dirigeants, de fondateurs et d’acteurs du changement.",
+      "ogTitle": "Réseau des femmes Tabi | Une table pour les femmes qui dirigent",
+      "ogDescription": "Rassemblements intimes de femmes leaders à travers l’Afrique. Pas de panels, pas de keynotes – juste de vraies connexions et des portes ouvertes."
+    }
+  },
+  "Community": {
+    "metadata": {
+      "title": "Communauté | Académie Tabi × Académie Rise",
+      "description": "Rejoignez la fraternité Tabi Academy. Explorez les voies et les possibilités permettant aux femmes africaines dans le secteur de la technologie de grandir, d'exceller, de prospérer et de diriger grâce à un impact durable.",
+      "ogTitle": "Rejoignez la Fraternité de la Tabi Academy",
+      "ogDescription": "Donner aux femmes du secteur technologique les moyens de construire, de créer et de diriger. Explorez notre communauté open source et nos événements de formation."
+    },
+    "hero": {
+      "badge": "Rejoignez le mouvement",
+      "headlinePart1": "Construire le",
+      "headlineHighlight": "Voies",
+      "headlinePart2": "pour que les femmes construisent, créent et dirigent.",
+      "subheadPrefix": "Plus qu'un réseau. UN",
+      "subheadBold": "fraternité",
+      "subheadSuffix": "de femmes africaines qui créent un impact durable et repoussent les limites de la technologie. Ne vous contentez pas de regarder l’avenir se produire : aidez-nous à en écrire le code.",
+      "cta": "Rejoignez Tabi",
+      "fomoMain": "🔥 Plus de 45 femmes collaborant sur des sprints actifs.",
+      "fomoQueue": "Rejoignez la file d'attente.",
+      "floatingTag1": "Cohorte suivante",
+      "floatingTag1Sub": "Commence bientôt",
+      "floatingTag2Value": "500+",
+      "floatingTag2Label": "Sœurs connectées",
+      "images": {
+        "womanCodingAlt": "Une femme souriant en tapant du code lors d'un événement Tabi",
+        "learnableEventAlt": "Femmes collaborant pendant la formation Learnable"
+      }
+    },
+    "gallery": {
+      "badge": "Preuve visuelle",
+      "heading": "Moments capturés de",
+      "headingHighlight": "Possibilités.",
+      "tabs": {
+        "all": "Tous les instants",
+        "learnable": "Learnable × Tabi",
+        "sprints": "Sprints Open Source",
+        "meetup": "Réseau des femmes Tabi"
+      },
+      "emptyTitle": "Aucune image pour l'instant",
+      "emptyMessage": "Nous documentons actuellement cette piste. La galerie apparaîtra ici sous peu.",
+      "viewFullSize": "Afficher en taille réelle"
+    },
+    "philosophy": {
+      "badge": "La Fondation TEEF",
+      "headingLine1": "Libérer le potentiel",
+      "headingHighlight": "Grâce à la technologie.",
+      "description": "Nous sommes une organisation à but non lucratif axée sur l'enseignement technologique, la R&D et l'open source. Notre objectif est clair : permettre à 5 000 femmes africaines de diriger et d’exceller dans le paysage technologique mondial.",
+      "pillars": [
+        {
+          "title": "Innover & Ingénier",
+          "text": "Nous fournissons les ressources et le financement nécessaires pour mettre en œuvre des solutions aux défis du monde réel. Nous ne nous contentons pas de créer des correctifs temporaires ; nous concevons des systèmes qui responsabilisent la prochaine génération.",
+          "tag": "Innovate"
+        },
+        {
+          "title": "Éducation durable",
+          "text": "Combler le fossé au sein de l’écosystème commence par l’accès. Nous dotons les individus défavorisés et volontaires de compétences numériques de haut niveau et de stratégies commerciales basées sur l'IA.",
+          "tag": "Educate & Empower"
+        },
+        {
+          "title": "Unir et diriger",
+          "text": "Nous avons pour mission de former 5 000 femmes africaines. Nous ne sommes pas en concurrence; nous soulevons. Grâce à une collaboration active, nous construisons la clé, créons le chemin et ouvrons la voie.",
+          "tag": "Unite"
+        }
+      ],
+      "statValue": "5000",
+      "statLabel": "Femmes africaines \nÉquipé pour la technologie",
+      "statQuote": "\"Créer un monde où les femmes africaines sont à la pointe de l'innovation technologique.\"",
+      "viewImpact": "Voir notre impact"
+    },
+    "howWeThrive": {
+      "badge": "Les piliers",
+      "headingPart1": "Comment nous",
+      "headingHighlight": "Prospérer.",
+      "description": "\"Une croissance structurée conçue pour la femme africaine moderne dans le domaine de la technologie. Pas de superflu, juste de l'exécution.\"",
+      "pillars": [
+        {
+          "title": "Source ouverte",
+          "desc": "Nous ne nous contentons pas d'« apprendre », nous expédions. Nos sœurs créent des outils concrets et contribuent à des projets mondiaux, en créant un portfolio plus éloquent qu'un CV."
+        },
+        {
+          "title": "Mentorat direct",
+          "desc": "Évitez les incertitudes. Laissez-vous guider par des ingénieurs et des professionnels chevronnés de la technologie qui ont parcouru le chemin et sont prêts à vous aider."
+        },
+        {
+          "title": "Espace sûr",
+          "desc": "Un environnement radical où il est normal d'échouer, de poser des questions « stupides » et de grandir à son rythme sans jugement."
+        }
+      ],
+      "exploreText": "Explorer le chemin"
+    },
+    "cta": {
+      "stats": [
+        {
+          "label": "Sœurs actives",
+          "value": "500+"
+        },
+        {
+          "label": "Lignes de code expédiées",
+          "value": "12 000+"
+        },
+        {
+          "label": "Partenaires stratégiques",
+          "value": "5"
+        },
+        {
+          "label": "Objectif unifié",
+          "value": "1"
+        }
+      ],
+      "headingLine1": "Arrêtez de vous tenir sur le",
+      "headingHighlight": "En marge.",
+      "description": "L'accès à notre communauté WhatsApp privée, à nos événements de partenariat exclusifs et au mentorat direct d'ingénieurs seniors n'est pas ouvert éternellement. Réclamez votre place parmi les leaders.",
+      "joinButton": "Rejoignez Tabi",
+      "nextCohort": "L'intégration de la prochaine cohorte commence dans 4 jours"
+    }
   }
 }
