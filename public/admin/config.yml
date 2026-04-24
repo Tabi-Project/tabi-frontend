@@ -6,7 +6,7 @@ media_folder: public/uploads
 public_folder: /uploads
 
 # ── Enable local dev server (comment out in production) ──
-# local_backend: true
+local_backend: true
 
 collections:
 

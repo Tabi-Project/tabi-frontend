@@ -68,7 +68,7 @@ export default function TestimonialStrip({
 
         {/* Quote */}
         <motion.div
-          className="flex flex-col justify-center"
+          className="flex flex-col justify-center "
           variants={{
             hidden: { opacity: 0, x: 20 },
             visible: {

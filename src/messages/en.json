@@ -255,6 +255,14 @@
       "Annually": "Annually"
     }
   },
+  "FeaturedProjects": {
+      "heading": "Our Flagship Projects",
+      "description": "Each project at Tabi Empowerment and Educational (TEE) Foundation is crafted to empower community and foster innovation. Discover how we're creating lasting change and brighter futures.",
+      "emptyTitle": "Something beautiful is growing",
+      "emptyMessage": "Our flagship projects will appear here soon. Check back shortly.",
+      "viewAll": "View All Projects",
+      "showLess": "Show Less"
+    },
   "ConsultancyTeaser": {
     "badge": "✦ 100% Free",
     "deadlinePrefix": "Closes",
@@ -271,6 +279,17 @@
     "cta": "Apply for a Free Session →",
     "terms": "T&Cs Apply",
     "freeText": "FREE"
+  },
+    "InsightsStories": {
+    "heading": "Insights & Stories",
+    "description": "Ready to embark on your tech journey? Explore our resources and start building your future today.",
+    "emptyTitle": "No posts yet",
+    "emptyMessage": "Check back soon — insights are on the way.",
+    "loadMore": "Load More",
+    "categoryBadge": {
+      "blog": "Blog",
+      "news": "News"
+    }
   },
   "AIBusiness": {
     "hero": {

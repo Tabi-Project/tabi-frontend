@@ -171,6 +171,7 @@ export type CMSProject = {
   videoThumb?: string;
   hasTestimonial?: boolean;
   published?: boolean;
+  testimonial?: CMSTestimonial;
 };
 
 export function getAllProjects(): CMSProject[] {
@@ -209,6 +210,12 @@ export function getAllTestimonials(): CMSTestimonial[] {
 export function getFeaturedTestimonial(): CMSTestimonial | undefined {
   const all = getAllTestimonials();
   return all.find((t) => t.featured) ?? all[0];
+}
+
+// Get a testimonial by its order number
+export function getTestimonialByOrder(order: number): CMSTestimonial | undefined {
+  const testimonials = getAllTestimonials();
+  return testimonials.find((t) => t.order === order);
 }
 
 // ─── Gallery ─────────────────────────────────────────────────────────────────

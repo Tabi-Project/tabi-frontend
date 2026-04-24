@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import type { CMSProject } from "@/lib/cms";
 import { Button } from "@/components/atoms/Button";
 import AcademyGrid from "@/components/molecules/AcademyGrid";
 import AIBusinessGrid from "@/components/molecules/AIBusinessGrid";
 import TabiProjectGrid from "@/components/molecules/TabiProjectGrid";
 import PurpleGuildGrid from "@/components/molecules/PurpleGuildGrid";
+import TestimonialStrip from "@/components/molecules/TestimonialStrip";
 import { motion, Variants } from "framer-motion";
 
 function ProjectGrid({
@@ -28,7 +30,6 @@ function ProjectGrid({
   }
 }
 
-// Fixed & Animated Timeline Block
 function ProjectBlock({
   project,
   index
@@ -44,14 +45,10 @@ function ProjectBlock({
       viewport={{ once: true, margin: "-100px" }}
       variants={{
         hidden: {},
-        visible: {
-          transition: { staggerChildren: 0.2 }
-        }
+        visible: { transition: { staggerChildren: 0.2 } }
       }}
     >
-      {/* Timeline graphical track */}
       <div className="flex flex-col items-center shrink-0 w-8">
-        {/* The Numbered Node pops in */}
         <motion.div
           variants={{
             hidden: { opacity: 0, scale: 0.5 },
@@ -65,8 +62,6 @@ function ProjectBlock({
         >
           {project.order}
         </motion.div>
-
-        {/* The connecting line draws downwards */}
         <motion.div
           variants={{
             hidden: { scaleY: 0 },
@@ -79,8 +74,6 @@ function ProjectBlock({
           className="flex-1 w-px bg-[#ddd] mt-2"
         />
       </div>
-
-      {/* The project card itself slides up smoothly */}
       <motion.div
         className="flex-1 pt-1"
         variants={{
@@ -100,10 +93,8 @@ function ProjectBlock({
 
 interface FeaturedProjectsProps {
   projects?: CMSProject[];
-  testimonialSlot?: React.ReactNode;
 }
 
-// Reusable header variants to avoid standard inferring errors
 const headerVariants: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: {
@@ -119,17 +110,13 @@ const headerVariants: Variants = {
 
 const headerItem: Variants = {
   hidden: { opacity: 0, y: 15 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" }
-  }
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
 };
 
 export default function FeaturedProjects({
-  projects = [],
-  testimonialSlot
+  projects = []
 }: FeaturedProjectsProps) {
+  const t = useTranslations("FeaturedProjects");
   const [showAll, setShowAll] = useState(false);
   const visible = showAll ? projects : projects.slice(0, 2);
 
@@ -147,18 +134,14 @@ export default function FeaturedProjects({
           variants={headerItem}
           className="text-[clamp(1.8rem,4vw,3rem)] font-extrabold text-[#1a1a2e] tracking-tight"
         >
-          Our Flagship Projects
+          {t("heading")}
         </motion.h2>
         <motion.p
           variants={headerItem}
           className="mt-3 max-w-lg text-sm text-[#777] leading-relaxed"
         >
-          Each project at Tabi Empowerment and Educational (TEE) Foundation is
-          crafted to empower community and foster innovation. Discover how
-          we&apos;re creating lasting change and brighter futures.
+          {t("description")}
         </motion.p>
-
-        {/* Animated the arrow indicator pointing down */}
         <motion.div
           variants={headerItem}
           className="mt-6"
@@ -172,7 +155,7 @@ export default function FeaturedProjects({
         />
       </motion.div>
 
-      {/* Projects */}
+      {/* Projects list */}
       {visible.length === 0 ? (
         <motion.div
           className="mx-auto max-w-4xl px-6 sm:px-12 lg:px-16 pb-20 flex flex-col items-center justify-center py-20 text-center"
@@ -180,7 +163,7 @@ export default function FeaturedProjects({
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5 }}
         >
-          {/* ...SVG remains exactly the same... */}
+          {/* Keep the empty state SVG exactly the same */}
           <svg
             width="160"
             height="140"
@@ -233,10 +216,10 @@ export default function FeaturedProjects({
             <circle cx="135" cy="80" r="2.5" fill="#71286F" opacity="0.25" />
           </svg>
           <p className="text-base font-bold text-[#1a1a2e] mb-2">
-            Something beautiful is growing
+            {t("emptyTitle")}
           </p>
           <p className="text-sm text-[#888] max-w-xs leading-relaxed">
-            Our flagship projects will appear here soon. Check back shortly.
+            {t("emptyMessage")}
           </p>
         </motion.div>
       ) : (
@@ -246,13 +229,14 @@ export default function FeaturedProjects({
               <div className="mx-auto max-w-4xl px-6 sm:px-12 lg:px-16">
                 <ProjectBlock project={project} index={idx} />
               </div>
-              {project.hasTestimonial && testimonialSlot}
+              {project.testimonial && (
+                <TestimonialStrip testimonial={project.testimonial} />
+              )}
             </div>
           ))}
         </>
       )}
 
-      {/* View all button */}
       {projects.length > 2 && (
         <div className="flex justify-center pb-20">
           <Button
@@ -260,7 +244,7 @@ export default function FeaturedProjects({
             size="md"
             onClick={() => setShowAll((v) => !v)}
           >
-            {showAll ? "Show Less" : "View All Projects"}
+            {showAll ? t("showLess") : t("viewAll")}
             <svg
               width="16"
               height="16"

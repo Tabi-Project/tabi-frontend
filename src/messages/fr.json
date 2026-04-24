@@ -255,6 +255,14 @@
       "Annually": "Annuellement"
     }
   },
+  "FeaturedProjects": {
+    "heading": "Nos projets phares",
+    "description": "Chaque projet de la Tabi Empowerment and Educational (TEE) Foundation est conçu pour responsabiliser la communauté et favoriser l'innovation. Découvrez comment nous créons un changement durable et un avenir meilleur.",
+    "emptyTitle": "Quelque chose de beau grandit",
+    "emptyMessage": "Nos projets phares apparaîtront ici prochainement. Revenez sous peu.",
+    "viewAll": "Voir tous les projets",
+    "showLess": "Afficher moins"
+  },
   "ConsultancyTeaser": {
     "badge": "✦ 100% gratuit",
     "deadlinePrefix": "Ferme",
@@ -1222,6 +1230,17 @@
       "description": "L'accès à notre communauté WhatsApp privée, à nos événements de partenariat exclusifs et au mentorat direct d'ingénieurs seniors n'est pas ouvert éternellement. Réclamez votre place parmi les leaders.",
       "joinButton": "Rejoignez Tabi",
       "nextCohort": "L'intégration de la prochaine cohorte commence dans 4 jours"
+    }
+  },
+  "InsightsStories": {
+    "heading": "Perspectives et histoires",
+    "description": "Prêt à vous lancer dans votre aventure technologique ? Explorez nos ressources et commencez à construire votre avenir dès aujourd’hui.",
+    "emptyTitle": "Pas encore de messages",
+    "emptyMessage": "Revenez bientôt : des informations sont en route.",
+    "loadMore": "Charger plus",
+    "categoryBadge": {
+      "blog": "Blogue",
+      "news": "Nouvelles"
     }
   }
 }

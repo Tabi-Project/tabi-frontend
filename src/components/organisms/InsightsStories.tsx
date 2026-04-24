@@ -1,9 +1,11 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/atoms/Button";
 import { getAllPosts } from "@/lib/cms";
 
 export default function InsightsStories() {
+  const t = useTranslations("InsightsStories");
   const posts = getAllPosts();
   const featured = posts.find((p) => p.featured) ?? posts[0];
   const secondary = posts.filter((p) => p.slug !== featured?.slug).slice(0, 2);
@@ -14,11 +16,10 @@ export default function InsightsStories() {
         <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
           <div className="text-start mb-14">
             <h2 className="text-[clamp(1.8rem,3.5vw,3.5rem)] font-bold tracking-tight text-[#1a1a2e]">
-              Insights &amp; Stories
+              {t("heading")}
             </h2>
             <p className="mt-4 text-base text-black max-w-5xl leading-relaxed">
-              Ready to embark on your tech journey? Explore our resources and
-              start building your future today.
+              {t("description")}
             </p>
           </div>
           <div className="flex flex-col items-center justify-center py-16 rounded-2xl border border-dashed border-[#E5E7EB] text-center">
@@ -46,11 +47,9 @@ export default function InsightsStories() {
               </svg>
             </div>
             <p className="text-sm font-semibold text-[#1a1a2e] mb-1">
-              No posts yet
+              {t("emptyTitle")}
             </p>
-            <p className="text-xs text-[#888]">
-              Check back soon — insights are on the way.
-            </p>
+            <p className="text-xs text-[#888]">{t("emptyMessage")}</p>
           </div>
         </div>
       </section>
@@ -62,11 +61,10 @@ export default function InsightsStories() {
       <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
         <div className="text-start mb-14">
           <h2 className="text-[clamp(1.8rem,3.5vw,3.5rem)] font-bold tracking-tight text-[#1a1a2e]">
-            Insights &amp; Stories
+            {t("heading")}
           </h2>
           <p className="mt-4 text-base text-black max-w-5xl leading-relaxed">
-            Ready to embark on your tech journey? Explore our resources and
-            start building your future today.
+            {t("description")}
           </p>
         </div>
 
@@ -95,7 +93,6 @@ export default function InsightsStories() {
               )}
             </div>
             <div className="flex flex-col flex-1 p-8">
-              {/* Category badge */}
               <span
                 className="self-start text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3"
                 style={{ background: "#F3E8FF", color: "#71286F" }}
@@ -154,7 +151,6 @@ export default function InsightsStories() {
                   )}
                 </div>
                 <div className="flex flex-col flex-1 p-6 min-w-0">
-                  {/* Category badge */}
                   <span
                     className="self-start text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-2"
                     style={{ background: "#F3E8FF", color: "#71286F" }}
@@ -197,7 +193,7 @@ export default function InsightsStories() {
         <div className="flex justify-center">
           <Link href="/resources?tab=blog">
             <Button variant="outline" size="md">
-              Load More
+              {t("loadMore")}
             </Button>
           </Link>
         </div>

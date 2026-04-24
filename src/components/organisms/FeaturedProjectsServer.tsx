@@ -1,15 +1,20 @@
-import { getAllProjects, getFeaturedTestimonial } from "@/lib/cms";
+import { getAllProjects, getTestimonialByOrder } from "@/lib/cms";
 import FeaturedProjects from "@/components/organisms/FeaturedProjects";
-import TestimonialStrip from "@/components/molecules/TestimonialStrip";
 
 export default function FeaturedProjectsServer() {
   const projects = getAllProjects() ?? [];
-  const testimonial = getFeaturedTestimonial();
+
+  // Attach a testimonial to each project that has `hasTestimonial: true`
+  const projectsWithTestimonials = projects.map((project) => ({
+    ...project,
+    testimonial: project.hasTestimonial
+      ? getTestimonialByOrder(project.order)
+      : undefined
+  }));
 
   return (
     <FeaturedProjects
-      projects={projects}
-      testimonialSlot={<TestimonialStrip testimonial={testimonial} />}
+      projects={projectsWithTestimonials}
     />
   );
 }

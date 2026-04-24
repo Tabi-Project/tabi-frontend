@@ -10,6 +10,6 @@ images:
   - /uploads/ai-business-hero-3.png
 video: https://www.youtube.com/embed/qsMnoms--EY?si=LP0A3MKQokt3tXxQ
 videoThumb: /uploads/ai-business-video-thumb.png
-hasTestimonial: false
+hasTestimonial: true
 published: true
 ---
