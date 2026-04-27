@@ -14,7 +14,7 @@ export default function DonateCard({ onDonateClick }: DonateCardProps) {
 
   return (
     <div
-      className="relative rounded-3xl overflow-hidden p-10 flex flex-col justify-between min-h-90"
+      className="relative rounded-3xl overflow-hidden p-10 flex flex-col justify-between h-full"
       style={{ background: "#F5F5F5" }}
     >
       <div

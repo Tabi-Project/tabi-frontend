@@ -1,12 +1,227 @@
 ---
-title: "Tabi Women Network Debuts Pan-African Series in Enugu"
+title: Tabi Women Network Debuts Pan-African Series in Enugu
+title_fr: Tabi Women Network lance sa série panafricaine à Enugu
 category: news
-date: "April 6, 2026"
-author: "Tabi Team"
-readTime: "6 minutes"
-excerpt: "On April 4th, 2026, Tabi Women Network hosted an intimate invite‑only lunch for eight high‑level women leaders in Enugu. Structured conversation, real outcomes, and a new pan‑African directory took center stage."
-image: "/uploads/tabi-group-shot-enugu.jpeg"
+date: April 6, 2026
+author: Tabi Team
+readTime: 6 minutes
+excerpt: On April 4th, 2026, Tabi Women Network hosted an intimate invite‑only
+  lunch for eight high‑level women leaders in Enugu. Structured conversation,
+  real outcomes, and a new pan‑African directory took center stage.
+excerpt_fr: Le 4 avril 2026, le Tabi Women Network a organisé un déjeuner privé
+  sur invitation pour huit femmes leaders de haut niveau à Enugu. Une
+  conversation structurée, des résultats concrets et un nouvel annuaire
+  panafricain ont été au cœur de cette rencontre.
+image: /uploads/tabi-group-shot-enugu.jpeg
 featured: true
+body_fr: >-
+  Voici la traduction française du billet de blog. Vous pouvez l’insérer
+  directement dans le champ `body_fr` du CMS.
+
+
+  ---
+
+
+  **Tabi Women Network lance sa série panafricaine à Enugu**
+
+
+
+
+  # Tabi Women Network lance sa série panafricaine à Enugu
+
+
+  ## Résumé
+
+
+  Le 4 avril 2026, le **Tabi Women Network** a organisé un déjeuner intime, sur invitation, réunissant huit femmes leaders de haut niveau des secteurs de la tech, des affaires et de la gouvernance à Enugu. S’éloignant des formats de conférence traditionnels, cet « engagement cosy » de trois heures a utilisé des **« Cue Cards »** structurées pour dépasser les banalités et aborder les véritables défis du leadership africain, des politiques publiques et de la collaboration intersectorielle. L’événement a permis d’identifier des opportunités de partenariat immédiates et d’intégrer les participantes dans l’annuaire panafricain de Tabi.
+
+
+  ---
+
+
+  ## À propos de Tabi et du Women’s Network
+
+
+  **Tabi** (sous l’égide de la Tabi Empowerment & Educational Foundation) rend l’éducation technologique pratique et les ressources accessibles aux femmes dans la tech et les affaires.
+
+
+  Le **Tabi Women Network** est le bras réseau panafricain de cette vision. Son objectif est de construire un annuaire vivant et accessible des femmes qui ont un impact à travers l’Afrique. En organisant des déjeuners mensuels dans plusieurs villes et pays, Tabi crée une carte d’influence qui permet aux femmes de trouver les bons partenaires, d’échanger des informations et de combler le fossé entre la gouvernance et le secteur privé.
+
+
+  ---
+
+
+  ## Les femmes autour de la table
+
+
+  La cohorte était composée de huit leaders aux multiples casquettes :
+
+
+  - **Sophia Ahuoyiza** – Ingénieure logiciel, Product Manager, Co-fondatrice de Yelobyte Studios et Directrice Exécutive de la Tabi Empowerment & Educational Foundation.
+
+  - **Lady Benedeth Maduka** – Commissaire de police principal à la retraite et Directrice Exécutive de la Benedeth Maduka Foundation (spécialiste VBG).
+
+  - **Barrister Sylvia Agbana** – Présidente de la Ligue des femmes électrices du Nigéria (Enugu) ; ancienne Présidente de la FIDA Enugu.
+
+  - **Augusta Nneka Nnadi** – Conseillère Spéciale en Stratégie et Communication (SEDC) ; Spécialiste en politique et politiques publiques.
+
+  - **Betty Agbo** – Réalisatrice, Actrice et Directrice Créative chez Betscents.
+
+  - **Amarachi Okeke** – Product Manager et Co-gestionnaire de l’ONG Sustainable Initiatives.
+
+  - **Tracy Jerry Ugwu** – Co-fondatrice d’une École Maternelle et Primaire Inclusive (Besoins Spéciaux) et Lead en Product Marketing.
+
+  - **Ijeoma Achu** – Responsable des Programmes, Tabi.
+
+
+  ---
+
+
+  ## Le déroulé de l’après-midi
+
+
+  L’événement a débuté à **14h00 précises**, établissant la culture Tabi de bonne gestion du temps. Après les présentations et un mot de bienvenue de Sophia, un message vidéo de la Co-directrice de Tabi, **Ihuoma Agbaru**, a été diffusé pour réaffirmer la valeur des rencontres intentionnelles. Le cœur de l’après-midi était la **Session Table Ronde**, animée par des Cue Cards interactives.
+
+
+  ---
+
+
+  ## Les conversations : les Cue Cards de la Table Ronde
+
+
+  ### À propos des décisions de carrière et de l'impact
+
+
+  > **Question :** *Quelle est la décision que vous avez prise dans votre carrière ou votre entreprise qui a tout changé — et la prendriez-vous à nouveau ?*
+
+
+  **Lady Benedeth** a souligné que *l’impact n’a pas d’âge de retraite*. Depuis qu’elle a quitté la police, elle se concentre sur le plaidoyer contre les VBG et l’apprentissage de nouvelles langues (espagnol et français). Sa contribution a rappelé à la table que la vie d’une femme peut continuer à s’élargir même en prenant de l’âge.
+
+
+  ### À propos du plus difficile dans le fait d’opérer en Afrique
+
+
+  > **Question :** *Quelle est la chose la plus difficile dans l’exercice de votre secteur ou industrie en Afrique — et qu’est-ce qui vous fait continuer malgré tout ?*
+
+
+  Le groupe s’est concentré sur la **Constance**. L’envie de regarder en arrière et de réaliser qu’elles ont eu un impact sur elles-mêmes, sur la communauté et sur d’autres femmes est ce qui pousse ces leaders à continuer à se montrer dans des environnements difficiles.
+
+
+  ### À propos de la peur et du passage à l’action
+
+
+  > **Question :** *Quelle est la chose que vous auriez aimé que l’on vous dise plus tôt dans votre carrière ?*
+
+
+  **Betty Agbo** a partagé des réflexions personnelles sur la peur de passer à l’action. Le groupe a discuté de l’importance de ne pas avoir peur de prendre des mesures audacieuses et d’avoir des mentors qui vous poussent à agir plus tôt.
+
+
+  ### À propos du leadership et de l’intuition
+
+
+  > **Question :** *Que signifie le leadership pour vous, et qui vous l’a enseigné ?*
+
+
+  **Lady Benedeth** a plaidé pour *l’empathie plutôt que l’autorité*, tandis qu’**Amarachi** et **Tracy** ont noté qu’être ferme ne signifie pas être « bruyante » ou « méchante ». **Sophia** a ajouté que les femmes doutent souvent de leurs capacités et se disent « non » avant même que le monde ne le fasse. Elle a rappelé que l’intuition est un muscle qui se construit par l’essai et l’erreur, et que les leaders doivent lui faire confiance.
+
+
+  ### À propos de la politique et de la gouvernance
+
+
+  > **Question :** *Quel mythe à propos de votre secteur, rôle ou industrie aimeriez-vous voir disparaître ?*
+
+
+  Cela a déclenché un débat animé. **Augusta Nneka Nnadi** s’est élevée contre le *tokenisme*, en faveur de femmes qualifiées disposant de « preuves de travail ». **Barr. Sylvia** a discuté des avantages du tokenisme tout en reconnaissant les points soulevés par Augusta. Le groupe a évoqué la manière dont les limitations sociétales (réunions tardives, mariage, famille) restreignent souvent les femmes en politique. **Sophia** a conclu qu’il faut affiner les systèmes pour tenir compte de la singularité de la vie des femmes, rendant le monde du travail viable pour les mères.
+
+
+  ### À propos du succès et de l’héritage
+
+
+  La table s’est accordée à dire que le succès est profondément personnel et en constante évolution. Toutes ont mentionné leur **mère** comme la première femme qui leur a appris à diriger. Nous avons réalisé que nous étions toutes inspirées par des femmes qui ont vécu de manière authentique, pris leur place et défié les probabilités.
+
+
+  ---
+
+
+  ## Ce que les leaders ont dit (témoignages)
+
+
+  L’énergie dans la salle a été capturée dans les retours partagés par les participantes :
+
+
+  > **Betty Agbo :** *« C’était vraiment enrichissant… rencontrer des femmes formidables, capables et épanouies. J’aimerais beaucoup recommencer. »*
+
+
+  > **Amarachi Okeke :** *« Une communauté peut vous construire ou vous briser. Des espaces comme celui-ci devraient être ouverts à toutes sortes de femmes afin que nous puissions nous éduquer, nous informer et nous autonomiser mutuellement. »*
+
+
+  > **Tracy Jerry Ugwu :** *« Très excitant, surtout de rencontrer des femmes plus âgées et expérimentées. Parfois, on a l’impression d’être dans l’illusion quand on a certaines pensées, mais c’était rafraîchissant de rencontrer des gens qui pensent comme moi. »*
+
+
+  > **Barrister Sylvia Agbana :** *« Une expérience merveilleuse. Tabi crée des espaces pour que les femmes se connectent et collaborent. Cela correspond à ma mission de créer des espaces sûrs pour les femmes. »*
+
+
+  > **Augusta Nneka Nnadi :** *« Une journée intéressante. J’ai rencontré des personnes de divers horizons et avec des perspectives diverses… J’ai rencontré ici des gens avec qui j’aimerais explorer une relation de travail. »*
+
+
+  ---
+
+
+  ## Le « Jeu Long » et le Projet Luminary
+
+
+  Avant de passer à la session de réseautage finale, **Sophia** a délivré un message de conclusion sur l’importance vitale de l’authenticité et de la confiance en soi. Elle a encouragé les femmes à quitter la pièce avec la forte conviction qu’elles peuvent accomplir tout ce qu’elles ont à cœur, tout en rappelant qu’elles ne doivent pas avoir peur d’**être** simplement.
+
+
+  Au cœur de son discours se trouvait le concept du **« Jeu Long »** (Long Game). Sophia a exhorté les femmes à prioriser le repos et à s’engager dans des activités qui enrichissent l’esprit, le corps et l’âme. Pour diriger efficacement et avoir un impact durable sur des décennies, il faut être en bonne santé et prendre soin de son corps.
+
+
+  Dans le cadre de cette vision à long terme, Sophia a présenté le **Projet Luminary** – une initiative open source née du partenariat de Tabi avec **Rise Academy by Risevest**. Luminary est conçu pour mettre en lumière et profiler les femmes qui ont un impact dans leurs domaines, et **chaque femme qui s’engage avec le Tabi Women Network sera profilée dans cet annuaire**.
+
+
+  Ce projet est l’un des trois produits clés issus de ce partenariat, qui inclut également :
+
+
+  - **Bloom After** – Une plateforme de ressources numériques pour les femmes confrontées à la dépression post-partum (DPP).
+
+  - **Ekehi** – Une plateforme de ressources financières conçue pour les femmes en affaires et les fondatrices.
+
+
+  ---
+
+
+  ## Résultats et prochaines étapes
+
+
+  Des collaborations immédiates ont été identifiées entre :
+
+  - **Amarachi & Tracy** (Éducation / Durabilité)
+
+  - **Augusta & Betty** (Politique / Créatif)
+
+
+  D’autres participantes explorent également des pistes de partenariat.
+
+
+  Après un vote de remerciements de **Barrister Sylvia** et les remarques de clôture d’**Ijeoma**, l’événement s’est officiellement terminé à **17h00**.
+
+
+  Nous amenons le **Tabi Women Network en République du Bénin** pour la prochaine édition. C’est sur invitation, mais si vous voulez voir cela se produire dans votre ville, ou si vous souhaitez faire partie de l’annuaire, contactez-nous.
+
+
+  **Contact :**  
+
+  Sophia Ahuoyiza  
+
+  sophia@tabiproject.com  
+
+  [www.tabiproject.com](https://www.tabiproject.com)
+
+
+  ---
+
+
+  *Une table à la fois, une ville à la fois.*
 ---
 # Tabi Women Network Debuts Pan‑African Series in Enugu
 

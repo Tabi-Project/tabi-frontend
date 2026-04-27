@@ -2,22 +2,24 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { getCaseStudyBySlug, getAllCaseStudies } from "@/lib/cms";
 import CaseStudyBody from "@/components/organisms/CaseStudyBody";
 
 const BASE_URL = "https://tabiproject.com";
 
 interface Props {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
 }
 
 export async function generateStaticParams() {
+  // No locale needed here – just generate all known slugs
   return getAllCaseStudies().map((c) => ({ slug: c.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params;
-  const study = getCaseStudyBySlug(slug);
+  const { locale, slug } = await params;
+  const study = getCaseStudyBySlug(slug, locale); // ← pass locale
   if (!study) return { title: "Case Study Not Found" };
   return {
     title: `${study.title} | Case Studies`,
@@ -34,8 +36,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function CaseStudyDetailPage({ params }: Props) {
-  const { slug } = await params;
-  const study = getCaseStudyBySlug(slug);
+  const { locale, slug } = await params;
+  const t = await getTranslations({
+    locale,
+    namespace: "Resources.CaseStudyDetail"
+  });
+
+  // 🔑 Fetch the study in the correct language
+  const study = getCaseStudyBySlug(slug, locale);
   if (!study) notFound();
 
   return (
@@ -47,46 +55,50 @@ export default async function CaseStudyDetailPage({ params }: Props) {
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-[#878787] mb-10">
           <Link href="/" className="hover:text-brand-primary transition-colors">
-            Home
+            {t("breadcrumb.home")}
           </Link>
           <span className="text-[#ccc] text-[10px] font-bold">&gt;&gt;</span>
           <Link
             href="/resources"
             className="hover:text-brand-primary transition-colors"
           >
-            Resources
+            {t("breadcrumb.resources")}
           </Link>
           <span className="text-[#ccc] text-[10px] font-bold">&gt;&gt;</span>
           <Link
             href="/resources/case-studies"
             className="hover:text-brand-primary transition-colors"
           >
-            Case Studies
+            {t("breadcrumb.caseStudies")}
           </Link>
           <span className="text-[#ccc] text-[10px] font-bold">&gt;&gt;</span>
-          <span className="text-brand-primary font-medium">Details</span>
+          <span className="text-brand-primary font-medium">
+            {t("breadcrumb.label")}
+          </span>
         </nav>
 
         <div className="max-w-195 mx-auto">
           {/* Running header */}
           <div className="flex items-center gap-3 text-xs text-[#878787] mb-8 pb-4 border-b border-[#E5E7EB]">
-            <span className="font-bold text-brand-primary">Tabi Academy</span>
+            <span className="font-bold text-brand-primary">
+              {t("runningHeader.academy")}
+            </span>
             <span>|</span>
             <span>{study.programme}</span>
             <span>|</span>
-            <span>Case Study</span>
+            <span>{t("runningHeader.caseStudy")}</span>
           </div>
 
           {/* Category label */}
           <div className="flex gap-2 mb-5">
             <span className="text-[10px] font-black uppercase tracking-widest text-brand-primary">
-              Tabi Academy
+              {t("runningHeader.academy")}
             </span>
             <span className="text-[10px] font-black uppercase tracking-widest text-[#aaa]">
               |
             </span>
             <span className="text-[10px] font-black uppercase tracking-widest text-[#aaa]">
-              Case Study
+              {t("runningHeader.caseStudy")}
             </span>
           </div>
 
@@ -166,17 +178,15 @@ export default async function CaseStudyDetailPage({ params }: Props) {
             </div>
           )}
 
-          {/* Body — rendered via react-markdown with custom components */}
+          {/* Body — rendered via react-markdown */}
           <CaseStudyBody body={study.body ?? ""} />
 
           {/* Footer */}
           <div className="mt-16 pt-8 border-t border-[#E5E7EB] text-center">
             <p className="text-sm italic font-bold text-brand-primary mb-1">
-              Empowering Women. Transforming Business.
+              {t("footer.tagline")}
             </p>
-            <p className="text-xs text-[#aaa]">
-              Tabi Academy | TEE Foundation | tabiproject.com
-            </p>
+            <p className="text-xs text-[#aaa]">{t("footer.credit")}</p>
           </div>
         </div>
       </div>

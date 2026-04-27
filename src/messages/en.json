@@ -1561,6 +1561,52 @@
       "description": "These are open-source projects primarily being built and maintained by Rise Academy Cohort 2. If you find this project interesting and you have good engineering skills, you're welcome to contribute to the project.",
       "button": "View the Projects on GitHub"
     }
+  },
+  "Resources": {
+    "metadata": {
+      "title": "Blog & Resources",
+      "description": "Stay ahead in tech. Explore blog posts, career resources, and upcoming event updates from Tabi Academy and Tabi Empowerment & Educational Foundation.",
+      "ogTitle": "Resources, News & Blog | Tabi Academy",
+      "ogDescription": "Your hub for tech insights and community updates. Stay inspired on your journey with Tabi Academy."
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "label": "Resources"
+    },
+    "heading": "TEE Foundation Resources",
+    "description": "Stay up-to-date with what's happening at TEE Foundation. Explore our latest news, upcoming events, expert blog posts, and webinars.",
+    "caseStudies": {
+      "metadata": {
+        "title": "Case Studies | TEE Foundation",
+        "description": "Research, reports and case studies from TEE Foundation's programmes — transparent accounts of what happened, what we learned, and what we are building next."
+      },
+      "breadcrumb": {
+        "home": "Home",
+        "resources": "Resources",
+        "label": "Case Studies"
+      },
+      "badge": "Research & Reports",
+      "title": "Case Studies",
+      "description": "Transparent accounts of our programmes — what happened, what we learned, and what we are building next. No spin. Just the truth.",
+      "emptyTitle": "No case studies yet",
+      "emptyMessage": "Check back soon — research is being documented."
+    },
+    "CaseStudyDetail": {
+      "breadcrumb": {
+        "home": "Accueil",
+        "resources": "Ressources",
+        "caseStudies": "Études de cas",
+        "label": "Détails"
+      },
+      "runningHeader": {
+        "academy": "Tabi Academy",
+        "caseStudy": "Étude de cas"
+      },
+      "footer": {
+        "tagline": "Autonomiser les femmes. Transformer les entreprises.",
+        "credit": "Tabi Academy | Fondation TEE | tabiproject.com"
+      }
+    }
   }
 }
   

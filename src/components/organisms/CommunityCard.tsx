@@ -12,7 +12,7 @@ export default function CommunityCard({ onSuccess }: CommunityCardProps) {
 
   return (
     <div
-      className="relative rounded-3xl p-10"
+      className="relative rounded-3xl p-10 h-full"
       style={{ background: "#F5EFE8", overflow: "visible" }}
     >
       <div

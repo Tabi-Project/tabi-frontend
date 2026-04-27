@@ -1,5 +1,7 @@
 import { Suspense } from "react";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
 import {
   getBlogPosts,
   getNewsPosts,
@@ -7,17 +9,41 @@ import {
   getFeaturedEvents
 } from "@/lib/cms";
 import ResourcesTabs from "@/components/organisms/Resourcestabs";
-import { resourcesMetadata } from "@/seo/page-metadata";
 
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({
+    locale,
+    namespace: "Resources.metadata"
+  });
 
-export const metadata = resourcesMetadata;
+  return {
+    title: t("title"),
+    description: t("description"),
+    openGraph: {
+      title: t("ogTitle"),
+      description: t("ogDescription"),
+      url: "https://tabiproject.com/resources",
+      images: [
+        { url: "/og-image.jpeg", width: 1200, height: 630, type: "image/jpeg" }
+      ]
+    }
+  };
+}
 
-export default function ResourcesPage() {
-  const newsPosts = getNewsPosts();
-  const blogPosts = getBlogPosts();
-  const allEvents = getAllEvents();
-  const featuredEvents = getFeaturedEvents();
+export default async function ResourcesPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Resources" });
 
+  const newsPosts = getNewsPosts(locale);
+  const blogPosts = getBlogPosts(locale);
+  const allEvents = getAllEvents(locale);
+  const featuredEvents = getFeaturedEvents(locale);
+  
   return (
     <main
       className="w-full bg-white"
@@ -30,10 +56,12 @@ export default function ResourcesPage() {
           aria-label="Breadcrumb"
         >
           <Link href="/" className="hover:text-brand-primary transition-colors">
-            Home
+            {t("breadcrumb.home")}
           </Link>
           <span className="text-[#ccc] text-[10px] font-bold">&gt;&gt;</span>
-          <span className="text-brand-primary font-medium">Resources</span>
+          <span className="text-brand-primary font-medium">
+            {t("breadcrumb.label")}
+          </span>
         </nav>
 
         {/* Page Header */}
@@ -48,12 +76,10 @@ export default function ResourcesPage() {
               backgroundClip: "text"
             }}
           >
-            TEE Foundation Resources
+            {t("heading")}
           </h1>
           <p className="text-base text-[#444] max-w-5xl leading-relaxed">
-            Stay up-to-date with what&apos;s happening at TEE Foundation.
-            Explore our latest news, upcoming events, expert blog posts, and
-            webinars.
+            {t("description")}
           </p>
         </header>
 

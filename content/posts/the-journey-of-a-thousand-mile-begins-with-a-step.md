@@ -1,5 +1,6 @@
 ---
 title: The Journey of a Thousand Mile Begins with a Step
+title_fr: Le voyage de mille lieues commence par un pas
 category: blog
 date: January 8, 2026
 author: Ihuoma Favour Agbaru
@@ -8,8 +9,82 @@ excerpt: The tech industry offers a world of possibilities for those eager to
   innovate, create, and problem-solve. Whether you're a student exploring career
   paths or someone looking to pivot, having the right mentor by your side can
   transform your entire journey — and here's exactly how.
+excerpt_fr: >+
+  L’industrie de la technologie offre un monde de possibilités à celles et ceux
+  qui souhaitent innover, créer et résoudre des problèmes. Que vous soyez
+  étudiante en exploration de carrière ou en pleine reconversion, avoir le bon
+  mentor à vos côtés peut transformer tout votre parcours — et voici comment.
+
 image: /uploads/the-jorney-of-a-thousand-miles.jpeg
 featured: true
+body_fr: >-
+  ## Introduction : l’importance du mentorat dans la tech
+
+
+  Commencer une carrière dans la tech est une aventure exaltante, pleine d’opportunités, mais elle peut aussi être écrasante. Le rythme effréné des avancées technologiques, l’évolution constante des compétences requises et un marché du travail très concurrentiel peuvent poser des défis de taille. C’est là qu’un mentor entre en jeu — une lumière qui vous guide pour naviguer sur le terrain complexe de l’industrie technologique.
+
+
+  La vérité, c’est que personne ne construit seul une carrière tech réussie. Derrière presque chaque grande développeuse, cheffe de produit ou fondatrice, il y a quelqu’un qui a pris le temps de partager ses connaissances, d’ouvrir une porte ou simplement de dire « je crois en toi ». Voilà le pouvoir discret du mentorat.
+
+
+  ## Qu’est-ce qu’un mentor ?
+
+
+  Un mentor est un professionnel expérimenté qui offre des conseils, du soutien et des orientations à une personne moins expérimentée dans son domaine. Dans la tech, les mentors jouent un rôle crucial pour aider les nouvelles à comprendre l’industrie, à acquérir les compétences essentielles et à atteindre leurs objectifs de carrière. Mais au‑delà de la dimension professionnelle, un bon mentor investit aussi en vous en tant que personne — en comprenant vos forces, vos peurs et ce qui vous motive.
+
+
+  ### 1. Apporter des conseils et de l’expertise
+
+
+  Les mentors arrivent avec une somme de connaissances et d’expérience. Ils ont traversé les hauts et les bas de l’industrie et peuvent offrir des perspectives inestimables sur les bonnes pratiques, les pièges courants et les stratégies gagnantes. Lorsque vous faites face à un problème technique ou à un carrefour professionnel, avoir à vos côtés quelqu’un qui a déjà emprunté ce chemin vaut bien plus que n’importe quel tutoriel ou cours.
+
+
+  Ils peuvent vous aider à faire le tri — en vous orientant vers les compétences qui comptent réellement sur le marché, les outils qui valent la peine d’être appris et les opportunités à saisir. Ce type de clarté est rare et profondément précieux, surtout en début de carrière.
+
+
+  ### 2. Accélérer le développement des compétences
+
+
+  L’un des avantages les plus concrets d’avoir un mentor est l’accélération du développement des compétences. Les mentors peuvent fournir des retours personnalisés sur votre travail — relire votre code, critiquer votre portfolio ou vous donner une évaluation honnête de votre style de communication en milieu professionnel.
+
+
+  C’est très différent d’apprendre avec des cours en ligne ou en lisant de la documentation. Un mentor vous voit personnellement, comprend exactement où vous en êtes et vous aide à progresser à partir de ce point précis. Les retours ne sont pas génériques ; ils sont taillés pour vous.
+
+
+  ### 3. Élargir votre réseau
+
+
+  Dans l’industrie tech, qui vous connaissez peut être aussi important que ce que vous savez. Les mentors peuvent vous présenter à leur réseau professionnel, ouvrant ainsi des portes vers de nouvelles opportunités, des collaborations et des perspectives d’emploi auxquelles vous n’auriez jamais eu accès seule.
+
+
+  Une simple introduction chaleureuse de la part d’un mentor de confiance peut vous décrocher un entretien, une opportunité de prise de parole ou une collaboration qui change la direction de votre carrière. Les réseaux se composent avec le temps — et avoir accès très tôt à un réseau établi fait une énorme différence.
+
+
+  ### 4. Offrir du soutien et de la motivation
+
+
+  Le parcours dans la tech peut être exigeant et parfois décourageant. Le syndrome de l’imposteur est réel. Le rejet est fréquent. Il y aura des jours où vous vous demanderez si vous avez vraiment votre place dans cette industrie. Avoir un mentor, c’est avoir quelqu’un vers qui se tourner pour trouver de l’encouragement et une perspective, précisément dans ces moments difficiles.
+
+
+  Un bon mentor ne se contente pas de célébrer vos victoires — il vous aide à digérer sainement les revers, vous rappelle le chemin parcouru et vous garde concentrée sur votre destination.
+
+
+  ## Comment trouver un mentor
+
+
+  Trouver un mentor ne signifie pas toujours envoyer un email froid à une personnalité célèbre de votre domaine. Certaines des meilleures relations de mentorat naissent de façon organique — au sein de communautés, lors d’événements, sur des forums en ligne, ou simplement en contactant quelqu’un dont vous admirez sincèrement le travail avec une demande précise et réfléchie.
+
+
+  À la Fondation TEE, nous croyons profondément au pouvoir du mentorat pour les femmes dans la tech à travers l’Afrique. À travers nos programmes et notre communauté, nous créons activement des espaces où les professionnelles expérimentées se connectent avec celles qui débutent. Parce que quand les femmes se soutiennent mutuellement, tout le monde s’élève.
+
+
+  ## Un mot de la fin
+
+
+  Le voyage de mille lieues commence vraiment par un seul pas. Et parfois, ce premier pas consiste simplement à trouver quelqu’un qui a déjà parcouru le chemin — et à lui demander de marcher un moment à vos côtés.
+
+
+  Si vous cherchez une communauté, du mentorat et de vraies opportunités pour progresser dans la tech, nous serions ravies de vous accueillir. Explorez nos programmes et rejoignez dès aujourd’hui la communauté de la Fondation TEE.
 ---
 ## Introduction: The Importance of Mentorship in Tech
 

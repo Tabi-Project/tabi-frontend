@@ -1,5 +1,7 @@
 ---
 title: What We Learned Consulting Seven Women-Led Businesses in One Week
+title_fr: Ce que nous avons appris en consultant sept entreprises dirigées par
+  des femmes en une semaine
 author: Sophia Ahuoyiza
 authorRole: Director, Tabi Academy
 date: March 2026
@@ -8,6 +10,12 @@ excerpt: In March 2026, Tabi Academy ran its first Free Business Consultancy. We
   selected seven women-led businesses, gave them direct access to expert
   consultancy at zero cost, and asked only for a testimonial in return. This is
   a transparent account of what happened.
+excerpt_fr: >
+  En mars 2026, la Tabi Academy a lancé sa première Consultance Gratuite pour
+  Entreprises. Nous avons sélectionné sept entreprises dirigées par des femmes,
+  leur avons donné un accès direct à une consultance experte sans frais, et
+  n'avons demandé qu'un témoignage en retour. Voici un compte rendu transparent
+  de ce qui s'est passé.
 coverImage: /uploads/case-study-consultancy-cohort-1.png
 featured: true
 stats:
@@ -26,6 +34,161 @@ tags:
   - Business
   - Women-Led
   - March 2026
+body_fr: >-
+  ## Introduction
+
+
+  En mars 2026, la Tabi Academy a lancé sa première Consultance Gratuite pour Entreprises. L'offre était simple : nous sélectionnerions un petit nombre d'entreprises dirigées par des femmes, leur donnerions un accès direct à une consultance experte sans frais, et ne demanderions qu'un témoignage en retour. Pas de pitch decks. Pas de candidatures conçues pour impressionner. Juste de vraies entreprises avec de vrais défis — et nous, déterminés à les aider à avancer.
+
+
+  Nous avons reçu 26 candidatures du Nigéria et du Ghana. Nous en avons sélectionné sept. Ce qui a suivi a été l'une des semaines les plus instructives que la Tabi Academy ait connues à ce jour — non pas parce que tout s'est déroulé comme prévu, mais précisément parce que ce ne fut pas le cas.
+
+
+  Voici un compte rendu transparent de ce qui s'est passé, de ce que les séances ont révélé, et de ce que nous retenons pour la prochaine édition.
+
+
+  ## Les sept entreprises
+
+
+  La sélection était délibérée. Nous avons choisi pour la diversité des types de défis, des secteurs et des zones géographiques — et non pas seulement pour les meilleures candidatures. Nous voulions tester le programme sur un éventail aussi large que possible de contextes professionnels.
+
+
+  | Statut        | Secteur                              | Ce qui s'est passé                                                                                                                                                                                                                                                               |
+
+  | ------------- | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+
+  | Terminé       | Mode modeste — Lagos                 | Deux séances complètes. Identité de marque définie à partir de données clients réelles. Magazine numérique trimestriel et stratégie de pop-up annuel établis. Système de suivi de données sur mesure construit et remis.                                                         |
+
+  | Une séance    | Services B2B aux talents — Lagos     | Une séance. Problème de conversion des ventes diagnostiqué comme un problème de friction dans le modèle de tarification. Stratégie pilote de paiement différé convenue. Plan de jeu complet, guide d'expérience client et outil de suivi des indicateurs de performance fournis. |
+
+  | Une séance    | Design d'intérieur — Lagos           | Une séance. Fidélisation client et reconstruction de la base de données après des fermetures répétées de comptes sur les réseaux sociaux. Audit Instagram et plan de migration des données mis en place.                                                                         |
+
+  | Brief initial | Alimentation & Consommation — Ibadan | Brief initial uniquement. Construction vers un modèle d'abonnement. Constat clé : la compréhension du client doit précéder l'investissement marketing. Stratégie de fondation des données discutée.                                                                              |
+
+  | Brief initial | Mode & Parfumerie — Lagos            | Brief initial uniquement. Environ un an d'activité, tendance des ventes en baisse. Système de données clients et direction marketing établis avant qu'une séance complète puisse avoir lieu.                                                                                     |
+
+  | Aucune séance | Agriculture & Volaille — Maiduguri   | A réservé deux fois, a manqué les deux séances. Plus de cinq ans d'activité avec un défi clair de numérisation administrative. Une candidate solide pour une future édition.                                                                                                     |
+
+  | Aucune séance | Éducation — Accra, Ghana             | N'a jamais réservé. Notre seule candidate internationale. La gestion des dossiers financiers était le défi. La première candidature ghanéenne de l'histoire de Tabi — notée.                                                                                                     |
+
+
+  ## Six choses que nous avons constatées comme étant systématiquement vraies
+
+
+  Ces schémas sont apparus dans des entreprises de différents secteurs, à différents stades, dans différentes villes. Ils sont revenus encore et encore. Nous les documentons parce que nous pensons qu'ils sont globalement vrais — non seulement pour les entreprises que nous avons consultées, mais pour la plupart des entreprises dirigées par des femmes à des stades similaires au Nigéria et en Afrique.
+
+
+  ![tabi-woman-pointing-down](/uploads/ai-business-video-thumb.png "Tabi-women-ai-for-business")
+
+
+  ### 01 — Le problème déclaré est rarement le vrai problème.
+
+
+  Chaque entreprise est arrivée avec un défi identifié — marketing, conversion des ventes, opérations, dossiers financiers. Dans presque tous les cas, le problème racine était autre chose, en dessous. Une marque de mode avec un « problème marketing » avait en réalité une identité de marque non définie. Une entreprise de services B2B qui n'arrivait pas à convertir ses prospects avait un problème de friction dans son modèle de tarification, pas un problème marketing. La chose la plus précieuse qu'une première séance puisse faire est de creuser au-delà du problème apparent pour trouver la véritable contrainte.
+
+
+  ### 02 — La plupart des petites entreprises disposent de plus de données qu'elles ne le pensent — et n'en utilisent aucune.
+
+
+  Chaque entreprise en activité depuis plus d'un an disposait d'un historique de ventes, de contacts clients et de retours — dispersés dans des carnets, des discussions WhatsApp et des relevés bancaires. Rien n'était structuré. C'est la lacune la plus constante que nous ayons trouvée : les petites entreprises prennent des décisions à l'instinct alors qu'elles ont la matière première pour les prendre sur la base de preuves. Construire ne serait-ce qu'une base de données clients élémentaire — noms, dates d'achat, montants dépensés, comment ils vous ont trouvé — est transformationnel à ce stade.
+
+
+  ### 03 — L'identité de marque est presque toujours définie par la fondatrice — pas par le client.
+
+
+  Lorsque nous avons demandé aux propriétaires d'entreprise comment leurs clients percevaient leur marque, la plupart avaient des opinions bien arrêtées mais n'avaient en réalité jamais posé la question. Quand une entreprise de mode l'a fait — en envoyant un simple message WhatsApp à dix clientes fidèles — les réponses étaient frappantes par leur cohérence. Les clientes avaient un sentiment plus clair et plus unifié de la marque que la fondatrice elle-même. « Des femmes canon qui font du neuf à cinq » est un brief marketing. La « mode modeste d'entreprise » ne l'est pas. Construire l'identité de marque à partir de la perception réelle des clients plutôt que des suppositions de la fondatrice produit des résultats bien plus exploitables.
+
+
+  ### 04 — Les victoires immédiates et la stratégie à long terme doivent être menées en parallèle.
+
+
+  Les petites entreprises oscillent souvent entre courir après la prochaine vente et construire pour l'avenir. Ce que nous avons constaté, c'est que les deux doivent coexister. Les entreprises qui sont reparties avec le plus de clarté avaient à la fois une action immédiate pour cette semaine et une structure à plus long terme vers laquelle tendre. La motivation vient du fait de voir quelque chose fonctionner rapidement. L'infrastructure est ce qui permet de continuer à fonctionner. Aucun des deux ne suffit seul — et un consultant qui ne vous donne qu'une stratégie à long terme alors que vous vous inquiétez pour le chiffre d'affaires de ce mois-ci est passé à côté de quelque chose d'important.
+
+
+  ### 05 — La meilleure stratégie de communauté est celle que la fondatrice peut réellement maintenir.
+
+
+  La construction de communauté a été l'une des ambitions les plus fréquemment évoquées par les entreprises avec lesquelles nous avons échangé — et l'une des plus fréquemment bloquées. Le schéma : les fondatrices choisissent des modèles ambitieux (newsletters hebdomadaires, événements réguliers, groupes WhatsApp actifs) puis les abandonnent parce qu'elles dirigent aussi l'entreprise, fabriquent le produit et gèrent les relations clients seules. Le changement que nous recommandons est de passer de « quel est le meilleur modèle de communauté ? » à « quel est le modèle le plus régulier que je peux raisonnablement maintenir maintenant ? » La permanence bat l'échelle à chaque fois à ce stade.
+
+
+  ### 06 — Le taux d'engagement n'est pas la même chose que l'impact.
+
+
+  Sur sept entreprises sélectionnées, deux se sont pleinement engagées. Quatre ont eu au moins un point de contact significatif. Une n'a eu aucun contact du tout. À première vue, cela ressemble à un faible taux de complétion. Une lecture plus juste : même une seule séance avec une fondatrice qui manque de temps, qui dirige seule son entreprise et qui gère tout le reste dans sa vie est précieuse — si cette séance est conçue pour laisser quelque chose de durable. Les ressources, les cadres et les outils structurés survivent à la séance elle-même. C'est le principe de conception sur lequel nous nous appuyons.
+
+
+  ## Selon leurs propres mots
+
+
+  Deux entreprises ont partagé un retour formel. Nous les citons directement et sans embellissement.
+
+
+  > « Les idées et les échéanciers mis en place pour apporter de la croissance à l'entreprise sont des choses que je n'avais pas avant ces rencontres. Je peux maintenant prendre des mesures concrètes pour amener mon entreprise à un tout autre niveau, et je ne pourrais être plus reconnaissante. C'était rafraîchissant. »
+
+  > — Entreprise de mode modeste, Lagos — Cohorte de mars 2026
+
+  >
+
+  > « J'ai reçu une approche différente pour conclure plus de prospects. »
+
+  > — Entreprise de services B2B aux talents, Lagos — Cohorte de mars 2026
+
+
+  ## Une évaluation honnête
+
+
+  Nous avons conçu ce programme pour qu'il soit utile. Sur ce critère, nous pensons qu'il l'a été — pour les entreprises qui se sont engagées. La question que nous nous posons n'est pas de savoir si les séances ont été utiles. Elles l'ont été. La question est : comment concevoir un programme qui capte davantage de valeur pour davantage d'entreprises, en particulier celles qui manquent le plus de temps ?
+
+
+  Ce qui a changé entre mars et la prochaine édition :
+
+
+  * Un brief de pré-séance structuré que les entreprises remplissent avant d'être intégrées
+
+  * Des créneaux de séance attribués plutôt qu'un auto-planning ouvert
+
+  * Un maximum de cinq entreprises par édition pour protéger la qualité
+
+  * Un mécanisme de retour plus simple, à moindre friction
+
+  * Un accompagnement logistique dédié pour les entreprises situées hors des grands centres urbains
+
+
+  ## Ce que nous changeons pour le deuxième trimestre
+
+
+  * Une étape de confirmation post-sélection. Les candidates sélectionnées confirmeront leur participation et prendront connaissance des attentes liées à la séance avant d'être intégrées.
+
+  * Des créneaux de séance attribués. Plutôt que de laisser la réservation entièrement ouverte, nous proposerons à chaque entreprise un créneau spécifique ainsi qu'une option de report. L'auto-planning seul ne suffit pas.
+
+  * Un maximum de cinq entreprises par édition, au lieu de sept, pour protéger la qualité de l'engagement et le temps disponible pour chaque entreprise.
+
+  * Un mécanisme de retour plus simple, à moindre friction. Slido et la réponse par email représentent une barrière trop élevée pour une fondatrice à la fin d'une semaine chargée.
+
+  * Un accompagnement logistique dédié pour les entreprises situées hors des grands centres urbains. La logistique est une véritable barrière — pas une excuse.
+
+
+  ## À quoi sert ce programme
+
+
+  La Consultance Gratuite pour Entreprises de la Tabi Academy existe pour donner aux entreprises dirigées par des femmes un accès à ce type de réflexion stratégique qui est habituellement coûteux, exclusif ou inaccessible — en particulier hors de Lagos, en particulier pour les entreprises en phase de croissance, en particulier pour les fondatrices qui construisent sans équipe.
+
+
+  L'édition de mars 2026 nous a appris que même une seule séance bien conçue peut modifier la façon dont une fondatrice perçoit sa propre entreprise. Elle nous a appris que les données sont partout dans ces entreprises et quasiment nulle part elles ne sont utilisées. Elle nous a appris que les femmes qui candidatent à ce programme sont sérieuses, motivées et méritent mieux que de bonnes intentions.
+
+
+  Nous emportons chaque leçon de cette édition vers la prochaine. L'édition du deuxième trimestre de la Consultance Gratuite pour Entreprises ouvre bientôt.
+
+
+
+
+  **Rejoignez la communauté Tabi pour être la première informée de l'ouverture des candidatures du deuxième trimestre.**
+
+
+  Communauté WhatsApp : https://chat.whatsapp.com/CdOuCwdpNez6FgmckwojNo
+
+
+  Site web : https://tabiproject.com/consultancy
 ---
 ## Introduction
 

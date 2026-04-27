@@ -85,28 +85,55 @@ export type CMSPost = {
   body?: string;
 };
 
-export function getAllPosts(): CMSPost[] {
+export function getAllPosts(locale: string = "en"): CMSPost[] {
   try {
     return getFiles("posts")
-      .map((f) => readMarkdown<CMSPost>("posts", f))
+      .map((f) => {
+        const raw = path.join(CONTENT_DIR, "posts", f);
+        const content = fs.readFileSync(raw, "utf-8");
+        const { data, content: bodyContent } = matter(content);
+
+        const title =
+          locale === "fr" && data.title_fr ? data.title_fr : data.title;
+        const excerpt =
+          locale === "fr" && data.excerpt_fr ? data.excerpt_fr : data.excerpt;
+        const body =
+          locale === "fr" && data.body_fr ? data.body_fr : bodyContent.trim();
+
+        return {
+          slug: slugify(f.replace(/\.md$/, "")),
+          title,
+          excerpt,
+          body,
+          category: data.category,
+          date: data.date,
+          author: data.author,
+          authorAvatar: data.authorAvatar,
+          readTime: data.readTime,
+          image: data.image,
+          featured: data.featured ?? false
+        } as CMSPost;
+      })
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   } catch {
     return [];
   }
 }
 
-export function getBlogPosts(): CMSPost[] {
-  return getAllPosts().filter((p) => p.category === "blog");
+export function getBlogPosts(locale: string = "en"): CMSPost[] {
+  return getAllPosts(locale).filter((p) => p.category === "blog");
 }
 
-export function getNewsPosts(): CMSPost[] {
-  return getAllPosts().filter((p) => p.category === "news");
+export function getNewsPosts(locale: string = "en"): CMSPost[] {
+  return getAllPosts(locale).filter((p) => p.category === "news");
 }
 
-export function getPostBySlug(slug: string): CMSPost | undefined {
-  // Slugify the search term to ensure matches against cleaned slugs
-  const targetSlug = slugify(slug);
-  return getAllPosts().find((p) => p.slug === targetSlug);
+export function getPostBySlug(
+  slug: string,
+  locale: string = "en"
+): CMSPost | undefined {
+  const target = slugify(slug);
+  return getAllPosts(locale).find((p) => p.slug === target);
 }
 
 // ─── Events ───────────────────────────────────────────────────────────────────
@@ -131,23 +158,59 @@ export type CMSEvent = {
   description?: string;
 };
 
-export function getAllEvents(): CMSEvent[] {
+export function getAllEvents(locale: string = "en"): CMSEvent[] {
   try {
     return getFiles("events")
-      .map((f) => readMarkdown<CMSEvent>("events", f))
+      .map((f) => {
+        const raw = path.join(CONTENT_DIR, "events", f);
+        const content = fs.readFileSync(raw, "utf-8");
+        const { data } = matter(content);
+
+        const title =
+          locale === "fr" && data.title_fr ? data.title_fr : data.title;
+        const location =
+          locale === "fr" && data.location_fr
+            ? data.location_fr
+            : data.location;
+        const description =
+          locale === "fr" && data.description_fr
+            ? data.description_fr
+            : data.description;
+
+        return {
+          slug: slugify(f.replace(/\.md$/, "")),
+          title,
+          location,
+          description,
+          category: data.category,
+          mode: data.mode,
+          address: data.address,
+          date: data.date,
+          month: data.month,
+          day: data.day,
+          time: data.time,
+          timezone: data.timezone,
+          image: data.image,
+          eventUrl: data.eventUrl,
+          ctaLabel: data.ctaLabel,
+          featured: data.featured ?? false,
+          tags: data.tags
+        } as CMSEvent;
+      })
       .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
   } catch {
     return [];
   }
 }
 
-export function getFeaturedEvents(): CMSEvent[] {
-  return getAllEvents().filter((e) => e.featured);
+export function getFeaturedEvents(locale: string = "en"): CMSEvent[] {
+  return getAllEvents(locale).filter((e) => e.featured);
 }
 
-export function getNonFeaturedEvents(): CMSEvent[] {
-  return getAllEvents().filter((e) => !e.featured);
+export function getNonFeaturedEvents(locale: string = "en"): CMSEvent[] {
+  return getAllEvents(locale).filter((e) => !e.featured);
 }
+
 
 // ─── Team ─────────────────────────────────────────────────────────────────────
 
@@ -358,19 +421,49 @@ export type CMSCaseStudy = {
   body: string;
 };
 
-export function getAllCaseStudies(): CMSCaseStudy[] {
+export function getAllCaseStudies(locale: string = "en"): CMSCaseStudy[] {
   try {
     return getFiles("case-studies")
-      .map((f) => readMarkdown<CMSCaseStudy>("case-studies", f))
+      .map((f) => {
+        const raw = path.join(CONTENT_DIR, "case-studies", f);
+        const content = fs.readFileSync(raw, "utf-8");
+        const { data, content: bodyContent } = matter(content);
+
+        // Resolve translated fields
+        const title =
+          locale === "fr" && data.title_fr ? data.title_fr : data.title;
+        const excerpt =
+          locale === "fr" && data.excerpt_fr ? data.excerpt_fr : data.excerpt;
+        const body =
+          locale === "fr" && data.body_fr ? data.body_fr : bodyContent.trim();
+
+        return {
+          slug: slugify(f.replace(/\.md$/, "")),
+          title,
+          excerpt,
+          body,
+          author: data.author,
+          authorRole: data.authorRole,
+          date: data.date,
+          programme: data.programme,
+          coverImage: data.coverImage,
+          featured: data.featured ?? false,
+          stats: data.stats,
+          tags: data.tags
+        } as CMSCaseStudy;
+      })
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
   } catch {
     return [];
   }
 }
 
-export function getCaseStudyBySlug(slug: string): CMSCaseStudy | undefined {
+export function getCaseStudyBySlug(
+  slug: string,
+  locale: string = "en"
+): CMSCaseStudy | undefined {
   const target = slugify(slug);
-  return getAllCaseStudies().find((c) => c.slug === target);
+  return getAllCaseStudies(locale).find((c) => c.slug === target);
 }
 
 // ─── Settings ─────────────────────────────────────────────────────────────────

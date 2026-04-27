@@ -59,10 +59,10 @@ export default function GetInvolved() {
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-[41.5fr_58.5fr] gap-5">
-            <motion.div variants={itemVariants}>
+            <motion.div variants={itemVariants} className="h-full">
               <DonateCard onDonateClick={() => setDonateOpen(true)} />
             </motion.div>
-            <motion.div variants={itemVariants}>
+            <motion.div variants={itemVariants} className="h-full">
               <CommunityCard onSuccess={() => setWelcomeOpen(true)} />
             </motion.div>
           </div>

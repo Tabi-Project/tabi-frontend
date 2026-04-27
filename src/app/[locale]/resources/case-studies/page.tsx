@@ -1,16 +1,37 @@
 import Link from "next/link";
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { getAllCaseStudies } from "@/lib/cms";
 
-export const metadata: Metadata = {
-  title: "Case Studies | TEE Foundation",
-  description:
-    "Research, reports and case studies from TEE Foundation's programmes — transparent accounts of what happened, what we learned, and what we are building next."
-};
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({
+    locale,
+    namespace: "Resources.caseStudies.metadata"
+  });
 
-export default function CaseStudiesPage() {
-  const caseStudies = getAllCaseStudies();
+  return {
+    title: t("title"),
+    description: t("description")
+  };
+}
+
+export default async function CaseStudiesPage({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({
+    locale,
+    namespace: "Resources.caseStudies"
+  });
+const caseStudies = getAllCaseStudies(locale);
 
   return (
     <main
@@ -21,17 +42,19 @@ export default function CaseStudiesPage() {
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-[#878787] mb-8">
           <Link href="/" className="hover:text-brand-primary transition-colors">
-            Home
+            {t("breadcrumb.home")}
           </Link>
           <span className="text-[#ccc] text-[10px] font-bold">&gt;&gt;</span>
           <Link
             href="/resources"
             className="hover:text-brand-primary transition-colors"
           >
-            Resources
+            {t("breadcrumb.resources")}
           </Link>
           <span className="text-[#ccc] text-[10px] font-bold">&gt;&gt;</span>
-          <span className="text-brand-primary font-medium">Case Studies</span>
+          <span className="text-brand-primary font-medium">
+            {t("breadcrumb.label")}
+          </span>
         </nav>
 
         {/* Header */}
@@ -40,14 +63,13 @@ export default function CaseStudiesPage() {
             className="inline-flex items-center rounded-full px-5 py-2 text-sm font-semibold text-brand-primary mb-5"
             style={{ background: "#F3E8FF" }}
           >
-            Research & Reports
+            {t("badge")}
           </span>
           <h1 className="text-[clamp(2rem,4vw,3.2rem)] font-extrabold text-[#1a1a2e] tracking-tight leading-[1.1] mb-4">
-            Case Studies
+            {t("title")}
           </h1>
           <p className="text-base text-[#555] leading-relaxed">
-            Transparent accounts of our programmes — what happened, what we
-            learned, and what we are building next. No spin. Just the truth.
+            {t("description")}
           </p>
         </header>
 
@@ -72,11 +94,9 @@ export default function CaseStudiesPage() {
               </svg>
             </div>
             <p className="text-sm font-semibold text-[#1a1a2e] mb-1">
-              No case studies yet
+              {t("emptyTitle")}
             </p>
-            <p className="text-xs text-[#888]">
-              Check back soon — research is being documented.
-            </p>
+            <p className="text-xs text-[#888]">{t("emptyMessage")}</p>
           </div>
         ) : (
           <div className="flex flex-col divide-y divide-[#F0E8F5]">
