@@ -1,13 +1,20 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import {
+  Megaphone,
+  Banknote,
+  Laptop,
+  Lightbulb,
+  Handshake
+} from "lucide-react";
 
-const ICONS: Record<number, string> = {
-  1: "📣",
-  2: "💰",
-  3: "💻",
-  4: "♟️",
-  5: "🤝"
+const ICON_MAP: Record<number, React.ReactNode> = {
+  1: <Megaphone size={24} strokeWidth={1.5} />,
+  2: <Banknote size={24} strokeWidth={1.5} />,
+  3: <Laptop size={24} strokeWidth={1.5} />,
+  4: <Lightbulb size={24} strokeWidth={1.5} />,
+  5: <Handshake size={24} strokeWidth={1.5} />
 };
 
 export default function WhatYouGet() {
@@ -60,7 +67,9 @@ export default function WhatYouGet() {
                 </span>
               </div>
               {/* Icon */}
-              <span className="text-2xl mb-3">{ICONS[area.id] ?? "✦"}</span>
+              <div className="text-brand-primary mb-3">
+                {ICON_MAP[area.id] ?? <Megaphone size={24} strokeWidth={1.5} />}
+              </div>
               <h3 className="text-base font-extrabold text-[#1a1a2e] mb-2">
                 {area.title}
               </h3>
