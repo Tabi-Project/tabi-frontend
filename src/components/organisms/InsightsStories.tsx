@@ -1,12 +1,18 @@
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/atoms/Button";
 import { getAllPosts } from "@/lib/cms";
 
-export default function InsightsStories() {
-  const t = useTranslations("InsightsStories");
-  const posts = getAllPosts();
+interface InsightsStoriesProps {
+  locale: string;
+}
+
+export default async function InsightsStories({
+  locale
+}: InsightsStoriesProps) {
+  const t = await getTranslations("InsightsStories");
+  const posts = getAllPosts(locale); // ← locale‑aware
   const featured = posts.find((p) => p.featured) ?? posts[0];
   const secondary = posts.filter((p) => p.slug !== featured?.slug).slice(0, 2);
 
@@ -23,6 +29,7 @@ export default function InsightsStories() {
             </p>
           </div>
           <div className="flex flex-col items-center justify-center py-16 rounded-2xl border border-dashed border-[#E5E7EB] text-center">
+            {/* empty state unchanged */}
             <div className="w-14 h-14 rounded-full bg-[#F3E8FF] flex items-center justify-center mb-4">
               <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
                 <path
@@ -71,7 +78,7 @@ export default function InsightsStories() {
         <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-5 mb-10">
           {/* Featured post */}
           <Link
-            href={`/resources/blog/${featured.slug}`}
+            href={`/${locale}/resources/blog/${featured.slug}`}
             className="group flex flex-col bg-[#F5F5F5] rounded-3xl border border-[#ede8f5] overflow-hidden hover:-translate-y-1 transition-all duration-300"
           >
             <div className="relative w-full aspect-video overflow-hidden bg-[#F3E8FF]">
@@ -129,7 +136,7 @@ export default function InsightsStories() {
             {secondary.map((post) => (
               <Link
                 key={post.slug}
-                href={`/resources/blog/${post.slug}`}
+                href={`/${locale}/resources/blog/${post.slug}`}
                 className="group flex flex-row bg-[#F5F5F5] rounded-3xl border border-[#ede8f5] overflow-hidden hover:-translate-y-1 transition-all duration-300"
               >
                 <div className="relative w-45 shrink-0 overflow-hidden bg-[#F3E8FF]">
@@ -191,7 +198,7 @@ export default function InsightsStories() {
         </div>
 
         <div className="flex justify-center">
-          <Link href="/resources?tab=blog">
+          <Link href={`/${locale}/resources?tab=blog`}>
             <Button variant="outline" size="md">
               {t("loadMore")}
             </Button>
