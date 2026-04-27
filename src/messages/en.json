@@ -202,7 +202,23 @@
       "description": "Connect with like-minded women, access exclusive events, and be part of a supportive network.",
       "button": "Join Community",
       "placeholder": "Your name",
-      "emailPlaceholder": "Your email"
+      "emailPlaceholder": "Your email",
+      "form": {
+        "nameLabel": "Name",
+        "namePlaceholder": "Enter your full name",
+        "emailLabel": "Email Address",
+        "emailPlaceholder": "abcd@gmail.com",
+        "joinButton": "Join Now",
+        "joining": "Joining...",
+        "validation": {
+          "nameRequired": "Please enter your full name",
+          "emailRequired": "Please enter your email",
+          "emailInvalid": "Please enter a valid email address",
+          "interestRequired": "Please select at least one area of interest",
+          "othersRequired": "Please describe your area of interest"
+        },
+        "alreadyMember": "You're already in the community."
+      }
     },
     "welcomeModal": {
       "titleWithName": "You're in, {name}! 🌟",
@@ -256,13 +272,13 @@
     }
   },
   "FeaturedProjects": {
-      "heading": "Our Flagship Projects",
-      "description": "Each project at Tabi Empowerment and Educational (TEE) Foundation is crafted to empower community and foster innovation. Discover how we're creating lasting change and brighter futures.",
-      "emptyTitle": "Something beautiful is growing",
-      "emptyMessage": "Our flagship projects will appear here soon. Check back shortly.",
-      "viewAll": "View All Projects",
-      "showLess": "Show Less"
-    },
+    "heading": "Our Flagship Projects",
+    "description": "Each project at Tabi Empowerment and Educational (TEE) Foundation is crafted to empower community and foster innovation. Discover how we're creating lasting change and brighter futures.",
+    "emptyTitle": "Something beautiful is growing",
+    "emptyMessage": "Our flagship projects will appear here soon. Check back shortly.",
+    "viewAll": "View All Projects",
+    "showLess": "Show Less"
+  },
   "ConsultancyTeaser": {
     "badge": "✦ 100% Free",
     "deadlinePrefix": "Closes",
@@ -280,7 +296,7 @@
     "terms": "T&Cs Apply",
     "freeText": "FREE"
   },
-    "InsightsStories": {
+  "InsightsStories": {
     "heading": "Insights & Stories",
     "description": "Ready to embark on your tech journey? Explore our resources and start building your future today.",
     "emptyTitle": "No posts yet",
@@ -1148,6 +1164,402 @@
       "description": "Access to our private WhatsApp community, exclusive partnership events, and direct mentorship from senior engineers isn't open forever. Claim your seat among the leaders.",
       "joinButton": "Join Tabi",
       "nextCohort": "Next cohort onboarding starts in 4 days"
+    }
+  },
+  "Consultancy": {
+    "metadata": {
+      "title": "Free Business Consultancy | Tabi Academy",
+      "description": "Scale your brand with free 1-on-1 business consultancy from Tabi Academy. Expert tech and marketing support for women-led businesses in Africa. Apply now!",
+      "ogTitle": "1-on-1 Free Business Consultancy | Tabi Academy",
+      "ogDescription": "Get expert help with Marketing, Finance, and Strategy. We offer 5 free monthly slots for African female founders. Book yours today!"
+    },
+    "ConsultancyHero": {
+      "urgentBar": "✨ Next application window opens June 2026 — only {totalSlots} spots available. Register your interest now!",
+      "freeBadge": "✦ 100% Free",
+      "freeSubtext": "No cost. No catch.",
+      "headline1": "Free Business",
+      "headline2": "Consultancy to",
+      "headlineHighlight": "5 Women-Led",
+      "headline3": "Businesses.",
+      "description": "Every month, TEE Foundation selects 5 women-led businesses for a free one-on-one expert consultancy session. We'll help you solve real challenges across Marketing, Finance, Tech, Strategy and Sales.",
+      "areas": ["Marketing", "Finance", "Tech", "Strategy", "Sales"],
+      "stats": [
+        { "value": "5", "label": "Free slots monthly" },
+        { "value": "1:1", "label": "Expert session" },
+        { "value": "0₦", "label": "Cost to you" }
+      ],
+      "cta": "Apply for a Free Session →",
+      "terms": "T&Cs apply · {remaining} of {total} slots remaining",
+      "imageAlt": "Women-led business consultancy",
+      "deadlineLabel": "Upcoming Application",
+      "openSlotsLabel": "Open slots",
+      "areasCoveredLabel": "Areas covered",
+      "applicationDeadline": "June 2026"
+    },
+
+    "WhatYouGet": {
+      "badge": "We Will Help Solve Challenges In",
+      "heading": "One session. Real solutions.",
+      "description": "Tell us your biggest challenge — we'll match you with the right expert for your session.",
+      "areas": [
+        {
+          "id": 1,
+          "title": "Marketing",
+          "description": "Build a brand that gets noticed. We'll help you craft a strategy that attracts the right customers and keeps them coming back."
+        },
+        {
+          "id": 2,
+          "title": "Finance",
+          "description": "Get your numbers working for you. From pricing to profit margins — we'll help you build financial habits that sustain growth."
+        },
+        {
+          "id": 3,
+          "title": "Tech",
+          "description": "Leverage the right tools and platforms to run your business more efficiently and confidently in the digital age."
+        },
+        {
+          "id": 4,
+          "title": "Strategy",
+          "description": "Gain clarity on where you're going and how to get there. We'll help you build a focused roadmap for sustainable growth."
+        },
+        {
+          "id": 5,
+          "title": "Sales",
+          "description": "Turn conversations into conversions. We'll help you develop a sales approach that feels natural and delivers real results."
+        }
+      ],
+      "bottomNote": "Not sure which area?",
+      "bottomHighlight": "Just describe your challenge in the application form — we'll figure out the best fit for you.",
+      "applyLink": "Apply now →"
+    },
+    "WhoItsFor": {
+      "badge": "Who It's For",
+      "headingPart1": "Built for",
+      "headingHighlight": "women who mean business",
+      "description": "Whether you're just starting out or already running a business that needs a breakthrough — this consultancy is designed for you.",
+      "cta": "Apply for Your Slot",
+      "list": [
+        "Women-led businesses at any stage",
+        "Small and medium enterprises (SMEs) looking to grow",
+        "Entrepreneurs navigating their first year in business",
+        "Business owners looking to integrate technology into their operations",
+        "Founders who need strategic clarity and direction"
+      ]
+    },
+    "HowItWorks": {
+      "badge": "How It Works",
+      "heading": "Three steps to your session",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Apply",
+          "description": "Fill out the short application form. Tell us about your business and the challenge you need support with."
+        },
+        {
+          "number": "02",
+          "title": "Get Selected",
+          "description": "Our team reviews all applications and selects 5 women-led businesses that will benefit most from a session."
+        },
+        {
+          "number": "03",
+          "title": "Business Solution Session",
+          "description": "Selected applicants get a dedicated one-on-one session with an expert consultant tailored to their specific needs."
+        }
+      ]
+    },
+    "ApplySection": {
+      "badge": "Apply Now",
+      "heading": "Ready to grow your business?",
+      "description": "Fill out the form to apply for one of our 5 free consultancy slots this month. Applications are reviewed and selections made before the deadline.",
+      "deadlineLabel": "Application Deadline",
+      "slotsLabel": "{remaining} of {total} slots remaining",
+      "questionsTitle": "Have any questions?",
+      "questionsText": "Send us a DM and we'll get back to you.",
+      "terms": "T&Cs Apply"
+    },
+    "FAQSection": {
+      "badge": "FAQs",
+      "heading": "Common questions",
+      "description": "Still unsure? Here are answers to the questions we get most often. If you don't see yours — send us a DM.",
+      "cta": "Apply for a Free Session",
+      "footer": "T&Cs Apply · Free Business Consultancy Programme by TEE Foundation",
+      "items": [
+        {
+          "question": "Is this really free?",
+          "answer": "Yes — completely free. TEE Foundation offers 5 slots each month at no cost as part of our commitment to supporting women-led businesses in Africa."
+        },
+        {
+          "question": "How long is each consultancy session?",
+          "answer": "Each session is 60 minutes, conducted virtually via Google Meet or Zoom at a time that works for you."
+        },
+        {
+          "question": "How are the 5 slots allocated?",
+          "answer": "Slots are allocated on a first-come, first-served basis each month. Applications close on the stated deadline and selections are made shortly after."
+        },
+        {
+          "question": "Can I apply more than once?",
+          "answer": "You may apply once per month. If you are not selected, your application will be considered in the next available cycle."
+        },
+        {
+          "question": "What happens after the session?",
+          "answer": "You'll receive a brief follow-up summary from your consultant with key takeaways and recommended next steps to keep your momentum going."
+        },
+        {
+          "question": "Do T&Cs apply?",
+          "answer": "Yes. By applying you agree to Tabi's terms and conditions for the free consultancy programme. Please reach out via DM if you have any questions before applying."
+        }
+      ]
+    }
+  },
+  "About": {
+    "metadata": {
+      "title": "About Our Mission",
+      "description": "Discover Tabi Academy's mission to empower African women through tech education. Learn how Tabi Empowerment & Educational Foundation (TEE) is bridging the digital divide.",
+      "ogTitle": "About Tabi Academy | Empowering African Women in Tech",
+      "ogDescription": "Meet the team behind Tabi Academy. We provide technology and innovation training to transform the lives of women across Africa."
+    },
+    "hero": {
+      "heading": "Who Are We?",
+      "description": "We are a non-profit organization that offers tech education, research and development and Open-source projects. It aims to train 5000 African women to be well equipped in the tech industry to bridge the gap in the ecosystem."
+    },
+    "philosophy": {
+      "heading": "Our Philosophy",
+      "mission": {
+        "label": "Mission",
+        "heading": "Championing Tech Empowerment",
+        "body": "At the Tabi Empowerment and Educational Foundation (TEEF), we are dedicated to bridging the gender gap in technology through exceptional tech education, pioneering research and development, and the promotion of open-source projects. Our mission is to empower African women with the skills and opportunities needed to thrive in the tech industry, fostering an inclusive and innovative ecosystem. Through our unwavering commitment, we aim to uplift individuals, transform communities, and inspire a future where women lead and excel in technology and innovation."
+      },
+      "vision": {
+        "label": "Vision",
+        "heading": "Our Vision for Tomorrow",
+        "body": "At the Tabi Empowerment and Educational Foundation (TEEF), our vision is to create a world where African women are at the forefront of technological innovation, leading advancements and making significant contributions to the global tech landscape. We aspire to cultivate an environment where education and opportunity are accessible to all, fostering a diverse and inclusive tech community. By empowering individuals with the tools and knowledge to excel, we aim to drive sustainable development, inspire change, and shape a future where the potential of every woman is fully realized and celebrated."
+      }
+    },
+    "TheTeam": {
+      "badge": "The Team"
+    }
+  },
+  "OpenSource": {
+    "metadata": {
+      "title": "Case Studies | Engineering Impact at Tabi Academy",
+      "description": "Explore open-source solutions engineered by Tabi Academy and Rise Academy. From maternal health to SME growth, see how we're building for the community.",
+      "ogTitle": "Case Studies | Tabi Academy",
+      "ogDescription": "Engineering scalable solutions to bridge the gap for women in Africa."
+    },
+    "hero": {
+      "badge": "Engineering Impact · 2026",
+      "headlinePart1": "Building for",
+      "headlineHighlight": "Women.",
+      "partnerText": "Rise Academy",
+      "collabText": "A collaborative IWD sprint with Rise Academy by Risevest X Tabi Academy, engineering scalable solutions to bridge the gap for women in Africa.",
+      "scrollLabel": "Scroll"
+    },
+    "list": {
+      "docLink": "Documentation",
+      "projectLabel": "Project {number}",
+      "items": [
+        {
+          "id": "bloom-after",
+          "title": "Bloom After",
+          "tagline": "Postpartum Depression Support & Care",
+          "description": "A compassionate digital companion for mothers navigating PPD. Bloom After delivers clinically grounded information, a directory of verified specialists, and a location‑aware clinic finder to ensure no woman suffers in silence.",
+          "impact": "Designed for new mothers and caregivers in Sub‑Saharan Africa to reduce maternal isolation and bridge the gap in mental health access.",
+          "image": "/projects/bloom-mockup.png",
+          "themeColor": "#00695C",
+          "features": [
+            "Specialist Directory",
+            "Clinic Finder",
+            "Self‑Assessment",
+            "Resource Library"
+          ],
+          "stats": [
+            { "label": "Solution", "value": "Mental Health Bridge" },
+            { "label": "Status", "value": "MVP Live" }
+          ],
+          "buttonText": "Use Bloom",
+          "contributors": [
+            {
+              "github": "Chijex5",
+              "avatar": "https://avatars.githubusercontent.com/u/138696001?v=4"
+            },
+            {
+              "github": "devanike",
+              "avatar": "https://avatars.githubusercontent.com/u/156053615?v=4"
+            },
+            {
+              "github": "Prisca-01",
+              "avatar": "https://avatars.githubusercontent.com/u/110746159?v=4"
+            },
+            {
+              "github": "De-jola",
+              "avatar": "https://avatars.githubusercontent.com/u/104757999?v=4"
+            },
+            {
+              "github": "Shaelle11",
+              "avatar": "https://avatars.githubusercontent.com/u/138696001?v=4"
+            },
+            {
+              "github": "genevieveagugua",
+              "avatar": "https://avatars.githubusercontent.com/u/255832042?v=4"
+            },
+            {
+              "github": "nyakiochristine",
+              "avatar": "https://avatars.githubusercontent.com/u/98151711?s=64&v=4"
+            },
+            {
+              "github": "theonlySophia",
+              "avatar": "https://avatars.githubusercontent.com/u/100859618?s=64&v=4"
+            },
+            {
+              "github": "lowlifehighway",
+              "avatar": "https://avatars.githubusercontent.com/u/139157739?v=4"
+            }
+          ],
+          "links": {
+            "live": "https://the-bloom-after.netlify.app/",
+            "github": "https://github.com/Tabi-Project/Bloom-After/blob/main/CONTRIBUTING.md"
+          }
+        },
+        {
+          "id": "luminary",
+          "title": "Luminary",
+          "tagline": "Celebrating Women Making Global Impact",
+          "description": "A living directory and news platform dedicated to correcting the underrepresentation of women in media. Luminary makes the work of women in business, science, and activism visible, verifiable, and celebrated.",
+          "impact": "Built for journalists and organizers to discover role models, ensuring female leadership is documented and globally accessible.",
+          "image": "/projects/luminary-mockup-2.png",
+          "themeColor": "#c2185b",
+          "features": [
+            "Impact Tracking",
+            "Verified Biographies",
+            "News Aggregator",
+            "Mentorship Portal"
+          ],
+          "stats": [
+            { "label": "Solution", "value": "Visibility Engine" },
+            { "label": "Status", "value": "MVP Live" }
+          ],
+          "buttonText": "Use Luminary",
+          "contributors": [
+            {
+              "github": "Yourgotopyromaniac",
+              "avatar": "https://avatars.githubusercontent.com/u/64610890?v=4"
+            },
+            {
+              "github": "chisomdaniel",
+              "avatar": "https://avatars.githubusercontent.com/u/59361666?s=64&v=4"
+            },
+            {
+              "github": "Blisyphus",
+              "avatar": "https://avatars.githubusercontent.com/u/111808790?v=4"
+            },
+            {
+              "github": "Rukkyoo",
+              "avatar": "https://avatars.githubusercontent.com/u/105046150?v=4"
+            },
+            {
+              "github": "Vaden89",
+              "avatar": "https://avatars.githubusercontent.com/u/99439561?v=4"
+            },
+            {
+              "github": "MrNaturi",
+              "avatar": "https://avatars.githubusercontent.com/u/115954743?s=64&v=4"
+            }
+          ],
+          "links": {
+            "live": "https://luminary-for-women.netlify.app/",
+            "github": "https://github.com/Tabi-Project/Luminary/blob/main/CONTRIBUTING.md"
+          }
+        },
+        {
+          "id": "ekehi",
+          "title": "Ekehi",
+          "tagline": "SME & Business Resource Centre",
+          "description": "A business intelligence hub for women entrepreneurs. Ekehi aggregates active funding opportunities, credit facilities, and practical training resources in one searchable place.",
+          "impact": "Directly tackling the 'triple penalty' by providing African women‑led SMEs with the capital and networks they need to scale.",
+          "image": "/projects/ekehi-mockup.png",
+          "themeColor": "#5b2d8e",
+          "features": [
+            "Grant Database",
+            "Credit Matchmaking",
+            "Business Training",
+            "Scaling Tools"
+          ],
+          "stats": [
+            { "label": "Solution", "value": "Capital Access Hub" },
+            { "label": "Status", "value": "MVP Live" }
+          ],
+          "buttonText": "Use Ekehi",
+          "contributors": [
+            {
+              "github": "AJ1732",
+              "avatar": "https://avatars.githubusercontent.com/u/103790734?v=4"
+            },
+            {
+              "github": "MarionBraide",
+              "avatar": "https://avatars.githubusercontent.com/u/82952143?v=4"
+            },
+            {
+              "github": "first-afk",
+              "avatar": "https://avatars.githubusercontent.com/u/111287233?v=4"
+            },
+            {
+              "github": "Florence-code-hub",
+              "avatar": "https://avatars.githubusercontent.com/u/254754962?v=4"
+            },
+            {
+              "github": "luchiiii",
+              "avatar": "https://avatars.githubusercontent.com/u/83238269?v=4"
+            },
+            {
+              "github": "Pheonixai",
+              "avatar": "https://avatars.githubusercontent.com/u/172508892?s=64&v=4"
+            },
+            {
+              "github": "Okoukoni-Victor",
+              "avatar": "https://avatars.githubusercontent.com/u/128758738?v=4"
+            }
+          ],
+          "links": {
+            "live": "https://ekehi.netlify.app/",
+            "github": "https://github.com/Tabi-Project/Ekehi/blob/main/CONTRIBUTING.md"
+          }
+        }
+      ]
+    },
+    "impact": {
+      "badge": "Strategic Collaboration",
+      "collaborator": "Rise Academy by Risevest × Tabi Academy",
+      "headingPart1": "Engineering for",
+      "headingHighlight": "Sustainable Change.",
+      "description": "By combining Risevest's commitment to financial growth with Tabi Academy's engineering excellence, we are building production‑grade tools that solve real‑world barriers for African women.",
+      "stats": [
+        {
+          "label": "Total Women Reached",
+          "value": "2,500+",
+          "description": "Across all platforms"
+        },
+        {
+          "label": "Open Source Stars",
+          "value": "120+",
+          "description": "Community recognition"
+        },
+        {
+          "label": "Active Contributors",
+          "value": "15+",
+          "description": "Rise Academy engineers"
+        },
+        {
+          "label": "Success Stories",
+          "value": "45",
+          "description": "Documented career/health shifts"
+        }
+      ]
+    },
+    "cta": {
+      "headingPart1": "Ready to",
+      "headingHighlight": "Contribute?",
+      "description": "These are open-source projects primarily being built and maintained by Rise Academy Cohort 2. If you find this project interesting and you have good engineering skills, you're welcome to contribute to the project.",
+      "button": "View the Projects on GitHub"
     }
   }
 }

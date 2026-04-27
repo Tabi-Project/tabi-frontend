@@ -1,6 +1,15 @@
-import { PROCESS_STEPS } from "@/constants/consultancy";
+"use client";
+
+import { useTranslations } from "next-intl";
 
 export default function HowItWorks() {
+  const t = useTranslations("Consultancy.HowItWorks");
+  const steps = t.raw("steps") as Array<{
+    number: string;
+    title: string;
+    description: string;
+  }>;
+
   return (
     <section className="w-full" style={{ background: "#1a1a2e" }}>
       <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
@@ -10,10 +19,10 @@ export default function HowItWorks() {
             className="inline-flex items-center rounded-full px-5 py-2 text-sm font-semibold mb-5"
             style={{ background: "rgba(113,40,111,0.3)", color: "#D4A8F0" }}
           >
-            How It Works
+            {t("badge")}
           </span>
           <h2 className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-extrabold text-white leading-snug">
-            Three steps to your session
+            {t("heading")}
           </h2>
         </div>
 
@@ -25,7 +34,7 @@ export default function HowItWorks() {
             style={{ background: "rgba(113,40,111,0.4)" }}
           />
 
-          {PROCESS_STEPS.map((step, i) => (
+          {steps.map((step, i) => (
             <div
               key={step.number}
               className="flex flex-col items-center text-center relative"

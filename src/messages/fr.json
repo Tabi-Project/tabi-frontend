@@ -1,312 +1,327 @@
 {
   "Navigation": {
     "projects": "Projets",
-    "tabiWomenNetwork": "Réseau des femmes Tabi",
-    "openSource": "Source ouverte",
+    "tabiWomenNetwork": "Tabi Women Network",
+    "openSource": "Open Source",
     "aiForBusiness": "IA pour les entreprises",
-    "aiForBusinesses": "L'IA pour les entreprises",
+    "aiForBusinesses": "IA pour les entreprises",
     "resources": "Ressources",
-    "news": "Nouvelles",
+    "news": "Actualités",
     "blog": "Articles de blog",
-    "events": "Événements et webinaires",
+    "events": "Événements & webinaires",
     "caseStudies": "Études de cas",
     "community": "Communauté",
     "consultancy": "Conseil",
-    "aboutUs": "À propos de nous",
-    "donateNow": "Faites un don maintenant"
+    "aboutUs": "À propos",
+    "donateNow": "Faire un don"
   },
   "Footer": {
-    "brandLine1": "Autonomisation des Tabi et",
-    "brandLine2": "Pédagogique",
-    "brandLine3": "Fondation",
+    "brandLine1": "Tabi Empowerment and",
+    "brandLine2": "Educational",
+    "brandLine3": "Foundation",
     "emailPlaceholder": "Entrez votre email",
-    "subscribeButton": "S'abonner",
-    "subscribing": "S'abonner...",
+    "subscribeButton": "S’abonner",
+    "subscribing": "Abonnement…",
     "validation": {
-      "emailRequired": "Veuillez entrer votre adresse e-mail",
-      "emailInvalid": "S'il vous plaît, mettez une adresse email valide"
+      "emailRequired": "Veuillez entrer votre adresse email",
+      "emailInvalid": "Veuillez entrer une adresse email valide"
     },
     "feedback": {
-      "success": "Vous êtes abonné ! 🎉",
-      "duplicate": "Vous êtes déjà abonné.",
-      "error": "Quelque chose s'est mal passé. Essayer à nouveau."
+      "success": "Vous êtes abonnée ! 🎉",
+      "duplicate": "Vous êtes déjà abonnée.",
+      "error": "Une erreur est survenue. Veuillez réessayer."
     },
     "columns": {
       "foundation": "Fondation",
       "projects": "Projets",
-      "legal": "Juridique et conformité"
+      "legal": "Légal & Conformité"
     },
-    "copyright": "©{year} TEE Foundation Inc. Tous droits réservés. Diverses marques détenues par leurs propriétaires respectifs.",
+    "copyright": "©{year} TEE Foundation Inc. Tous droits réservés. Diverses marques déposées par leurs propriétaires respectifs.",
     "social": {
       "linkedin": "LinkedIn",
       "x": "X (Twitter)",
       "facebook": "Facebook",
       "instagram": "Instagram",
-      "tiktok": "Tik Tok"
+      "tiktok": "TikTok"
     },
     "links": {
-      "about": "À propos de nous",
+      "about": "À propos",
       "community": "Communauté",
-      "news": "Nouvelles",
+      "news": "Actualités",
       "showcase": "Vitrine",
       "careers": "Carrières",
-      "tabiWomenNetwork": "Réseau des femmes Tabi",
-      "openSource": "Source ouverte",
-      "aiForBusiness": "L'IA pour les entreprises",
-      "tabiAcademy": "Académie Tabi",
-      "tabiProject": "Projet Tabi",
-      "purpleGuild": "Guilde violette",
-      "privacyPolicy": "politique de confidentialité",
-      "termsOfService": "Conditions d'utilisation"
+      "tabiWomenNetwork": "Tabi Women Network",
+      "openSource": "Open Source",
+      "aiForBusiness": "IA pour les entreprises",
+      "tabiAcademy": "Tabi Academy",
+      "tabiProject": "Tabi Project",
+      "purpleGuild": "Purple Guild",
+      "privacyPolicy": "Politique de confidentialité",
+      "termsOfService": "Conditions d’utilisation"
     }
   },
   "HomePage": {
     "metadata": {
-      "title": "Maison",
-      "description": "Tabi Academy autonomise les femmes africaines grâce à une éducation technologique gratuite, une formation en IA et un mentorat. Une initiative de la Fondation TEE qui transforme des vies à travers l’Afrique.",
-      "ogTitle": "Académie Tabi | Autonomiser l’avenir, transformer les communautés",
-      "ogDescription": "Éducation technologique gratuite, formation en IA et mentorat pour les femmes à travers l’Afrique. Rejoignez la Tabi Academy de la TEE Foundation dès aujourd'hui."
+      "title": "Accueil",
+      "description": "Tabi Academy autonomise les femmes africaines grâce à une formation technologique gratuite, à l’IA et au mentorat. Une initiative de la TEE Foundation qui transforme des vies à travers l’Afrique.",
+      "ogTitle": "Tabi Academy | Façonner l’avenir, transformer les communautés",
+      "ogDescription": "Formation technologique gratuite, IA et mentorat pour les femmes à travers l’Afrique. Rejoignez la Tabi Academy de la TEE Foundation dès aujourd’hui."
     }
   },
   "HeroSection": {
-    "headlinePart1": "Autonomisation",
-    "headlinePart2": "les contrats à terme,",
-    "headlinePart3": "Transformer les communautés",
-    "subheadline": "Libérer le potentiel grâce à une technologie innovante, un engagement communautaire et un programme éducatif qui crée un environnement dynamique où les individus s'épanouissent",
-    "cta": "Rejoignez ai pour une formation commerciale",
-    "heroImageAlt": "Femme souriante avec les bras levés",
+    "headlinePart1": "Façonner ",
+    "headlinePart2": "l’avenir,",
+    "headlinePart3": "Transformer des communautés",
+    "subheadline": "Libérer le potentiel grâce à une technologie innovante, à l’engagement communautaire et à un programme éducatif qui crée un environnement dynamique où chaque personne s’épanouit",
+    "cta": "Rejoindre la formation IA pour entreprises",
+    "heroImageAlt": "Femme souriante, bras levés",
     "tags": {
       "academy": {
-        "subtitle": "Ou",
-        "title": "Académie"
+        "subtitle": "Tabi",
+        "title": "Academy"
       },
       "project": {
-        "subtitle": "Ou",
-        "title": "Projet"
+        "subtitle": "Tabi",
+        "title": "Project"
       },
       "guild": {
-        "subtitle": "guilde"
+        "subtitle": "Guild"
       },
       "volunteers": {
         "number": "500+",
-        "label": "Des bénévoles impliqués"
+        "label": "Bénévoles engagées"
       },
       "trained": {
-        "number": "10 000+",
+        "number": "10 000+",
         "label": "Personnes formées"
       },
       "participation": {
-        "number": "80%",
-        "label": "Participation active de la communauté"
+        "number": "80 %",
+        "label": "Participation active à la communauté"
       }
     }
   },
   "Partners": {
-    "title": "Partenariat avec la Fondation Tabi Empowerment and Education (TEE)",
+    "title": "Partenaires de la Fondation Tabi Empowerment and Education (TEE)",
     "logos": {
       "yip": "YIP – Programme de stages Yebox",
-      "gutsy": "GIV La femme courageuse",
+      "gutsy": "GIV The Gutsy Woman",
       "yebox": "Yebox Technologies",
       "genesys": "Genesys",
-      "risevest": "Académie Rise",
+      "risevest": "Rise Academy",
       "cchub": "CcHUB"
     }
   },
   "AIBusinessTeaser": {
-    "badge": "Académie Tabi",
-    "headlinePart1": "Apprenez à utiliser l'IA.",
-    "headlinePart2": "Construisez avec.",
+    "badge": "Tabi Academy",
+    "headlinePart1": "Apprenez à maîtriser l’IA.",
+    "headlinePart2": "Passez à la pratique.",
     "headlinePart3": "Développez votre entreprise.",
-    "description": "Un programme pratique et en direct de 2 semaines pour les femmes d'affaires — aucune formation technique n'est requise. Vous repartirez avec de vrais livrables, un certificat vérifié et des compétences que vous pourrez utiliser dès le lendemain.",
+    "description": "Un programme intensif de 2 semaines, en direct, pour les femmes en affaires – aucune connaissance technique requise. Vous repartez avec de vrais livrables, un certificat vérifié et des compétences utilisables dès le lendemain.",
     "cta": {
-      "primary": "Explorez le programme",
+      "primary": "Découvrir le programme",
       "secondary": "Voir le programme complet →"
     },
     "highlights": {
-      "training": {
-        "value": "2 semaines",
-        "label": "Formation intensive"
-      },
-      "tools": {
-        "value": "6 outils",
-        "label": "Appris et appliqué"
-      },
-      "participants": {
-        "value": "50",
-        "label": "Nombre maximum de participants"
-      },
-      "handsOn": {
-        "value": "100%",
-        "label": "Laboratoires pratiques"
-      }
+      "training": { "value": "2 semaines", "label": "Formation intensive" },
+      "tools": { "value": "6 outils", "label": "Appris et appliqués" },
+      "participants": { "value": "50", "label": "Participants maximum" },
+      "handsOn": { "value": "100 %", "label": "Ateliers pratiques" }
     },
     "pillars": {
       "strategy": {
-        "title": "Stratégie d'IA",
-        "description": "Mappez les outils d’IA directement sur vos plus grands défis commerciaux."
+        "title": "Stratégie IA",
+        "description": "Cartographiez les outils d’IA directement sur vos plus grands défis professionnels."
       },
       "design": {
-        "title": "Conception et marque",
-        "description": "Créez un kit de marque complet et des maquettes d’interface utilisateur avec l’IA – aucune expérience en conception n’est nécessaire."
+        "title": "Design & Marque",
+        "description": "Créez un kit de marque complet et des maquettes d’interface avec l’IA – aucune expérience en design requise."
       },
       "build": {
-        "title": "Construire et publier",
-        "description": "Repartez avec un site Web ou une application opérationnel et fonctionnel que vous avez créé vous-même."
+        "title": "Concevoir & Publier",
+        "description": "Repartez avec un site web ou une application fonctionnelle que vous avez construite vous‑même."
       },
       "automate": {
         "title": "Automatiser",
-        "description": "Déployez un agent IA exécutant une tâche réelle dans votre entreprise dès la première semaine."
+        "description": "Déployez un agent IA qui exécute une tâche réelle dans votre entreprise dès la première semaine."
       }
     },
     "footer": {
-      "headline": "La prochaine cohorte se forme maintenant.",
-      "subtext": "Limité à 50 participants, les places se remplissent rapidement."
+      "headline": "La prochaine cohorte se constitue maintenant.",
+      "subtext": "Limité à 50 participantes – les places partent vite."
     }
   },
   "WhatWeDo": {
-    "badge": "L'équipe",
+    "badge": "L’équipe",
     "title": "Ce que nous faisons",
-    "description": "À la Tabi Empowerment and Educational (TEE) Foundation, nous croyons au pouvoir transformateur de l’éducation et de l’innovation. Explorez notre philosophie directrice et les missions qui nous propulsent vers un changement positif",
-    "cta": "Apprendre encore plus",
+    "description": "À la Tabi Empowerment and Educational (TEE) Foundation, nous croyons au pouvoir transformateur de l’éducation et de l’innovation. Découvrez notre philosophie et les missions qui nous poussent vers un changement positif.",
+    "cta": "En savoir plus",
     "missions": {
       "empower": {
-        "title": "Habiliter",
-        "description": "Doter les individus de compétences numériques essentielles pour améliorer leurs opportunités éducatives et professionnelles."
+        "title": "Autonomiser",
+        "description": "Donner aux individus les compétences numériques essentielles pour élargir leurs opportunités éducatives et professionnelles."
       },
       "unite": {
         "title": "Unir",
-        "description": "Encourager la collaboration active au sein des communautés pour stimuler le développement et la croissance durables"
+        "description": "Encourager la collaboration active au sein des communautés pour favoriser un développement et une croissance durables."
       },
       "innovate": {
         "title": "Innover",
-        "description": "Fournir des ressources et des financements pour mettre en œuvre des solutions innovantes qui répondent aux besoins et aux défis de la société"
+        "description": "Fournir des ressources et des financements pour mettre en œuvre des solutions innovantes répondant aux besoins et défis de la société."
       },
       "educate": {
         "title": "Éduquer",
-        "description": "Améliorer l’accès à une éducation et à des ressources d’apprentissage de qualité pour les individus défavorisés mais volontaires"
+        "description": "Améliorer l’accès à une éducation et à des ressources d’apprentissage de qualité pour les personnes défavorisées mais motivées."
       }
     }
   },
   "GetInvolved": {
     "heading": "Impliquez-vous,",
-    "headingHighlight": "Soutien",
+    "headingHighlight": "Soutenez",
     "subheading": "Notre mission",
-    "description": "Votre soutien alimente notre mission visant à responsabiliser les communautés grâce à l'éducation et à l'innovation, en transformant la vie une étape à la fois.",
+    "description": "Votre soutien alimente notre mission d’autonomisation des communautés par l’éducation et l’innovation, en transformant des vies, une étape à la fois.",
     "donateCard": {
       "title": "Faire un don",
-      "description": "Votre contribution nous aide à fournir une formation technologique gratuite, un mentorat et des ressources aux femmes à travers l’Afrique.",
-      "button": "Faites un don maintenant"
+      "description": "Votre contribution nous aide à offrir une formation tech gratuite, du mentorat et des ressources aux femmes à travers l’Afrique.",
+      "button": "Faire un don"
     },
     "communityCard": {
-      "title": "Rejoignez la communauté",
-      "description": "Connectez-vous avec des femmes partageant les mêmes idées, accédez à des événements exclusifs et faites partie d'un réseau de soutien.",
+      "title": "Rejoindre la communauté",
+      "description": "Connectez-vous avec des femmes partageant les mêmes idées, accédez à des événements exclusifs et intégrez un réseau de soutien.",
       "button": "Rejoindre la communauté",
       "placeholder": "Votre nom",
-      "emailPlaceholder": "Votre email"
+      "emailPlaceholder": "Votre email",
+      "form": {
+        "nameLabel": "Nom",
+        "namePlaceholder": "Entrez votre nom complet",
+        "emailLabel": "Adresse email",
+        "emailPlaceholder": "exemple@mail.com",
+        "joinButton": "Rejoindre",
+        "joining": "En cours…",
+        "validation": {
+          "nameRequired": "Veuillez entrer votre nom complet",
+          "emailRequired": "Veuillez entrer votre email",
+          "emailInvalid": "Veuillez entrer une adresse email valide",
+          "interestRequired": "Veuillez sélectionner au moins un centre d’intérêt",
+          "othersRequired": "Veuillez décrire votre centre d’intérêt"
+        },
+        "alreadyMember": "Vous êtes déjà membre de la communauté."
+      }
     },
     "welcomeModal": {
-      "titleWithName": "Vous y êtes, {name} ! 🌟",
-      "titleDefault": "Vous y êtes officiellement ! 🌟",
-      "message1": "Nous sommes si heureux que vous soyez ici. Vous venez de rejoindre un cercle croissant de femmes passionnées qui façonnent l'avenir de la technologie en Afrique — et nous avons hâte que vous en fassiez partie.",
-      "message2": "Restez proche de tout ce qui se passe à la Fondation TEE (événements, opportunités, histoires et bien plus encore) en rejoignant notre communauté WhatsApp. Venez dire bonjour ! 👋",
-      "joinButton": "Rejoignez la communauté WhatsApp"
+      "titleWithName": "Vous faites partie de l’aventure, {name} ! 🌟",
+      "titleDefault": "Vous faites officiellement partie de l’aventure ! 🌟",
+      "message1": "Nous sommes ravis de vous compter parmi nous. Vous venez de rejoindre un cercle grandissant de femmes passionnées qui façonnent l’avenir de la tech en Afrique – et nous avons hâte de vous voir y contribuer.",
+      "message2": "Restez au cœur de tout ce qui se passe à la TEE Foundation – événements, opportunités, histoires et bien plus – en rejoignant notre communauté WhatsApp. Venez nous dire bonjour ! 👋",
+      "joinButton": "Rejoindre la communauté WhatsApp"
     }
   },
   "DonationModal": {
     "title": "Formulaire de don",
     "bankTransfer": {
       "title": "Virement bancaire",
-      "description": "Veuillez transférer votre don sur le compte ci-dessous et nous confirmerons votre contribution.",
+      "description": "Veuillez transférer votre don sur le compte ci‑dessous et nous confirmerons votre contribution.",
       "bankNameLabel": "Nom de la banque",
       "accountNameLabel": "Nom du compte",
       "accountNumberLabel": "Numéro de compte",
-      "copyButton": "Copie",
-      "copied": "Copié!",
-      "transferReminder": "Veuillez transférer {montant} {fréquence, select, One-Time {} other {({fréquence})}} sur le compte ci-dessus.",
-      "done": "Fait",
-      "back": "Dos"
+      "copyButton": "Copier",
+      "copied": "Copié !",
+      "transferReminder": "Veuillez transférer {amount} {frequency, select, One-Time {} other {({frequency})}} sur le compte ci‑dessus.",
+      "done": "Terminé",
+      "back": "Retour"
     },
     "form": {
       "donorName": "Nom du donateur",
       "emailAddress": "Adresse email",
-      "selectAmount": "Sélectionnez le montant",
-      "customAmountPlaceholder": "Ou entrez un montant personnalisé",
-      "frequency": "Fréquence des dons",
-      "frequencyPlaceholder": "Sélectionnez la fréquence",
+      "selectAmount": "Sélectionner un montant",
+      "customAmountPlaceholder": "Ou saisir un montant libre",
+      "frequency": "Fréquence du don",
+      "frequencyPlaceholder": "Sélectionner la fréquence",
       "cancel": "Annuler",
-      "donateNow": "Faites un don maintenant",
-      "processing": "Traitement...",
+      "donateNow": "Faire un don",
+      "processing": "Traitement en cours…",
       "validation": {
         "nameRequired": "Veuillez entrer votre nom",
         "emailRequired": "Veuillez entrer votre email",
-        "emailInvalid": "S'il vous plaît, mettez une adresse email valide",
+        "emailInvalid": "Veuillez saisir une adresse email valide",
         "amountRequired": "Veuillez sélectionner ou saisir un montant",
         "frequencyRequired": "Veuillez sélectionner une fréquence de don"
       },
       "error": {
-        "generic": "Quelque chose s'est mal passé. Veuillez réessayer.",
+        "generic": "Une erreur est survenue. Veuillez réessayer.",
         "network": "Erreur réseau. Veuillez réessayer."
       }
     },
     "frequencies": {
-      "One-Time": "Une fois",
-      "Monthly": "Mensuelle",
-      "Quarterly": "Trimestrielle",
-      "Annually": "Annuellement"
+      "One-Time": "Ponctuel",
+      "Monthly": "Mensuel",
+      "Quarterly": "Trimestriel",
+      "Annually": "Annuel"
     }
   },
   "FeaturedProjects": {
     "heading": "Nos projets phares",
-    "description": "Chaque projet de la Tabi Empowerment and Educational (TEE) Foundation est conçu pour responsabiliser la communauté et favoriser l'innovation. Découvrez comment nous créons un changement durable et un avenir meilleur.",
-    "emptyTitle": "Quelque chose de beau grandit",
-    "emptyMessage": "Nos projets phares apparaîtront ici prochainement. Revenez sous peu.",
+    "description": "Chaque projet de la Tabi Empowerment and Educational (TEE) Foundation est conçu pour autonomiser la communauté et favoriser l’innovation. Découvrez comment nous créons un changement durable et un avenir plus lumineux.",
+    "emptyTitle": "Quelque chose de beau se prépare",
+    "emptyMessage": "Nos projets phares apparaîtront ici prochainement. Revenez bientôt.",
     "viewAll": "Voir tous les projets",
     "showLess": "Afficher moins"
   },
   "ConsultancyTeaser": {
-    "badge": "✦ 100% gratuit",
-    "deadlinePrefix": "Ferme",
-    "heading": "Conseil commercial gratuit pour",
+    "badge": "✦ 100 % gratuit",
+    "deadlinePrefix": "Clôture :",
+    "heading": "Consultance gratuite pour",
     "headingHighlight": "5 entreprises dirigées par des femmes",
-    "description": "Nous vous aiderons à résoudre les défis en matière de marketing, de finance, de technologie, de stratégie et de ventes. Seulement {restant} des {total} emplacements disponibles ce mois-ci.",
+    "description": "Nous vous aidons à résoudre vos défis en marketing, finance, tech, stratégie et ventes. Seulement {remaining} places sur {total} disponibles ce mois-ci.",
     "focusAreas": {
-      "marketing": "Commercialisation",
+      "marketing": "Marketing",
       "finance": "Finance",
-      "tech": "Technologie",
+      "tech": "Tech",
       "strategy": "Stratégie",
       "sales": "Ventes"
     },
-    "cta": "Postuler pour une séance gratuite →",
+    "cta": "Candidater pour une séance gratuite →",
     "terms": "Conditions générales applicables",
-    "freeText": "GRATUITE"
+    "freeText": "GRATUIT"
+  },
+  "InsightsStories": {
+    "heading": "Aperçus & Histoires",
+    "description": "Prêt à vous lancer dans l'aventure tech ? Explorez nos ressources et commencez à bâtir votre avenir dès aujourd'hui.",
+    "emptyTitle": "Pas encore d'articles",
+    "emptyMessage": "Revenez bientôt – des inspirations arrivent.",
+    "loadMore": "Charger plus",
+    "categoryBadge": {
+      "blog": "Blog",
+      "news": "Actualités"
+    }
   },
   "AIBusiness": {
     "hero": {
-      "badge": "Tabi Academy · Programme de formation en IA",
-      "headlinePart1": "Outils d'IA pour",
-      "headlinePart2": "Entreprise.",
-      "headlinePart3": "Quinze jours.",
+      "badge": "Tabi Academy · Programme de formation à l’IA",
+      "headlinePart1": "Des outils d’IA pour",
+      "headlinePart2": "les affaires.",
+      "headlinePart3": "Deux semaines.",
       "headlinePart4": "De vrais résultats.",
-      "description": "Un programme de formation pratique et en direct qui permet aux femmes d'affaires d'acquérir les compétences en IA nécessaires pour créer plus rapidement, travailler plus intelligemment et grandir en toute confiance – aucune formation technique n'est requise.",
-      "cta": "Postulez maintenant",
-      "cohortMessage": "Formation de la prochaine cohorte.",
-      "cohortLimit": "Limité à 50 participants.",
+      "description": "Un programme pratique et en direct qui donne aux femmes en affaires les compétences en IA pour créer plus vite, travailler plus intelligemment et se développer en toute confiance – aucune formation technique requise.",
+      "cta": "Candidater maintenant",
+      "cohortMessage": "La prochaine cohorte se prépare.",
+      "cohortLimit": "Limitée à 50 participantes.",
       "trustSignals": {
-        "noTech": "Aucune expérience technique n'est nécessaire",
-        "virtual": "Entièrement virtuel et en direct",
+        "noTech": "Aucune connaissance technique requise",
+        "virtual": "100 % virtuel et en direct",
         "certified": "Certifié à la fin"
       },
       "floatingCards": {
         "cohortSize": "Taille de la cohorte",
-        "participantsMax": "nombre maximum de participants",
+        "participantsMax": "participantes maximum",
         "youWillBuild": "Vous construirez",
         "buildItems": {
-          "liveWebsite": "Site Web en direct",
-          "aiAgent": "j'ai un agent",
-          "brandKit": "Trousse de marque"
+          "liveWebsite": "Site web fonctionnel",
+          "aiAgent": "Agent IA",
+          "brandKit": "Kit de marque"
         },
         "certifiedOn": "Certifié le",
-        "completion": "achèvement"
+        "completion": "de la formation"
       }
     },
     "stats": {
@@ -316,108 +331,102 @@
       },
       "sessions": {
         "value": "4 jours",
-        "label": "Séances pratiques en direct"
+        "label": "Ateliers pratiques en direct"
       },
-      "tools": {
-        "value": "6 outils",
-        "label": "Appris et appliqué"
-      },
-      "handsOn": {
-        "value": "100%",
-        "label": "Laboratoires pratiques et concrets"
-      }
+      "tools": { "value": "6 outils", "label": "Appris et appliqués" },
+      "handsOn": { "value": "100 %", "label": "Laboratoires concrets" }
     },
     "outcomes": {
-      "badge": "Ce que vous réaliserez",
-      "heading": "Compétences que vous pouvez utiliser le lendemain de l'obtention de votre diplôme",
-      "description": "Chaque résultat de ce programme est lié à quelque chose que vous allez réellement construire. Pas de théorie. Pas des diapositives. De vrais livrables que vous pouvez montrer, utiliser et avec lesquels vous pouvez évoluer.",
+      "badge": "Ce que vous allez accomplir",
+      "heading": "Des compétences utilisables dès le lendemain de la formation",
+      "description": "Chaque résultat du programme est lié à quelque chose que vous construisez réellement. Pas de théorie. Pas de slides. De vrais livrables que vous pouvez montrer, utiliser et faire évoluer.",
       "items": {
         "fluency": {
-          "title": "Maîtrise de l'IA pour les entreprises",
-          "description": "Comprenez comment fonctionnent les outils d'IA et comment les appliquer de manière stratégique à votre contexte commercial spécifique, en toute confiance."
+          "title": "Maîtrise de l’IA pour les affaires",
+          "description": "Comprenez le fonctionnement des outils d’IA et comment les appliquer stratégiquement à votre contexte professionnel – avec confiance."
         },
         "brand": {
-          "title": "Actifs professionnels de marque et de design",
-          "description": "Créez un kit de marque complet, une identité visuelle et des maquettes d'interface utilisateur à l'aide d'outils de conception basés sur l'IA — aucune expérience en conception n'est nécessaire."
+          "title": "Actifs de marque et de design professionnels",
+          "description": "Créez un kit de marque complet, une identité visuelle et des maquettes d’interface à l’aide d’outils de conception propulsés par l’IA – aucune expérience en design requise."
         },
         "website": {
-          "title": "Un site Web ou une application en direct et fonctionnel",
-          "description": "Créez et publiez une page de destination entièrement fonctionnelle ou une application simple à l'aide de l'IA – et repartez avec une URL en direct."
+          "title": "Un site web ou une application fonctionnel(le) en ligne",
+          "description": "Concevez et publiez une page d’atterrissage entièrement fonctionnelle ou une application simple grâce à l’IA – et repartez avec une URL active."
         },
         "agent": {
           "title": "Un agent IA au service de votre entreprise",
-          "description": "Déployez un workflow d'automatisation ou un agent IA gérant une tâche réelle dans votre entreprise, ce qui vous fera gagner du temps dès la première semaine."
+          "description": "Déployez un flux d’automatisation ou un agent IA qui exécute une tâche réelle pour votre entreprise – et gagnez du temps dès la première semaine."
         },
         "capstone": {
-          "title": "Un projet Capstone dont vous êtes fier",
-          "description": "Complétez et présentez une solution commerciale entièrement basée sur l'IA, construite autour de votre propre travail, évaluée par un panel en direct."
+          "title": "Un projet de synthèse dont vous êtes fière",
+          "description": "Réalisez et présentez une solution d’affaires complète basée sur l’IA, construite autour de votre propre activité – évaluée par un jury en direct."
         },
         "certificate": {
-          "title": "Un certificat officiel d’IA pour les entreprises",
-          "description": "Obtenez un certificat numérique vérifié après avoir réussi l'évaluation combinée – une preuve reconnue de vos nouvelles capacités."
+          "title": "Un certificat officiel AI for Business",
+          "description": "Obtenez un certificat numérique vérifié après avoir réussi l’évaluation combinée – une preuve reconnue de vos nouvelles compétences."
         }
       },
-      "ctaHeading": "Ne vous contentez pas d’en apprendre davantage sur l’IA. Construisez avec.",
-      "ctaDescription": "Arrêtez de regarder de côté. Rejoignez notre prochaine cohorte pour transformer les flux de travail de votre entreprise et repartez avec un certificat vérifié et des projets en direct.",
-      "ctaButton": "Postuler pour la prochaine cohorte",
-      "closingSoon": "Clôture des inscriptions bientôt"
+      "ctaHeading": "Ne vous contentez pas d’apprendre l’IA. Construisez avec elle.",
+      "ctaDescription": "Ne restez pas sur la touche. Rejoignez notre prochaine cohorte pour transformer vos flux de travail et repartir avec un certificat vérifié et des projets concrets.",
+      "ctaButton": "Candidater pour la prochaine cohorte",
+      "closingSoon": "Inscriptions bientôt closes"
     },
     "metadata": {
-      "title": "Formation en IA pour les femmes entrepreneures",
-      "description": "Rejoignez la formation en direct de 2 semaines sur l'IA de la Tabi Academy. Apprenez à créer des outils d'IA, à automatiser votre flux de travail et à développer votre entreprise. Gratuit pour les femmes africaines en technologie.",
-      "ogTitle": "Programme gratuit de formation en IA pour les entreprises | Académie Tabi",
-      "ogDescription": "Construisez plus rapidement et travaillez plus intelligemment. Notre cohorte intensive de 2 semaines en IA aide les femmes entrepreneures à maîtriser l'automatisation et l'innovation. Inscrivez-vous maintenant !"
+      "title": "Formation à l’IA pour les femmes entrepreneures",
+      "description": "Rejoignez la formation en direct de 2 semaines de Tabi Academy. Apprenez à créer des outils d’IA, automatisez vos processus et développez votre entreprise. Gratuit pour les femmes africaines dans la tech.",
+      "ogTitle": "Formation gratuite en IA pour les entreprises | Tabi Academy",
+      "ogDescription": "Construisez plus vite et travaillez plus intelligemment. Notre cohorte IA intensive de 2 semaines aide les entrepreneures à maîtriser l’automatisation et l’innovation. Inscrivez-vous maintenant !"
     },
     "timeline": {
-      "badge": "L'expérience",
-      "heading": "Voici exactement ce à quoi vous vous inscrivez",
-      "description": "Pas de surprises, pas de suppositions. De votre premier jour à l'obtention de votre diplôme et au-delà, voici chaque étape de l'expérience pour que vous sachiez exactement à quoi vous attendre et que vous puissiez vous présenter pleinement prêt.",
+      "badge": "L’expérience",
+      "heading": "Voici exactement dans quoi vous vous engagez",
+      "description": "Aucune surprise, aucune devinette. De votre premier jour jusqu’à l’obtention du certificat et au-delà, découvrez chaque étape du parcours – pour savoir exactement à quoi vous attendre et arriver parfaitement préparée.",
       "phases": {
         "onboarding": {
-          "tag": "Avant le premier jour",
+          "tag": "Avant le Jour 1",
           "title": "Intégration pré-programme",
-          "description": "Préparez-vous, soyez excité et arrivez prêt. Vous recevrez votre pack de bienvenue, votre accord de participant, votre emploi du temps complet, vos guides de configuration des outils et un accès direct à votre communauté de cohorte, le tout avant le début de la première session.",
+          "description": "Installez-vous, motivez-vous et arrivez prête. Vous recevrez votre kit de bienvenue, votre accord de participation, le planning complet, les guides de configuration des outils et un accès direct à votre communauté de cohorte – le tout avant le début de la première session.",
           "highlights": [
             "Accord de participation signé",
-            "Guide de configuration de l'outil (6 comptes gratuits)",
-            "Programme complet + invitations Google Agenda",
+            "Guide de configuration des outils (6 comptes gratuits)",
+            "Planning complet + invitations Google Agenda",
             "Accès à la communauté WhatsApp",
-            "Feuille de travail de réflexion pré-programme"
+            "Fiche de réflexion pré-programme"
           ]
         },
         "week1": {
-          "tag": "4 jours · 4 heures chacun",
+          "tag": "4 jours · 4 heures par jour",
           "title": "Semaine 1 · Formation en direct",
-          "description": "Quatre sessions en direct d'une journée complète couvrant les principes fondamentaux de l'IA, les outils de conception, la création d'applications et l'automatisation. Chaque session suit un cycle d'apprentissage → démo → construction → partage. Vous repartirez chaque journée avec quelque chose de tangible.",
+          "description": "Quatre journées complètes en direct couvrant les fondamentaux de l’IA, les outils de conception, la création d’applications et l’automatisation. Chaque session suit un cycle apprendre → démo → construire → partager. Vous repartez chaque jour avec un résultat tangible.",
           "highlights": [
-            "Jour 1 — Fondements de l'IA et stratégie commerciale",
+            "Jour 1 — Fondamentaux de l’IA et stratégie commerciale",
             "Jour 2 — Conception, image de marque et contenu visuel",
-            "Jour 3 — Créer et publier avec l'IA",
+            "Jour 3 — Créer et publier avec l’IA",
             "Jour 4 — Automatisation, agents IA et flux de travail"
           ]
         },
         "week2": {
           "tag": "Projet + Présentation + Examen",
-          "title": "Semaine 2  · Capstone et certification",
-          "description": "Appliquez tout ce que vous avez appris à un véritable défi commercial. Construisez votre projet de synthèse, présentez-le en direct à la cohorte et passez votre examen de certification. C’est là que tout se réunit.",
+          "title": "Semaine 2 · Projet de synthèse et certification",
+          "description": "Appliquez tout ce que vous avez appris à un véritable défi professionnel. Construisez votre projet de synthèse, présentez-le en direct devant la cohorte et passez votre examen de certification. C’est là que tout se concrétise.",
           "highlights": [
-            "Places de coaching 1:1 disponibles",
-            "Enregistrement de groupe le mercredi en milieu de semaine",
-            "Présentation de synthèse en direct de 10 minutes",
+            "Créneaux de coaching individuel disponibles",
+            "Point de groupe le mercredi en milieu de semaine",
+            "Présentation en direct de 10 minutes du projet de synthèse",
             "Examen de certification en ligne de 60 minutes",
-            "Certificat délivré dans les 5 jours ouvrables"
+            "Certificat délivré sous 5 jours ouvrés"
           ]
         },
         "postProgramme": {
-          "tag": "Assistance et accès continus",
-          "title": "Post-programme · Communauté des anciens élèves",
-          "description": "Six mois d'accès à tous les enregistrements et matériels. Deux semaines de soutien post-programme dédié. Et une adhésion permanente à la communauté des anciens élèves de la Tabi Academy – un réseau qui ne cesse de donner.",
+          "tag": "Accompagnement et accès continus",
+          "title": "Post-programme · Communauté des anciennes",
+          "description": "Six mois d’accès à tous les enregistrements et supports. Deux semaines d’accompagnement dédié après le programme. Et une adhésion permanente à la communauté des anciennes de Tabi Academy – un réseau qui continue de donner.",
           "highlights": [
-            "Fenêtre de support post-programme de 2 semaines",
-            "Accès pendant 6 mois à tous les enregistrements et matériels",
-            "Adhésion permanente à la communauté des anciens élèves",
-            "Accès prioritaire aux futurs programmes",
-            "Réseau de pairs dans toutes les cohortes"
+            "Fenêtre d’accompagnement de 2 semaines post‑programme",
+            "Accès à tous les enregistrements et supports pendant 6 mois",
+            "Adhésion permanente à la communauté des anciennes",
+            "Accès prioritaire aux programmes futurs",
+            "Réseau de pairs à travers toutes les cohortes"
           ]
         }
       }
@@ -425,89 +434,89 @@
     "curriculum": {
       "badge": "Le programme",
       "heading": "Quatre jours qui changent votre façon de travailler",
-      "description": "Chaque journée est structurée autour d’une capacité essentielle de l’IA – et chacune s’appuie sur la précédente. Au jour 4, vous serez passé des bases de l'IA au déploiement d'agents autonomes pour votre entreprise.",
-      "scrollHint": "Allez à {day}",
+      "description": "Chaque journée est structurée autour d’une compétence IA clé – et chacune s’appuie sur la précédente. Au Jour 4, vous serez passée des fondamentaux de l’IA au déploiement d’agents autonomes pour votre entreprise.",
+      "scrollHint": "Aller à {day}",
       "days": {
         "day1": {
           "day": "Jour 1",
-          "tag": "Fondations",
-          "title": "Fondements de l'IA et stratégie d'entreprise",
-          "description": "Comprenez ce que sont réellement les outils d’IA, comment ils fonctionnent et où ils créent le plus de levier dans une entreprise. Cartographiez vos propres plus grands défis avec des solutions d'IA. Repartez avec une feuille de route stratégique en matière d'IA pour votre entreprise.",
-          "deliverableLabel": "Livrable du laboratoire :",
-          "deliverable": "Carte des opportunités d'IA pour votre entreprise"
+          "tag": "Fondamentaux",
+          "title": "Fondamentaux de l’IA et stratégie d’entreprise",
+          "description": "Comprenez ce que sont réellement les outils d’IA, comment ils fonctionnent et où ils créent le plus de levier dans une entreprise. Identifiez vos plus grands défis et associez‑les à des solutions d’IA. Repartez avec une feuille de route stratégique IA pour votre activité.",
+          "deliverableLabel": "Livrable de l’atelier :",
+          "deliverable": "Carte des opportunités IA pour votre entreprise"
         },
         "day2": {
           "day": "Jour 2",
           "tag": "Conception",
           "title": "Conception, image de marque et contenu visuel",
-          "description": "Utilisez les outils de conception d'IA pour créer des graphiques professionnels, un kit de marque complet et des wireframes ou des maquettes d'interface utilisateur. Aucune expérience en conception n'est requise, juste votre vision.",
-          "deliverableLabel": "Livrable du laboratoire :",
-          "deliverable": "Kit de marque + maquette d'interface utilisateur ou wireframe"
+          "description": "Utilisez des outils de conception propulsés par l’IA pour créer des visuels professionnels, un kit de marque complet et des wireframes ou maquettes d’interface. Aucune expérience en design requise – juste votre vision.",
+          "deliverableLabel": "Livrable de l’atelier :",
+          "deliverable": "Kit de marque + maquette ou wireframe d’interface"
         },
         "day3": {
           "day": "Jour 3",
-          "tag": "Construire",
-          "title": "Créer et publier avec l'IA",
-          "description": "Créez une page de destination entièrement fonctionnelle ou une application simple à l'aide d'outils de développement basés sur l'IA. Publiez-le en direct. Repartez avec une vraie URL.",
-          "deliverableLabel": "Livrable du laboratoire :",
-          "deliverable": "Page de destination ou application publiée en direct"
+          "tag": "Construction",
+          "title": "Créer et publier avec l’IA",
+          "description": "Construisez une page d’atterrissage entièrement fonctionnelle ou une application simple grâce à des outils de développement assistés par IA. Publiez‑la en ligne. Repartez avec une URL active.",
+          "deliverableLabel": "Livrable de l’atelier :",
+          "deliverable": "Page d’atterrissage ou application publiée en ligne"
         },
         "day4": {
           "day": "Jour 4",
-          "tag": "Automatiser",
+          "tag": "Automatisation",
           "title": "Automatisation, agents IA et flux de travail",
-          "description": "Créez un agent IA ou un workflow d'automatisation exécutant une tâche réelle pour votre entreprise. De la capture de leads à la planification de contenu, c'est là que l'IA fonctionne pour vous, et non l'inverse.",
-          "deliverableLabel": "Livrable du laboratoire :",
-          "deliverable": "Automatisation déployée ou workflow d'agent IA"
+          "description": "Créez un agent IA ou un flux d’automatisation qui exécute une tâche réelle pour votre entreprise. De la capture de leads à la planification de contenu – c’est là que l’IA travaille pour vous, pas l’inverse.",
+          "deliverableLabel": "Livrable de l’atelier :",
+          "deliverable": "Automatisation déployée ou flux de travail avec agent IA"
         }
       }
     },
     "inclusions": {
       "badge": "Ce qui est inclus",
       "headingLine1": "Tout",
-      "headingLine2": "Vous avez besoin.",
+      "headingLine2": "ce dont vous avez besoin.",
       "headingLine3": "Rien",
-      "headingLine4": "Vous ne le faites pas.",
-      "freeToolsNote": "Chaque outil utilisé dans ce programme dispose d'un niveau gratuit suffisant pour tous les laboratoires. Aucun abonnement payant requis.",
+      "headingLine4": "de superflu.",
+      "freeToolsNote": "Chaque outil utilisé dans ce programme dispose d’une version gratuite suffisante pour tous les ateliers. Aucun abonnement payant requis.",
       "categories": {
-        "Training": "Entraînement",
-        "Support": "Soutien",
-        "Materials": "Matériels",
-        "Certification": "Attestation",
+        "Training": "Formation",
+        "Support": "Support",
+        "Materials": "Ressources",
+        "Certification": "Certification",
         "Community": "Communauté"
       },
       "bottomBanner": {
-        "title": "Aucun abonnement payant n'est nécessaire",
-        "description": "Chaque outil dispose d'un niveau gratuit qui couvre 100 % des laboratoires et des devoirs du programme.",
+        "title": "Aucun abonnement payant nécessaire",
+        "description": "Chaque outil dispose d’une version gratuite couvrant 100 % des ateliers et des devoirs du programme.",
         "badge": "Utilisation gratuite ✓"
       },
       "items": [
         {
-          "text": "4 sessions animées en direct de 4 heures via Google Meet",
+          "text": "4 sessions en direct de 4 heures via Google Meet",
           "category": "Training"
         },
         {
-          "text": "Créneaux de coaching 1:1 pendant la semaine 2",
+          "text": "Créneaux de coaching individuel pendant la semaine 2",
           "category": "Support"
         },
         {
-          "text": "Session d'enregistrement de groupe du mercredi en milieu de semaine",
+          "text": "Point de groupe le mercredi en milieu de semaine",
           "category": "Training"
         },
         {
-          "text": "Toutes les diapositives, modèles de laboratoire et guides de ressources",
+          "text": "Tous les slides, modèles d’atelier et guides de ressources",
           "category": "Materials"
         },
         {
-          "text": "Enregistrements de sessions (fenêtre d'accès de 6 mois)",
+          "text": "Enregistrements des sessions (accès pendant 6 mois)",
           "category": "Materials"
         },
         {
-          "text": "Commentaires quotidiens de l'animateur sur votre travail",
+          "text": "Retour quotidien du facilitateur sur votre travail",
           "category": "Support"
         },
         {
-          "text": "Examen de certification + une reprise gratuite",
+          "text": "Examen de certification + une tentative de rattrapage gratuite",
           "category": "Certification"
         },
         {
@@ -515,386 +524,368 @@
           "category": "Certification"
         },
         {
-          "text": "Fenêtre de support post-programme de 2 semaines",
+          "text": "Fenêtre d’accompagnement de 2 semaines post‑programme",
           "category": "Support"
         },
         {
-          "text": "Adhésion permanente à la communauté des anciens élèves",
+          "text": "Adhésion permanente à la communauté des anciennes",
           "category": "Community"
         },
         {
-          "text": "Accès prioritaire aux futurs programmes de la Tabi Academy",
+          "text": "Accès prioritaire aux futurs programmes Tabi Academy",
           "category": "Community"
         },
         {
-          "text": "Accès au réseau d'anciens élèves dans toutes les cohortes",
+          "text": "Accès au réseau des anciennes de toutes les cohortes",
           "category": "Community"
         }
       ]
     },
     "audience": {
-      "badge": "À qui s'adresse-t-il",
-      "heading": "Conçu pour les femmes qui sont sérieuses",
-      "description": "Vous n'avez pas besoin d'une formation technique. Il faut de l'ambition, un vrai contexte business, et quatre heures par jour pendant deux semaines.",
+      "badge": "À qui s’adresse le programme",
+      "heading": "Conçu pour les femmes qui veulent passer à l’action",
+      "description": "Vous n’avez pas besoin de bagage technique. Vous avez besoin d’ambition, d’un véritable contexte professionnel et de quatre heures par jour pendant deux semaines.",
       "profiles": {
         "owner": {
-          "label": "Le propriétaire d'entreprise",
+          "label": "La cheffe d’entreprise",
           "hook": "Vous dirigez une entreprise et vous savez que l’IA pourrait vous faire gagner du temps.",
-          "description": "Vous n’avez tout simplement pas eu l’espace nécessaire pour le comprendre correctement. Ce programme vous offre cet espace, avec des conseils d'experts et une cohorte en direct autour de vous.",
-          "traits": [
-            "Manque de temps",
-            "Axé sur la croissance",
-            "Déjà opérationnel"
-          ]
+          "description": "Vous n’avez simplement pas eu l’espace pour vous y mettre correctement. Ce programme vous offre cet espace, avec des conseils d’experts et une cohorte en direct autour de vous.",
+          "traits": ["Débordée", "Orientée croissance", "Déjà en activité"]
         },
         "professional": {
-          "label": "Le professionnel",
-          "hook": "Vous êtes employé, ambitieux et vous regardez l’IA remodeler votre secteur.",
-          "description": "Vous voulez avoir une longueur d’avance, sans vous démener pour rattraper votre retard. Ce programme vous donne des compétences tangibles, pas seulement une prise de conscience.",
+          "label": "La professionnelle",
+          "hook": "Vous êtes employée, ambitieuse, et vous voyez l’IA transformer votre secteur.",
+          "description": "Vous voulez prendre de l’avance, pas courir après le retard. Ce programme vous apporte des compétences concrètes, pas seulement de la sensibilisation.",
           "traits": [
-            "Axé sur la carrière",
-            "Conscient de l'industrie",
-            "Pérennité"
+            "Centrée sur sa carrière",
+            "Au fait de son secteur",
+            "Prépare l’avenir"
           ]
         },
         "founder": {
-          "label": "Le Fondateur",
+          "label": "La fondatrice",
           "hook": "Vous construisez quelque chose et chaque ressource compte.",
-          "description": "Les outils d’IA peuvent étendre vos capacités sans augmenter votre budget. Ce programme vous apprend à créer, automatiser et concevoir comme une équipe composée d'un seul membre, qui fonctionne comme une équipe de dix personnes.",
-          "traits": [
-            "Économe en ressources",
-            "Construire rapidement",
-            "Porter tous les chapeaux"
-          ]
+          "description": "Les outils d’IA peuvent démultiplier vos capacités sans faire exploser votre budget. Ce programme vous apprend à construire, automatiser et designer comme une équipe d’une personne – qui fonctionne comme une équipe de dix.",
+          "traits": ["Ingénieuse", "Construit vite", "Touche à tout"]
         }
       },
       "cta": {
         "heading": "Vous ne savez pas si vous correspondez au profil ?",
-        "description": "La seule véritable exigence est un objectif commercial que vous souhaitez atteindre. Nous vous apprenons tout le reste à partir de zéro.",
-        "button": "Rejoignez la cohorte"
+        "description": "La seule véritable exigence est un objectif professionnel que vous souhaitez atteindre. Nous vous enseignons tout le reste, à partir de zéro.",
+        "button": "Rejoindre la cohorte"
       },
-      "footerLine": "Quel que soit votre description -",
-      "footerHighlight": "vous appartenez à cette cohorte."
+      "footerLine": "Quel que soit le profil qui vous correspond —",
+      "footerHighlight": "vous avez votre place dans cette cohorte."
     },
     "pricing": {
       "badge": "Investissement et accès",
-      "heading": "50 % de réduction sur l'offre à durée limitée",
-      "description": "Nous avons réduit les frais de scolarité standard de 50 % pour cette cohorte afin de soutenir davantage de femmes africaines dans le domaine de la technologie.",
-      "tuitionLabel": "Frais de scolarité",
+      "heading": "Offre limitée à -50 %",
+      "description": "Nous avons réduit les frais de formation standard de 50 % pour cette cohorte afin de soutenir davantage de femmes africaines dans la tech.",
+      "tuitionLabel": "Frais de formation",
       "features": [
         "Accès complet au cours",
         "Certification professionnelle",
-        "Communauté d'anciens élèves à vie"
+        "Communauté des anciennes à vie"
       ],
       "cta": "Procéder au paiement",
       "international": {
-        "heading": "Pas au Nigéria ?",
-        "description": "Nous fournissons des liens de paiement sur mesure pour les étudiants internationaux afin de garantir un processus d'inscription fluide.",
-        "link": "Afficher les options internationales →"
+        "heading": "Vous n’êtes pas au Nigéria ?",
+        "description": "Nous proposons des liens de paiement adaptés pour les participantes internationales afin de garantir une inscription fluide.",
+        "link": "Voir les options internationales →"
       }
     },
     "certification": {
-      "badge": "Attestation",
-      "headingLine1": "Gagnez un certificat",
-      "headingLine2": "Cela veut dire quelque chose",
-      "description": "La certification n'est pas délivrée. C'est mérité. Pour recevoir votre certificat AI for Business vérifié, vous devez vous présenter, effectuer le travail et démontrer de réelles capacités.",
+      "badge": "Certification",
+      "headingLine1": "Obtenez un certificat",
+      "headingLine2": "qui a de la valeur",
+      "description": "La certification ne se donne pas, elle se mérite. Pour recevoir votre certificat vérifié AI for Business, vous devez être présente, faire le travail et démontrer de réelles compétences.",
       "steps": {
         "attendance": {
-          "title": "80% de fréquentation",
-          "detail": "Au cours des 4 sessions en direct de la semaine 1 – 3 jours sur 4 minimum."
+          "title": "80 % de présence",
+          "detail": "Sur les 4 sessions en direct de la semaine 1 – 3 jours minimum sur 4."
         },
         "assignments": {
-          "title": "Missions quotidiennes",
-          "detail": "Complété et soumis des jours 1 à 3. Ils alimentent directement votre synthèse."
+          "title": "Devoirs quotidiens",
+          "detail": "Réalisés et rendus les jours 1 à 3. Ils alimentent directement votre projet de synthèse."
         },
         "capstone": {
           "title": "Projet de synthèse",
-          "detail": "Rapport écrit complet + présentation en direct de 10 minutes au panel le jour 9."
+          "detail": "Rapport écrit complet + présentation orale de 10 minutes devant le jury le jour 9."
         },
         "exam": {
           "title": "Examen de certification",
-          "detail": "60 minutes, en ligne, le jour 10. Soumissions automatiques à la limite de temps."
+          "detail": "60 minutes, en ligne, le jour 10. Soumission automatique à la fin du temps imparti."
         },
         "score": {
-          "title": "Score combiné de 70 %+",
-          "detail": "Capstone pondéré à 60 %, examen à 40 %. Les deux doivent être soumis pour être admissibles."
+          "title": "Score combiné de 70 % ou plus",
+          "detail": "Projet de synthèse pondéré à 60 %, examen à 40 %. Les deux doivent être rendus pour être admissible."
         }
       },
       "certificate": {
-        "subtitle": "Certificat d'achèvement",
-        "awardedTo": "Attribué à",
+        "subtitle": "Certificat de réussite",
+        "awardedTo": "Décerné à",
         "placeholderName": "Votre nom ici",
         "description": "Pour avoir terminé avec succès le programme intensif AI for Businesses et démontré des compétences appliquées dans les quatre domaines de formation.",
-        "capstone": "Pierre de synthèse",
+        "capstone": "Projet de synthèse",
         "exam": "Examen",
-        "verification": "Vérifié numériquement · Émis dans les 5 jours ouvrables"
+        "verification": "Vérifié numériquement · Délivré sous 5 jours ouvrés"
       },
       "retake": {
-        "title": "Une reprise gratuite incluse",
-        "description": "Vous n'avez pas réussi la première fois ? Vous disposez de 14 jours pour repasser l’examen sans frais supplémentaires. Pas de pression, juste un autre coup."
+        "title": "Une tentative de rattrapage gratuite incluse",
+        "description": "Vous n’avez pas réussi du premier coup ? Vous avez 14 jours pour repasser l’examen sans frais supplémentaires. Sans pression – juste une deuxième chance."
       }
     },
     "faq": {
       "badge": "Questions",
       "headingLine1": "Tout",
-      "headingLine2": "Vous avez été",
-      "headingHighlight": "Se demandant",
-      "contactMessage": "Vous ne trouvez pas votre réponse ici ? Contactez-nous directement : l'équipe répond dans un délai d'un jour ouvrable.",
-      "contactEmail": "bonjour@tabiproject.com",
-      "tags": {
-        "Getting Started": "Commencer",
-        "Tools": "Outils",
-        "Programme": "Programme",
-        "Attendance": "Présence",
-        "Delivery": "Livraison",
-        "Post-Programme": "Post-programme",
-        "Payment": "Paiement"
-      },
+      "headingLine2": "ce que vous vous",
+      "headingHighlight": "demandez",
+      "contactMessage": "Vous ne trouvez pas votre réponse ? Contactez-nous directement – l’équipe répond dans un délai d’un jour ouvré.",
+      "contactEmail": "hello@tabiproject.com",
       "items": [
         {
           "q": "Ai-je besoin d’une formation technique ?",
-          "a": "Non. Ce programme est conçu spécifiquement pour les propriétaires d’entreprise et les professionnels, et non pour les développeurs. Si vous savez utiliser un smartphone et un ordinateur portable, vous disposez de tout ce dont vous avez besoin pour démarrer.",
+          "a": "Non. Ce programme est conçu spécialement pour les chefs d’entreprise et les professionnelles – pas pour les développeuses. Si vous savez utiliser un smartphone et un ordinateur portable, vous avez tout ce qu’il faut pour commencer.",
           "tag": "Getting Started"
         },
         {
           "q": "Quels outils vais-je utiliser ?",
-          "a": "ChatGPT, Canva, Uizard, GitHub, Zapier et Vercel ou Netlify — ainsi que des plateformes supplémentaires introduites par session. Chaque outil a un niveau gratuit. Aucun abonnement payant n'est requis.",
+          "a": "ChatGPT, Canva, Uizard, GitHub, Zapier, et Vercel ou Netlify – ainsi que d’autres plateformes présentées à chaque session. Chaque outil dispose d’une version gratuite. Aucun abonnement payant requis.",
           "tag": "Tools"
         },
         {
-          "q": "Combien de personnes compte chaque cohorte ?",
-          "a": "Un maximum de 50 participants par cohorte. Il ne s'agit pas d'un webinaire, c'est un environnement d'apprentissage en direct et interactif dans lequel les animateurs connaissent votre nom et celui de votre entreprise.",
+          "q": "Combien de personnes par cohorte ?",
+          "a": "Un maximum de 50 participantes par cohorte. Ce n’est pas un webinaire – c’est un environnement d’apprentissage en direct et interactif où les facilitateurs connaissent votre nom et votre entreprise.",
           "tag": "Programme"
         },
         {
-          "q": "Et si je manque une séance ?",
-          "a": "Les enregistrements sont mis à disposition dans les 24 heures. Manquer une séance vous maintient dans le seuil de participation de 80 %. En manquer deux ou plus vous rend inéligible à la certification. Prévenez l’équipe à l’avance si vous devez manquer une séance.",
+          "q": "Que se passe-t-il si je manque une session ?",
+          "a": "Les enregistrements sont disponibles sous 24 heures. Manquer une session vous maintient dans le seuil de présence de 80 %. En manquer deux ou plus vous rend inéligible à la certification. Prévenez l’équipe à l’avance si vous devez vous absenter.",
           "tag": "Attendance"
         },
         {
           "q": "Ce programme est-il entièrement virtuel ?",
-          "a": "Oui. Toutes les sessions sont dispensées en direct via Google Meet. Vous aurez besoin d'un ordinateur portable ou de bureau, d'une connexion Internet stable, d'une webcam fonctionnelle et d'un environnement calme.",
+          "a": "Oui. Toutes les sessions sont dispensées en direct via Google Meet. Vous aurez besoin d’un ordinateur portable ou de bureau, d’une connexion Internet stable, d’une webcam fonctionnelle et d’un environnement calme.",
           "tag": "Delivery"
         },
         {
-          "q": "Que se passe-t-il une fois le programme terminé ?",
-          "a": "Vous bénéficiez de deux semaines de soutien post-programme dédié, de six mois d'accès à tous les enregistrements et matériels et d'une adhésion permanente à la communauté des anciens élèves de la Tabi Academy.",
+          "q": "Que se passe-t-il après la fin du programme ?",
+          "a": "Vous bénéficiez de deux semaines d’accompagnement dédié après le programme, de six mois d’accès à tous les enregistrements et supports, et d’une adhésion permanente à la communauté des anciennes de Tabi Academy.",
           "tag": "Post-Programme"
         },
         {
           "q": "Quelle est la politique de remboursement ?",
-          "a": "Remboursement intégral en cas d'annulation plus de 14 jours avant la date de début. Remboursement de 50 % entre 7 et 14 jours. Aucun remboursement dans les 7 jours ou après le début du programme. Un report unique vers la cohorte suivante est disponible sur demande au moins 5 jours avant la date de début.",
+          "a": "Remboursement intégral pour toute annulation plus de 14 jours avant la date de début. Remboursement de 50 % entre 7 et 14 jours. Aucun remboursement dans les 7 jours précédant le début ou après le lancement du programme. Un report unique vers la cohorte suivante est possible sur demande au moins 5 jours avant la date de début.",
           "tag": "Payment"
         },
         {
-          "q": "Puis-je m'en remettre à une future cohorte ?",
-          "a": "Oui, une fois. Si vous prévenez l'équipe au moins 5 jours avant la date de début du programme, vous pourrez reporter votre place à la prochaine cohorte disponible.",
+          "q": "Puis-je reporter mon inscription à une cohorte ultérieure ?",
+          "a": "Oui – une fois. Si vous prévenez l’équipe au moins 5 jours avant la date de début du programme, vous pouvez reporter votre place à la prochaine cohorte disponible.",
           "tag": "Payment"
         }
-      ]
+      ],
+      "tags": {
+        "Getting Started": "Pour commencer",
+        "Tools": "Outils",
+        "Programme": "Programme",
+        "Attendance": "Présence",
+        "Delivery": "Format",
+        "Post-Programme": "Après le programme",
+        "Payment": "Paiement"
+      }
     },
     "cta": {
-      "badge": "Appliquer",
-      "headingLine1": "Prêt à construire",
-      "headingHighlight": "avec l'IA ?",
-      "description": "La prochaine cohorte se forme maintenant. Les places sont limitées à",
-      "descriptionHighlight": "50 participants",
-      "descriptionSuffix": "– donc chaque siège compte et se remplit rapidement. Postulez dès aujourd'hui pour garantir votre place et commencer votre intégration.",
-      "button": "Postuler pour la prochaine cohorte",
+      "badge": "Candidater",
+      "headingLine1": "Prête à construire",
+      "headingHighlight": "avec l’IA ?",
+      "description": "La prochaine cohorte se prépare. Les places sont limitées à",
+      "descriptionHighlight": "50 participantes",
+      "descriptionSuffix": "— chaque place compte et se remplit vite. Candidatez dès aujourd’hui pour garantir votre place et commencer votre intégration.",
+      "button": "Candidater pour la prochaine cohorte",
       "enrolledLink": "Accéder au groupe communautaire →",
-      "enrolledText": "Déjà inscrit ?",
+      "enrolledText": "Déjà inscrite ?",
       "trustSignals": [
-        "Aucune formation technique requise",
-        "En direct, animé par des experts",
-        "Entièrement virtuel",
-        "Certifié à la fin"
+        "Aucune connaissance technique requise",
+        "Animé par des experts en direct",
+        "100 % virtuel",
+        "Certificat à la fin"
       ]
     }
   },
   "RegistrationModal": {
-    "title": "Postuler pour la prochaine cohorte",
-    "subtitle": "Programme AI pour les entreprises – Limité à 50 participants"
+    "title": "Candidater pour la prochaine cohorte",
+    "subtitle": "Programme AI for Businesses – Limité à 50 participantes"
   },
   "TWN": {
+    "metadata": {
+      "title": "Tabi Women Network | Réseau panafricain de leadership",
+      "description": "Une table pour les femmes qui dirigent. Rejoignez le Tabi Women Network – une communauté panafricaine de dirigeantes, fondatrices et actrices du changement.",
+      "ogTitle": "Tabi Women Network | Une table pour les femmes qui dirigent",
+      "ogDescription": "Des rencontres intimistes de femmes leaders à travers l’Afrique. Pas de panels, pas de keynotes – juste de vraies connexions et des portes qui s’ouvrent."
+    },
     "hero": {
-      "badge": "Réseau des femmes Tabi",
+      "badge": "Tabi Women Network",
       "panAfrican": "Série panafricaine",
-      "headlineLine1": "Un tableau pour",
-      "headlineLine2": "Les femmes qui",
-      "headlineHighlight": "Plomb!",
-      "description": "Un réseau panafricain de femmes cadres, fondatrices et hautes dirigeantes pour s'aligner, collaborer et s'ouvrir les unes aux autres.",
-      "ctaLearnMore": "Apprendre encore plus",
-      "ctaReport": "Voir le rapport Enugu",
-      "socialProof": "Rejoint par",
-      "socialProofHighlight": "{count}+ Dirigeants",
-      "socialProofSuffix": "à travers l'Afrique",
-      "editionBadge": "Prochaine Édition : République du Bénin 🇧🇯",
-      "cohortTitle": "Cohorte Enugu",
-      "cohortDetails": "8 leaders à traits d'union multiples • 4 avril 2026"
+      "headlineLine1": "Une table pour",
+      "headlineLine2": "les femmes qui",
+      "headlineHighlight": "Dirigent !",
+      "description": "Un réseau panafricain de dirigeantes, fondatrices et cadres supérieures pour s’aligner, collaborer et s’ouvrir mutuellement des portes.",
+      "ctaLearnMore": "En savoir plus",
+      "ctaReport": "Voir le rapport d’Enugu",
+      "socialProof": "Rejointes par",
+      "socialProofHighlight": "{count}+ leaders",
+      "socialProofSuffix": "à travers l’Afrique",
+      "editionBadge": "Prochaine édition : République du Bénin 🇧🇯",
+      "cohortTitle": "Cohorte d’Enugu",
+      "cohortDetails": "8 leaders multicompétences • 4 avril 2026"
     },
     "nextEdition": {
       "badge": "Édition à venir",
       "headingLine1": "Cotonou,",
       "headingHighlight": "République du Bénin",
-      "description": "Un mixeur de leadership stratégique pour les femmes cadres et fondatrices à travers l’Afrique de l’Ouest.",
-      "eventTitle": "La table stratégique",
-      "eventTime": "12h00 — Strictement sur invitation uniquement.",
-      "cta": "Indiquer votre intérêt",
-      "footnote": "La participation est limitée à 15 femmes. Les invitations sont personnelles et incessibles.",
-      "month": "Peut",
+      "description": "Un rendez-vous stratégique pour dirigeantes et fondatrices d’Afrique de l’Ouest.",
+      "eventTitle": "La Table Stratégique",
+      "eventTime": "12h00 — Strictement sur invitation.",
+      "cta": "Manifester mon intérêt",
+      "footnote": "Places limitées à 15 femmes. Les invitations sont personnelles et non cessibles.",
+      "month": "Mai",
       "day": "04"
     },
     "manifestoMission": {
       "badge": "Le Manifeste",
-      "headingLine1": "Ce n'est pas un",
+      "headingLine1": "Ceci n’est pas une",
       "headingLine2": "conférence.",
-      "headingHighlight": "Ceci est un tableau.",
-      "paragraph1": "Tabi Women Network est né d'une conviction simple : lorsque les bonnes femmes sont dans la même pièce, des choses réelles se produisent : des partenariats se forment, des idées se précisent et des portes s'ouvrent.",
-      "paragraph2": "Nous sommes une communauté panafricaine de dirigeants, de fondateurs et d’acteurs du changement. Nous ne faisons pas de réseautage performatif ni de sommets bondés. Au lieu de cela, nous organisons des rassemblements intimes, sur invitation uniquement, de 10 à 15 femmes, conçus pour vous faire passer d'une simple introduction à une véritable relation en un seul après-midi.",
-      "quote": "\"La chose la plus puissante qu'une femme puisse faire pour une autre femme est de la mettre dans la bonne pièce.\"",
-      "quoteAuthor": "—Sophia Ahuoyiza",
+      "headingHighlight": "C’est une table.",
+      "paragraph1": "Le Tabi Women Network est né d’une conviction simple : quand les bonnes femmes sont dans la même pièce, de vraies choses se produisent – des partenariats se nouent, les idées s’affûtent et les portes s’ouvrent.",
+      "paragraph2": "Nous sommes une communauté panafricaine de dirigeantes, fondatrices et actrices du changement. Nous ne faisons pas de réseautage superficiel ni de sommets bondés. Nous organisons des rencontres intimes, sur invitation, de 10 à 15 femmes, conçues pour passer d’une simple introduction à une relation authentique en un seul après‑midi.",
+      "quote": "« La chose la plus puissante qu’une femme puisse faire pour une autre, c’est de l’inviter dans la bonne pièce. »",
+      "quoteAuthor": "— Sophia Ahuoyiza",
       "principlesHeading": "Nos principes de fonctionnement",
-      "principlesDescription": "Ce sont les principes qui façonnent chaque décision que nous prenons au sein de Tabi Women Network.",
+      "principlesDescription": "Ce sont les principes qui guident chaque décision que nous prenons au Tabi Women Network.",
       "pillarsCount": "06 Piliers",
       "principles": [
         {
-          "title": "L'intentionnalité plutôt que le volume",
-          "desc": "Chaque femme présente dans la pièce est là pour une raison. La qualité plutôt que la quantité, toujours."
+          "title": "L’intentionnalité avant le volume",
+          "desc": "Chaque femme dans la salle est là pour une raison. La qualité prime toujours sur la quantité."
         },
         {
-          "title": "La chaleur plutôt que la formalité",
-          "desc": "Jamais raide, jamais performatif. Ceci est une table, pas une scène."
+          "title": "La chaleur avant la formalité",
+          "desc": "Jamais guindé, jamais performatif. C’est une table, pas une scène."
         },
         {
-          "title": "L'authenticité en standard",
-          "desc": "Présentez-vous tel que vous êtes. L’honnêteté et la vulnérabilité sont les bienvenues ici."
+          "title": "L’authenticité comme norme",
+          "desc": "Venez comme vous êtes. L’honnêteté et la vulnérabilité sont les bienvenues."
         },
         {
-          "title": "Une sororité pleine de substance",
-          "desc": "De l’introduction à une véritable relation – avec structure et intention."
+          "title": "Une sororité de substance",
+          "desc": "De la présentation à une relation véritable – avec structure et intention."
         },
         {
-          "title": "Excellence dans l'exécution",
-          "desc": "Le temps est respecté. Les promesses sont tenues. L'expérience est cohérente."
+          "title": "L’excellence dans l’exécution",
+          "desc": "Le temps est respecté. Les promesses sont tenues. L’expérience est constante."
         },
         {
           "title": "Une vision panafricaine",
-          "desc": "Construit pour s’étendre sur tout le continent, reliant les femmes au-delà des frontières et des secteurs."
+          "desc": "Conçu pour couvrir le continent, reliant les femmes au‑delà des frontières et des secteurs."
         }
       ]
     },
     "whatItIsNot": {
-      "badge": "La distinction Tabi",
-      "heading": "La table contre la scène",
-      "description": "Nous construisons quelque chose de différent. Nous avons troqué le bruit contre de la profondeur et les panneaux contre des partenariats.",
+      "badge": "La Distinction Tabi",
+      "heading": "La Table contre l’Estrade",
+      "description": "Nous construisons quelque chose de différent. Nous avons troqué le bruit contre la profondeur, et les panels contre des partenariats.",
       "comparison": [
         {
-          "is": "Un rassemblement intime et organisé",
+          "is": "Un rassemblement intime et soigné",
           "not": "Une conférence ou un sommet"
         },
         {
-          "is": "Une table pour une vraie conversation",
+          "is": "Une table pour de vraies conversations",
           "not": "Un événement de réseautage"
         },
         {
-          "is": "Structuré pour de véritables résultats",
-          "not": "Un séminaire sur l'autonomisation des femmes"
+          "is": "Structuré pour des résultats concrets",
+          "not": "Un séminaire d’empowerment féminin"
         },
         {
-          "is": "Panafricain par sa portée et son ambition",
-          "not": "Un panel ou une série de discussions"
+          "is": "Panafricain dans sa portée et son ambition",
+          "not": "Un panel ou une série de discours"
         }
       ],
       "footerTagline": "Culture Tabi",
       "footerTags": [
-        "Pas de panneaux",
-        "Pas de discours",
-        "Pas de réseautage performant"
+        "Pas de panels",
+        "Pas de keynotes",
+        "Pas de réseautage superficiel"
       ]
     },
     "gallery": {
-      "headingPart1": "Capturé",
-      "headingHighlight": "Des instants.",
-      "description": "Un aperçu de l’atmosphère de forte croissance de nos cohortes.",
+      "headingPart1": "Instantanés",
+      "headingHighlight": "Mémorables.",
+      "description": "Un aperçu de l’atmosphère dynamique de nos cohortes.",
       "cta": "Voir la galerie communautaire",
       "archiveTitle": "+ Plus de photos",
-      "archiveSubtext": "Visitez les archives de la communauté"
+      "archiveSubtext": "Visiter les archives communautaires"
     },
     "valuePillars": {
       "pillars": [
         {
-          "title": "Réseautage organisé",
-          "desc": "Cartographie stratégique des sièges avec des leaders qui s'alignent spécifiquement sur votre secteur."
+          "title": "Réseautage curaté",
+          "desc": "Un placement stratégique avec des leaders qui correspondent précisément à votre secteur."
         },
         {
           "title": "Équité des connaissances",
-          "desc": "Un espace privé et de haute confiance pour échanger les règles « tacites » de la technologie et des affaires."
+          "desc": "Un espace privé de grande confiance pour échanger les règles « non dites » de la tech et des affaires."
         },
         {
           "title": "Portes ouvertes",
-          "desc": "Accès direct à la collaboration sur notre base de données mondiale."
+          "desc": "Un accès direct à la collaboration via notre base de données mondiale."
         }
       ]
     },
     "impactSummary": {
       "stats": [
-        {
-          "label": "Applications réseau",
-          "value": "26"
-        },
-        {
-          "label": "Pays africains",
-          "value": "02"
-        },
-        {
-          "label": "Secteurs industriels",
-          "value": "06"
-        },
-        {
-          "label": "Taux de réussite numérique",
-          "value": "100%"
-        }
+        { "label": "Candidatures au réseau", "value": "26" },
+        { "label": "Pays africains", "value": "02" },
+        { "label": "Secteurs d’activité", "value": "06" },
+        { "label": "Taux de succès numérique", "value": "100%" }
       ]
     },
     "testimonial": {
-      "quote": "\"Les idées et les délais fixés pour apporter de la croissance à l'entreprise sont ceux que je n'avais pas avant les réunions.\"",
-      "attribution": "— Participant, cohorte Enugu",
+      "quote": "« Les idées et les échéanciers mis en place pour faire croître l’entreprise sont quelque chose que je n’avais pas avant ces rencontres. »",
+      "attribution": "— Participante, Cohorte d’Enugu",
       "footer": "Session stratégique 2026"
     },
     "pastEditions": {
-      "badge": "Édition passée",
+      "badge": "Édition précédente",
       "location": "Enugu, Nigéria",
       "date": "Cohorte du 4 avril 2026",
-      "headingLine1": "Affiner le leadership dans le",
-      "headingHighlight": "Ville du charbon.",
-      "description": "Notre édition inaugurale à Enugu a réalisé des audits numériques approfondis et des feuilles de route d'infrastructure pour chaque membre présent dans la salle.",
-      "cta": "Lire le rapport Enugu"
+      "headingLine1": "Affiner le leadership dans la",
+      "headingHighlight": "Cité du Charbon.",
+      "description": "Notre édition inaugurale à Enugu a réalisé des audits numériques approfondis et des feuilles de route d’infrastructure pour chaque participante.",
+      "cta": "Lire le rapport d’Enugu"
     },
     "directory": {
-      "heading": "L'annuaire vivant",
-      "description": "Une ressource vivante pour les femmes qui dirigent. Trouvez des collaborateurs, établissez des partenariats et accédez à des opportunités à travers l’Afrique. Chaque participant est ajouté à cet annuaire panafricain en pleine croissance.",
+      "heading": "L’Annuaire Vivant",
+      "description": "Une ressource vivante pour les femmes qui dirigent. Trouvez des collaboratrices, créez des partenariats et accédez à des opportunités à travers l’Afrique. Chaque participante est ajoutée à cet annuaire panafricain en pleine croissance.",
       "filterIndustry": "Tous les secteurs",
       "filterCity": "Toutes les villes",
-      "clearFilters": "Claire",
-      "emptyTitle": "Aucun leader correspondant trouvé",
-      "emptyMessage": "Essayez d'élargir votre recherche ou de réinitialiser les filtres.",
+      "clearFilters": "Effacer",
+      "emptyTitle": "Aucune leader trouvée",
+      "emptyMessage": "Essayez d’élargir votre recherche ou de réinitialiser les filtres.",
       "resetButton": "Réinitialiser tous les filtres",
       "detailLabels": {
-        "focusAreas": "Domaines d'intervention",
-        "currentRole": "Rôle actuel"
+        "focusAreas": "Domaines d’intervention",
+        "currentRole": "Poste actuel"
       },
       "members": [
         {
           "name": "Sophia Ahuoyiza",
-          "role": "Ingénieur logiciel et directeur exécutif, Tabi",
-          "industry": "Technologie",
+          "role": "Software Engineer & Executive Director, Tabi",
+          "industry": "Technology",
           "city": "Enugu",
-          "focus": [
-            "Gestion des produits",
-            "Studios Yelobyte",
-            "Automatisation de l'IA"
-          ],
-          "bio": "Ingénieur logiciel et co-fondateur de Yelobyte Studios, dont l'objectif est de rendre l'éducation technologique accessible aux femmes à travers l'Afrique.",
+          "focus": ["Product Management", "Yelobyte Studios", "AI Automation"],
+          "bio": "Software Engineer and Co-founder of Yelobyte Studios, focused on making technology education accessible to women across Africa.",
           "socials": {
             "linkedin": "https://www.linkedin.com/in/sophia-abubakar/",
             "website": "https://tabiproject.com",
@@ -903,49 +894,34 @@
           "image": "/directory/sophia-ahuoyiza.png"
         },
         {
-          "name": "Magasins Lady Benedeth",
-          "role": "Directeur exécutif, Fondation Benedeth Maduka",
-          "industry": "Politique",
+          "name": "Lady Benedeth Maduka",
+          "role": "Executive Director, Benedeth Maduka Foundation",
+          "industry": "Policy",
           "city": "Enugu",
-          "focus": [
-            "Spécialiste de la VBG",
-            "Plaidoyer en matière de sécurité",
-            "Direction"
-          ],
-          "bio": "Officier de police supérieur à la retraite et spécialiste de la VBG, il prône la conviction selon laquelle l'impact n'a pas d'âge de retraite.",
+          "focus": ["GBV Specialist", "Security Advocacy", "Leadership"],
+          "bio": "A retired Senior Police Officer and GBV specialist advocating for the belief that impact has no retirement age.",
           "socials": {
             "facebook": "https://www.facebook.com/share/1E84b1pQwJ/"
           },
           "image": "/directory/benedeth.png"
         },
         {
-          "name": "Maître Sylvia Agbana",
-          "role": "Présidente de la Ligue des électrices du Nigeria (Enugu)",
-          "industry": "Gouvernance",
+          "name": "Barrister Sylvia Agbana",
+          "role": "Chairperson, League of Women Voters Nigeria (Enugu)",
+          "industry": "Governance",
           "city": "Enugu",
-          "focus": [
-            "CHIRURGIE Enugu",
-            "Plaidoyer juridique",
-            "Droits des femmes"
-          ],
-          "bio": "Ancienne présidente de FIDA Enugu, dédiée à la création d'espaces sûrs permettant aux femmes de diriger et de prospérer dans la gouvernance.",
-          "socials": {
-            "linkedin": "#",
-            "website": "#"
-          },
+          "focus": ["FIDA Enugu", "Legal Advocacy", "Women Rights"],
+          "bio": "Former Chairperson of FIDA Enugu, dedicated to creating safe spaces for women to lead and thrive in governance.",
+          "socials": { "linkedin": "#", "website": "#" },
           "image": "/directory/image.png"
         },
         {
           "name": "Augusta Nneka Nnadi",
-          "role": "SA sur la stratégie et la communication (SEDC)",
-          "industry": "Gouvernance",
+          "role": "SA on Strategy & Communications (SEDC)",
+          "industry": "Governance",
           "city": "Enugu",
-          "focus": [
-            "Politique",
-            "Spécialiste des politiques",
-            "Communication stratégique"
-          ],
-          "bio": "Spécialiste de la politique et des politiques qui milite pour que les femmes qualifiées possédant une « preuve de travail » occupent une place dans les systèmes politiques.",
+          "focus": ["Politics", "Policy Specialist", "Strategic Comms"],
+          "bio": "Politics and Policy specialist pushing for qualified women with 'proof of work' to take up space in political systems.",
           "socials": {
             "linkedin": "https://www.linkedin.com/in/augusta-nneka-b32b981b4/",
             "twitter": "https://twitter.com/nneka_augusta",
@@ -957,15 +933,11 @@
         },
         {
           "name": "Betty Agbo",
-          "role": "Directeur créatif, Betscents",
-          "industry": "Créative",
+          "role": "Creative Director, Betscents",
+          "industry": "Creative",
           "city": "Enugu",
-          "focus": [
-            "Réalisation",
-            "Par intérim",
-            "Image de marque créative"
-          ],
-          "bio": "Cinéaste et acteur leader à travers la narration, encourageant les femmes à prendre des mesures audacieuses dans l'économie créative.",
+          "focus": ["Filmmaking", "Acting", "Creative Branding"],
+          "bio": "Filmmaker and Actor leading through storytelling, encouraging women to take bold actions in the creative economy.",
           "socials": {
             "linkedin": "https://www.linkedin.com/in/betty-agbo-080617170/",
             "instagram": "https://www.instagram.com/officialbettyagbo?igsh=MWwxa3czbXAweGg4eA=="
@@ -973,32 +945,24 @@
           "image": "/directory/betty.png"
         },
         {
-          "name": "Amachi Okeke",
-          "role": "Chef de produit et responsable d'ONG",
-          "industry": "Technologie",
+          "name": "Amarachi Okeke",
+          "role": "Product Manager & NGO Lead",
+          "industry": "Technology",
           "city": "Enugu",
-          "focus": [
-            "Durabilité",
-            "Stratégie produit",
-            "Initiatives sociales"
-          ],
-          "bio": "Chef de produit co-dirige l'ONG Sustainable Initiatives, comblant le fossé entre l'efficacité technologique et le bien social.",
+          "focus": ["Sustainability", "Product Strategy", "Social Initiatives"],
+          "bio": "Product Manager co-running Sustainable Initiatives NGO, bridging the gap between tech efficiency and social good.",
           "socials": {
             "linkedin": "https://www.linkedin.com/in/amarachi-okeke-b4b486236/"
           },
           "image": "/directory/amara.png"
         },
         {
-          "name": "Tracy Jerry Hill",
-          "role": "Responsable marketing produit et co-fondateur",
-          "industry": "Éducation",
+          "name": "Tracy Jerry Ugwu",
+          "role": "Product Marketing Lead & Co-founder",
+          "industry": "Education",
           "city": "Enugu",
-          "focus": [
-            "Éducation ayant des besoins spéciaux",
-            "Apprentissage inclusif",
-            "MGP"
-          ],
-          "bio": "Co-fondateur d'une école inclusive pour enfants ayant des besoins spéciaux et responsable chevronné du marketing produit.",
+          "focus": ["Special Needs Education", "Inclusive Learning", "PMM"],
+          "bio": "Co-founder of an inclusive school for special needs children and a seasoned lead in Product Marketing.",
           "socials": {
             "linkedin": "https://www.linkedin.com/in/tracy-jerry-ugwu/",
             "instagram": "https://www.instagram.com/tracy_ug?igsh=MTk3eDlsejFxOGw1dQ=="
@@ -1007,15 +971,11 @@
         },
         {
           "name": "Ijeoma Achu",
-          "role": "Gestionnaire du programme, Tabi",
-          "industry": "Gestion",
+          "role": "Program’s Manager, Tabi",
+          "industry": "Management",
           "city": "Enugu",
-          "focus": [
-            "Stratégie du programme",
-            "Excellence opérationnelle",
-            "Communauté"
-          ],
-          "bio": "Orchestrer le cadre et la réalisation des missions de Tabi pour garantir des résultats percutants pour chaque cohorte.",
+          "focus": ["Program Strategy", "Operational Excellence", "Community"],
+          "bio": "Orchestrating the framework and delivery of Tabi’s missions to ensure impactful results for every cohort.",
           "socials": {
             "linkedin": "https://www.linkedin.com/in/ijeoma-achu/"
           },
@@ -1025,122 +985,116 @@
     },
     "cityRequest": {
       "badge": "Expansion participative",
-      "headingLine1": "Où devrait Tabi",
+      "headingLine1": "Où Tabi devrait‑il",
       "headingHighlight": "atterrir ensuite ?",
-      "description": "Nous ne choisissons pas les emplacements au hasard. Indiquez votre intérêt pour votre ville à apporter l’expérience TWN à votre région.",
+      "description": "Nous ne choisissons pas les lieux au hasard. Manifestez votre intérêt pour que votre ville accueille l’expérience TWN.",
       "cardTitle": "Vous voulez Tabi dans votre ville ?",
-      "cardText": "Soyez le premier informé de notre expansion. Soumettez votre intérêt et nous donnerons la priorité à votre emplacement.",
-      "cta": "Indiquer votre intérêt →"
+      "cardText": "Soyez la première informée de notre expansion. Soumettez votre intérêt et nous prioriserons votre emplacement.",
+      "cta": "Manifester mon intérêt →"
     },
     "cityRequestModal": {
-      "title": "Amenez Tabi dans votre ville",
-      "subtitle": "Remplissez vos coordonnées et nous donnerons la priorité à votre emplacement.",
-      "successTitle": "Merci!",
-      "successMessage": "Nous vous avertirons lorsque nous atterrirons à {city}.",
+      "title": "Faites venir Tabi dans votre ville",
+      "subtitle": "Remplissez vos coordonnées et nous prioriserons votre emplacement.",
+      "successTitle": "Merci !",
+      "successMessage": "Nous vous informerons dès notre arrivée à {city}.",
       "labels": {
-        "name": "Nom et prénom *",
-        "email": "E-mail *",
-        "mobile": "Numéro de portable *",
+        "name": "Nom complet *",
+        "email": "Email *",
+        "mobile": "Numéro de téléphone *",
         "linkedin": "Profil LinkedIn (facultatif)",
         "city": "Quelle ville ? *",
-        "cityPlaceholder": "par exemple, Nairobi, Accra, Kigali"
+        "cityPlaceholder": "ex : Nairobi, Accra, Kigali"
       },
       "cancel": "Annuler",
-      "submit": "Soumettre votre intérêt",
-      "sending": "Envoi...",
+      "submit": "Envoyer",
+      "sending": "Envoi en cours…",
       "errors": {
         "nameRequired": "Le nom complet est requis",
-        "emailRequired": "L'e-mail est requis",
-        "emailInvalid": "E-mail invalide",
-        "mobileRequired": "Le numéro de portable est requis",
-        "cityRequired": "La ville est obligatoire",
-        "generic": "Quelque chose s'est mal passé",
+        "emailRequired": "L’email est requis",
+        "emailInvalid": "Email invalide",
+        "mobileRequired": "Le numéro de téléphone est requis",
+        "cityRequired": "La ville est requise",
+        "generic": "Une erreur est survenue",
         "network": "Erreur réseau. Veuillez réessayer."
       }
     },
     "faq": {
       "badge": "Clarté",
-      "heading": "Questions courantes",
+      "heading": "Questions fréquentes",
       "description": "Tout ce que vous devez savoir sur l’expérience Tabi Women Network.",
-      "contactText": "Vous avez d'autres questions ? Contact",
+      "contactText": "D’autres questions ? Contactez",
       "contactEmail": "sophia@tabiproject.com",
       "items": [
         {
-          "q": "Qui peut assister aux événements du Tabi Women Network ?",
-          "a": "La participation se fait uniquement sur invitation personnelle. Chaque édition est spécialement conçue pour les femmes occupant des postes de direction, de direction, de fondatrice ou de direction dans les domaines de la technologie, des affaires et de la gouvernance. Si vous avez reçu une invitation, votre place est dans la salle."
+          "q": "Who can attend Tabi Women Network events?",
+          "a": "Attendance is strictly by personal invitation. Each edition is curated specifically for women in executive, senior, founder, or leadership roles across tech, business, and governance. If you have received an invitation, you belong in the room."
         },
         {
-          "q": "Puis-je demander une invitation ?",
-          "a": "Les femmes intéressées à assister à une future édition ou à en accueillir une dans leur ville peuvent exprimer leur intérêt via notre formulaire de demande de ville ou en contactant sophia@tabiproject.com. La curation est intentionnelle, donc toutes les manifestations d’intérêt ne donneront pas lieu à une invitation."
+          "q": "Can I request an invitation?",
+          "a": "Women interested in attending a future edition or hosting one in their city can express interest via our city request form or by reaching out to sophia@tabiproject.com. Curation is intentional, so not every expression of interest will result in an invitation."
         },
         {
-          "q": "Puis-je amener un invité ?",
-          "a": "Chaque invitation n'admet qu'une seule personne. Pour préserver l'intimité de la table, nous n'autorisons pas les +1. Cependant, si vous pensez qu’une autre femme devrait être à la table, nous vous encourageons à en parler à l’hôte. L’équipe envisagera de lancer une invitation distincte."
+          "q": "Can I bring a guest?",
+          "a": "Each invitation admits one person only. To maintain the intimacy of the table, we do not allow +1s. However, if you believe another woman should be at the table, you are encouraged to mention her to the host. The team will consider extending a separate invitation."
         },
         {
-          "q": "Y a-t-il un coût pour y assister ?",
-          "a": "Les détails de la participation, y compris les frais applicables à l'expérience culinaire organisée, sont communiqués directement aux invités lors de la confirmation de leur invitation."
+          "q": "Is there a cost to attend?",
+          "a": "Attendance details, including any applicable costs for the curated dining experience, are communicated directly to guests upon confirmation of their invitation."
         },
         {
-          "q": "Quelle est la politique concernant l'heure d'arrivée ?",
-          "a": "Nous construisons une culture du respect du temps. Chaque événement commence exactement à l'heure indiquée. Les invités sont accueillis à partir de 15 minutes avant le début, et nous vous demandons d'arriver tôt pour vous installer avant le début des tables rondes."
+          "q": "What is the policy on arrival time?",
+          "a": "We are building a culture of respect for time. Each event starts exactly at the stated time. Guests are welcomed from 15 minutes before the start, and we ask that you arrive early to settle in before the roundtables begin."
         },
         {
-          "q": "Comment puis-je obtenir le réseau Tabi Women Network dans ma ville ?",
-          "a": "Nous nous développons chaque mois à travers l’Afrique. Si vous souhaitez que nous atterrissions dans votre ville la prochaine fois, veuillez utiliser notre formulaire « Indiquer votre intérêt ». Nous donnons la priorité aux nouveaux emplacements en fonction des endroits où la demande de notre communauté est la plus forte."
+          "q": "How do I get Tabi Women Network in my city?",
+          "a": "We are expanding monthly across Africa. If you want us to land in your city next, please use our 'Indicate Interest' form. We prioritize new locations based on where our community demand is strongest."
         },
         {
-          "q": "Que se passe-t-il après l'événement ?",
-          "a": "Chaque participante est ajoutée au répertoire des membres du Tabi Women Network, une ressource vivante conçue pour aider les membres à trouver des collaborateurs et à établir de véritables partenariats au-delà des frontières et des secteurs."
+          "q": "What happens after the event?",
+          "a": "Every attendee is added to the Tabi Women Network member directory—a living resource designed to help members find collaborators and build real partnerships across borders and sectors."
         },
         {
-          "q": "L'événement est-il enregistré ?",
-          "a": "Le programme principal et les conversations à table ne sont jamais enregistrés pour garantir l'authenticité et la vulnérabilité. Ce qui est dit à table reste à table. Nous disposons cependant d'une équipe de médias disponible pour des interviews assises facultatives pendant le segment de réseautage ouvert."
+          "q": "Is the event recorded?",
+          "a": "The core programme and conversations at the table are never recorded to ensure authenticity and vulnerability. What is said at the table stays at the table. We do, however, have a media team available for optional seated interviews during the open networking segment."
         },
         {
-          "q": "À quelle fréquence le réseau se réunit-il ?",
-          "a": "Des éditions ont lieu mensuellement dans différentes villes d'Afrique. Les membres sont invités à assister aux éditions dans leur ville d'origine et peuvent être invités à des éditions dans d'autres villes où ils ont une présence professionnelle."
+          "q": "How often does the network meet?",
+          "a": "Editions are held monthly in different cities across Africa. Members are welcome to attend editions in their home city and may be invited to editions in other cities where they have a professional presence."
         }
       ]
     },
     "manifestoQuote": {
-      "line1": "Le réseau des femmes Tabi est l'endroit où",
-      "highlight1": "accéder",
+      "line1": "Le Tabi Women Network est l’endroit où",
+      "highlight1": "l’accès",
       "line2": "rencontre",
-      "highlight2": "opportunité.",
-      "quote": "\"Nous construisons un écosystème décentralisé pour les femmes dirigeantes africaines. Pas de gardiens. Pas de superflu. Juste la technologie, la gouvernance et le capital social nécessaires pour construire un héritage mondial.\""
-    },
-    "metadata": {
-      "title": "Réseau des femmes Tabi | Réseau panafricain de leadership",
-      "description": "Une table pour les femmes qui dirigent. Rejoignez le Tabi Women Network – une communauté panafricaine organisée de dirigeants, de fondateurs et d’acteurs du changement.",
-      "ogTitle": "Réseau des femmes Tabi | Une table pour les femmes qui dirigent",
-      "ogDescription": "Rassemblements intimes de femmes leaders à travers l’Afrique. Pas de panels, pas de keynotes – juste de vraies connexions et des portes ouvertes."
+      "highlight2": "l’opportunité.",
+      "quote": "« Nous construisons un écosystème décentralisé pour les femmes leaders africaines. Pas de gardiens. Pas de superflu. Juste la technologie, la gouvernance et le capital social nécessaires pour bâtir des héritages mondiaux. »"
     }
   },
   "Community": {
     "metadata": {
-      "title": "Communauté | Académie Tabi × Académie Rise",
-      "description": "Rejoignez la fraternité Tabi Academy. Explorez les voies et les possibilités permettant aux femmes africaines dans le secteur de la technologie de grandir, d'exceller, de prospérer et de diriger grâce à un impact durable.",
-      "ogTitle": "Rejoignez la Fraternité de la Tabi Academy",
-      "ogDescription": "Donner aux femmes du secteur technologique les moyens de construire, de créer et de diriger. Explorez notre communauté open source et nos événements de formation."
+      "title": "Communauté | Tabi Academy × Rise Academy",
+      "description": "Rejoignez la sororité Tabi Academy. Découvrez les parcours et les possibilités qui permettent aux Africaines de la tech de grandir, exceller, s'épanouir et diriger grâce à un impact durable.",
+      "ogTitle": "Rejoignez la sororité Tabi Academy",
+      "ogDescription": "Donner aux femmes de la tech les moyens de construire, créer et diriger. Explorez notre communauté open source et nos événements de formation."
     },
     "hero": {
       "badge": "Rejoignez le mouvement",
-      "headlinePart1": "Construire le",
+      "headlinePart1": "Construire les",
       "headlineHighlight": "Voies",
       "headlinePart2": "pour que les femmes construisent, créent et dirigent.",
-      "subheadPrefix": "Plus qu'un réseau. UN",
-      "subheadBold": "fraternité",
-      "subheadSuffix": "de femmes africaines qui créent un impact durable et repoussent les limites de la technologie. Ne vous contentez pas de regarder l’avenir se produire : aidez-nous à en écrire le code.",
-      "cta": "Rejoignez Tabi",
-      "fomoMain": "🔥 Plus de 45 femmes collaborant sur des sprints actifs.",
-      "fomoQueue": "Rejoignez la file d'attente.",
-      "floatingTag1": "Cohorte suivante",
-      "floatingTag1Sub": "Commence bientôt",
+      "subheadPrefix": "Plus qu'un réseau. Une",
+      "subheadBold": "sororité",
+      "subheadSuffix": "de femmes africaines qui créent un impact durable et repoussent les limites de la tech. Ne regardez pas l'avenir arriver – aidez‑nous à en écrire le code.",
+      "cta": "Rejoindre Tabi",
+      "fomoMain": "🔥 +45 femmes collaborent sur des sprints actifs.",
+      "fomoQueue": "Rejoignez la file.",
+      "floatingTag1": "Prochaine cohorte",
+      "floatingTag1Sub": "Démarrage imminent",
       "floatingTag2Value": "500+",
       "floatingTag2Label": "Sœurs connectées",
       "images": {
-        "womanCodingAlt": "Une femme souriant en tapant du code lors d'un événement Tabi",
+        "womanCodingAlt": "Une femme souriante qui code lors d'un événement Tabi",
         "learnableEventAlt": "Femmes collaborant pendant la formation Learnable"
       }
     },
@@ -1149,98 +1103,470 @@
       "heading": "Moments capturés de",
       "headingHighlight": "Possibilités.",
       "tabs": {
-        "all": "Tous les instants",
+        "all": "Tous les moments",
         "learnable": "Learnable × Tabi",
         "sprints": "Sprints Open Source",
         "meetup": "Réseau des femmes Tabi"
       },
-      "emptyTitle": "Aucune image pour l'instant",
-      "emptyMessage": "Nous documentons actuellement cette piste. La galerie apparaîtra ici sous peu.",
-      "viewFullSize": "Afficher en taille réelle"
+      "emptyTitle": "Pas encore d'images",
+      "emptyMessage": "Nous documentons cette piste. La galerie arrivera bientôt.",
+      "viewFullSize": "Voir en taille réelle"
     },
     "philosophy": {
       "badge": "La Fondation TEEF",
       "headingLine1": "Libérer le potentiel",
-      "headingHighlight": "Grâce à la technologie.",
-      "description": "Nous sommes une organisation à but non lucratif axée sur l'enseignement technologique, la R&D et l'open source. Notre objectif est clair : permettre à 5 000 femmes africaines de diriger et d’exceller dans le paysage technologique mondial.",
+      "headingHighlight": "Par la technologie.",
+      "description": "Nous sommes une organisation à but non lucratif dédiée à l'éducation tech, à la R&D et à l'open source. Notre objectif est clair : former 5 000 Africaines pour qu'elles dirigent et excellent dans le paysage technologique mondial.",
       "pillars": [
         {
-          "title": "Innover & Ingénier",
-          "text": "Nous fournissons les ressources et le financement nécessaires pour mettre en œuvre des solutions aux défis du monde réel. Nous ne nous contentons pas de créer des correctifs temporaires ; nous concevons des systèmes qui responsabilisent la prochaine génération.",
-          "tag": "Innovate"
+          "title": "Innover et concevoir",
+          "text": "Nous fournissons les ressources et le financement nécessaires pour résoudre des défis concrets. Nous ne créons pas de simples solutions temporaires ; nous bâtissons des systèmes qui autonomisent la prochaine génération.",
+          "tag": "Innover"
         },
         {
           "title": "Éducation durable",
-          "text": "Combler le fossé au sein de l’écosystème commence par l’accès. Nous dotons les individus défavorisés et volontaires de compétences numériques de haut niveau et de stratégies commerciales basées sur l'IA.",
-          "tag": "Educate & Empower"
+          "text": "Combler le fossé dans l'écosystème commence par l'accès. Nous dotons les personnes défavorisées et motivées de compétences numériques avancées et de stratégies d'affaires basées sur l'IA.",
+          "tag": "Éduquer et autonomiser"
         },
         {
           "title": "Unir et diriger",
-          "text": "Nous avons pour mission de former 5 000 femmes africaines. Nous ne sommes pas en concurrence; nous soulevons. Grâce à une collaboration active, nous construisons la clé, créons le chemin et ouvrons la voie.",
-          "tag": "Unite"
+          "text": "Notre mission est de former 5 000 Africaines. Nous ne sommes pas en concurrence ; nous élevons. Par une collaboration active, nous construisons la clé, créons le chemin et ouvrons la voie.",
+          "tag": "Unir"
         }
       ],
       "statValue": "5000",
-      "statLabel": "Femmes africaines \nÉquipé pour la technologie",
-      "statQuote": "\"Créer un monde où les femmes africaines sont à la pointe de l'innovation technologique.\"",
+      "statLabel": "Africaines\nformées à la tech",
+      "statQuote": "« Créer un monde où les Africaines sont aux avant‑postes de l'innovation technologique. »",
       "viewImpact": "Voir notre impact"
     },
     "howWeThrive": {
       "badge": "Les piliers",
       "headingPart1": "Comment nous",
-      "headingHighlight": "Prospérer.",
-      "description": "\"Une croissance structurée conçue pour la femme africaine moderne dans le domaine de la technologie. Pas de superflu, juste de l'exécution.\"",
+      "headingHighlight": "Prospérons.",
+      "description": "« Une croissance structurée conçue pour l'Africaine moderne de la tech. Pas de blabla, juste de l'exécution. »",
       "pillars": [
         {
-          "title": "Source ouverte",
-          "desc": "Nous ne nous contentons pas d'« apprendre », nous expédions. Nos sœurs créent des outils concrets et contribuent à des projets mondiaux, en créant un portfolio plus éloquent qu'un CV."
+          "title": "Open Source",
+          "desc": "Nous ne faisons pas qu'« apprendre », nous livrons. Nos sœurs construisent des outils concrets et contribuent à des projets mondiaux, se constituant un portfolio plus parlant qu'un CV."
         },
         {
           "title": "Mentorat direct",
-          "desc": "Évitez les incertitudes. Laissez-vous guider par des ingénieurs et des professionnels chevronnés de la technologie qui ont parcouru le chemin et sont prêts à vous aider."
+          "desc": "Évitez les tâtonnements. Laissez‑vous guider par des responsables techniques et des professionnels expérimentés qui ont déjà parcouru le chemin et sont prêts à vous faire avancer."
         },
         {
           "title": "Espace sûr",
-          "desc": "Un environnement radical où il est normal d'échouer, de poser des questions « stupides » et de grandir à son rythme sans jugement."
+          "desc": "Un environnement radical où il est permis d'échouer, de poser des questions « bêtes » et de progresser à son rythme, sans jugement."
         }
       ],
-      "exploreText": "Explorer le chemin"
+      "exploreText": "Explorer la voie"
     },
     "cta": {
       "stats": [
-        {
-          "label": "Sœurs actives",
-          "value": "500+"
-        },
-        {
-          "label": "Lignes de code expédiées",
-          "value": "12 000+"
-        },
-        {
-          "label": "Partenaires stratégiques",
-          "value": "5"
-        },
-        {
-          "label": "Objectif unifié",
-          "value": "1"
-        }
+        { "label": "Sœurs actives", "value": "500+" },
+        { "label": "Lignes de code livrées", "value": "12 000+" },
+        { "label": "Partenaires stratégiques", "value": "5" },
+        { "label": "Objectif commun", "value": "1" }
       ],
-      "headingLine1": "Arrêtez de vous tenir sur le",
-      "headingHighlight": "En marge.",
-      "description": "L'accès à notre communauté WhatsApp privée, à nos événements de partenariat exclusifs et au mentorat direct d'ingénieurs seniors n'est pas ouvert éternellement. Réclamez votre place parmi les leaders.",
-      "joinButton": "Rejoignez Tabi",
-      "nextCohort": "L'intégration de la prochaine cohorte commence dans 4 jours"
+      "headingLine1": "Arrêtez de rester sur la",
+      "headingHighlight": "Touche.",
+      "description": "L'accès à notre communauté WhatsApp privée, à nos événements exclusifs et au mentorat direct par des ingénieurs seniors n'est pas éternel. Prenez votre place parmi les leaders.",
+      "joinButton": "Rejoindre Tabi",
+      "nextCohort": "La prochaine cohorte commence dans 4 jours"
     }
   },
-  "InsightsStories": {
-    "heading": "Perspectives et histoires",
-    "description": "Prêt à vous lancer dans votre aventure technologique ? Explorez nos ressources et commencez à construire votre avenir dès aujourd’hui.",
-    "emptyTitle": "Pas encore de messages",
-    "emptyMessage": "Revenez bientôt : des informations sont en route.",
-    "loadMore": "Charger plus",
-    "categoryBadge": {
-      "blog": "Blogue",
-      "news": "Nouvelles"
+  "Consultancy": {
+    "metadata": {
+      "title": "Consultance d'affaires gratuite | Tabi Academy",
+      "description": "Développez votre marque grâce à une consultance individuelle gratuite de Tabi Academy. Expertise tech et marketing pour les entreprises dirigées par des femmes en Afrique. Candidater maintenant !",
+      "ogTitle": "Consultance d'affaires gratuite en 1‑to‑1 | Tabi Academy",
+      "ogDescription": "Bénéficiez d’une aide experte en Marketing, Finance et Stratégie. 5 créneaux gratuits par mois pour les fondatrices africaines. Réservez le vôtre dès aujourd’hui !"
+    },
+    "ConsultancyHero": {
+      "urgentBar": "✨ La prochaine fenêtre de candidature ouvre en juin 2026 — seulement {totalSlots} places disponibles. Inscrivez votre intérêt dès maintenant !",
+      "freeBadge": "✦ 100% Gratuit",
+      "freeSubtext": "Sans frais. Aucune condition cachée.",
+      "headline1": "Consultance",
+      "headline2": "gratuite pour",
+      "headlineHighlight": "5 entreprises dirigées par des femmes",
+      "headline3": "",
+      "description": "Chaque mois, la Fondation TEE sélectionne 5 entreprises dirigées par des femmes pour une séance de conseil individuelle et gratuite. Nous vous aidons à résoudre vos défis en Marketing, Finance, Tech, Stratégie et Ventes.",
+      "areas": ["Marketing", "Finance", "Tech", "Stratégie", "Ventes"],
+      "stats": [
+        { "value": "5", "label": "Places gratuites par mois" },
+        { "value": "1:1", "label": "Séance personnalisée" },
+        { "value": "0₦", "label": "Gratuit pour vous" }
+      ],
+      "cta": "Demander une séance gratuite →",
+      "terms": "Conditions générales applicables · {remaining} place(s) sur {total} restante(s)",
+      "imageAlt": "Consultance pour entreprises dirigées par des femmes",
+      "deadlineLabel": "Prochaine candidature",
+      "openSlotsLabel": "Places disponibles",
+      "areasCoveredLabel": "Domaines couverts",
+      "applicationDeadline": "Juin 2026"
+    },
+    "WhatYouGet": {
+      "badge": "Nous vous aidons à résoudre des défis en",
+      "heading": "Une seule séance. De vraies solutions.",
+      "description": "Dites‑nous votre plus grand défi – nous vous mettrons en relation avec l’expert adapté à votre séance.",
+      "areas": [
+        {
+          "id": 1,
+          "title": "Marketing",
+          "description": "Construisez une marque qui se fait remarquer. Nous vous aiderons à élaborer une stratégie qui attire les bons clients et les fidélise."
+        },
+        {
+          "id": 2,
+          "title": "Finance",
+          "description": "Faites parler vos chiffres. De la tarification aux marges bénéficiaires, nous vous aiderons à adopter des habitudes financières qui soutiennent la croissance."
+        },
+        {
+          "id": 3,
+          "title": "Tech",
+          "description": "Tirez parti des bons outils et plateformes pour gérer votre entreprise de manière plus efficace et plus confiante à l’ère numérique."
+        },
+        {
+          "id": 4,
+          "title": "Stratégie",
+          "description": "Clarifiez votre destination et la manière d’y parvenir. Nous vous aiderons à construire une feuille de route ciblée pour une croissance durable."
+        },
+        {
+          "id": 5,
+          "title": "Ventes",
+          "description": "Transformez les conversations en conversions. Nous vous aiderons à développer une approche commerciale naturelle qui donne de vrais résultats."
+        }
+      ],
+      "bottomNote": "Pas sûre du domaine ?",
+      "bottomHighlight": "Décrivez simplement votre défi dans le formulaire de candidature – nous trouverons la meilleure adéquation pour vous.",
+      "applyLink": "Candidater maintenant →"
+    },
+    "WhoItsFor": {
+      "badge": "À qui s’adresse la consultance",
+      "headingPart1": "Conçue pour",
+      "headingHighlight": "les femmes qui veulent passer à l’action",
+      "description": "Que vous débutiez ou que vous dirigiez déjà une entreprise qui a besoin d’un déclic – cette consultance est pensée pour vous.",
+      "cta": "Candidater pour une place",
+      "list": [
+        "Entreprises dirigées par des femmes à tout stade",
+        "Petites et moyennes entreprises (PME) en croissance",
+        "Entrepreneures qui vivent leur première année d’activité",
+        "Cheffes d’entreprise souhaitant intégrer la technologie dans leurs opérations",
+        "Fondatrices ayant besoin de clarté stratégique et de direction"
+      ]
+    },
+    "HowItWorks": {
+      "badge": "Comment ça marche",
+      "heading": "Trois étapes vers votre séance",
+      "steps": [
+        {
+          "number": "01",
+          "title": "Candidater",
+          "description": "Remplissez le court formulaire. Parlez‑nous de votre entreprise et du défi pour lequel vous avez besoin de soutien."
+        },
+        {
+          "number": "02",
+          "title": "Être sélectionnée",
+          "description": "Notre équipe examine toutes les candidatures et sélectionne 5 entreprises dirigées par des femmes qui bénéficieront le plus d’une séance."
+        },
+        {
+          "number": "03",
+          "title": "Séance de solutions business",
+          "description": "Les candidates retenues bénéficient d’une séance individuelle dédiée avec un consultant expert, adaptée à leurs besoins spécifiques."
+        }
+      ]
+    },
+    "ApplySection": {
+      "badge": "Candidater maintenant",
+      "heading": "Prête à faire grandir votre entreprise ?",
+      "description": "Remplissez le formulaire pour postuler à l’une de nos 5 places de consultance gratuite ce mois‑ci. Les candidatures sont examinées et les sélections faites avant la date limite.",
+      "deadlineLabel": "Date limite de candidature",
+      "slotsLabel": "{remaining} place(s) sur {total} restante(s)",
+      "questionsTitle": "Une question ?",
+      "questionsText": "Envoyez‑nous un message et nous vous répondrons.",
+      "terms": "Conditions générales applicables"
+    },
+    "FAQSection": {
+      "badge": "FAQ",
+      "heading": "Questions fréquentes",
+      "description": "Encore des doutes ? Voici les réponses aux questions les plus courantes. Si vous ne trouvez pas la vôtre – écrivez‑nous.",
+      "cta": "Candidater pour une séance gratuite",
+      "footer": "Conditions générales applicables · Programme de consultance gratuit par la Fondation TEE",
+      "items": [
+        {
+          "question": "Est‑ce vraiment gratuit ?",
+          "answer": "Oui – totalement gratuit. La Fondation TEE offre 5 créneaux par mois sans frais dans le cadre de son engagement à soutenir les entreprises dirigées par des femmes en Afrique."
+        },
+        {
+          "question": "Combien de temps dure chaque séance ?",
+          "answer": "Chaque séance dure 60 minutes, en visioconférence via Google Meet ou Zoom, à l’horaire qui vous convient."
+        },
+        {
+          "question": "Comment les 5 places sont‑elles attribuées ?",
+          "answer": "Les places sont attribuées selon le principe du premier arrivé, premier servi chaque mois. Les candidatures ferment à la date limite indiquée et les sélections sont faites peu après."
+        },
+        {
+          "question": "Puis‑je candidater plus d’une fois ?",
+          "answer": "Vous pouvez candidater une fois par mois. Si vous n’êtes pas sélectionnée, votre candidature sera prise en compte pour le prochain cycle."
+        },
+        {
+          "question": "Que se passe‑t‑il après la séance ?",
+          "answer": "Vous recevrez un résumé de suivi de votre consultant avec les principaux points à retenir et les prochaines étapes recommandées pour garder votre élan."
+        },
+        {
+          "question": "Des conditions générales s’appliquent‑elles ?",
+          "answer": "Oui. En candidatant, vous acceptez les conditions générales de Tabi pour le programme de consultance gratuite. N’hésitez pas à nous contacter si vous avez des questions avant de candidater."
+        }
+      ]
+    }
+  },
+  "About": {
+    "metadata": {
+      "title": "À propos de notre mission",
+      "description": "Découvrez la mission de la Tabi Academy : autonomiser les femmes africaines grâce à l'éducation technologique. Découvrez comment la Tabi Empowerment & Educational Foundation (TEE) réduit la fracture numérique.",
+      "ogTitle": "À propos de Tabi Academy | Autonomiser les femmes africaines dans la tech",
+      "ogDescription": "Rencontrez l'équipe derrière Tabi Academy. Nous proposons des formations en technologie et en innovation pour transformer la vie des femmes à travers l'Afrique."
+    },
+    "hero": {
+      "heading": "Qui sommes-nous ?",
+      "description": "Nous sommes une organisation à but non lucratif qui propose des formations tech, de la recherche et développement et des projets open source. Notre objectif est de former 5 000 femmes africaines pour qu'elles soient bien armées dans l'industrie technologique et combler le fossé dans l'écosystème."
+    },
+    "philosophy": {
+      "heading": "Notre philosophie",
+      "mission": {
+        "label": "Mission",
+        "heading": "Défendre l'autonomisation par la tech",
+        "body": "À la Tabi Empowerment and Educational Foundation (TEEF), nous nous engageons à réduire le fossé entre les genres dans la technologie grâce à une éducation tech exceptionnelle, une recherche et développement pionnière et la promotion de projets open source. Notre mission est de donner aux femmes africaines les compétences et les opportunités nécessaires pour prospérer dans l'industrie technologique, en favorisant un écosystème inclusif et innovant. Grâce à notre engagement indéfectible, nous visons à élever les individus, transformer les communautés et inspirer un avenir où les femmes dirigent et excellent dans la technologie et l'innovation."
+      },
+      "vision": {
+        "label": "Vision",
+        "heading": "Notre vision pour demain",
+        "body": "À la Tabi Empowerment and Educational Foundation (TEEF), notre vision est de créer un monde où les femmes africaines sont à l'avant-garde de l'innovation technologique, menant des avancées et apportant des contributions significatives au paysage technologique mondial. Nous aspirons à cultiver un environnement où l'éducation et les opportunités sont accessibles à tous, favorisant une communauté technologique diversifiée et inclusive. En donnant aux individus les outils et les connaissances pour exceller, nous visons à stimuler le développement durable, inspirer le changement et façonner un avenir où le potentiel de chaque femme est pleinement réalisé et célébré."
+      }
+    },
+    "TheTeam": {
+      "badge": "L'équipe"
+    }
+  },
+  "OpenSource": {
+    "metadata": {
+      "title": "Études de cas | Impact de l'ingénierie à la Tabi Academy",
+      "description": "Découvrez les solutions open source développées par la Tabi Academy et la Rise Academy. De la santé maternelle à la croissance des PME, voyez comment nous construisons pour la communauté.",
+      "ogTitle": "Études de cas | Tabi Academy",
+      "ogDescription": "Ingénierie de solutions évolutives pour réduire le fossé pour les femmes en Afrique."
+    },
+    "hero": {
+      "badge": "Impact de l'ingénierie · 2026",
+      "headlinePart1": "Construire pour",
+      "headlineHighlight": "les femmes.",
+      "partnerText": "Rise Academy",
+      "collabText": "Un sprint collaboratif IWD avec Rise Academy by Risevest X Tabi Academy, concevant des solutions évolutives pour réduire le fossé pour les femmes en Afrique.",
+      "scrollLabel": "Défiler"
+    },
+    "list": {
+      "docLink": "Documentation",
+      "projectLabel": "Projet {number}",
+      "items": [
+        {
+          "id": "bloom-after",
+          "title": "Bloom After",
+          "tagline": "Soutien et soins pour la dépression postpartum",
+          "description": "Un compagnon numérique bienveillant pour les mères confrontées à la dépression postpartum. Bloom After fournit des informations cliniques, un annuaire de spécialistes vérifiés et un outil de recherche de cliniques géolocalisé pour qu'aucune femme ne souffre en silence.",
+          "impact": "Conçu pour les jeunes mères et les aidants d'Afrique subsaharienne afin de réduire l'isolement maternel et de combler le fossé en matière de santé mentale.",
+          "image": "/projects/bloom-mockup.png",
+          "themeColor": "#00695C",
+          "features": [
+            "Annuaire de spécialistes",
+            "Recherche de cliniques",
+            "Auto‑évaluation",
+            "Bibliothèque de ressources"
+          ],
+          "stats": [
+            { "label": "Solution", "value": "Pont en santé mentale" },
+            { "label": "Statut", "value": "MVP en ligne" }
+          ],
+          "buttonText": "Utiliser Bloom",
+          "contributors": [
+            {
+              "github": "Chijex5",
+              "avatar": "https://avatars.githubusercontent.com/u/138696001?v=4"
+            },
+            {
+              "github": "devanike",
+              "avatar": "https://avatars.githubusercontent.com/u/156053615?v=4"
+            },
+            {
+              "github": "Prisca-01",
+              "avatar": "https://avatars.githubusercontent.com/u/110746159?v=4"
+            },
+            {
+              "github": "De-jola",
+              "avatar": "https://avatars.githubusercontent.com/u/104757999?v=4"
+            },
+            {
+              "github": "Shaelle11",
+              "avatar": "https://avatars.githubusercontent.com/u/138696001?v=4"
+            },
+            {
+              "github": "genevieveagugua",
+              "avatar": "https://avatars.githubusercontent.com/u/255832042?v=4"
+            },
+            {
+              "github": "nyakiochristine",
+              "avatar": "https://avatars.githubusercontent.com/u/98151711?s=64&v=4"
+            },
+            {
+              "github": "theonlySophia",
+              "avatar": "https://avatars.githubusercontent.com/u/100859618?s=64&v=4"
+            },
+            {
+              "github": "lowlifehighway",
+              "avatar": "https://avatars.githubusercontent.com/u/139157739?v=4"
+            }
+          ],
+          "links": {
+            "live": "https://the-bloom-after.netlify.app/",
+            "github": "https://github.com/Tabi-Project/Bloom-After/blob/main/CONTRIBUTING.md"
+          }
+        },
+        {
+          "id": "luminary",
+          "title": "Luminary",
+          "tagline": "Célébrer les femmes qui ont un impact mondial",
+          "description": "Un annuaire vivant et une plateforme d'actualités dédiés à corriger la sous‑représentation des femmes dans les médias. Luminary rend le travail des femmes dans les affaires, la science et l'activisme visible, vérifiable et célébré.",
+          "impact": "Créé pour les journalistes et les organisateurs afin de découvrir des modèles, en veillant à ce que le leadership féminin soit documenté et accessible dans le monde entier.",
+          "image": "/projects/luminary-mockup-2.png",
+          "themeColor": "#c2185b",
+          "features": [
+            "Suivi d'impact",
+            "Biographies vérifiées",
+            "Agrégateur d'actualités",
+            "Portail de mentorat"
+          ],
+          "stats": [
+            { "label": "Solution", "value": "Moteur de visibilité" },
+            { "label": "Statut", "value": "MVP en ligne" }
+          ],
+          "buttonText": "Utiliser Luminary",
+          "contributors": [
+            {
+              "github": "Yourgotopyromaniac",
+              "avatar": "https://avatars.githubusercontent.com/u/64610890?v=4"
+            },
+            {
+              "github": "chisomdaniel",
+              "avatar": "https://avatars.githubusercontent.com/u/59361666?s=64&v=4"
+            },
+            {
+              "github": "Blisyphus",
+              "avatar": "https://avatars.githubusercontent.com/u/111808790?v=4"
+            },
+            {
+              "github": "Rukkyoo",
+              "avatar": "https://avatars.githubusercontent.com/u/105046150?v=4"
+            },
+            {
+              "github": "Vaden89",
+              "avatar": "https://avatars.githubusercontent.com/u/99439561?v=4"
+            },
+            {
+              "github": "MrNaturi",
+              "avatar": "https://avatars.githubusercontent.com/u/115954743?s=64&v=4"
+            }
+          ],
+          "links": {
+            "live": "https://luminary-for-women.netlify.app/",
+            "github": "https://github.com/Tabi-Project/Luminary/blob/main/CONTRIBUTING.md"
+          }
+        },
+        {
+          "id": "ekehi",
+          "title": "Ekehi",
+          "tagline": "Centre de ressources pour PME et entreprises",
+          "description": "Un centre d'intelligence économique pour les femmes entrepreneures. Ekehi regroupe en un seul endroit les opportunités de financement actives, les facilités de crédit et les ressources de formation pratiques.",
+          "impact": "S'attaquer directement au « triple handicap » en fournissant aux PME dirigées par des femmes africaines le capital et les réseaux dont elles ont besoin pour se développer.",
+          "image": "/projects/ekehi-mockup.png",
+          "themeColor": "#5b2d8e",
+          "features": [
+            "Base de subventions",
+            "Mise en relation de crédit",
+            "Formation commerciale",
+            "Outils de mise à l'échelle"
+          ],
+          "stats": [
+            { "label": "Solution", "value": "Hub d'accès au capital" },
+            { "label": "Statut", "value": "MVP en ligne" }
+          ],
+          "buttonText": "Utiliser Ekehi",
+          "contributors": [
+            {
+              "github": "AJ1732",
+              "avatar": "https://avatars.githubusercontent.com/u/103790734?v=4"
+            },
+            {
+              "github": "MarionBraide",
+              "avatar": "https://avatars.githubusercontent.com/u/82952143?v=4"
+            },
+            {
+              "github": "first-afk",
+              "avatar": "https://avatars.githubusercontent.com/u/111287233?v=4"
+            },
+            {
+              "github": "Florence-code-hub",
+              "avatar": "https://avatars.githubusercontent.com/u/254754962?v=4"
+            },
+            {
+              "github": "luchiiii",
+              "avatar": "https://avatars.githubusercontent.com/u/83238269?v=4"
+            },
+            {
+              "github": "Pheonixai",
+              "avatar": "https://avatars.githubusercontent.com/u/172508892?s=64&v=4"
+            },
+            {
+              "github": "Okoukoni-Victor",
+              "avatar": "https://avatars.githubusercontent.com/u/128758738?v=4"
+            }
+          ],
+          "links": {
+            "live": "https://ekehi.netlify.app/",
+            "github": "https://github.com/Tabi-Project/Ekehi/blob/main/CONTRIBUTING.md"
+          }
+        }
+      ]
+    },
+    "impact": {
+      "badge": "Collaboration stratégique",
+      "collaborator": "Rise Academy by Risevest × Tabi Academy",
+      "headingPart1": "Ingénierie pour",
+      "headingHighlight": "un changement durable.",
+      "description": "En associant l'engagement de Risevest en faveur de la croissance financière à l'excellence technique de Tabi Academy, nous créons des outils prêts pour la production qui répondent aux obstacles réels rencontrés par les femmes africaines.",
+      "stats": [
+        {
+          "label": "Femmes touchées au total",
+          "value": "2 500+",
+          "description": "Sur toutes les plateformes"
+        },
+        {
+          "label": "Étoiles open source",
+          "value": "120+",
+          "description": "Reconnaissance communautaire"
+        },
+        {
+          "label": "Contributeurs actifs",
+          "value": "15+",
+          "description": "Ingénieures Rise Academy"
+        },
+        {
+          "label": "Histoires de réussite",
+          "value": "45",
+          "description": "Changements de carrière/santé documentés"
+        }
+      ]
+    },
+    "cta": {
+      "headingPart1": "Prêt(e) à",
+      "headingHighlight": "Contribuer ?",
+      "description": "Ces projets open source sont principalement développés et maintenus par la cohorte 2 de Rise Academy. Si vous trouvez ce projet intéressant et que vous avez de bonnes compétences en ingénierie, n’hésitez pas à contribuer.",
+      "button": "Voir les projets sur GitHub"
     }
   }
 }

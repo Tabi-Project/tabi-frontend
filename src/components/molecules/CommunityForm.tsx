@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/atoms/Button";
 import InterestDropdown from "@/components/molecules/InterestDropdown";
 import { useCommunityForm } from "@/hooks/useCommunityForm";
@@ -38,6 +39,7 @@ function FieldError({ msg }: { msg?: string }) {
 }
 
 export default function CommunityForm({ onSuccess }: CommunityFormProps) {
+  const t = useTranslations("GetInvolved.communityCard.form");
   const {
     name,
     setName,
@@ -62,14 +64,14 @@ export default function CommunityForm({ onSuccess }: CommunityFormProps) {
 
   function validate(): boolean {
     const newErrors: Record<string, string> = {};
-    if (!name.trim()) newErrors.name = "Please enter your full name";
-    if (!email.trim()) newErrors.email = "Please enter your email";
+    if (!name.trim()) newErrors.name = t("validation.nameRequired");
+    if (!email.trim()) newErrors.email = t("validation.emailRequired");
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()))
-      newErrors.email = "Please enter a valid email address";
+      newErrors.email = t("validation.emailInvalid");
     if (selected.length === 0)
-      newErrors.interest = "Please select at least one area of interest";
+      newErrors.interest = t("validation.interestRequired");
     if (othersSelected && !othersText.trim())
-      newErrors.interest = "Please describe your area of interest";
+      newErrors.interest = t("validation.othersRequired");
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   }
@@ -91,11 +93,11 @@ export default function CommunityForm({ onSuccess }: CommunityFormProps) {
         {/* Name */}
         <div>
           <label className="block text-xs font-semibold text-[#444444] mb-2">
-            Name
+            {t("nameLabel")}
           </label>
           <input
             type="text"
-            placeholder="Enter your Full name"
+            placeholder={t("namePlaceholder")}
             value={name}
             onChange={(e) => {
               setName(e.target.value);
@@ -110,11 +112,11 @@ export default function CommunityForm({ onSuccess }: CommunityFormProps) {
         {/* Email */}
         <div>
           <label className="block text-xs font-semibold text-[#444444] mb-2">
-            Email Address
+            {t("emailLabel")}
           </label>
           <input
             type="email"
-            placeholder="abcd@gmail.com"
+            placeholder={t("emailPlaceholder")}
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
@@ -152,7 +154,7 @@ export default function CommunityForm({ onSuccess }: CommunityFormProps) {
       {/* Status messages */}
       {status === "duplicate" && (
         <p className="text-xs font-medium text-yellow-600">
-          You&apos;re already in the community.
+          {t("alreadyMember")}
         </p>
       )}
       {status === "error" && (
@@ -168,10 +170,10 @@ export default function CommunityForm({ onSuccess }: CommunityFormProps) {
         >
           {isLoading ? (
             <span className="flex items-center gap-2">
-              <Spinner /> Joining...
+              <Spinner /> {t("joining")}
             </span>
           ) : (
-            "Join Now"
+            t("joinButton")
           )}
         </Button>
       </div>

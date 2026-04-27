@@ -5,6 +5,11 @@ backend:
 media_folder: public/uploads
 public_folder: /uploads
 
+i18n:
+  structure: single_file
+  locales: [en, fr]
+  default_locale: en
+
 # ── Enable local dev server (comment out in production) ──
 local_backend: true
 
@@ -79,7 +84,9 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: Title,       name: title,       widget: string }
+      - { label: Title (French), name: title_fr, widget: string, required: false }
       - { label: Description, name: description, widget: text }
+      - { label: Description (French), name: description_fr, widget: text, required: false }
       - { label: Order,       name: order,       widget: number, hint: "Display order (1 = first)" }
       - { label: Link,        name: href,        widget: string, hint: "e.g. /ai-for-businesses" }
       - { label: Images,      name: images,      widget: list, field: { label: Image, name: image, widget: image }, required: false }
@@ -87,6 +94,7 @@ collections:
       - { label: Video Thumbnail, name: videoThumb, widget: image, required: false }
       - { label: Has Testimonial, name: hasTestimonial, widget: boolean, default: false }
       - { label: Published,   name: published,   widget: boolean, default: true }
+
 
   # ─── Testimonials ────────────────────────────────────────────────────
   - name: testimonials
@@ -97,8 +105,11 @@ collections:
     identifier_field: name
     fields:
       - { label: Name,       name: name,   widget: string }
+      - { label: Name (French), name: name_fr, widget: string, required: false }
       - { label: Role,       name: role,   widget: string, hint: "e.g. Head of Operations at Yebox" }
+      - { label: Role (French), name: role_fr, widget: string, required: false }
       - { label: Quote,      name: quote,  widget: text }
+      - { label: Quote (French), name: quote_fr, widget: text, required: false }
       - { label: Avatar,     name: avatar, widget: image, required: false }
       - { label: Featured,   name: featured, widget: boolean, default: false }
       - { label: Order,      name: order,  widget: number, default: 1 }

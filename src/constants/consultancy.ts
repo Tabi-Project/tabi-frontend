@@ -1,3 +1,4 @@
+// src/constants/consultancy.ts
 import { FocusArea, ProcessStep, FAQItem } from "@/types/consultancy";
 
 export const TOTAL_SLOTS = 5;

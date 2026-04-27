@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useAnimationFrame, useMotionValue } from "framer-motion";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { withBasePath } from "@/constants/paths";
 
@@ -70,17 +71,17 @@ function InfiniteStrip() {
 }
 
 export default function AboutHero() {
+  const t = useTranslations("About.hero");
+
   return (
     <section
       className="w-full bg-white overflow-hidden relative"
-      // ─── NEW UPDATE: Dynamic padding based on Navbar ───
       style={{ paddingTop: "var(--nav-height, 96px)" }}
     >
-      {/* ── Background Glow Blobs (Adjusted for Nav height) ── */}
       <div
         className="absolute pointer-events-none"
         style={{
-          top: "var(--nav-height, 0px)", // Starts at the bottom of nav
+          top: "var(--nav-height, 0px)",
           left: 0,
           width: 120,
           height: 120,
@@ -94,7 +95,7 @@ export default function AboutHero() {
       <div
         className="absolute pointer-events-none"
         style={{
-          top: "calc(var(--nav-height, 0px) + 240px)", // Offset by nav height
+          top: "calc(var(--nav-height, 0px) + 240px)",
           right: 60,
           width: 120,
           height: 120,
@@ -106,12 +107,10 @@ export default function AboutHero() {
         }}
       />
 
-      {/* ── Content ── */}
-      {/* Removed pt-24 from className as it's now in the section style */}
       <div className="relative w-full flex flex-col items-center justify-center text-center px-6 py-16">
         <div className="relative z-10 max-w-3xl mx-auto">
           <h1
-            className="text-[clamp(3rem,8vw,6rem)] font-bold leading-tight mb-6"
+            className="text-[clamp(3rem,8vw,7rem)] font-bold leading-tight mb-6"
             style={{
               background:
                 "linear-gradient(180deg, #FFCC70 0%, #C850C0 31.93%, #71286F 57.11%)",
@@ -120,13 +119,10 @@ export default function AboutHero() {
               backgroundClip: "text"
             }}
           >
-            Who Are We?
+            {t("heading")}
           </h1>
           <p className="text-[#666] text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-            We are a non-profit organization that offers tech education,
-            research and development and Open-source projects. It aims to train
-            5000 African women to be well equipped in the tech industry to
-            bridge the gap in the ecosystem.
+            {t("description")}
           </p>
         </div>
       </div>

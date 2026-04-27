@@ -2,7 +2,7 @@
 
 import { motion, Variants } from "framer-motion";
 import { Github } from "lucide-react";
-import { CASE_STUDIES } from "@/constants/open-source";
+import { useTranslations } from "next-intl";
 
 const fadeInUp: Variants = {
   initial: { opacity: 0, y: 30 },
@@ -13,21 +13,35 @@ const fadeInUp: Variants = {
   }
 };
 
-export default function CaseStudiesList() {
+export default function OpenSourceList() {
+  const t = useTranslations("OpenSource.list");
+  const projects = t.raw("items") as Array<{
+    id: string;
+    title: string;
+    tagline?: string;
+    description: string;
+    impact?: string;
+    image: string;
+    themeColor: string;
+    features: string[];
+    stats: { label: string; value: string }[];
+    buttonText: string;
+    contributors?: { github: string; avatar: string }[];
+    links: { live: string; github: string };
+  }>;
+
   return (
     <section className="bg-white">
+      <style>{`
+        .browser-container:hover .screenshot-img {
+          transform: translateY(calc(-100% + 440px));
+        }
+        .screenshot-img {
+          transition: transform 6000ms ease-in-out;
+        }
+      `}</style>
 
-      <style>
-          {`
-          .browser-container:hover .screenshot-img {
-            transform: translateY(calc(-100% + 440px));
-          }
-          .screenshot-img {
-            transition: transform 6000ms ease-in-out;
-          }
-        `}
-      </style>
-      {CASE_STUDIES.map((project, index) => (
+      {projects.map((project, index) => (
         <article
           key={project.id}
           className={`py-24 lg:py-32 border-t border-gray-50 ${
@@ -39,7 +53,7 @@ export default function CaseStudiesList() {
               index % 2 !== 0 ? "lg:flex-row-reverse" : ""
             }`}
           >
-            {/* ── LEFT: BROWSER MOCKUP ── */}
+            {/* Browser mockup – unchanged */}
             <motion.div
               variants={fadeInUp}
               initial="initial"
@@ -68,7 +82,7 @@ export default function CaseStudiesList() {
               </div>
             </motion.div>
 
-            {/* ── RIGHT: CONTENT ── */}
+            {/* Content */}
             <motion.div
               variants={fadeInUp}
               initial="initial"
@@ -85,11 +99,13 @@ export default function CaseStudiesList() {
                     className="text-[10px] font-black uppercase tracking-[0.3em]"
                     style={{ color: project.themeColor }}
                   >
-                    Project 0{index + 1}
+                    {t("projectLabel", {
+                      number: String(index + 1).padStart(2, "0")
+                    })}
                   </span>
                 </div>
 
-                {/* CONTRIBUTOR STACK */}
+                {/* Contributor stack – unchanged */}
                 <div className="flex -space-x-2">
                   {project.contributors?.map((person) => (
                     <motion.a
@@ -119,7 +135,6 @@ export default function CaseStudiesList() {
                 {project.description}
               </p>
 
-              {/* STATS / SOLUTION GRID */}
               <div className="grid grid-cols-2 gap-4 mb-8">
                 {project.stats.map((s) => (
                   <div
@@ -136,7 +151,6 @@ export default function CaseStudiesList() {
                 ))}
               </div>
 
-              {/* FEATURES CHIPS */}
               <div className="flex flex-wrap gap-2 mb-10">
                 {project.features.map((feature) => (
                   <span
@@ -148,7 +162,6 @@ export default function CaseStudiesList() {
                 ))}
               </div>
 
-              {/* ACTION BUTTONS */}
               <div className="flex flex-wrap items-center gap-4">
                 <a
                   href={project.links.live}
@@ -163,7 +176,7 @@ export default function CaseStudiesList() {
                   target="_blank"
                   className="flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-brand-primary transition-colors"
                 >
-                  <Github size={18} /> Documentation
+                  <Github size={18} /> {t("docLink")}
                 </a>
               </div>
             </motion.div>

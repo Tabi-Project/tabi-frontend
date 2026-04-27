@@ -1,3 +1,6 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import CommunityForm from "@/components/molecules/CommunityForm";
 
 interface CommunityCardProps {
@@ -5,6 +8,8 @@ interface CommunityCardProps {
 }
 
 export default function CommunityCard({ onSuccess }: CommunityCardProps) {
+  const t = useTranslations("GetInvolved.communityCard");
+
   return (
     <div
       className="relative rounded-3xl p-10"
@@ -22,11 +27,10 @@ export default function CommunityCard({ onSuccess }: CommunityCardProps) {
 
       <div className="relative z-10">
         <h3 className="text-4xl font-extrabold text-[#121212] leading-tight mb-2">
-          Join our Community
+          {t("title")}
         </h3>
         <p className="text-base text-[#444] leading-relaxed mb-8">
-          Join us to stay updated on our latest initiatives, events, and
-          opportunities.
+          {t("description")}
         </p>
 
         <CommunityForm onSuccess={onSuccess} />

@@ -1,3 +1,6 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import ConsultancyForm from "@/components/molecules/ConsultancyForm";
 import {
   APPLICATION_DEADLINE,
@@ -6,6 +9,8 @@ import {
 } from "@/constants/consultancy";
 
 export default function ConsultancyApplySection() {
+  const t = useTranslations("Consultancy.ApplySection");
+
   return (
     <section className="w-full bg-white" id="apply">
       <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
@@ -16,15 +21,13 @@ export default function ConsultancyApplySection() {
               className="inline-flex items-center rounded-full px-5 py-2 text-sm font-semibold text-brand-primary mb-5"
               style={{ background: "#F3E8FF" }}
             >
-              Apply Now
+              {t("badge")}
             </span>
             <h2 className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-extrabold text-[#1a1a2e] leading-snug mb-4">
-              Ready to grow your business?
+              {t("heading")}
             </h2>
             <p className="text-base text-[#666] leading-relaxed mb-8">
-              Fill out the form to apply for one of our 5 free consultancy slots
-              this month. Applications are reviewed and selections made before
-              the deadline.
+              {t("description")}
             </p>
 
             {/* Deadline card */}
@@ -33,7 +36,7 @@ export default function ConsultancyApplySection() {
               style={{ background: "#FDF4FF", borderColor: "#71286F" }}
             >
               <p className="text-xs font-bold uppercase tracking-widest text-brand-primary mb-1">
-                Application Deadline
+                {t("deadlineLabel")}
               </p>
               <p className="text-base font-extrabold text-[#1a1a2e]">
                 {APPLICATION_DEADLINE}
@@ -54,8 +57,11 @@ export default function ConsultancyApplySection() {
                 ))}
               </div>
               <p className="text-sm font-semibold text-[#555]">
-                <span className="text-brand-primary">{SLOTS_REMAINING}</span> of{" "}
-                {TOTAL_SLOTS} slots remaining
+                <span className="text-brand-primary">{SLOTS_REMAINING}</span>{" "}
+                {t("slotsLabel", {
+                  remaining: SLOTS_REMAINING,
+                  total: TOTAL_SLOTS
+                })}
               </p>
             </div>
 
@@ -67,15 +73,13 @@ export default function ConsultancyApplySection() {
               <span className="text-xl">✉️</span>
               <div>
                 <p className="text-xs font-bold text-[#1a1a2e] mb-0.5">
-                  Have any questions?
+                  {t("questionsTitle")}
                 </p>
-                <p className="text-xs text-[#888]">
-                  Send us a DM and we&apos;ll get back to you.
-                </p>
+                <p className="text-xs text-[#888]">{t("questionsText")}</p>
               </div>
             </div>
 
-            <p className="text-xs text-[#aaa] mt-6">T&Cs Apply</p>
+            <p className="text-xs text-[#aaa] mt-6">{t("terms")}</p>
           </div>
 
           {/* Right — Google Form embed */}

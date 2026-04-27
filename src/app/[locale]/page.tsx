@@ -12,9 +12,9 @@ import type { Metadata } from "next";
 export async function generateMetadata({
   params
 }: {
-  params: Promise<{ locale: string }>; // 👈 Correct type: Promise
+  params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
-  const { locale } = await params; // 👈 Await the promise first
+  const { locale } = await params;
 
   const t = await getTranslations({
     locale,
@@ -38,10 +38,12 @@ export async function generateMetadata({
   };
 }
 
-export default async function HomePage() {
-  // This `getTranslations` call does not need params.locale because it's a Server Component;
-  // NextIntlClientProvider already provides the locale from layout.
-  const t = await getTranslations("HomePage");
+export default async function HomePage({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
 
   return (
     <>
@@ -49,7 +51,7 @@ export default async function HomePage() {
       <Partners />
       <AIBusinessTeaser />
       <WhatWeDo />
-      <FeaturedProjectsServer />
+      <FeaturedProjectsServer locale={locale} />
       <GetInvolved />
       <ConsultancyTeaser />
       <InsightsStories />

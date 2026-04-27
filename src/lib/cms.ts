@@ -4,6 +4,20 @@ import matter from "gray-matter";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 
+
+function translatedField<T>(
+  data: Record<string, any>,
+  field: string,
+  locale: string
+): T {
+  // Try the language‑specific field first
+  if (locale === "fr" && data[`${field}_fr`]) {
+    return data[`${field}_fr`] as T;
+  }
+  // Fallback to the English field or the generic field (for backward compatibility)
+  return (data[`${field}_en`] ?? data[field]) as T;
+}
+
 /**
  * Utility to ensure slugs are always URL-safe.
  * Removes symbols like ₦, $, commas, and extra spaces.
@@ -158,8 +172,8 @@ export function getAllTeamMembers(): CMSTeamMember[] {
   }
 }
 
-// ─── Projects ─────────────────────────────────────────────────────────────────
 
+// ─── Projects ─────────────────────────────────────────────────────────────────
 export type CMSProject = {
   slug: string;
   title: string;
@@ -171,13 +185,39 @@ export type CMSProject = {
   videoThumb?: string;
   hasTestimonial?: boolean;
   published?: boolean;
-  testimonial?: CMSTestimonial;
+  testimonial?: CMSTestimonial;   // attached later
 };
 
-export function getAllProjects(): CMSProject[] {
+export function getAllProjects(locale: string = 'en'): CMSProject[] {
   try {
     return getFiles("projects")
-      .map((f) => readMarkdown<CMSProject>("projects", f))
+      .map((f) => {
+        const raw = path.join(CONTENT_DIR, "projects", f);
+        const content = fs.readFileSync(raw, "utf-8");
+        const { data } = matter(content);
+
+        // Use the French field if present and not empty, else fallback to English
+        const title =
+          locale === 'fr' && data.title_fr ? data.title_fr : data.title;
+        const description =
+          locale === 'fr' && data.description_fr
+            ? data.description_fr
+            : data.description;
+
+        return {
+          slug: slugify(f.replace(/\.md$/, "")),
+          title,
+          description,
+          order: data.order ?? 99,
+          href: data.href ?? '#',
+          images: data.images ?? [],
+          video: data.video,
+          videoThumb: data.videoThumb,
+          hasTestimonial: data.hasTestimonial ?? false,
+          published: data.published ?? true,
+          testimonial: undefined,
+        } as CMSProject;
+      })
       .filter((p) => p.published !== false)
       .sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
   } catch {
@@ -186,7 +226,6 @@ export function getAllProjects(): CMSProject[] {
 }
 
 // ─── Testimonials ─────────────────────────────────────────────────────────────
-
 export type CMSTestimonial = {
   slug: string;
   name: string;
@@ -197,25 +236,43 @@ export type CMSTestimonial = {
   order?: number;
 };
 
-export function getAllTestimonials(): CMSTestimonial[] {
+export function getAllTestimonials(locale: string = 'en'): CMSTestimonial[] {
   try {
     return getFiles("testimonials")
-      .map((f) => readMarkdown<CMSTestimonial>("testimonials", f))
+      .map((f) => {
+        const raw = path.join(CONTENT_DIR, "testimonials", f);
+        const content = fs.readFileSync(raw, "utf-8");
+        const { data } = matter(content);
+
+        const name =
+          locale === 'fr' && data.name_fr ? data.name_fr : data.name;
+        const role =
+          locale === 'fr' && data.role_fr ? data.role_fr : data.role;
+        const quote =
+          locale === 'fr' && data.quote_fr ? data.quote_fr : data.quote;
+
+        return {
+          slug: slugify(f.replace(/\.md$/, "")),
+          name,
+          role,
+          quote,
+          avatar: data.avatar,
+          featured: data.featured ?? false,
+          order: data.order ?? 99,
+        } as CMSTestimonial;
+      })
       .sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
   } catch {
     return [];
   }
 }
 
-export function getFeaturedTestimonial(): CMSTestimonial | undefined {
-  const all = getAllTestimonials();
-  return all.find((t) => t.featured) ?? all[0];
+export function getFeaturedTestimonial(locale: string = 'en'): CMSTestimonial | undefined {
+  return getAllTestimonials(locale).find((t) => t.featured) ?? getAllTestimonials(locale)[0];
 }
 
-// Get a testimonial by its order number
-export function getTestimonialByOrder(order: number): CMSTestimonial | undefined {
-  const testimonials = getAllTestimonials();
-  return testimonials.find((t) => t.order === order);
+export function getTestimonialByOrder(order: number, locale: string = 'en'): CMSTestimonial | undefined {
+  return getAllTestimonials(locale).find((t) => t.order === order);
 }
 
 // ─── Gallery ─────────────────────────────────────────────────────────────────

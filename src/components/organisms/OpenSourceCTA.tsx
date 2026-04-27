@@ -1,7 +1,10 @@
 "use client";
+import { useTranslations } from "next-intl";
 import { Github } from "lucide-react";
 
 export default function CaseStudiesCTA() {
+  const t = useTranslations("OpenSource.cta");
+
   return (
     <section
       className="py-32 text-center text-white"
@@ -11,19 +14,15 @@ export default function CaseStudiesCTA() {
     >
       <div className="max-w-4xl mx-auto px-6">
         <h2 className="text-5xl lg:text-7xl font-black mb-8">
-          Ready to <span className="opacity-40">Contribute?</span>
+          {t("headingPart1")}{" "}
+          <span className="opacity-40">{t("headingHighlight")}</span>
         </h2>
-        <p className="text-white/60 mb-12">
-          These are open-source projects primarily being built and maintained by
-          Rise Academy Cohort 2. If you find this project interesting and you
-          have good engineering skills, you&apos;re welcome to contribute to the
-          project.
-        </p>
+        <p className="text-white/60 mb-12">{t("description")}</p>
         <a
           href="https://github.com/tabi-project"
           className="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-white/10 border border-white/20 hover:bg-white/20 transition-all"
         >
-          <Github size={20} /> View the Projects on GitHub
+          <Github size={20} /> {t("button")}
         </a>
       </div>
     </section>

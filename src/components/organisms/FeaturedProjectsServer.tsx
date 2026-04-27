@@ -1,20 +1,22 @@
 import { getAllProjects, getTestimonialByOrder } from "@/lib/cms";
 import FeaturedProjects from "@/components/organisms/FeaturedProjects";
 
-export default function FeaturedProjectsServer() {
-  const projects = getAllProjects() ?? [];
+interface FeaturedProjectsServerProps {
+  locale: string;
+}
 
-  // Attach a testimonial to each project that has `hasTestimonial: true`
+export default function FeaturedProjectsServer({
+  locale
+}: FeaturedProjectsServerProps) {
+  const projects = getAllProjects(locale) ?? [];
+
+  // Attach a matching testimonial to each project that has `hasTestimonial: true`
   const projectsWithTestimonials = projects.map((project) => ({
     ...project,
     testimonial: project.hasTestimonial
-      ? getTestimonialByOrder(project.order)
+      ? getTestimonialByOrder(project.order, locale)
       : undefined
   }));
 
-  return (
-    <FeaturedProjects
-      projects={projectsWithTestimonials}
-    />
-  );
+  return <FeaturedProjects projects={projectsWithTestimonials} />;
 }

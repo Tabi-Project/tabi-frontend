@@ -1,3 +1,6 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Button } from "@/components/atoms/Button";
 import { withBasePath } from "@/constants/paths";
@@ -7,6 +10,8 @@ interface DonateCardProps {
 }
 
 export default function DonateCard({ onDonateClick }: DonateCardProps) {
+  const t = useTranslations("GetInvolved.donateCard");
+
   return (
     <div
       className="relative rounded-3xl overflow-hidden p-10 flex flex-col justify-between min-h-90"
@@ -24,15 +29,13 @@ export default function DonateCard({ onDonateClick }: DonateCardProps) {
 
       <div className="relative z-10">
         <h3 className="text-4xl font-bold text-[#121212] leading-tight mb-4">
-          Make a<br />
-          Lasting Impact
+          {t("title")}
         </h3>
         <p className="text-base text-[#444444] leading-relaxed max-w-xs mb-8">
-          Your donation supports young minds in their pursuit of technology,
-          providing crucial tools and support for their success.
+          {t("description")}
         </p>
         <Button variant="primary" size="md" onClick={onDonateClick}>
-          Donate Now
+          {t("button")}
         </Button>
       </div>
 
