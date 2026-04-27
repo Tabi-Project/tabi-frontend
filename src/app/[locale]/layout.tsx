@@ -7,7 +7,7 @@ import { Navbar } from "@/components/organisms/Navbar";
 import Footer from "@/components/organisms/Footer";
 import ScrollRestoration from "@/components/atoms/ScrollRestoration";
 import { locales } from "@/i18n/request";
-import "../globals.css"; // still needed
+import "../globals.css";
 
 export default async function LocaleLayout({
   children,
@@ -28,11 +28,14 @@ export default async function LocaleLayout({
       <Navbar />
       <main className="min-h-screen">{children}</main>
       <Footer />
-      {/* Netlify Identity script – can stay here or move to root */}
+
+      {/* Netlify Identity Widget */}
       <Script
         src="https://identity.netlify.com/v1/netlify-identity-widget.js"
         strategy="beforeInteractive"
       />
+
+      {/* Netlify Identity redirect */}
       <Script
         id="netlify-identity-redirect"
         strategy="afterInteractive"
@@ -47,6 +50,21 @@ export default async function LocaleLayout({
                 }
               });
             }
+          `
+        }}
+      />
+
+      {/* Microsoft Clarity */}
+      <Script
+        id="clarity-script"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "wermu7foxw");
           `
         }}
       />
