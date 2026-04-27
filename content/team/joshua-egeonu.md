@@ -16,5 +16,20 @@ bio: >-
 
 
   I’m constantly learning, evolving, and pushing my creative boundaries.
+bio_fr: >-
+  Je suis une designer passionnée et à l’aise avec la technologie, avec plus de
+  cinq ans d’expérience dans la création de visuels percutants qui transmettent
+  des messages de marque clairs et forts. Mon travail couvre l’image de marque,
+  le print, les réseaux sociaux et le design UI/UX, en mettant l’accent sur la
+  création d’expériences qui créent une véritable connexion avec les gens.
+
+
+  Actuellement designer chez Koonei, je collabore sur des projets concrets et continue d’affiner ma réflexion design et mon exécution. Je suis également Design Lead chez Tabi, une initiative qui vise à donner aux femmes les moyens de tirer parti de la technologie et de l’IA pour développer leur activité. Dans ce cadre, je conçois des expériences qui rendent l’apprentissage pratique, accessible et transformateur.
+
+
+  Ce qui me distingue, c’est ma capacité à associer le design à la psychologie de l’utilisateur — comprendre les schémas, les comportements et les prises de décision inconscientes pour créer un travail qui ne se contente pas d’être beau, mais qui fonctionne.
+
+
+  J’apprends, j’évolue et je repousse sans cesse mes limites créatives.
 order: 4
 ---

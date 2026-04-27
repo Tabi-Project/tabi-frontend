@@ -23,10 +23,36 @@ bio: >-
 
 
   When she isn't coding, Glory explores creative expression through 2D animation in Toon Boom Harmony, drawing, and gaming—creative outlets that continue to inspire her approach to design and problem-solving.
+bio_fr: >-
+  Glory Okafor (Glowwe) est une ingénieure frontend orientée produit,
+  spécialisée dans la création d’applications web et mobiles modernes et
+  évolutives avec des technologies comme React, Next.js, Vue et React Native.
+  Elle est passionnée par la conception d’interfaces propres et intuitives qui
+  résolvent des problèmes concrets et améliorent l’expérience utilisateur.
+
+
+  Forte d’une vaste expérience en architecture frontend, Glory a fait ses preuves en modernisant des systèmes complexes et en livrant des produits destinés aux clients. Son expertise technique s’accompagne d’un profond engagement envers le mentorat et l’éducation. Elle a mentoré plus de 30 aspirants développeurs, les guidant à travers les fondamentaux du frontend, les structures de données et les algorithmes, nombre de ses mentorés ayant intégré avec succès des organisations technologiques de premier plan.
+
+
+  Glory a été facilitatrice pour des initiatives majeures, notamment le Pink Summer of Tech (en affiliation avec les Google Developer Groups) et l’initiative ADESSO for Girls, où elle a conçu des programmes techniques et animé des sessions d’ingénierie basées sur des projets.
+
+
+  Actuellement, elle est Lead Frontend Engineer à la Tabi Empowerment and Educational Foundation. Dans ce rôle, elle pilote les efforts de développement frontend, maintient des standards de qualité de code élevés et favorise un environnement collaboratif pour les équipes transverses et les autres ingénieurs.
+
+
+  Au-delà de l’ingénierie, le parcours de Glory en rédaction de contenu et en SEO lui donne une perspective unique pour créer des applications optimisées pour la visibilité et l’engagement. Elle s’intéresse particulièrement à l’exploitation de l’automatisation pilotée par l’IA pour aider les entreprises à évoluer efficacement.
+
+
+  Quand elle ne code pas, Glory explore l’expression créative à travers l’animation 2D dans Toon Boom Harmony, le dessin et les jeux vidéo – des exutoires créatifs qui continuent d’inspirer son approche du design et de la résolution de problèmes.
 hobbies:
   - Gaming
   - Drawing
   - 2D Animation
+hobbies_fr:
+  - Jeux vidéo
+  - Dessin
+  - Animation 2D
+  - Apprendre de nouvelles choses
 order: 3
 bgColor: "#f9a101"
 ---

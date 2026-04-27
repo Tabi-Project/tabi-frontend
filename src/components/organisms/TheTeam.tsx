@@ -2,9 +2,9 @@ import { getTranslations } from "next-intl/server";
 import { getAllTeamMembers } from "@/lib/cms";
 import TeamGrid from "@/components/organisms/TeamGrid";
 
-export default async function TheTeam() {
-  const t = await getTranslations("About.TheTeam");
-  const members = getAllTeamMembers();
+export default async function TheTeam({ locale }: { locale: string }) {
+  const t = await getTranslations("about.TheTeam");
+  const members = getAllTeamMembers(locale);
 
   return (
     <section className="w-full bg-white">
@@ -17,7 +17,6 @@ export default async function TheTeam() {
             {t("badge")}
           </span>
         </div>
-
         <TeamGrid members={members} />
       </div>
     </section>

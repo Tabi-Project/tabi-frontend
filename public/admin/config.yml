@@ -65,15 +65,23 @@ collections:
     slug: "{{name}}"
     identifier_field: name
     fields:
-      - { label: Name,       name: name,     widget: string }
-      - { label: Role,       name: role,     widget: string }
-      - { label: Photo,      name: image,    widget: image }
-      - { label: Bio,        name: bio,      widget: text }
+      - { label: Name,         name: name,     widget: string }
+      - { label: Name (French), name: name_fr, widget: string, required: false }
+      - { label: Role,         name: role,     widget: string }
+      - { label: Role (French), name: role_fr, widget: string, required: false }
+      - { label: Photo,        name: image,    widget: image }
+      - { label: Bio,          name: bio,      widget: text }
+      - { label: Bio (French), name: bio_fr,   widget: text, required: false }
       - label: Hobbies
         name: hobbies
         widget: list
         field: { label: Hobby, name: hobby, widget: string }
-      - { label: Order,      name: order,    widget: number, hint: "Display order (1 = first)" }
+      - label: Hobbies (French)
+        name: hobbies_fr
+        widget: list
+        required: false
+        field: { label: Hobby (fr), name: hobby_fr, widget: string }
+      - { label: Order,        name: order,    widget: number, hint: "Display order (1 = first)" }
       - { label: Background Color, name: bgColor, widget: string, hint: "e.g. #f0f0f0", required: false }
 
   # ─── Flagship Projects ────────────────────────────────────────────
@@ -137,7 +145,9 @@ collections:
       - { label: Category, name: category, widget: select, options: [learnable, meetup, sprints] }
       - { label: Image, name: src, widget: image }
       - { label: Alt Text, name: alt, widget: string }
+      - { label: Alt Text (French), name: alt_fr, widget: string, required: false }
       - { label: Caption (Shows on hover), name: caption, widget: string }
+      - { label: Caption (French), name: caption_fr, widget: string, required: false }
       - { label: Order, name: order, widget: number, default: 99, required: false }
 
 

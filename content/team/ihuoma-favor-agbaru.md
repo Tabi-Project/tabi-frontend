@@ -13,10 +13,28 @@ bio: >-
 
 
   My mission is clear: to move women from interest to capability, and from capability to economic power.
+bio_fr: >-
+  Je suis une professionnelle du produit et des opérations, axée sur les
+  résultats, avec plus de six ans d'expérience dans les secteurs bancaire,
+  fiscal, SaaS et Govtech. Je suis profondément engagée à autonomiser les femmes
+  en leur fournissant des compétences numériques et technologiques pratiques et
+  génératrices de revenus, qui favorisent l'indépendance et une croissance
+  économique à long terme.
+
+
+  Défenseure passionnée des femmes dans la tech, j'ai contribué à des initiatives de formation et de mentorat visant à équiper les femmes en opérations numériques et en systèmes d'entreprise technologiques. Je crois que l'accès seul ne suffit pas : les femmes doivent disposer des bonnes compétences, de la structure et des systèmes de soutien nécessaires pour s'épanouir dans l'économie numérique actuelle.
+
+
+  Ma mission est claire : faire passer les femmes de l'intérêt à la compétence, et de la compétence au pouvoir économique.
 hobbies:
   - "Reading "
   - "Playing Scrabble "
   - Movies
   - Evangelizing Christ
+hobbies_fr:
+  - Lecture
+  - Jouer au Scrabble
+  - Films / Cinéma
+  - Évangélisation (ou « Partager ma foi »)
 order: 2
 ---

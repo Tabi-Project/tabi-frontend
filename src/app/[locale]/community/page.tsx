@@ -38,8 +38,13 @@ export async function generateMetadata({
   };
 }
 
-export default function CommunityPage() {
-  const cmsGalleryData = getAllGalleryImages();
+export default async function CommunityPage({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const cmsGalleryData = getAllGalleryImages(locale);
 
   const formattedImages = cmsGalleryData.map((img) => ({
     id: img.slug,

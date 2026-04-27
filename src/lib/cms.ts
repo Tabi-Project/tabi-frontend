@@ -5,18 +5,18 @@ import matter from "gray-matter";
 const CONTENT_DIR = path.join(process.cwd(), "content");
 
 
-function translatedField<T>(
-  data: Record<string, any>,
-  field: string,
-  locale: string
-): T {
-  // Try the language‑specific field first
-  if (locale === "fr" && data[`${field}_fr`]) {
-    return data[`${field}_fr`] as T;
-  }
-  // Fallback to the English field or the generic field (for backward compatibility)
-  return (data[`${field}_en`] ?? data[field]) as T;
-}
+// function translatedField<T>(
+//   data: Record<string, any>,
+//   field: string,
+//   locale: string
+// ): T {
+//   // Try the language‑specific field first
+//   if (locale === "fr" && data[`${field}_fr`]) {
+//     return data[`${field}_fr`] as T;
+//   }
+//   // Fallback to the English field or the generic field (for backward compatibility)
+//   return (data[`${field}_en`] ?? data[field]) as T;
+// }
 
 /**
  * Utility to ensure slugs are always URL-safe.
@@ -162,16 +162,38 @@ export type CMSTeamMember = {
   bgColor?: string;
 };
 
-export function getAllTeamMembers(): CMSTeamMember[] {
+export function getAllTeamMembers(locale: string = "en"): CMSTeamMember[] {
   try {
     return getFiles("team")
-      .map((f) => readMarkdown<CMSTeamMember>("team", f))
+      .map((f) => {
+        const raw = path.join(CONTENT_DIR, "team", f);
+        const content = fs.readFileSync(raw, "utf-8");
+        const { data } = matter(content);
+
+        const name = locale === "fr" && data.name_fr ? data.name_fr : data.name;
+        const role = locale === "fr" && data.role_fr ? data.role_fr : data.role;
+        const bio = locale === "fr" && data.bio_fr ? data.bio_fr : data.bio;
+        const hobbies =
+          locale === "fr" && data.hobbies_fr && data.hobbies_fr.length
+            ? data.hobbies_fr
+            : (data.hobbies ?? []);
+
+        return {
+          slug: slugify(f.replace(/\.md$/, "")),
+          name,
+          role,
+          image: data.image,
+          bio,
+          hobbies,
+          order: data.order ?? 99,
+          bgColor: data.bgColor
+        } as CMSTeamMember;
+      })
       .sort((a, b) => a.order - b.order);
   } catch {
     return [];
   }
 }
-
 
 // ─── Projects ─────────────────────────────────────────────────────────────────
 export type CMSProject = {
@@ -286,10 +308,27 @@ export type CMSGalleryImage = {
   order?: number;
 };
 
-export function getAllGalleryImages(): CMSGalleryImage[] {
+export function getAllGalleryImages(locale: string = "en"): CMSGalleryImage[] {
   try {
     return getFiles("gallery")
-      .map((f) => readMarkdown<CMSGalleryImage>("gallery", f))
+      .map((f) => {
+        const raw = path.join(CONTENT_DIR, "gallery", f);
+        const content = fs.readFileSync(raw, "utf-8");
+        const { data } = matter(content);
+
+        const alt = locale === "fr" && data.alt_fr ? data.alt_fr : data.alt;
+        const caption =
+          locale === "fr" && data.caption_fr ? data.caption_fr : data.caption;
+
+        return {
+          slug: slugify(f.replace(/\.md$/, "")),
+          category: data.category,
+          src: data.src,
+          alt,
+          caption,
+          order: data.order ?? 99
+        } as CMSGalleryImage;
+      })
       .sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
   } catch {
     return [];
