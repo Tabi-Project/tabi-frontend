@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import { Brain, Palette, Globe, Zap, Trophy, ScrollText } from "lucide-react";
 import { Button } from "@/components/atoms/Button";
 import RegistrationModal from "@/components/molecules/RegistrationModal";
 
@@ -12,40 +13,40 @@ export default function AIBusinessOutcomes() {
   const OUTCOMES = [
     {
       number: "01",
-      icon: "🧠",
+      icon: <Brain size={28} strokeWidth={1.5} />,
       titleKey: "items.fluency.title",
-      descriptionKey: "items.fluency.description"
+      descriptionKey: "items.fluency.description",
     },
     {
       number: "02",
-      icon: "🎨",
+      icon: <Palette size={28} strokeWidth={1.5} />,
       titleKey: "items.brand.title",
-      descriptionKey: "items.brand.description"
+      descriptionKey: "items.brand.description",
     },
     {
       number: "03",
-      icon: "🌐",
+      icon: <Globe size={28} strokeWidth={1.5} />,
       titleKey: "items.website.title",
-      descriptionKey: "items.website.description"
+      descriptionKey: "items.website.description",
     },
     {
       number: "04",
-      icon: "⚡",
+      icon: <Zap size={28} strokeWidth={1.5} />,
       titleKey: "items.agent.title",
-      descriptionKey: "items.agent.description"
+      descriptionKey: "items.agent.description",
     },
     {
       number: "05",
-      icon: "🏆",
+      icon: <Trophy size={28} strokeWidth={1.5} />,
       titleKey: "items.capstone.title",
-      descriptionKey: "items.capstone.description"
+      descriptionKey: "items.capstone.description",
     },
     {
       number: "06",
-      icon: "📜",
+      icon: <ScrollText size={28} strokeWidth={1.5} />,
       titleKey: "items.certificate.title",
-      descriptionKey: "items.certificate.description"
-    }
+      descriptionKey: "items.certificate.description",
+    },
   ];
 
   return (
@@ -71,10 +72,10 @@ export default function AIBusinessOutcomes() {
                 className="group relative flex flex-col items-center text-center rounded-4xl p-8 bg-[#FFF5FF99]/40 border border-white/40 backdrop-blur-3xl hover:-translate-y-1 transition-all duration-300"
                 style={{
                   boxShadow: "0px 4px 12px 2px #3737371F",
-                  transitionDelay: `${i * 40}ms`
+                  transitionDelay: `${i * 40}ms`,
                 }}
               >
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-3xl shadow-sm">
+                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-sm text-brand-primary group-hover:bg-brand-primary group-hover:text-white transition-colors duration-300">
                   {outcome.icon}
                 </div>
                 <h3 className="text-lg font-bold text-[#1a1a2e] mb-3">
@@ -105,8 +106,8 @@ export default function AIBusinessOutcomes() {
               </Button>
               <div className="flex items-center gap-2 text-brand-primary font-semibold text-xs uppercase tracking-widest">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-primary"></span>
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-primary" />
                 </span>
                 {t("closingSoon")}
               </div>

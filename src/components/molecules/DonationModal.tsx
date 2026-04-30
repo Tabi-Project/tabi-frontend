@@ -86,6 +86,20 @@ export default function DonationModal({ onClose }: DonationModalProps) {
   const displayAmount =
     selectedAmount ?? (customRaw ? formatAmount(customRaw) : "");
 
+  // ── Computed values ──────────────────────────────────────
+
+  const frequencyText =
+    frequency && frequency !== "One-Time" ? `(${tFreq(frequency as any)})` : "";
+
+  const isFormValid =
+    name.trim() !== "" &&
+    email.trim() !== "" &&
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()) &&
+    displayAmount !== "" &&
+    frequency !== "";
+
+  // ── Validation & submit ──────────────────────────────────
+
   function validate(): boolean {
     const newErrors: Record<string, string> = {};
     if (!name.trim()) newErrors.name = t("form.validation.nameRequired");
@@ -150,7 +164,6 @@ export default function DonationModal({ onClose }: DonationModalProps) {
       <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl p-8 max-h-[90vh] overflow-y-auto">
         {showBankDetails ? (
           <>
-            {/* Bank Details Screen */}
             <div className="flex items-center justify-between mb-8">
               <button
                 onClick={() => {
@@ -353,8 +366,8 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                 <p className="text-sm text-[#166534]">
                   {t("bankTransfer.transferReminder", {
                     amount: displayAmount,
-                    frequency: frequency
-                  }).replace(/\s+/g, " ")}
+                    frequencyText
+                  })}
                 </p>
               </div>
             )}
@@ -370,7 +383,6 @@ export default function DonationModal({ onClose }: DonationModalProps) {
           </>
         ) : (
           <>
-            {/* Donation Form */}
             <div className="flex items-center justify-between mb-7">
               <h2 className="text-xl font-extrabold text-[#1a1a2e]">
                 {t("title")}
@@ -548,7 +560,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                 variant="primary"
                 size="md"
                 onClick={handleDonate}
-                disabled={submitStatus === "loading"}
+                disabled={submitStatus === "loading" || !isFormValid}
               >
                 {submitStatus === "loading" ? (
                   <span className="flex items-center gap-2">

@@ -117,7 +117,9 @@ export default function Footer() {
       label: t("social.instagram"),
       href: "https://www.instagram.com/tabi_academy?igsh=MTE4b24yMGJ6d29peA=="
     },
-    { icon: FaTiktok, label: t("social.tiktok"), href: "#" }
+    { icon: FaTiktok, label: t("social.tiktok"),
+      href: "https://www.tiktok.com/@tabi.academy?_r=1&_t=ZS-95y7xcELgNM" 
+    }
   ];
 
   const NAV_COLUMNS = [

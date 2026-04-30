@@ -9,11 +9,12 @@ export const Button = ({
   variant = "primary",
   size = "md",
   className,
+  disabled,
   children,
   ...props
 }: ButtonProps) => {
   const baseStyles =
-    "inline-flex items-center justify-center font-medium transition-all rounded-tabi-pill active:scale-95 cursor-pointer";
+    "inline-flex items-center justify-center font-medium transition-all rounded-tabi-pill active:scale-95";
 
   const variants = {
     primary: "bg-brand-primary text-white hover:bg-brand-secondary shadow-md",
@@ -28,9 +29,15 @@ export const Button = ({
     lg: "px-8 py-4 text-lg"
   };
 
+  // Disabled styling: dimmed + forbid pointer events
+  const disabledStyles = disabled
+    ? "opacity-50 cursor-not-allowed pointer-events-none"
+    : "cursor-pointer";
+
   return (
     <button
-      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`}
+      disabled={disabled}
+      className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${disabledStyles} ${className ?? ""}`}
       {...props}
     >
       {children}

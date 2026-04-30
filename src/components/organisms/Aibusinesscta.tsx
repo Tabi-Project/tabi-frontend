@@ -84,15 +84,16 @@ export default function AIBusinessCTA() {
               {t("badge")}
             </span>
 
-            <h2 className="text-[clamp(2.4rem,6vw,5rem)] font-extrabold tracking-tight leading-[1.05] text-white max-w-3xl mb-6">
+            <h2 className="text-[clamp(2.4rem,6vw,5rem)] font-extrabold tracking-tight leading-[1.05] text-white max-w-4xl mb-6">
               {t("headingLine1")}
               <br />
               <span
-                className="italic"
+                className="italic pr-4"
                 style={{
                   background: "linear-gradient(90deg, #c084fc, #f472b6)",
                   WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent"
+                  WebkitTextFillColor: "transparent",
+                  display: "inline-block"
                 }}
               >
                 {t("headingHighlight")}

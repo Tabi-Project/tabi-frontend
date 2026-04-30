@@ -125,6 +125,7 @@ export default function AIBusinessCertification() {
     <section className="w-full bg-[#fdf7ff] overflow-hidden">
       <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+          {/* Left side – requirements */}
           <div>
             <span className="mb-5 inline-flex items-center rounded-full border border-brand-primary/30 bg-white px-4 py-1.5 text-xs font-semibold text-brand-primary tracking-wide uppercase">
               {t("badge")}
@@ -167,34 +168,41 @@ export default function AIBusinessCertification() {
             </div>
           </div>
 
+          {/* Right side – certificate mockup + retake note */}
           <div className="flex flex-col gap-5">
+            {/* Certificate mockup */}
             <div
-              className="relative rounded-3xl overflow-hidden p-8 sm:p-10"
+              className="relative rounded-3xl overflow-hidden p-8 sm:p-10 border border-brand-primary/20"
               style={{
                 background:
                   "linear-gradient(135deg, #1a0a2e 0%, #2d1045 60%, #3d1560 100%)",
-                border: "1px solid rgba(192,132,252,0.2)",
-                boxShadow: "0 32px 80px rgba(113,40,111,0.25)"
+                boxShadow: "0 32px 80px rgba(113,40,111,0.35)"
               }}
             >
+              {/* Decorative background glow */}
               <div
                 className="absolute -top-20 -right-20 w-64 h-64 rounded-full pointer-events-none"
                 style={{
                   background:
-                    "radial-gradient(circle, rgba(192,132,252,0.15) 0%, transparent 70%)"
+                    "radial-gradient(circle, rgba(192,132,252,0.2) 0%, transparent 70%)"
                 }}
               />
+
+              {/* Subtle inner border */}
+              <div className="absolute inset-4 rounded-2xl border border-white/5 pointer-events-none" />
+
+              {/* Header */}
               <div className="flex items-center justify-between mb-8">
                 <div>
-                  <p className="text-[10px] font-bold tracking-[0.25em] uppercase text-white/30 mb-1">
+                  <p className="text-xs font-bold tracking-wider uppercase text-brand-primary-light/80 mb-1">
                     Tabi Academy · TEE Foundation
                   </p>
-                  <p className="text-xs font-semibold text-white/50">
+                  <p className="text-base font-semibold text-white/90">
                     {t("certificate.subtitle")}
                   </p>
                 </div>
-                <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                <div className="w-12 h-12 rounded-xl bg-brand-primary/30 flex items-center justify-center">
+                  <svg width="24" height="24" viewBox="0 0 20 20" fill="none">
                     <path
                       d="M10 2l2 6h6l-5 3.5 2 6L10 14l-5 3.5 2-6L2 8h6z"
                       fill="#c084fc"
@@ -202,18 +210,22 @@ export default function AIBusinessCertification() {
                   </svg>
                 </div>
               </div>
-              <div className="mb-2">
-                <p className="text-[11px] text-white/30 uppercase tracking-wider mb-2">
+
+              <div className="mb-4">
+                <p className="text-xs text-white/60 uppercase tracking-widest mb-2">
                   {t("certificate.awardedTo")}
                 </p>
-                <div className="h-px w-48 bg-white/10 mb-3" />
-                <p className="text-2xl font-bold text-white/90 italic">
+                <div className="h-px w-56 bg-linear-to-r from-brand-primary/50 to-transparent mb-4" />
+                <p className="text-2xl sm:text-3xl font-bold text-white italic leading-tight">
                   {t("certificate.placeholderName")}
                 </p>
               </div>
-              <p className="text-xs text-white/40 leading-relaxed mt-4 mb-8 max-w-xs">
+
+              <p className="text-sm text-white/70 leading-relaxed mt-4 mb-8 max-w-xs">
                 {t("certificate.description")}
               </p>
+
+              {/* Score breakdown */}
               <div className="grid grid-cols-2 gap-3 mb-8">
                 {[
                   {
@@ -225,23 +237,25 @@ export default function AIBusinessCertification() {
                 ].map((item) => (
                   <div
                     key={item.label}
-                    className="rounded-xl px-4 py-3"
-                    style={{ background: "rgba(255,255,255,0.06)" }}
+                    className="rounded-xl px-5 py-4"
+                    style={{ background: "rgba(255,255,255,0.08)" }}
                   >
-                    <p className="text-[10px] text-white/30 uppercase tracking-wider mb-1">
+                    <p className="text-xs text-white/50 uppercase tracking-wider mb-1">
                       {item.label} · {item.weight}
                     </p>
-                    <p className="text-lg font-extrabold text-white/60">
+                    <p className="text-xl font-extrabold text-white/80">
                       {item.score}
                     </p>
                   </div>
                 ))}
               </div>
+
+              {/* Verification bar */}
               <div
-                className="flex items-center gap-3 rounded-xl px-4 py-3"
+                className="flex items-center gap-3 rounded-xl px-5 py-3"
                 style={{
-                  background: "rgba(192,132,252,0.1)",
-                  border: "1px solid rgba(192,132,252,0.2)"
+                  background: "rgba(192,132,252,0.15)",
+                  border: "1px solid rgba(192,132,252,0.25)"
                 }}
               >
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -250,22 +264,23 @@ export default function AIBusinessCertification() {
                     cy="7"
                     r="6"
                     stroke="#c084fc"
-                    strokeWidth="1.2"
+                    strokeWidth="1.5"
                   />
                   <path
                     d="M4 7l2 2 4-4"
                     stroke="#c084fc"
-                    strokeWidth="1.2"
+                    strokeWidth="1.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
                 </svg>
-                <p className="text-[11px] text-white/40">
+                <p className="text-xs text-white/60 font-medium">
                   {t("certificate.verification")}
                 </p>
               </div>
             </div>
 
+            {/* Retake note */}
             <div
               className="flex items-start gap-4 bg-white rounded-2xl border border-[#ede8f5] px-6 py-5"
               style={{ boxShadow: "0px 4px 12px 2px #3737371F" }}

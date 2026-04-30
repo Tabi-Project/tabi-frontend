@@ -46,6 +46,7 @@ import AIBusinessCTA from "@/components/organisms/Aibusinesscta";
 import AIBusinessPricing from "@/components/organisms/Aibusinesspricing";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
+import { SLAWebinarSection } from "@/components/organisms/SLAWebinarSection";
 
 export async function generateMetadata({
   params
@@ -71,6 +72,7 @@ export default function AIForBusinessesPage() {
   return (
     <>
       <AIBusinessHero />
+      <SLAWebinarSection/>
       <AIBusinessStats />
       <AIBusinessOutcomes />
       <AIBusinessTimeline />

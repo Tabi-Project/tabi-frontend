@@ -238,7 +238,7 @@
       "accountNumberLabel": "Account Number",
       "copyButton": "Copy",
       "copied": "Copied!",
-      "transferReminder": "Please transfer {amount} {frequency, select, One-Time {} other {({frequency})}} to the account above.",
+      "transferReminder": "Please transfer {amount} {frequencyText} to the account above.",
       "done": "Done",
       "back": "Back"
     },
@@ -334,6 +334,64 @@
         },
         "certifiedOn": "Certified on",
         "completion": "completion"
+      }
+    },
+    "SLAWebinar": {
+      "badge": "SHE LEADS AFRICA X TABI ACADEMY",
+      "headline": "AI-Powered Apps:",
+      "headlineHighlight": "Building Something Real",
+      "description": "Move beyond the hype. In this 2-hour intensive, we’ll build a functional AI web app live, focusing on lead generation and business automation tailored for your brand.",
+      "dateLabel": "Date",
+      "dateValue": "21 May 2026",
+      "timeLabel": "Time",
+      "timeValue": "5:30 PM — 7:30 PM (WAT)",
+      "platformLabel": "Platform",
+      "platformValue": "Google Meet",
+      "cta": "Register for the Webinar",
+      "agendaTitle": "Webinar Agenda",
+      "agendaItems": [
+        { "time": "5:30 PM", "text": "Concept & AI Demo" },
+        { "time": "6:20 PM", "text": "Break / Breather" },
+        { "time": "6:30 PM", "text": "Hands-On Build (No-Code/Low-Code)" },
+        { "time": "7:00 PM", "text": "Custom Branding & Setup" },
+        { "time": "7:15 PM", "text": "Q&A Discussion" },
+        { "time": "7:25 PM", "text": "Wrap-Up & Next Steps" }
+      ],
+      "SLAWebinarModal": {
+        "title": "Secure your spot",
+        "subtitle": "Join the She Leads Africa x Tabi Academy workshop.",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email",
+        "industry": {
+          "label": "Business Industry",
+          "options": {
+            "retail": "Retail / E-commerce",
+            "service": "Service / Consulting",
+            "creative": "Creative / Media",
+            "tech": "Tech / Software",
+            "others": "Others"
+          },
+          "othersPlaceholder": "Type your industry..."
+        },
+        "experience": {
+          "label": "Experience Level",
+          "options": {
+            "beginner": "Beginner",
+            "intermediate": "Intermediate",
+            "advanced": "Advanced"
+          }
+        },
+        "cta": "Register & Get Meeting Link",
+        "success": {
+          "title": "You're registered!",
+          "message": "The meeting link will be sent to your email. We can't wait to have you in the session.",
+          "close": "Close"
+        },
+        "errors": {
+          "generic": "Something went wrong. Please try again.",
+          "network": "Network error. Please check your connection."
+        }
       }
     },
     "stats": {
@@ -1186,7 +1244,7 @@
       "stats": [
         { "value": "5", "label": "Free slots monthly" },
         { "value": "1:1", "label": "Expert session" },
-        { "value": "0₦", "label": "Cost to you" }
+        { "value": "₦0", "label": "Cost to you" }
       ],
       "cta": "Apply for a Free Session →",
       "terms": "T&Cs apply · {remaining} of {total} slots remaining",

@@ -379,7 +379,7 @@ export const Navbar = () => {
                         className="flex items-center gap-1 text-sm font-medium transition-colors duration-200"
                         style={{ color: active ? "#71286F" : "#374151" }}
                       >
-                        {t(link.label)} {/* 👈 translated */}
+                         {t(link.label)} {/* 👈 translated */}
                         <ChevronDown
                           size={14}
                           className="transition-transform duration-200 opacity-70"

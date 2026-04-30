@@ -3,7 +3,7 @@ import { getAllTeamMembers } from "@/lib/cms";
 import TeamGrid from "@/components/organisms/TeamGrid";
 
 export default async function TheTeam({ locale }: { locale: string }) {
-  const t = await getTranslations("about.TheTeam");
+  const t = await getTranslations("About.TheTeam");
   const members = getAllTeamMembers(locale);
 
   return (

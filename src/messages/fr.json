@@ -226,7 +226,7 @@
       "accountNumberLabel": "Numéro de compte",
       "copyButton": "Copier",
       "copied": "Copié !",
-      "transferReminder": "Veuillez transférer {amount} {frequency, select, One-Time {} other {({frequency})}} sur le compte ci‑dessus.",
+      "transferReminder": "Veuillez transférer {amount} {frequencyText} sur le compte ci‑dessus.",
       "done": "Terminé",
       "back": "Retour"
     },
@@ -322,6 +322,64 @@
         },
         "certifiedOn": "Certifié le",
         "completion": "de la formation"
+      }
+    },
+    "SLAWebinar": {
+      "badge": "SHE LEADS AFRICA X TABI ACADEMY",
+      "headline": "Applications propulsées par l'IA :",
+      "headlineHighlight": "Construire quelque chose de concret",
+      "description": "Allez au-delà du battage médiatique. Dans cet atelier intensif de 2 heures, nous créerons en direct une application web fonctionnelle basée sur l'IA, axée sur la génération de leads et l'automatisation commerciale adaptée à votre marque.",
+      "dateLabel": "Date",
+      "dateValue": "21 mai 2026",
+      "timeLabel": "Heure",
+      "timeValue": "17h30 — 19h30 (WAT)",
+      "platformLabel": "Plateforme",
+      "platformValue": "Google Meet",
+      "cta": "S'inscrire au webinaire",
+      "agendaTitle": "Programme du webinaire",
+      "agendaItems": [
+        { "time": "17h30", "text": "Concept & Démo IA" },
+        { "time": "18h20", "text": "Pause" },
+        { "time": "18h30", "text": "Atelier pratique (No-Code/Low-Code)" },
+        { "time": "19h00", "text": "Personnalisation & Configuration" },
+        { "time": "19h15", "text": "Questions / Réponses" },
+        { "time": "19h25", "text": "Conclusion & Prochaines étapes" }
+      ],
+      "SLAWebinarModal": {
+        "title": "Réservez votre place",
+        "subtitle": "Rejoignez l'atelier She Leads Africa x Tabi Academy.",
+        "firstName": "Prénom",
+        "lastName": "Nom",
+        "email": "Email",
+        "industry": {
+          "label": "Secteur d'activité",
+          "options": {
+            "retail": "Commerce de détail / E-commerce",
+            "service": "Services / Conseil",
+            "creative": "Créatif / Médias",
+            "tech": "Tech / Logiciel",
+            "others": "Autre"
+          },
+          "othersPlaceholder": "Précisez votre secteur..."
+        },
+        "experience": {
+          "label": "Niveau d'expérience",
+          "options": {
+            "beginner": "Débutant",
+            "intermediate": "Intermédiaire",
+            "advanced": "Avancé"
+          }
+        },
+        "cta": "S'inscrire et recevoir le lien",
+        "success": {
+          "title": "Inscription confirmée !",
+          "message": "Le lien de la réunion sera envoyé à votre adresse email. Nous avons hâte de vous compter parmi nous.",
+          "close": "Fermer"
+        },
+        "errors": {
+          "generic": "Une erreur est survenue. Veuillez réessayer.",
+          "network": "Erreur réseau. Veuillez vérifier votre connexion."
+        }
       }
     },
     "stats": {
@@ -1194,7 +1252,7 @@
       "stats": [
         { "value": "5", "label": "Places gratuites par mois" },
         { "value": "1:1", "label": "Séance personnalisée" },
-        { "value": "0₦", "label": "Gratuit pour vous" }
+        { "value": "₦0", "label": "Gratuit pour vous" }
       ],
       "cta": "Demander une séance gratuite →",
       "terms": "Conditions générales applicables · {remaining} place(s) sur {total} restante(s)",
