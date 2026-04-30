@@ -19,7 +19,6 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Industry options from translations
   const industries = [
     { key: "retail", label: t("industry.options.retail") },
     { key: "service", label: t("industry.options.service") },
@@ -28,7 +27,6 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
     { key: "others", label: t("industry.options.others") },
   ];
 
-  // Experience levels from translations
   const experienceLevels = [
     { key: "beginner", label: t("experience.options.beginner") },
     { key: "intermediate", label: t("experience.options.intermediate") },
@@ -39,12 +37,11 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
     firstName: "",
     lastName: "",
     email: "",
-    industry: t("industry.options.retail"), // will update once translations load
+    industry: t("industry.options.retail"),
     otherIndustry: "",
     experience: t("experience.options.beginner"),
   });
 
-  // Close dropdown on outside click
   useEffect(() => {
     const handler = (event: MouseEvent) => {
       if (
@@ -124,7 +121,6 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
         onClick={handleClose}
         className="absolute inset-0 bg-[#2D102D]/90 backdrop-blur-md"
       />
-
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -176,7 +172,6 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
                 onChange={(v) => setFormData({ ...formData, email: v })}
               />
 
-              {/* Industry dropdown */}
               <div className="space-y-2">
                 <label className="block text-xs font-semibold text-[#444444]">
                   {t("industry.label")}
@@ -247,7 +242,6 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
                 </div>
               </div>
 
-              {/* Experience level */}
               <div className="space-y-2">
                 <label className="block text-xs font-semibold text-[#444444]">
                   {t("experience.label")}
@@ -299,7 +293,18 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
   );
 }
 
-function Input({ label, value, onChange, type = "text" }: any) {
+// ✅ Typed Input component
+function Input({
+  label,
+  value,
+  onChange,
+  type = "text",
+}: {
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+  type?: string;
+}) {
   return (
     <div className="space-y-2">
       <label className="block text-xs font-semibold text-[#444444]">
