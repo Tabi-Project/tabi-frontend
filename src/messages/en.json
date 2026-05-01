@@ -363,6 +363,9 @@
         "firstName": "First Name",
         "lastName": "Last Name",
         "email": "Email",
+        "firstNamePlaceholder": "e.g. Jane",
+"lastNamePlaceholder": "e.g. Doe",
+"emailPlaceholder": "e.g. jane@example.com",
         "phone": {
           "label": "Phone Number (WhatsApp preferred)",
           "placeholder": "e.g. +234 812 345 6789"

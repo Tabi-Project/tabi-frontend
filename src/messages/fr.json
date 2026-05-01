@@ -352,6 +352,9 @@
         "firstName": "Prénom",
         "lastName": "Nom de famille",
         "email": "Email",
+        "firstNamePlaceholder": "ex. Marie",
+        "lastNamePlaceholder": "ex. Dupont",
+        "emailPlaceholder": "ex. marie@exemple.fr",
         "phone": {
           "label": "Numéro de téléphone (WhatsApp de préférence)",
           "placeholder": "ex. +33 6 12 34 56 78"

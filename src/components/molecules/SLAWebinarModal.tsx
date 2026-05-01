@@ -24,23 +24,23 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
     { key: "service", label: t("industry.options.service") },
     { key: "creative", label: t("industry.options.creative") },
     { key: "tech", label: t("industry.options.tech") },
-    { key: "others", label: t("industry.options.others") },
+    { key: "others", label: t("industry.options.others") }
   ];
 
   const experienceLevels = [
     { key: "beginner", label: t("experience.options.beginner") },
     { key: "intermediate", label: t("experience.options.intermediate") },
-    { key: "advanced", label: t("experience.options.advanced") },
+    { key: "advanced", label: t("experience.options.advanced") }
   ];
 
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
-    phone: "",                           
+    phone: "",
     industry: t("industry.options.retail"),
     otherIndustry: "",
-    experience: t("experience.options.beginner"),
+    experience: t("experience.options.beginner")
   });
 
   useEffect(() => {
@@ -69,13 +69,13 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
           firstName: formData.firstName,
           lastName: formData.lastName,
           email: formData.email,
-          phone: formData.phone,           // ← include phone
+          phone: formData.phone, // ← include phone
           industry:
             formData.industry === t("industry.options.others")
               ? formData.otherIndustry
               : formData.industry,
-          experience: formData.experience,
-        }),
+          experience: formData.experience
+        })
       });
 
       const data = await res.json();
@@ -100,10 +100,10 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
         firstName: "",
         lastName: "",
         email: "",
-        phone: "",                         // ← reset phone
+        phone: "", // ← reset phone
         industry: t("industry.options.retail"),
         otherIndustry: "",
-        experience: t("experience.options.beginner"),
+        experience: t("experience.options.beginner")
       });
     }, 300);
   };
@@ -112,7 +112,7 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
     formData.firstName.trim() !== "" &&
     formData.lastName.trim() !== "" &&
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) &&
-    formData.phone.trim() !== "" &&        // ← phone required
+    formData.phone.trim() !== "" && // ← phone required
     (formData.industry !== t("industry.options.others") ||
       formData.otherIndustry.trim() !== "");
 
@@ -156,22 +156,21 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
               <div className="grid grid-cols-2 gap-4">
                 <Input
                   label={t("firstName")}
+                  placeholder={t("firstNamePlaceholder")}
                   value={formData.firstName}
-                  onChange={(v) =>
-                    setFormData({ ...formData, firstName: v })
-                  }
+                  onChange={(v) => setFormData({ ...formData, firstName: v })}
                 />
                 <Input
                   label={t("lastName")}
+                  placeholder={t("lastNamePlaceholder")}
                   value={formData.lastName}
-                  onChange={(v) =>
-                    setFormData({ ...formData, lastName: v })
-                  }
+                  onChange={(v) => setFormData({ ...formData, lastName: v })}
                 />
               </div>
               <Input
                 label={t("email")}
                 type="email"
+                placeholder={t("emailPlaceholder")}
                 value={formData.email}
                 onChange={(v) => setFormData({ ...formData, email: v })}
               />
@@ -181,10 +180,7 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
                 type="tel"
                 placeholder={t("phone.placeholder")}
                 value={formData.phone}
-                onChange={(v) =>
-                  setFormData({ ...formData, phone: v })
-                }
-                
+                onChange={(v) => setFormData({ ...formData, phone: v })}
               />
 
               <div className="space-y-2">
@@ -219,7 +215,7 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
                             onClick={() => {
                               setFormData({
                                 ...formData,
-                                industry: item.label,
+                                industry: item.label
                               });
                               if (item.key !== "others") setDropdownOpen(false);
                             }}
@@ -243,7 +239,7 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
                                   onChange={(e) =>
                                     setFormData({
                                       ...formData,
-                                      otherIndustry: e.target.value,
+                                      otherIndustry: e.target.value
                                     })
                                   }
                                   className="w-full rounded-lg border border-[#e5e5e5] px-3 py-2 text-sm focus:border-brand-primary outline-none"
@@ -288,17 +284,13 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
               <button
                 disabled={loading || !isFormValid}
                 className={`w-full py-4 rounded-full font-bold shadow-lg transition-all flex items-center justify-center gap-2
-    ${
-      !isFormValid || loading
-        ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-        : "bg-brand-primary text-white hover:shadow-brand-primary/30"
-    }`}
+        ${
+          !isFormValid || loading
+            ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+            : "bg-brand-primary text-white hover:shadow-brand-primary/30"
+        }`}
               >
-                {loading ? (
-                  <Loader2 className="animate-spin" />
-                ) : (
-                  t("cta")
-                )}
+                {loading ? <Loader2 className="animate-spin" /> : t("cta")}
               </button>
             </form>
           </>
@@ -314,11 +306,13 @@ function Input({
   value,
   onChange,
   type = "text",
+  placeholder 
 }: {
   label: string;
   value: string;
   onChange: (value: string) => void;
   type?: string;
+  placeholder?: string;
 }) {
   return (
     <div className="space-y-2">
@@ -329,6 +323,7 @@ function Input({
         type={type}
         required
         value={value}
+        placeholder={placeholder} 
         onChange={(e) => onChange(e.target.value)}
         className="w-full rounded-full border border-[#e5e5e5] px-5 py-3 text-sm text-left focus:outline-none focus:border-brand-primary transition-colors"
       />
