@@ -2,6 +2,8 @@
 import type { Metadata, Viewport } from "next";
 import { Lato } from "next/font/google";
 import "./globals.css";
+import NextTopLoader from "nextjs-toploader";
+
 
 const lato = Lato({
   subsets: ["latin"],
@@ -30,6 +32,16 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={lato.className} suppressHydrationWarning>
+        <NextTopLoader
+          color="#71286F"
+          initialPosition={0.08}
+          crawlSpeed={200}
+          height={4}
+          crawl={true}
+          showSpinner={false}
+          easing="ease"
+          speed={200}
+        />
         {children}
       </body>
     </html>
