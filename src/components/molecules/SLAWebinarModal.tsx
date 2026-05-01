@@ -37,6 +37,7 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
     firstName: "",
     lastName: "",
     email: "",
+    phone: "",                           
     industry: t("industry.options.retail"),
     otherIndustry: "",
     experience: t("experience.options.beginner"),
@@ -68,6 +69,7 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
           firstName: formData.firstName,
           lastName: formData.lastName,
           email: formData.email,
+          phone: formData.phone,           // ← include phone
           industry:
             formData.industry === t("industry.options.others")
               ? formData.otherIndustry
@@ -98,6 +100,7 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
         firstName: "",
         lastName: "",
         email: "",
+        phone: "",                         // ← reset phone
         industry: t("industry.options.retail"),
         otherIndustry: "",
         experience: t("experience.options.beginner"),
@@ -109,6 +112,7 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
     formData.firstName.trim() !== "" &&
     formData.lastName.trim() !== "" &&
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) &&
+    formData.phone.trim() !== "" &&        // ← phone required
     (formData.industry !== t("industry.options.others") ||
       formData.otherIndustry.trim() !== "");
 
@@ -170,6 +174,17 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
                 type="email"
                 value={formData.email}
                 onChange={(v) => setFormData({ ...formData, email: v })}
+              />
+
+              <Input
+                label={t("phone.label")}
+                type="tel"
+                placeholder={t("phone.placeholder")}
+                value={formData.phone}
+                onChange={(v) =>
+                  setFormData({ ...formData, phone: v })
+                }
+                
               />
 
               <div className="space-y-2">
@@ -293,7 +308,7 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
   );
 }
 
-// ✅ Typed Input component
+// Input component (unchanged)
 function Input({
   label,
   value,
@@ -315,7 +330,7 @@ function Input({
         required
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full px-5 py-3 bg-gray-50 border border-gray-100 rounded-full focus:ring-2 focus:ring-brand-primary/10 outline-none text-sm"
+        className="w-full rounded-full border border-[#e5e5e5] px-5 py-3 text-sm text-left focus:outline-none focus:border-brand-primary transition-colors"
       />
     </div>
   );

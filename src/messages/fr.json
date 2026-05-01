@@ -352,6 +352,10 @@
         "firstName": "Prénom",
         "lastName": "Nom de famille",
         "email": "Email",
+        "phone": {
+          "label": "Numéro de téléphone (WhatsApp de préférence)",
+          "placeholder": "ex. +33 6 12 34 56 78"
+        },
         "industry": {
           "label": "Secteur d'activité",
           "options": {
