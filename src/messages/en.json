@@ -337,7 +337,7 @@
       }
     },
     "SLAWebinar": {
-      "badge": "SHE LEADS AFRICA X TABI ACADEMY",
+      "badge": "TABI ACADEMY X SHE LEADS AFRICA",
       "headline": "AI-Powered Apps:",
       "headlineHighlight": "Building Something Real",
       "description": "Move beyond the hype. In this 2-hour intensive, we’ll build a functional AI web app live, focusing on lead generation and business automation tailored for your brand.",
@@ -359,7 +359,7 @@
       ],
       "SLAWebinarModal": {
         "title": "Secure your spot",
-        "subtitle": "Join the She Leads Africa x Tabi Academy workshop.",
+        "subtitle": "Join the Tabi Academy x She Leads Africa workshop.",
         "firstName": "First Name",
         "lastName": "Last Name",
         "email": "Email",
@@ -1664,6 +1664,24 @@
         "tagline": "Autonomiser les femmes. Transformer les entreprises.",
         "credit": "Tabi Academy | Fondation TEE | tabiproject.com"
       }
+    }
+  },
+  "JavascriptBootcamp": {
+    "hero": {
+      "badge": "June Cohort • 25 Seats Left",
+      "line1": "BUILD.",
+      "line2": "INTEGRATE.",
+      "line3": "EARN.",
+      "subheadline": "The intensive 4-week sprint where developers transform into Product Engineers. No fluff. Just shipping.",
+      "cta": "Join the Sprint",
+      "joinedBy": "{count} Devs< br/>Joined by",
+      "dashboardLabel": "SaaS Dashboard v1.0",
+      "totalRevenue": "Total Revenue",
+      "livePayout": "Live Payout",
+      "activeStack": "Active Stack",
+      "activeStackTech": "Next.js + AI",
+      "statusLabel": "Status",
+      "statusReady": "Ready to Deploy"
     }
   }
 }

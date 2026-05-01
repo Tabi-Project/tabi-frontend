@@ -3,6 +3,7 @@
     "projects": "Projets",
     "tabiWomenNetwork": "Tabi Women Network",
     "openSource": "Open Source",
+    "fullStackBootcamp": "Full-Stack JS Bootcamp",
     "aiForBusiness": "IA pour les entreprises",
     "aiForBusinesses": "IA pour les entreprises",
     "resources": "Ressources",
@@ -347,7 +348,7 @@
       ],
       "SLAWebinarModal": {
         "title": "Réservez votre place",
-        "subtitle": "Rejoignez l'atelier She Leads Africa x Tabi Academy.",
+        "subtitle": "Rejoignez l'atelier Tabi Academy x She Leads Africa.",
         "firstName": "Prénom",
         "lastName": "Nom",
         "email": "Email",
@@ -1671,6 +1672,24 @@
         "tagline": "Autonomiser les femmes. Transformer les entreprises.",
         "credit": "Tabi Academy | Fondation TEE | tabiproject.com"
       }
+    }
+  },
+  "JavascriptBootcamp": {
+    "hero": {
+      "badge": "Cohorte de juin • 25 places restantes",
+      "line1": "CONSTRUIRE.",
+      "line2": "INTÉGRER.",
+      "line3": "GAGNER.",
+      "subheadline": "Le sprint intensif de 4 semaines où les développeurs deviennent des Ingénieurs Produit. Pas de blabla. Juste du code.",
+      "cta": "Rejoindre le sprint",
+      "joinedBy": "Rejoint par <br/>{count} Devs",
+      "dashboardLabel": "Tableau de bord SaaS v1.0",
+      "totalRevenue": "Revenu total",
+      "livePayout": "Paiement en direct",
+      "activeStack": "Stack active",
+      "activeStackTech": "Next.js + IA",
+      "statusLabel": "Statut",
+      "statusReady": "Prêt à déployer"
     }
   }
 }
