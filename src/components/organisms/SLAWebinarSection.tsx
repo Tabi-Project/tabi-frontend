@@ -3,8 +3,11 @@
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
-import { Calendar, Clock, Video, Zap, ArrowRight } from "lucide-react";
+import { Calendar, Clock, Video, ArrowRight } from "lucide-react";
+import Image from "next/image";
 import SLAWebinarModal from "@/components/molecules/SLAWebinarModal";
+import { usePathname } from "@/i18n/navigation";
+import { withBasePath } from "@/constants/paths";
 
 export const SLAWebinarSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -13,12 +16,15 @@ export const SLAWebinarSection = () => {
     time: string;
     text: string;
   }>;
+  const pathname = usePathname();
 
   useEffect(() => {
-    if (window.location.hash === "#sla") {
-      document.getElementById("sla")?.scrollIntoView({ behavior: "smooth" });
+    if (pathname.endsWith("/sla")) {
+      setTimeout(() => {
+        document.getElementById("sla")?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
     }
-  }, []);
+  }, [pathname]);
 
   return (
     <section
@@ -32,10 +38,25 @@ export const SLAWebinarSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-xs font-bold mb-6 text-brand-primary-light">
-              <Zap size={14} className="text-yellow-400" />
-              <span>{t("badge")}</span>
+            {/* Logos instead of badge text */}
+            <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/80 border border-white/20 mb-6">
+              <Image
+                src={withBasePath("/Footer-logo.svg")}
+                alt="Tabi Academy"
+                width={60}
+                height={24}
+                className="h-8 w-auto object-contain"
+              />
+              <span className="text-black text-lg font-bold">×</span>
+              <Image
+                src={withBasePath("/partners/sla.png")}
+                alt="She Leads Africa"
+                width={80}
+                height={24}
+                className="h-11 w-auto object-contain"
+              />
             </div>
+
             <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
               {t("headline")} <br />
               <span className="text-brand-primary-light font-extrabold text-transparent bg-clip-text bg-linear-to-r from-pink-400 to-brand-surface">

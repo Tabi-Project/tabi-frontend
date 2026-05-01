@@ -47,6 +47,7 @@ import AIBusinessPricing from "@/components/organisms/Aibusinesspricing";
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { SLAWebinarSection } from "@/components/organisms/SLAWebinarSection";
+import { Suspense } from "react";
 
 export async function generateMetadata({
   params
@@ -72,7 +73,9 @@ export default function AIForBusinessesPage() {
   return (
     <>
       <AIBusinessHero />
-      <SLAWebinarSection/>
+      <Suspense fallback={<div />}>
+        <SLAWebinarSection/>
+      </Suspense>
       <AIBusinessStats />
       <AIBusinessOutcomes />
       <AIBusinessTimeline />
