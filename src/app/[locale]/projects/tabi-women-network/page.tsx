@@ -1,21 +1,20 @@
 // app/tabi-women-network/page.tsx
-import { TWNHero } from "@/components/organisms/TWNHero";
-import { TWNDirectory } from "@/components/organisms/TWNDirectory";
-import TWNNextEdition from "@/components/organisms/TWNNextEdition";
-import TWNManifestoMission from "@/components/organisms/TWNManifestoMission";
-import TWNWhatItIsNot from "@/components/organisms/TWNWhatItIsNot";
-import TWNGallery from "@/components/organisms/TWNGallery";
-import TWNImpactSummary from "@/components/organisms/TWNImpactSummary";
-import TWNPastEditions from "@/components/organisms/TWNPastEditions";
-import TWNCityRequest from "@/components/organisms/TWNCityRequest";
-import TWNManifestoQuote from "@/components/organisms/TWNManifestoQuote";
-import TWNValuePillars from "@/components/organisms/TWNValuePillars";
-import TWNFaq from "@/components/organisms/TWNFaq";
-import TWNTestimonial from "@/components/organisms/TWNTestimonial";
+import { TWNHero } from "@/components/organisms/twn/TWNHero";
+import { TWNDirectory } from "@/components/organisms/twn/TWNDirectory";
+import TWNNextEdition from "@/components/organisms/twn/TWNNextEdition";
+import TWNManifestoMission from "@/components/organisms/twn/TWNManifestoMission";
+import TWNWhatItIsNot from "@/components/organisms/twn/TWNWhatItIsNot";
+import TWNGallery from "@/components/organisms/twn/TWNGallery";
+import TWNImpactSummary from "@/components/organisms/twn/TWNImpactSummary";
+import TWNPastEditions from "@/components/organisms/twn/TWNPastEditions";
+import TWNCityRequest from "@/components/organisms/twn/TWNCityRequest";
+import TWNManifestoQuote from "@/components/organisms/twn/TWNManifestoQuote";
+import TWNValuePillars from "@/components/organisms/twn/TWNValuePillars";
+import TWNFaq from "@/components/organisms/twn/TWNFaq";
+import TWNTestimonial from "@/components/organisms/twn/TWNTestimonial";
 import FadeInSection from "@/components/atoms/FadeInSection";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
-
 
 export async function generateMetadata({
   params
@@ -23,18 +22,61 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
-  const t = await getTranslations({
+  const tMeta = await getTranslations({
     locale,
     namespace: "TWN.metadata"
   });
+  const tFAQ = await getTranslations({
+    locale,
+    namespace: "TWN.faq"
+  });
+  const faqItems = tFAQ.raw("items") as Array<{ q: string; a: string }>;
+
+  const baseUrl = "https://tabiproject.com/projects/tabi-women-network";
+
+  // Organization schema for the Tabi Women Network
+  const networkSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Tabi Women Network",
+    alternateName: "TWN",
+    url: baseUrl,
+    description: tMeta("description"),
+    parentOrganization: {
+      "@type": "Organization",
+      name: "Tabi Empowerment & Educational Foundation",
+      sameAs: [
+        "https://www.linkedin.com/company/tabi-academy/",
+        "https://x.com/tabi_academy",
+        "https://www.instagram.com/tabi_academy"
+      ]
+    },
+    sameAs: ["mailto:sophia@tabiproject.com"]
+  };
+
+  // FAQPage schema built directly from the same translation keys as the component
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.a
+      }
+    }))
+  };
+
+  const jsonLd = JSON.stringify([networkSchema, faqSchema]);
 
   return {
-    title: t("title"),
-    description: t("description"),
+    title: tMeta("title"),
+    description: tMeta("description"),
     openGraph: {
-      title: t("ogTitle"),
-      description: t("ogDescription"),
-      url: "https://tabiproject.com/projects/tabi-women-network",
+      title: tMeta("ogTitle"),
+      description: tMeta("ogDescription"),
+      url: baseUrl,
       images: [
         {
           url: "/og-image.jpeg",
@@ -43,6 +85,9 @@ export async function generateMetadata({
           type: "image/jpeg"
         }
       ]
+    },
+    other: {
+      "application/ld+json": jsonLd
     }
   };
 }

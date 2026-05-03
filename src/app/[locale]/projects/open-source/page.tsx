@@ -1,9 +1,9 @@
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
-import OpenSourceHero from "@/components/organisms/OpenSourceHero";
-import OpenSourceList from "@/components/organisms/OpenSourceList";
-import OpemSourceImpact from "@/components/organisms/OpemSourceImpact";
-import OpenSourceCTA from "@/components/organisms/OpenSourceCTA";
+import OpenSourceHero from "@/components/organisms/open-source/OpenSourceHero";
+import OpenSourceList from "@/components/organisms/open-source/OpenSourceList";
+import OpemSourceImpact from "@/components/organisms/open-source/OpemSourceImpact";
+import OpenSourceCTA from "@/components/organisms/open-source/OpenSourceCTA";
 
 export async function generateMetadata({
   params

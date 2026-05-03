@@ -1,5 +1,5 @@
 import { getAllProjects, getTestimonialByOrder } from "@/lib/cms";
-import FeaturedProjects from "@/components/organisms/FeaturedProjects";
+import FeaturedProjects from "../home/FeaturedProjects";
 
 interface FeaturedProjectsServerProps {
   locale: string;

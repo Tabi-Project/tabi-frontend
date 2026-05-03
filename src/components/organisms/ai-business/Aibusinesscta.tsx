@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
-import RegistrationModal from "../molecules/RegistrationModal";
+import RegistrationModal from "../../molecules/RegistrationModal";
 
 export default function AIBusinessCTA() {
   const t = useTranslations("AIBusiness.cta");

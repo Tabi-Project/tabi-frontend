@@ -14,7 +14,7 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  const posts = getAllPosts(); // default en
+  const posts = getAllPosts();
   const locales = ["en", "fr"];
   return locales.flatMap((locale) =>
     posts.map((post) => ({ slug: post.slug, locale }))
@@ -30,6 +30,36 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const url = `${BASE_URL}/${locale}/resources/blog/${post.slug}`;
   const ogImage = post.image ?? "/og-image.jpeg";
+
+  // Article structured data
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    author: post.author
+      ? {
+          "@type": "Person",
+          name: post.author
+        }
+      : undefined,
+    datePublished: post.date,
+    publisher: {
+      "@type": "Organization",
+      name: "Tabi Empowerment & Educational Foundation",
+      sameAs: [
+        "https://www.linkedin.com/company/tabi-academy/",
+        "https://x.com/tabi_academy",
+        "https://www.instagram.com/tabi_academy"
+      ]
+    },
+    image: ogImage,
+    url,
+    inLanguage: locale === "fr" ? "fr-FR" : "en-NG"
+  };
+
+  // Remove undefined fields
+  const cleanSchema = JSON.parse(JSON.stringify(articleSchema));
 
   return {
     title: post.title,
@@ -51,6 +81,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: post.title,
       description: post.excerpt,
       images: [ogImage]
+    },
+    other: {
+      "application/ld+json": JSON.stringify(cleanSchema)
     }
   };
 }
@@ -60,7 +93,7 @@ export default async function BlogDetailPage({ params }: Props) {
   const t = await getTranslations({
     locale,
     namespace: "Resources.CaseStudyDetail"
-  }); // reusing breadcrumb keys
+  });
   const decodedSlug = decodeURIComponent(slug);
   const post = getPostBySlug(decodedSlug, locale);
 
@@ -71,7 +104,6 @@ export default async function BlogDetailPage({ params }: Props) {
   return (
     <main className="w-full bg-white min-h-screen">
       <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 pt-8 py-16 lg:py-24">
-        {/* Breadcrumb */}
         <p className="text-sm text-[#666] mb-5">
           <Link href={`/${locale}`} className="hover:text-brand-primary">
             {t("breadcrumb.home")}
@@ -118,7 +150,6 @@ export default async function BlogDetailPage({ params }: Props) {
           </h1>
 
           <div className="flex items-center justify-center flex-wrap gap-3 text-sm text-[#555] mb-10">
-            {/* author avatar logic unchanged */}
             {post.author && (
               <span className="font-medium text-[#1a1a2e]">
                 By {post.author}

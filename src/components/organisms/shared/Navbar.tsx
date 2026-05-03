@@ -4,11 +4,11 @@ import { useState, useRef, useEffect } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
-import { Button } from "../atoms/Button";
-import { Logo } from "../atoms/Logo";
+import { Button } from "../../atoms/Button";
+import { Logo } from "../../atoms/Logo";
 import { NAV_LINKS } from "@/constants/navigation";
-import DonationModal from "../molecules/DonationModal";
-import LanguageSwitcher from "../molecules/LanguageSwitcher";
+import DonationModal from "../../molecules/DonationModal";
+import LanguageSwitcher from "../../molecules/LanguageSwitcher";
 import { ChevronDown, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 

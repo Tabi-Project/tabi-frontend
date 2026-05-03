@@ -1,20 +1,42 @@
-import LegalPageLayout from "@/components/organisms/LegalPageLayout";
-import { TERMS_SECTIONS, TERMS_META } from "@/data/terms";
-import { termsMetadata } from "@/seo/page-metadata";
+import { getTranslations } from "next-intl/server";
+import type { Metadata } from "next";
+import LegalPageLayout from "@/components/organisms/legal/LegalPageLayout";
+import { LegalSection } from "@/types/legal";
 
-export const metadata = termsMetadata;
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Terms.metadata" });
+  return {
+    title: t("title"),
+    description: t("description"),
+    alternates: { canonical: "https://tabiproject.com/terms" }
+  };
+}
 
-export default function TermsPage() {
+export default async function TermsPage({
+  params
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Terms" });
+  const sections = t.raw("sections") as LegalSection[];
+
   return (
     <LegalPageLayout
-      label={TERMS_META.title}
-      title={TERMS_META.organization}
-      effectiveDate={TERMS_META.effectiveDate}
-      lastUpdated={TERMS_META.lastUpdated}
-      footerNote={TERMS_META.footerNote}
-      sections={TERMS_SECTIONS}
+      label={t("label")}
+      title={t("title")}
+      effectiveDate={t("effectiveDate")}
+      lastUpdated={t("lastUpdated")}
+      footerNote={t("footerNote")}
+      sections={sections}
       breadcrumbHref="/terms"
-      breadcrumbLabel="Terms of Use"
+      breadcrumbLabel={t("breadcrumb.label")}
+      breadcrumbHomeLabel={t("breadcrumb.home")}
     />
   );
 }

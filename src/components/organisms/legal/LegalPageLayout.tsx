@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { LegalSection } from "@/types/legal";
 import LegalTOC from "@/components/molecules/LegalTOC";
-import LegalSectionBlock from "@/components/organisms/LegalSectionBlock";
+import LegalSectionBlock from "@/components/organisms/legal/LegalSectionBlock";
 
 interface LegalPageLayoutProps {
   label: string;
@@ -12,6 +12,7 @@ interface LegalPageLayoutProps {
   sections: LegalSection[];
   breadcrumbHref: string;
   breadcrumbLabel: string;
+  breadcrumbHomeLabel: string;
 }
 
 export default function LegalPageLayout({
@@ -22,14 +23,15 @@ export default function LegalPageLayout({
   footerNote,
   sections,
   breadcrumbHref,
-  breadcrumbLabel
+  breadcrumbLabel,
+  breadcrumbHomeLabel
 }: LegalPageLayoutProps) {
   return (
     <main className="w-full bg-white min-h-screen">
       <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-14 lg:py-20">
         <p className="text-sm text-[#666] mb-10">
           <Link href="/" className="hover:text-brand-primary transition-colors">
-            Home
+            {breadcrumbHomeLabel}
           </Link>
           <span className="mx-2 text-[#ccc]">&gt;&gt;</span>
           <Link

@@ -15,9 +15,33 @@ export async function generateMetadata({
     namespace: "Resources.caseStudies.metadata"
   });
 
+  const baseUrl = "https://tabiproject.com/resources/case-studies";
+
+  // CollectionPage structured data
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: t("title"),
+    description: t("description"),
+    url: baseUrl,
+    provider: {
+      "@type": "Organization",
+      name: "Tabi Empowerment & Educational Foundation",
+      sameAs: [
+        "https://www.linkedin.com/company/tabi-academy/",
+        "https://x.com/tabi_academy",
+        "https://www.instagram.com/tabi_academy"
+      ]
+    },
+    about: "Case studies and research reports from Tabi Academy programmes"
+  };
+
   return {
     title: t("title"),
-    description: t("description")
+    description: t("description"),
+    other: {
+      "application/ld+json": JSON.stringify(collectionSchema)
+    }
   };
 }
 

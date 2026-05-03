@@ -8,7 +8,7 @@ import {
   getAllEvents,
   getFeaturedEvents
 } from "@/lib/cms";
-import ResourcesTabs from "@/components/organisms/Resourcestabs";
+import ResourcesTabs from "@/components/organisms/resources/Resourcestabs";
 
 export async function generateMetadata({
   params
@@ -21,16 +21,40 @@ export async function generateMetadata({
     namespace: "Resources.metadata"
   });
 
+  const baseUrl = "https://tabiproject.com/resources";
+
+  // CollectionPage structured data
+  const collectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: t("title"),
+    description: t("description"),
+    url: baseUrl,
+    provider: {
+      "@type": "Organization",
+      name: "Tabi Empowerment & Educational Foundation",
+      sameAs: [
+        "https://www.linkedin.com/company/tabi-academy/",
+        "https://x.com/tabi_academy",
+        "https://www.instagram.com/tabi_academy"
+      ]
+    },
+    about: "Blog posts, news, and events from Tabi Academy"
+  };
+
   return {
     title: t("title"),
     description: t("description"),
     openGraph: {
       title: t("ogTitle"),
       description: t("ogDescription"),
-      url: "https://tabiproject.com/resources",
+      url: baseUrl,
       images: [
         { url: "/og-image.jpeg", width: 1200, height: 630, type: "image/jpeg" }
       ]
+    },
+    other: {
+      "application/ld+json": JSON.stringify(collectionSchema)
     }
   };
 }

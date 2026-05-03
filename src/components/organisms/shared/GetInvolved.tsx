@@ -4,8 +4,8 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import DonationModal from "@/components/molecules/DonationModal";
 import CommunityWelcomeModal from "@/components/molecules/CommunityWelcomeModal";
-import DonateCard from "@/components/organisms/DonateCard";
-import CommunityCard from "@/components/organisms/CommunityCard";
+import DonateCard from "@/components/molecules/DonateCard";
+import CommunityCard from "@/components/molecules/CommunityCard";
 import { motion, Variants } from "framer-motion";
 
 export default function GetInvolved() {

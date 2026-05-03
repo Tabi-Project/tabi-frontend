@@ -364,8 +364,8 @@
         "lastName": "Last Name",
         "email": "Email",
         "firstNamePlaceholder": "e.g. Jane",
-"lastNamePlaceholder": "e.g. Doe",
-"emailPlaceholder": "e.g. jane@example.com",
+        "lastNamePlaceholder": "e.g. Doe",
+        "emailPlaceholder": "e.g. jane@example.com",
         "phone": {
           "label": "Phone Number (WhatsApp preferred)",
           "placeholder": "e.g. +234 812 345 6789"
@@ -1673,23 +1673,778 @@
       }
     }
   },
-  "JavascriptBootcamp": {
+  "Bootcamp": {
+    "metadata": {
+      "title": "JavaScript Bootcamp | Full-Stack SaaS Engineering",
+      "description": "A 4-week intensive bootcamp for developers. Build a real SaaS product, integrate AI, and create an income stream. Only 25 seats.",
+      "ogTitle": "JavaScript Bootcamp | Build SaaS Products with AI",
+      "ogDescription": "Stop learning, start shipping. Join 25 developers in a live, 4‑week bootcamp. Vue, Sails, Inertia, Tailwind. June 11 — July 4."
+    },
     "hero": {
-      "badge": "June Cohort • 25 Seats Left",
-      "line1": "BUILD.",
-      "line2": "INTEGRATE.",
-      "line3": "EARN.",
-      "subheadline": "The intensive 4-week sprint where developers transform into Product Engineers. No fluff. Just shipping.",
-      "cta": "Join the Sprint",
-      "joinedBy": "{count} Devs< br/>Joined by",
-      "dashboardLabel": "SaaS Dashboard v1.0",
-      "totalRevenue": "Total Revenue",
-      "livePayout": "Live Payout",
-      "activeStack": "Active Stack",
-      "activeStackTech": "Next.js + AI",
-      "statusLabel": "Status",
-      "statusReady": "Ready to Deploy"
+      "badge": "Enrollment Opens May 11 · Cohort 1",
+      "line1": "Build Products.",
+      "line2": "Integrate AI.",
+      "line3": "Create Income.",
+      "subheadline": "A 4-week Full-Stack JavaScript Bootcamp for developers ready to stop consuming tutorials and start building <semibold>deployable SaaS products.</semibold>",
+      "schedule": "100% Virtual · Mon, Wed & Fri · June 11 – July 4, 2026 · Google Meet",
+      "cta": "Apply for June Cohort →",
+      "ctaSecondary": "Explore Curriculum",
+      "trust": [
+        { "value": "12", "label": "Live Sessions" },
+        { "value": "25", "label": "Seats Only" },
+        { "value": "4", "label": "Weeks" },
+        { "value": "₦5k", "label": "Reg. Fee" }
+      ],
+      "heroImageAlt": "Developer working",
+      "heroCardLabel": "Full-Stack JavaScript Bootcamp",
+      "heroCardDetails": "4 Weeks · 12 Sessions · 1 Deployable SaaS Product",
+      "floatingStartsLabel": "Starts",
+      "floatingStartsDate": "June 11",
+      "floatingStartsSubtext": "2026 · Online",
+      "stackLabel": "The Stack"
+    },
+    "cta": {
+      "badge": "Cohort 1 · June 11 – July 4, 2026 · Only 25 Seats",
+      "heading": "Applications Are",
+      "highlight": "Competitive.",
+      "description": "Only 25 developers will be accepted for Cohort 1. If you're serious about building products and earning from your skills — this is your room.",
+      "button": "Apply Now — Opens May 11",
+      "footnote": "Decisions by June 3rd · Cohort starts June 11"
+    },
+    "whyThisExists": {
+      "badge": "Why This Bootcamp Exists",
+      "heading": "Why Most Developers",
+      "headingHighlight": "Never Ship.",
+      "description": "Most developers never move from learning to earning — because they never learn how real products are actually built.",
+      "quoteText": "\"Stop learning. <br/> Start shipping.\"",
+      "quoteCaption": "The only rule that matters.",
+      "problemCardTitle": "The Pattern That Keeps You Stuck",
+      "problems": [
+        "Tutorial after tutorial — nothing ever ships.",
+        "Ten frameworks learned, zero products built.",
+        "Technical skills with no clear income path.",
+        "No idea how real SaaS products are structured."
+      ],
+      "solutionCardTitle": "This Bootcamp Fixes That",
+      "solutions": [
+        "One curated stack, mastered end-to-end.",
+        "One real SaaS product, deployed in 4 weeks.",
+        "AI integration, payments, and a 90-day income roadmap.",
+        "25 serious developers, guided by live experts."
+      ],
+      "bottomQuote": "No noise. No hype. Just <strong>one stack, one product, one clear path to income.</strong>"
+    },
+    "boringStack": {
+      "badge": "The Technology",
+      "heading": "Why We Use",
+      "headingHighlight": "The Boring Stack",
+      "description": "We skip the framework of the week. Every tool was chosen because it is <strong>stable, battle-tested, and actively used</strong> in real-world products today. Your skills won't expire in six months.",
+      "items": [
+        {
+          "role": "Frontend Framework",
+          "desc": "Approachable, powerful, and used in production by thousands of SaaS companies worldwide."
+        },
+        {
+          "role": "Backend Framework",
+          "desc": "MVC architecture for Node.js — built for real-world APIs and data-heavy applications."
+        },
+        {
+          "role": "The Bridge",
+          "desc": "Connects Vue to Sails with zero API boilerplate. Write server-side apps with the feel of a modern SPA."
+        },
+        {
+          "role": "Styling System",
+          "desc": "Utility-first CSS that makes building polished, responsive UIs fast — without fighting your stylesheet."
+        }
+      ],
+      "bottomStatLine1": "4 Tools.",
+      "bottomStatLine2": "1 Product.",
+      "bottomStatDesc": "Everything you need to build and ship a real SaaS — from database design and authentication to AI integration and payment processing."
+    },
+    "curriculum": {
+      "badge": "Curriculum · 4 Weeks · 12 Sessions",
+      "heading": "From First Commit",
+      "highlight": "to First Revenue",
+      "description": "4 weeks. 12 live sessions. 2.5 hours each. One complete deployable SaaS product — no filler, no fluff.",
+      "stats": [
+        { "v": "~27hrs", "l": "Live Instruction" },
+        { "v": "Mon · Wed · Fri", "l": "Session Days" },
+        { "v": "June 11", "l": "Start Date" }
+      ],
+      "footerText": "You build this. Live. Every session.",
+      "weeks": [
+        {
+          "week": "01",
+          "label": "The Foundations",
+          "tagline": "Hello World → Hello Product",
+          "tech": ["Vue.js", "Sails.js", "Inertia.js", "Tailwind CSS"],
+          "build": "Your first full-stack app. Understand exactly how the pieces connect — and build something real by Friday of week one.",
+          "sessions": "Sessions 1–3 · 2.5hrs each"
+        },
+        {
+          "week": "02",
+          "label": "The Core Engine",
+          "tagline": "A real SaaS from scratch",
+          "tech": ["Authentication", "CRUD", "File Uploads", "Dashboards"],
+          "build": "Build a Project Tracker SaaS with auth, create-read-update-delete, cloud file handling, and a polished dashboard.",
+          "sessions": "Sessions 4–6 · 2.5hrs each"
+        },
+        {
+          "week": "03",
+          "label": "The AI Edge",
+          "tagline": "Make your product intelligent",
+          "tech": [
+            "LLM APIs",
+            "Streaming",
+            "Workflow Automation",
+            "AI Dev Tools"
+          ],
+          "build": "Add a streaming AI chat assistant to your SaaS. Learn to prompt, integrate, and deploy AI-powered product features.",
+          "sessions": "Sessions 7–9 · 2.5hrs each"
+        },
+        {
+          "week": "04",
+          "label": "The Income Path",
+          "tagline": "Ship it. Get paid.",
+          "tech": [
+            "Stripe Payments",
+            "Micro-SaaS",
+            "Freelancing",
+            "Remote Dev"
+          ],
+          "build": "Capstone demo, payment integration, and your personal 90-day income roadmap — freelancing, micro-SaaS, or remote work.",
+          "sessions": "Sessions 10–12 · 2.5hrs each"
+        }
+      ]
+    },
+    "outcomes": {
+      "badge": "What You Walk Away With",
+      "heading": "By The End,",
+      "highlight": "You Will Have:",
+      "description": "Every outcome below is earned through the work you ship during the programme — not a participation trophy. No vague “skills.” Concrete deliverables.",
+      "items": [
+        {
+          "title": "A Deployable SaaS Product",
+          "desc": "Not a tutorial clone. A complete, live product you built from scratch — that you own and can show to anyone."
+        },
+        {
+          "title": "AI-Powered Product Features",
+          "desc": "LLM integration, streaming chat, and AI workflow automation baked into your product."
+        },
+        {
+          "title": "Payment Integration Experience",
+          "desc": "Stripe configured and live inside your application — the final piece most developers never add."
+        },
+        {
+          "title": "A Portfolio Project That Stands Out",
+          "desc": "A full-stack, AI-enabled, payment-ready SaaS — not another to-do app."
+        },
+        {
+          "title": "A 90-Day Income Roadmap",
+          "desc": "A clear personal strategy — freelancing, micro-SaaS, or remote dev — built live during Week 4."
+        },
+        {
+          "title": "Certificate of Completion",
+          "desc": "Awarded upon capstone presentation. Evidence of real, practical full-stack capability."
+        }
+      ],
+      "closingTitle": "Not just skills.",
+      "closingHighlight": "Proof.",
+      "closingDesc": "Every graduate leaves with a live product, a certificate, and a 90-day income plan — not just a completion badge."
+    },
+    "admission": {
+      "badge": "Admission",
+      "heading": "Not for Beginners.",
+      "highlight": "Built for Developers.",
+      "description": "This bootcamp moves fast and assumes you can read code, follow logic, and troubleshoot independently. We protect the quality of this room.",
+      "goldenRuleTitle": "The Golden Rule",
+      "goldenRuleText": "You must have written working code before — loops, functions, logic. The language doesn't matter. The mindset does.",
+      "qualifyTitle": "✓ You Qualify",
+      "qualifies": [
+        "Built small scripts or projects, even if rough.",
+        "Completed a course that included actual coding exercises.",
+        "Self-taught from tutorials where you wrote real code.",
+        "Can explain what a variable, function, or loop does.",
+        "Prior language doesn't matter — Python, PHP, Java, JS, anything."
+      ],
+      "doesntQualifyTitle": "✕ You Don't Qualify",
+      "doesntQualify": [
+        "Have never written a line of code before.",
+        "Only watched coding videos without practising.",
+        "Cannot explain what a variable or function is.",
+        "Looking for a beginner introduction to programming."
+      ],
+      "doesntQualifyFooter": "Applicants who don't qualify are directed to recommended preparation resources — no one is left without a next step.",
+      "pills": [
+        "No CS Degree Required",
+        "No Prior JavaScript Needed",
+        "Self-Taught Welcome",
+        "All Locations",
+        "All Ages"
+      ],
+      "processTitle": "The Application Process",
+      "process": [
+        {
+          "step": "01",
+          "title": "Apply Online",
+          "desc": "Fill in the form published May 11. Name, background, experience, CV or portfolio link."
+        },
+        {
+          "step": "02",
+          "title": "Personal Review",
+          "desc": "Every application is reviewed personally by the programme team. No bots. No automated filters."
+        },
+        {
+          "step": "03",
+          "title": "Decision by June 3",
+          "desc": "Accepted applicants get onboarding instructions. Others get directed to prep resources."
+        },
+        {
+          "step": "04",
+          "title": "Confirm Your Seat",
+          "desc": "Pay the ₦5,000 registration fee to lock in your place in Cohort 1."
+        }
+      ],
+      "stats": [
+        { "v": "25", "l": "Max Cohort Size" },
+        { "v": "₦5,000", "l": "Registration Fee" },
+        { "v": "June 3", "l": "Decision Date" },
+        { "v": "100%", "l": "Online Delivery" }
+      ]
+    },
+    "partnerBanner": {
+      "badge": "Official Programme Partner · Cohort 1",
+      "heading": "Powered by",
+      "highlight": "Industry Excellence",
+      "description": "Cohort 1 is built in partnership with <strong>Sailscasts</strong> — the leading resource for Sails.js development. Students gain exclusive access to premium curriculum materials, training slides, and project blueprints designed by the best in the ecosystem.",
+      "benefits": [
+        "Detailed curriculum and training slides",
+        "Exclusive project blueprints",
+        "Co-branded student certificates"
+      ],
+      "stats": [
+        { "v": "May 4", "l": "Announced" },
+        { "v": "June 7", "l": "Integrated" },
+        { "v": "Cohort 1", "l": "Exclusive" }
+      ],
+      "overlayText": "Official partnership for Cohort 1 — announced May 4, 2026"
     }
+  },
+  "Privacy": {
+    "metadata": {
+      "title": "Privacy Policy",
+      "description": "Tabi Empowerment & Educational Foundation (TEE Foundation) Privacy Policy. Learn how we collect, use, and protect your personal data."
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "label": "Privacy Policy"
+    },
+    "label": "Privacy Policy",
+    "title": "Tabi Empowerment & Educational Foundation (TEE Foundation)",
+    "effectiveDate": "January 2026",
+    "lastUpdated": "January 2026",
+    "footerNote": "This Privacy Policy was last reviewed and updated in January 2026.",
+    "sections": [
+      {
+        "number": "1",
+        "title": "Who We Are",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Tabi Empowerment & Educational Foundation is a non-profit organisation registered in Nigeria, dedicated to empowering women through education, mentorship, and technology. We operate through three arms: TEE Foundation (governing body), Tabi Academy (education and training), and Tabi Project (community impact initiatives)."
+          },
+          {
+            "type": "paragraph",
+            "text": "For the purposes of data protection, TEE Foundation is the data controller responsible for your personal information."
+          }
+        ]
+      },
+      {
+        "number": "2",
+        "title": "Information We Collect",
+        "content": [
+          {
+            "type": "subsection",
+            "number": "2.1",
+            "title": "Information You Provide Directly",
+            "text": "When you register for a programme, make a donation, or contact us, we may collect the following:",
+            "bullets": [
+              "Full name and contact details (email address, phone number, location)",
+              "Payment information (processed securely through our third-party payment providers; we do not store full card details)",
+              "Educational background and professional information (for programme eligibility and matching)",
+              "Emergency contact information (where relevant to in-person programmes)",
+              "Communications and correspondence you send to us"
+            ]
+          },
+          {
+            "type": "subsection",
+            "number": "2.2",
+            "title": "Information Collected Automatically",
+            "text": "When you visit our website, we may automatically collect:",
+            "bullets": [
+              "Browser type, device type, and operating system",
+              "IP address and approximate geographic location",
+              "Pages visited, time spent on site, and referring URLs",
+              "Cookie data and analytics information (see Section 7 on Cookies)"
+            ]
+          }
+        ]
+      },
+      {
+        "number": "3",
+        "title": "How We Use Your Information",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "We use the information we collect for the following purposes:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "To process programme registrations and confirm enrolments",
+              "To process payments and issue receipts or invoices",
+              "To communicate important updates about your programme or registration",
+              "To send our Annual Impact Report to donors and contributors",
+              "To deliver and improve our educational content and community services",
+              "To send newsletters, event updates, or programme announcements (with your consent)",
+              "To comply with legal and regulatory obligations",
+              "To analyse and improve the performance of our platforms and programmes"
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "We will not use your data for purposes incompatible with those listed above without your explicit consent."
+          }
+        ]
+      },
+      {
+        "number": "4",
+        "title": "Legal Basis for Processing",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "We process your personal data on the following legal bases:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Contract performance — processing necessary to register you in a programme or process your payment.",
+              "Legitimate interests — improving our services, communicating impact, and ensuring the safety of our community.",
+              "Consent — for marketing communications and non-essential cookies. You may withdraw consent at any time.",
+              "Legal obligation — where we are required to process data to comply with Nigerian law or regulatory requirements."
+            ]
+          }
+        ]
+      },
+      {
+        "number": "5",
+        "title": "Sharing Your Information",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Tabi does not sell, rent, or trade your personal data to third parties. We may share your information in the following limited circumstances:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Service providers: We work with trusted third-party providers (such as payment processors, email platforms, and website hosting services) who access your data solely to perform services on our behalf and are bound by confidentiality obligations.",
+              "Legal requirements: We may disclose your information where required by law, court order, or governmental authority.",
+              "Programme partners: Where a programme is delivered in partnership with another organisation, we may share relevant participant information with that partner, subject to appropriate data protection agreements."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "All third parties are required to handle your data securely and in accordance with applicable data protection law."
+          }
+        ]
+      },
+      {
+        "number": "6",
+        "title": "Payments and Financial Data",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "All payment transactions on Tabi's platforms are processed by Paystack, a PCI-DSS compliant third-party payment provider. Tabi does not store, process, or have access to your full card details. By making a payment on our platform, you are subject to Paystack's Privacy Policy and Terms of Service in addition to ours."
+          },
+          {
+            "type": "paragraph",
+            "text": "Donation records and programme payment records are retained for a minimum of 7 years in line with financial and regulatory requirements."
+          }
+        ]
+      },
+      {
+        "number": "7",
+        "title": "Cookies",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Our website uses cookies to enhance your experience and gather analytics data. Cookies are small data files placed on your device. We use:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Essential cookies — necessary for the website to function properly.",
+              "Analytics cookies — to understand how visitors interact with our site (e.g., Google Analytics).",
+              "Preference cookies — to remember your settings and preferences."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "You can manage or disable cookies through your browser settings. Please note that disabling certain cookies may affect the functionality of our website."
+          }
+        ]
+      },
+      {
+        "number": "8",
+        "title": "Data Retention",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "We retain your personal data only for as long as necessary to fulfil the purposes for which it was collected, or as required by law. Specifically:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Programme registration data is retained for a minimum of 3 years after the completion of the programme.",
+              "Financial and donation records are retained for a minimum of 7 years.",
+              "Marketing contact data is retained until you unsubscribe or withdraw consent."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "When data is no longer needed, it is securely deleted or anonymised."
+          }
+        ]
+      },
+      {
+        "number": "9",
+        "title": "Your Rights",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "You have the following rights with respect to your personal data:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Right of access — to request a copy of the personal data we hold about you.",
+              "Right to rectification — to request correction of inaccurate or incomplete data.",
+              "Right to erasure — to request deletion of your data, subject to our legal obligations.",
+              "Right to restrict processing — to request that we limit how we use your data.",
+              "Right to object — to object to our processing of your data for specific purposes.",
+              "Right to data portability — to receive your data in a structured, commonly used format.",
+              "Right to withdraw consent — where processing is based on consent, you may withdraw it at any time without affecting prior processing."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "To exercise any of these rights, please contact us at hello@tabiproject.com. We will respond to all requests within 30 days."
+          }
+        ]
+      },
+      {
+        "number": "10",
+        "title": "Children's Privacy",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Our services are primarily intended for adults aged 18 and over. Where we offer programmes to participants under 18, we require verifiable parental or guardian consent before collecting any personal data. We do not knowingly collect personal data from minors without appropriate consent."
+          }
+        ]
+      },
+      {
+        "number": "11",
+        "title": "Data Security",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "We take the security of your personal data seriously and implement appropriate technical and organisational measures to protect it against unauthorised access, loss, or destruction. These include secure data storage, access controls, and use of reputable, secure third-party platforms."
+          },
+          {
+            "type": "paragraph",
+            "text": "Despite these measures, no method of internet transmission or electronic storage is 100% secure. We encourage you to use strong passwords and to notify us immediately if you suspect any unauthorised use of your account."
+          }
+        ]
+      },
+      {
+        "number": "12",
+        "title": "Third-Party Links",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Our website may contain links to third-party websites or social media platforms. We are not responsible for the privacy practices of those sites and encourage you to review their privacy policies independently."
+          }
+        ]
+      },
+      {
+        "number": "13",
+        "title": "Changes to This Policy",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Tabi may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. The updated Policy will be published on our website with a revised effective date. We encourage you to review this Policy periodically. Where changes are material, we will notify you directly where possible."
+          }
+        ]
+      },
+      {
+        "number": "14",
+        "title": "Contact Us",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "If you have any questions, concerns, or requests regarding this Privacy Policy or how we handle your data, please reach out to us:"
+          },
+          {
+            "type": "contact",
+            "lines": [
+              "Tabi Empowerment & Educational Foundation",
+              "Email: hello@tabiproject.com",
+              "Website: tabiproject.com"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "Terms": {
+    "metadata": {
+      "title": "Terms of Use",
+      "description": "Terms of Use for Tabi Empowerment & Educational Foundation (TEE Foundation). Read our terms, refund policy, and conditions of use."
+    },
+    "breadcrumb": {
+      "home": "Home",
+      "label": "Terms of Use"
+    },
+    "label": "Terms of Use",
+    "title": "Tabi Empowerment & Educational Foundation (TEE Foundation)",
+    "effectiveDate": "January 2026",
+    "lastUpdated": "January 2026",
+    "footerNote": "These Terms of Use were last reviewed and updated in January 2026.",
+    "sections": [
+      {
+        "number": "1",
+        "title": "Acceptance of Terms",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "By accessing or using the website, platforms, programmes, or services of the Tabi Empowerment & Educational Foundation (referred to as \"Tabi\", \"TEE Foundation\", \"we\", \"our\", or \"us\"), you agree to be bound by these Terms of Use. Please read them carefully before proceeding."
+          },
+          {
+            "type": "paragraph",
+            "text": "If you do not agree to these terms, please discontinue use of our website and services immediately. We reserve the right to update these Terms at any time, and your continued use of our platforms constitutes acceptance of any such changes."
+          }
+        ]
+      },
+      {
+        "number": "2",
+        "title": "About Tabi Empowerment & Educational Foundation",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Tabi is a non-profit organisation committed to creating sustainable pathways for women to access, learn, and excel in technology. We operate three interconnected arms:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "TEE Foundation — the governing oversight body ensuring our mission remains impactful and accountable.",
+              "Tabi Academy — structured learning programmes, skills training, and mentorship pathways for women in tech.",
+              "Tabi Project — community-driven initiatives that translate education into measurable real-world impact."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "As a not-for-profit organisation, all revenues, fees, and donations received by Tabi are directed entirely toward the delivery of our mission and impact programmes."
+          }
+        ]
+      },
+      {
+        "number": "3",
+        "title": "Eligibility",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Our training programmes and services are primarily designed for women and girls who wish to develop skills in technology. By registering for any Tabi programme or service, you confirm that:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "You are at least 18 years of age, or have parental/guardian consent if under 18.",
+              "The information you provide during registration is accurate and complete.",
+              "You will use our services in accordance with these Terms and applicable laws."
+            ]
+          }
+        ]
+      },
+      {
+        "number": "4",
+        "title": "Programmes, Pricing & Fees",
+        "content": [
+          {
+            "type": "subsection",
+            "number": "4.1",
+            "title": "Paid Programmes",
+            "text": "Tabi offers paid training programmes and courses (\"Programmes\") from time to time. The fees for each Programme are clearly stated at the time of registration. All fees are quoted in Nigerian Naira (NGN) for participants within Nigeria, and in US Dollars (USD) for international participants. The USD equivalent is indicative and based on prevailing exchange rates at the time of registration. Participation in a Programme is only confirmed upon receipt of full payment of the applicable fee. Tabi reserves the right to adjust Programme fees at any time. Any fee changes will be communicated clearly before registration opens for the affected Programme."
+          },
+          {
+            "type": "subsection",
+            "number": "4.2",
+            "title": "Not-for-Profit Use of Fees",
+            "text": "Tabi is a registered non-profit organisation. All Programme fees, donations, and revenue received are used exclusively to fund our educational programmes, community impact initiatives, operational costs, and the delivery of our mission. No profits are distributed to any individual or private entity."
+          },
+          {
+            "type": "subsection",
+            "number": "4.3",
+            "title": "Annual Impact Report",
+            "text": "In line with our commitment to transparency and accountability, all donors and financial contributors to Tabi will receive an Annual Impact Report at the close of each financial year. This report will detail how contributions were utilised across our programmes and impact initiatives during that period."
+          }
+        ]
+      },
+      {
+        "number": "5",
+        "title": "Refund Policy",
+        "content": [
+          {
+            "type": "subsection",
+            "number": "5.1",
+            "title": "Eligible Refunds",
+            "text": "Tabi is committed to delivering quality programmes. The following refund terms apply to all paid Programmes:",
+            "bullets": [
+              "Cancellations made 14 or more days before the programme start date are eligible for a full refund, less any applicable transaction or processing fees.",
+              "Cancellations made between 7 and 13 days before the programme start date are eligible for a 50% refund of the programme fee paid.",
+              "Cancellations made fewer than 7 days before the programme start date are not eligible for a monetary refund. However, participants may request a credit transfer to a future Tabi programme of equivalent value."
+            ]
+          },
+          {
+            "type": "subsection",
+            "number": "5.2",
+            "title": "Non-Refundable Circumstances",
+            "bullets": [
+              "Fees are non-refundable once a programme has commenced, except in extraordinary circumstances at Tabi's sole discretion.",
+              "Administrative or transaction fees charged by payment processors are non-refundable in all cases.",
+              "Donations made to Tabi are non-refundable as they are immediately applied to impact work and operations."
+            ]
+          },
+          {
+            "type": "subsection",
+            "number": "5.3",
+            "title": "Requesting a Refund",
+            "text": "To request a refund, please contact us at hello@tabiproject.com with your full name, programme name, payment reference, and reason for cancellation. Refund requests are processed within 10 business days of approval."
+          }
+        ]
+      },
+      {
+        "number": "6",
+        "title": "Cancellation Policy",
+        "content": [
+          {
+            "type": "subsection",
+            "number": "6.1",
+            "title": "Cancellation by Participant",
+            "text": "Participants may cancel their enrolment in a Programme at any time by notifying Tabi in writing to hello@tabiproject.com. Refund eligibility is subject to the timelines outlined in Section 5 above."
+          },
+          {
+            "type": "subsection",
+            "number": "6.2",
+            "title": "Cancellation by Tabi",
+            "text": "Tabi reserves the right to cancel, postpone, or reschedule any Programme due to insufficient enrolment, unforeseen circumstances, or events beyond our reasonable control. In the event of a cancellation initiated by Tabi, registered participants will be offered the option of a full refund or a transfer to a rescheduled or alternative Programme. Tabi will not be liable for any travel, accommodation, or other ancillary costs incurred by participants as a result of a cancellation."
+          }
+        ]
+      },
+      {
+        "number": "7",
+        "title": "Donations",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "Tabi gratefully accepts voluntary donations from individuals and organisations who wish to support our mission. By making a donation, you acknowledge that:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "All donations are voluntary and non-refundable once processed.",
+              "Donations are used exclusively to fund Tabi's educational programmes, community impact projects, and operational activities in line with our not-for-profit mandate.",
+              "You will receive an Annual Impact Report detailing the use of funds at the end of each financial year.",
+              "Tabi does not guarantee any specific outcome or programme delivery in exchange for a donation."
+            ]
+          }
+        ]
+      },
+      {
+        "number": "8",
+        "title": "Intellectual Property",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "All content on Tabi's platforms — including but not limited to course materials, text, graphics, logos, videos, and training resources — is the intellectual property of Tabi Empowerment & Educational Foundation or its content partners, and is protected by applicable copyright and intellectual property laws."
+          },
+          {
+            "type": "paragraph",
+            "text": "You may not reproduce, distribute, republish, sell, or create derivative works from any Tabi content without prior written consent from TEE Foundation."
+          }
+        ]
+      },
+      {
+        "number": "9",
+        "title": "User Conduct",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "When using Tabi's platforms or participating in our programmes, you agree to:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Treat fellow participants, staff, and mentors with respect and dignity.",
+              "Not engage in any conduct that is abusive, discriminatory, harassing, or harmful.",
+              "Not share, reproduce, or distribute any Tabi programme materials without authorisation.",
+              "Not engage in any fraudulent or deceptive activity on our platforms."
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Tabi reserves the right to remove any participant from a programme or platform who violates these conduct standards, without refund."
+          }
+        ]
+      },
+      {
+        "number": "10",
+        "title": "Limitation of Liability",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "To the fullest extent permitted by applicable law, Tabi, its trustees, staff, and partners shall not be liable for any indirect, incidental, or consequential damages arising from your use of our services or participation in our programmes. Our total liability in any matter shall not exceed the fees paid by you for the specific programme in question."
+          }
+        ]
+      },
+      {
+        "number": "11",
+        "title": "Governing Law",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "These Terms of Use are governed by and construed in accordance with the laws of the Federal Republic of Nigeria. Any disputes arising from these Terms shall be subject to the exclusive jurisdiction of the courts of Nigeria."
+          }
+        ]
+      },
+      {
+        "number": "12",
+        "title": "Contact Us",
+        "content": [
+          {
+            "type": "paragraph",
+            "text": "If you have any questions about these Terms of Use, please contact us:"
+          },
+          {
+            "type": "contact",
+            "lines": [
+              "Tabi Empowerment & Educational Foundation",
+              "Email: hello@tabiproject.com",
+              "Website: tabiproject.com"
+            ]
+          }
+        ]
+      }
+    ]
   }
 }
   

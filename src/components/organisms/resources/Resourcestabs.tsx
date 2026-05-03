@@ -3,7 +3,7 @@
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import type { CMSPost, CMSEvent } from "@/lib/cms";
 import PostsPanel from "@/components/organisms/PostsPanel";
-import EventsPanel from "@/components/organisms/EventsPanel";
+import EventsPanel from "@/components/organisms/resources/EventsPanel";
 
 const TABS = [
   { key: "news", label: "News" },

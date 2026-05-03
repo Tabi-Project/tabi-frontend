@@ -1,7 +1,7 @@
 import type { CMSEvent } from "@/lib/cms";
 import UpcomingEventsSlider from "@/components/molecules/UpcomingEventsSlider";
-import AllEventsGrid from "@/components/organisms/AllEventsGrid";
-import EventsLocationBanner from "@/components/organisms/EventsLocationBanner";
+import AllEventsGrid from "@/components/organisms/resources/AllEventsGrid";
+import EventsLocationBanner from "@/components/organisms/resources/EventsLocationBanner";
 
 interface EventsPanelProps {
   allEvents?: CMSEvent[];
