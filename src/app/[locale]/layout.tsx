@@ -8,6 +8,7 @@ import Footer from "@/components/organisms/shared/Footer";
 import ScrollRestoration from "@/components/atoms/ScrollRestoration";
 import { locales } from "@/i18n/request";
 import "../globals.css";
+import SophiaBirthdayModal from "@/components/molecules/SophiaBirthdayModal";
 
 export default async function LocaleLayout({
   children,
@@ -68,6 +69,7 @@ export default async function LocaleLayout({
           `
         }}
       />
+      <SophiaBirthdayModal />
     </NextIntlClientProvider>
   );
 }
