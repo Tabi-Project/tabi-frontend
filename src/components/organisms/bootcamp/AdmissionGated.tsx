@@ -92,7 +92,7 @@ export default function AdmissionGated() {
             style={{ height: "360px" }}
           >
             <Image
-              src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=700&q=80"
+              src="https://images.unsplash.com/photo-1637979911022-792ba47b8098?w=500"
               alt="Developer working focused"
               fill
               className="object-cover"

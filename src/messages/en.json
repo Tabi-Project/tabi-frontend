@@ -1686,8 +1686,8 @@
       "line2": "Integrate AI.",
       "line3": "Create Income.",
       "subheadline": "A 4-week Full-Stack JavaScript Bootcamp for developers ready to stop consuming tutorials and start building <semibold>deployable SaaS products.</semibold>",
-      "schedule": "100% Virtual · Mon, Wed & Fri · June 11 – July 4, 2026 · Google Meet",
-      "cta": "Apply for June Cohort →",
+      "schedule": "100% Virtual · Thurs, Fri & Sat · June 11 – July 4, 2026 · Google Meet",
+      "cta": "Apply Now",
       "ctaSecondary": "Explore Curriculum",
       "trust": [
         { "value": "12", "label": "Live Sessions" },
@@ -1708,8 +1708,8 @@
       "heading": "Applications Are",
       "highlight": "Competitive.",
       "description": "Only 25 developers will be accepted for Cohort 1. If you're serious about building products and earning from your skills — this is your room.",
-      "button": "Apply Now — Opens May 11",
-      "footnote": "Decisions by June 3rd · Cohort starts June 11"
+      "button": "Apply Now",
+      "footnote": "Limited seats available · Cohort begins June 11"
     },
     "whyThisExists": {
       "badge": "Why This Bootcamp Exists",
@@ -1768,7 +1768,7 @@
       "description": "4 weeks. 12 live sessions. 2.5 hours each. One complete deployable SaaS product — no filler, no fluff.",
       "stats": [
         { "v": "~27hrs", "l": "Live Instruction" },
-        { "v": "Mon · Wed · Fri", "l": "Session Days" },
+        { "v": "Thurs · Fri · Sat", "l": "Session Days" },
         { "v": "June 11", "l": "Start Date" }
       ],
       "footerText": "You build this. Live. Every session.",
@@ -1859,7 +1859,7 @@
       "description": "This bootcamp moves fast and assumes you can read code, follow logic, and troubleshoot independently. We protect the quality of this room.",
       "goldenRuleTitle": "The Golden Rule",
       "goldenRuleText": "You must have written working code before — loops, functions, logic. The language doesn't matter. The mindset does.",
-      "qualifyTitle": "✓ You Qualify",
+      "qualifyTitle": "✓ You’re a Great Fit",
       "qualifies": [
         "Built small scripts or projects, even if rough.",
         "Completed a course that included actual coding exercises.",
@@ -1867,17 +1867,16 @@
         "Can explain what a variable, function, or loop does.",
         "Prior language doesn't matter — Python, PHP, Java, JS, anything."
       ],
-      "doesntQualifyTitle": "✕ You Don't Qualify",
+      "doesntQualifyTitle": "⚠ Recommended Before Joining",
       "doesntQualify": [
-        "Have never written a line of code before.",
-        "Only watched coding videos without practising.",
-        "Cannot explain what a variable or function is.",
-        "Looking for a beginner introduction to programming."
+        "You’ll benefit more if you’ve written some code before.",
+        "Watching tutorials alone may not be enough preparation yet.",
+        "Basic understanding of variables and functions is recommended.",
+        "This programme is not designed as a first introduction to programming."
       ],
-      "doesntQualifyFooter": "Applicants who don't qualify are directed to recommended preparation resources — no one is left without a next step.",
+      "doesntQualifyFooter": "If you're still early in your journey, we’ll recommend beginner-friendly resources to help you prepare for future cohorts.",
       "pills": [
         "No CS Degree Required",
-        "No Prior JavaScript Needed",
         "Self-Taught Welcome",
         "All Locations",
         "All Ages"
@@ -1887,7 +1886,7 @@
         {
           "step": "01",
           "title": "Apply Online",
-          "desc": "Fill in the form published May 11. Name, background, experience, CV or portfolio link."
+          "desc": "Fill in the application form with your background, experience, and portfolio or CV link."
         },
         {
           "step": "02",
@@ -1896,19 +1895,19 @@
         },
         {
           "step": "03",
-          "title": "Decision by June 3",
-          "desc": "Accepted applicants get onboarding instructions. Others get directed to prep resources."
+          "title": "Receive Onboarding Details",
+          "desc": "Successful applicants will receive onboarding instructions, programme access, and preparation details."
         },
         {
           "step": "04",
-          "title": "Confirm Your Seat",
-          "desc": "Pay the ₦5,000 registration fee to lock in your place in Cohort 1."
+          "title": "Cohort Begins June 11",
+          "desc": "Live classes, mentorship, projects, and programme activities officially begin for Cohort 1."
         }
       ],
       "stats": [
         { "v": "25", "l": "Max Cohort Size" },
         { "v": "₦5,000", "l": "Registration Fee" },
-        { "v": "June 3", "l": "Decision Date" },
+        { "v": "June 11", "l": "Cohort Begins" },
         { "v": "100%", "l": "Online Delivery" }
       ]
     },
@@ -1923,11 +1922,11 @@
         "Co-branded student certificates"
       ],
       "stats": [
-        { "v": "May 4", "l": "Announced" },
-        { "v": "June 7", "l": "Integrated" },
+        { "v": "May 12", "l": "Announced" },
+        { "v": "Premium", "l": "Learning Resources" },
         { "v": "Cohort 1", "l": "Exclusive" }
       ],
-      "overlayText": "Official partnership for Cohort 1 — announced May 4, 2026"
+      "overlayText": "Official partnership for Cohort 1 — announced May 12, 2026"
     }
   },
   "Privacy": {

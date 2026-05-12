@@ -6,8 +6,11 @@ export default function BootcampCTA() {
   const t = useTranslations("Bootcamp.cta");
 
   return (
-    <section className="relative py-28 overflow-hidden bg-[#fdf7ff]">
-      … {/* decorative backgrounds unchanged */}
+    <section
+      id="cta-section" 
+      className="relative py-28 overflow-hidden bg-[#fdf7ff]"
+    >
+         {/* decorative backgrounds unchanged */}
       <div className="relative z-10 px-6 sm:px-10 lg:px-16 max-w-350 mx-auto">
         <div className="max-w-3xl mx-auto text-center">
           <p className="text-xs font-semibold uppercase tracking-wide text-brand-primary mb-6">

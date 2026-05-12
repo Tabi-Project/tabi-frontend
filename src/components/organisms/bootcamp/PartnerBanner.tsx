@@ -42,16 +42,16 @@ export default function PartnerBanner() {
               <div className="bg-white/95 rounded-2xl px-8 py-5 shadow-xl flex items-center gap-6">
                 <div className="relative h-9 w-28">
                   <Image
-                    src={withBasePath("/Footer-logo.svg")}
+                    src={withBasePath("/tabi-logo.svg")}
                     alt="Tabi Academy"
                     fill
                     className="object-contain"
                   />
                 </div>
                 <div className="w-px h-8 bg-[#eee]" />
-                <div className="relative h-8 w-32">
+                <div className="relative h-11 w-32">
                   <Image
-                    src="/partners/sailscasts-logo.png"
+                    src="/partners/sailscast-full-rm.png"
                     alt="Sailscasts"
                     fill
                     className="object-contain"

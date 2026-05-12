@@ -25,10 +25,10 @@ const ICONS = [
 const IMAGES = [
   "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80",
   "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=400&q=80",
-  "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&q=80",
-  "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&q=80",
-  "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=400&q=80",
-  "https://images.unsplash.com/photo-1513542789410-5180a0bb6b98?w=400&q=80"
+  "https://images.unsplash.com/photo-1596843720750-7de9329da5d7?w=500",
+  "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=500",
+  "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?q=80",
+  "https://images.unsplash.com/photo-1638636241638-aef5120c5153?q=80&w=870"
 ];
 
 export default function Outcomes() {

@@ -1694,8 +1694,8 @@
       "line2": "Intégrez l'IA.",
       "line3": "Générez des revenus.",
       "subheadline": "Un bootcamp JavaScript Full‑Stack de 4 semaines pour les développeurs prêts à arrêter de consommer des tutoriels et à construire de <semibold>vrais produits SaaS.</semibold>",
-      "schedule": "100 % virtuel · Lun, Mer, Ven · 11 juin – 4 juillet 2026 · Google Meet",
-      "cta": "Postuler pour la cohorte de juin →",
+      "schedule": "100 % virtuel · Jeu, Ven, Sam · 11 juin – 4 juillet 2026 · Google Meet",
+      "cta": "Postuler maintenant",
       "ctaSecondary": "Explorer le programme",
       "trust": [
         { "value": "12", "label": "Sessions en direct" },
@@ -1716,8 +1716,8 @@
       "heading": "Les candidatures sont",
       "highlight": "Compétitives.",
       "description": "Seuls 25 développeurs seront acceptés pour la Cohorte 1. Si vous êtes sérieux dans la création de produits et souhaitez monétiser vos compétences — cette salle est la vôtre.",
-      "button": "Postuler maintenant — Ouverture le 11 mai",
-      "footnote": "Décisions avant le 3 juin · Début de la cohorte le 11 juin"
+      "button": "Postuler maintenant",
+      "footnote": "Places limitées · La cohorte débute le 11 juin"
     },
 
     "whyThisExists": {
@@ -1777,7 +1777,7 @@
       "description": "4 semaines. 12 sessions en direct. 2,5 heures chacune. Un produit SaaS complet déployable — sans superflu.",
       "stats": [
         { "v": "~27h", "l": "Cours en direct" },
-        { "v": "Lun · Mer · Ven", "l": "Jours de session" },
+        { "v": "Jeu · Ven · Sam", "l": "Jours de session" },
         { "v": "11 juin", "l": "Date de début" }
       ],
       "footerText": "Vous construisez cela. En direct. Chaque session.",
@@ -1863,25 +1863,24 @@
       "description": "Ce bootcamp avance vite et suppose que vous savez lire du code, suivre une logique et résoudre des problèmes de façon autonome. Nous protégeons la qualité de cette salle.",
       "goldenRuleTitle": "La Règle d'Or",
       "goldenRuleText": "Vous devez avoir écrit du code fonctionnel auparavant — boucles, fonctions, logique. Le langage n'a pas d'importance. L'état d'esprit, si.",
-      "qualifyTitle": "✓ Vous êtes éligible",
+      "qualifyTitle": "✓ Vous correspondez parfaitement",
       "qualifies": [
-        "Avoir construit de petits scripts ou projets, même rudimentaires.",
-        "Avoir suivi un cours incluant de vrais exercices de codage.",
-        "Être autodidacte à partir de tutoriels où vous avez écrit du vrai code.",
-        "Pouvoir expliquer ce qu'est une variable, une fonction ou une boucle.",
-        "Le langage importe peu — Python, PHP, Java, JS, peu importe."
+        "Avoir créé de petits scripts ou projets, même simples.",
+        "Avoir suivi un cours incluant des exercices de codage pratiques.",
+        "Auto-apprentissage à partir de tutoriels où vous avez écrit du vrai code.",
+        "Savoir expliquer ce qu'est une variable, une fonction ou une boucle.",
+        "Le langage précédent n'a pas d'importance — Python, PHP, Java, JS, peu importe."
       ],
-      "doesntQualifyTitle": "✕ Vous n'êtes pas éligible",
+      "doesntQualifyTitle": "⚠ Recommandé avant de rejoindre",
       "doesntQualify": [
-        "N'avoir jamais écrit une seule ligne de code.",
-        "Avoir seulement regardé des vidéos de codage sans pratiquer.",
-        "Ne pas pouvoir expliquer ce qu'est une variable ou une fonction.",
-        "Chercher une introduction pour débutants à la programmation."
+        "Vous bénéficierez davantage si vous avez déjà écrit un peu de code.",
+        "Regarder uniquement des tutoriels peut ne pas suffire comme préparation.",
+        "Une compréhension de base des variables et fonctions est recommandée.",
+        "Ce programme n'est pas conçu comme une première introduction à la programmation."
       ],
-      "doesntQualifyFooter": "Les candidats non éligibles sont orientés vers des ressources de préparation recommandées — personne n'est laissé sans prochaine étape.",
+      "doesntQualifyFooter": "Si vous êtes encore au début de votre parcours, nous vous recommanderons des ressources adaptées aux débutants pour vous aider à vous préparer pour les prochaines cohortes.",
       "pills": [
         "Aucun diplôme requis",
-        "Pas besoin de connaître JavaScript",
         "Autodidactes bienvenus",
         "Tous lieux",
         "Tous âges"
@@ -1890,30 +1889,30 @@
       "process": [
         {
           "step": "01",
-          "title": "Candidater en ligne",
-          "desc": "Remplissez le formulaire publié le 11 mai. Nom, parcours, expérience, CV ou lien portfolio."
+          "title": "Postuler en ligne",
+          "desc": "Remplissez le formulaire de candidature avec votre parcours, votre expérience et un lien vers votre portfolio ou CV."
         },
         {
           "step": "02",
           "title": "Examen personnalisé",
-          "desc": "Chaque candidature est examinée personnellement par l'équipe du programme. Aucun robot, aucun filtre automatique."
+          "desc": "Chaque candidature est examinée personnellement par l'équipe du programme. Pas de robots. Pas de filtres automatisés."
         },
         {
           "step": "03",
-          "title": "Décision avant le 3 juin",
-          "desc": "Les candidats acceptés reçoivent les instructions d'intégration. Les autres sont orientés vers des ressources préparatoires."
+          "title": "Recevoir les détails d'intégration",
+          "desc": "Les candidats retenus recevront les instructions d'intégration, l'accès au programme et les détails de préparation."
         },
         {
           "step": "04",
-          "title": "Confirmez votre place",
-          "desc": "Payez les frais d'inscription de ₦5 000 pour réserver votre place dans la Cohorte 1."
+          "title": "La cohorte débute le 11 juin",
+          "desc": "Les cours en direct, le mentorat, les projets et les activités du programme débutent officiellement pour la Cohorte 1."
         }
       ],
       "stats": [
-        { "v": "25", "l": "Places maximum" },
-        { "v": "₦5 000", "l": "Frais d'inscription" },
-        { "v": "3 juin", "l": "Date de décision" },
-        { "v": "100%", "l": "En ligne" }
+        { "v": "25", "l": "Taille max de la cohorte" },
+        { "v": "₦5,000", "l": "Frais d'inscription" },
+        { "v": "11 juin", "l": "Début de la cohorte" },
+        { "v": "100%", "l": "Formation en ligne" }
       ]
     },
     "partnerBanner": {
@@ -1927,9 +1926,9 @@
         "Certificats étudiants co-marqués"
       ],
       "stats": [
-        { "v": "4 mai", "l": "Annoncé" },
-        { "v": "7 juin", "l": "Intégré" },
-        { "v": "Cohorte 1", "l": "Exclusive" }
+        { "v": "12 mai", "l": "Annoncé" },
+        { "v": "Premium", "l": "Ressources d'apprentissage" },
+        { "v": "Cohorte 1", "l": "Exclusif" }
       ],
       "overlayText": "Partenariat officiel pour la Cohorte 1 — annoncé le 4 mai 2026"
     }

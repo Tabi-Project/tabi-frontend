@@ -4,6 +4,8 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { ArrowRight } from "lucide-react";
+
 
 function WeekCard({
   week,
@@ -16,6 +18,7 @@ function WeekCard({
 }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
+
   return (
     <motion.div
       ref={ref}
@@ -86,7 +89,7 @@ function WeekCard({
             {week.tech.map((t: string) => (
               <span
                 key={t}
-                className="px-3 py-1.5 rounded-lg text-[10px] font-semibold border"
+                className="px-3 py-1.5 rounded-lg text-[10px] font-bold border"
                 style={{
                   borderColor: week.accentBorder,
                   color: week.accent,
@@ -98,11 +101,19 @@ function WeekCard({
             ))}
           </div>
         </div>
-        <div className="mt-8 pt-5 border-t border-[#f5f5f5] flex items-center gap-2">
-          <span className="text-xs font-bold" style={{ color: week.accent }}>
-            →
-          </span>
-          <p className="text-xs text-[#999]">{footerText}</p>
+
+        {/* Updated Footer Section */}
+        <div className="mt-8 pt-5 border-t border-[#f5f5f5] flex items-center gap-2 group cursor-pointer">
+          <motion.div
+            initial={{ x: 0 }}
+            whileHover={{ x: 4 }}
+            style={{ color: week.accent }}
+          >
+            <ArrowRight size={16} strokeWidth={3} />
+          </motion.div>
+          <p className="text-xs text-[#999] group-hover:text-black transition-colors">
+            {footerText}
+          </p>
         </div>
       </div>
     </motion.div>
@@ -133,7 +144,7 @@ export default function CurriculumTimeline() {
     "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&q=80",
     "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500&q=80",
     "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=500&q=80",
-    "https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=500&q=80"
+    "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?q=80"
   ];
 
   const weekData = weeks.map((w, i) => ({
@@ -145,7 +156,7 @@ export default function CurriculumTimeline() {
   }));
 
   return (
-    <section className="w-full bg-brand-surface py-24 md:py-32">
+    <section id="curriculum" className="w-full bg-brand-surface py-24 md:py-32">
       <div className="px-6 sm:px-10 lg:px-16 max-w-350 mx-auto">
         <div
           className="grid lg:grid-cols-[1fr_1fr] gap-12 items-end mb-16"

@@ -159,6 +159,11 @@ export default function BootcampHero() {
               className="flex flex-col sm:flex-row gap-3 mb-12"
             >
               <button
+                onClick={() => {
+                  document
+                    .getElementById("cta-section")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
                 className="px-8 py-4 rounded-xl font-bold text-sm tracking-wide transition-all duration-200 hover:scale-[1.03] hover:shadow-xl"
                 style={{
                   background: "linear-gradient(135deg, #71286F, #c040a0)",
@@ -169,6 +174,11 @@ export default function BootcampHero() {
                 {t("cta")}
               </button>
               <button
+                onClick={() => {
+                  document
+                    .getElementById("curriculum")
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
                 className="px-8 py-4 rounded-xl font-bold text-sm tracking-wide border-2 transition-all duration-200 hover:bg-[rgba(113,40,111,0.05)]"
                 style={{
                   color: "#71286F",
@@ -218,7 +228,7 @@ export default function BootcampHero() {
               }}
             >
               <Image
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80"
+                src="https://images.unsplash.com/photo-1573167101669-476636b96cea?q=80&w=869&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt={t("heroImageAlt")}
                 fill
                 className="object-cover"
