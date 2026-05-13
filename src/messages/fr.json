@@ -1774,7 +1774,7 @@
       "badge": "Programme · 4 Semaines · 12 Sessions",
       "heading": "Du Premier Commit",
       "highlight": "au Premier Revenu",
-      "description": "4 semaines. 12 sessions en direct. 2,5 heures chacune. Un produit SaaS complet déployable — sans superflu.",
+"description": "4 semaines. 12 sessions en direct. 2 heures 30 minutes chacune. Un produit SaaS complet déployable — sans superflu.",
       "stats": [
         { "v": "~27h", "l": "Cours en direct" },
         { "v": "Jeu · Ven · Sam", "l": "Jours de session" },
@@ -1788,7 +1788,7 @@
           "tagline": "Hello World → Hello Produit",
           "tech": ["Vue.js", "Sails.js", "Inertia.js", "Tailwind CSS"],
           "build": "Votre première application full-stack. Comprenez exactement comment les pièces s'assemblent — et construisez quelque chose de réel d'ici le vendredi de la première semaine.",
-          "sessions": "Sessions 1–3 · 2,5h chacune"
+          "sessions": "Sessions 1–3 · 2 heures 30 minutes chacune"
         },
         {
           "week": "02",
@@ -1801,7 +1801,7 @@
             "Tableaux de bord"
           ],
           "build": "Construisez un SaaS de suivi de projet avec authentification, opérations CRUD, gestion de fichiers cloud et un tableau de bord soigné.",
-          "sessions": "Sessions 4–6 · 2,5h chacune"
+          "sessions": "Sessions 4–6 · 2 heures 30 minutes chacune"
         },
         {
           "week": "03",
@@ -1809,7 +1809,7 @@
           "tagline": "Rendez votre produit intelligent",
           "tech": ["APIs LLM", "Streaming", "Automatisation", "Outils Dev IA"],
           "build": "Ajoutez un assistant de chat IA en streaming à votre SaaS. Apprenez à intégrer et déployer des fonctionnalités produit propulsées par l'IA.",
-          "sessions": "Sessions 7–9 · 2,5h chacune"
+          "sessions": "Sessions 7–9 ·2 heures 30 minutes chacune"
         },
         {
           "week": "04",
@@ -1817,7 +1817,7 @@
           "tagline": "Livrez-le. Soyez payé.",
           "tech": ["Paiements Stripe", "Micro-SaaS", "Freelance", "Remote Dev"],
           "build": "Démo finale, intégration de paiement et votre feuille de route personnelle de revenus sur 90 jours — freelance, micro-SaaS ou travail à distance.",
-          "sessions": "Sessions 10–12 · 2,5h chacune"
+          "sessions": "Sessions 10–12 ·2 heures 30 minutes chacune"
         }
       ]
     },
