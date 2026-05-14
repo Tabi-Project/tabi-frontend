@@ -17,11 +17,10 @@ export async function POST(req: NextRequest) {
       canCommit,
       acceptsFee,
       acceptsRequirement,
-      paymentScreenshot,
-      fileName
+      submissionId
     } = body;
 
-    // ── 1. Validate required fields ────────────────────────────────
+    // ── Validate ───────────────────────────────────────────────────
     if (
       !firstName ||
       !lastName ||
@@ -31,10 +30,7 @@ export async function POST(req: NextRequest) {
       !experienceLevel ||
       !languages ||
       !whyJoin ||
-      !canCommit ||
-      !acceptsFee ||
-      !acceptsRequirement ||
-      !paymentScreenshot
+      !canCommit
     ) {
       return NextResponse.json(
         { success: false, error: "Missing required fields" },
@@ -49,7 +45,6 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // ── 2. Check env var ───────────────────────────────────────────
     const webhookUrl = process.env.GOOGLE_SHEET_WEBHOOK_URL;
     if (!webhookUrl) {
       console.error("[bootcamp-apply] GOOGLE_SHEET_WEBHOOK_URL is not set");
@@ -59,10 +54,10 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // ── 3. Forward to Google Apps Script ──────────────────────────
+    // ── Forward to Google Apps Script ──────────────────────────────
     const res = await fetch(webhookUrl, {
       method: "POST",
-      headers: { "Content-Type": "text/plain" },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         action: "bootcampApply",
         firstName: firstName.trim(),
@@ -75,10 +70,9 @@ export async function POST(req: NextRequest) {
         portfolio: portfolio?.trim() || "",
         whyJoin: whyJoin.trim(),
         canCommit,
-        acceptsFee,
-        acceptsRequirement,
-        paymentScreenshot, // base64 data URL
-        fileName: fileName || "receipt.jpg"
+        acceptsFee: acceptsFee ? "Yes" : "No",
+        acceptsRequirement: acceptsRequirement ? "Yes" : "No",
+        submissionId: submissionId || "" 
       })
     });
 
@@ -94,7 +88,7 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json(data);
   } catch (err) {
-    console.error("[bootcamp-apply] unexpected error:", err);
+    console.error("[bootcamp-apply] error:", err);
     return NextResponse.json(
       { success: false, error: "Server error" },
       { status: 500 }
