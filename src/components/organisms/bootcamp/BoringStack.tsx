@@ -152,10 +152,11 @@ export default function BoringStack() {
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2 }}
           >
-            <p
-              className="text-base text-[#666] leading-relaxed"
-              dangerouslySetInnerHTML={{ __html: t("description") }}
-            />
+            <p className="text-base text-[#666] leading-relaxed">
+              {t.rich("description", {
+                strong: (chunks) => <strong>{chunks}</strong>
+              })}
+            </p>
           </motion.div>
         </div>
 

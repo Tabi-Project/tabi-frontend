@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { BLANK, LEVELS, LANGUAGES, C, icls, tcls } from "../shared";
 import type { FormData, ApiStatus } from "../shared";
 
@@ -23,16 +24,18 @@ interface FormStepProps {
 }
 
 export function FormStep({ onBack, onSuccess, onClose }: FormStepProps) {
+  const t = useTranslations("Bootcamp.modal.form");
   const [f, setF] = useState<FormData>(BLANK);
   const [e, setE] = useState<Partial<Record<keyof FormData, string>>>({});
   const [st, setSt] = useState<ApiStatus>("idle");
   const [apiErr, setApiErr] = useState("");
 
   // Stable submission ID to prevent duplicate sheet writes on retry
-const [submissionId] = useState(() =>
-  crypto.randomUUID?.() ??
-  `${Math.random().toString(36).slice(2)}-${Date.now().toString(36)}`
-);
+  const [submissionId] = useState(
+    () =>
+      crypto.randomUUID?.() ??
+      `${Math.random().toString(36).slice(2)}-${Date.now().toString(36)}`
+  );
 
   const set = <K extends keyof FormData>(k: K, v: FormData[K]) => {
     setF((p) => ({ ...p, [k]: v }));
@@ -48,24 +51,20 @@ const [submissionId] = useState(() =>
 
   function validate() {
     const n: typeof e = {};
-    if (!f.firstName.trim()) n.firstName = "We'd love to know your first name";
-    if (!f.lastName.trim()) n.lastName = "And your last name?";
-    if (!f.email.trim()) n.email = "We'll need your email to reach you";
+    if (!f.firstName.trim()) n.firstName = t("validation.firstName");
+    if (!f.lastName.trim()) n.lastName = t("validation.lastName");
+    if (!f.email.trim()) n.email = t("validation.emailRequired");
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.trim()))
-      n.email = "That doesn't look quite right";
-    if (!f.phone.trim()) n.phone = "A phone number helps us stay in touch";
-    if (!f.location.trim()) n.location = "Where are you based?";
-    if (!f.experienceLevel)
-      n.experienceLevel = "Pick the level that feels most honest";
-    if (!f.languages.length)
-      n.languages = "Select at least one you've worked with";
-    if (!f.whyJoin.trim())
-      n.whyJoin = "We'd love to hear your story — even a sentence or two";
-    if (!f.canCommit) n.canCommit = "Let us know about your availability";
-    if (!f.acceptsFee)
-      n.acceptsFee = "Just so we're on the same page about the fee";
+      n.email = t("validation.emailInvalid");
+    if (!f.phone.trim()) n.phone = t("validation.phone");
+    if (!f.location.trim()) n.location = t("validation.location");
+    if (!f.experienceLevel) n.experienceLevel = t("validation.experienceLevel");
+    if (!f.languages.length) n.languages = t("validation.languages");
+    if (!f.whyJoin.trim()) n.whyJoin = t("validation.whyJoin");
+    if (!f.canCommit) n.canCommit = t("validation.canCommit");
+    if (!f.acceptsFee) n.acceptsFee = t("validation.acceptsFee");
     if (!f.acceptsRequirement)
-      n.acceptsRequirement = "Please confirm your coding background";
+      n.acceptsRequirement = t("validation.acceptsRequirement");
     setE(n);
     return Object.keys(n).length === 0;
   }
@@ -88,7 +87,7 @@ const [submissionId] = useState(() =>
           portfolio: f.portfolio.trim(),
           whyJoin: f.whyJoin.trim(),
           languages: f.languages.join(", "),
-          submissionId,  
+          submissionId
         })
       });
       const json = await res.json();
@@ -96,16 +95,12 @@ const [submissionId] = useState(() =>
         onSuccess(f);
       } else {
         setSt("error");
-        setApiErr(
-          json.error ?? "Something didn't go through — please try again."
-        );
+        setApiErr(json.error ?? t("apiError.generic"));
         setTimeout(() => setSt("idle"), 5000);
       }
     } catch {
       setSt("error");
-      setApiErr(
-        "A connection error occurred. Please check your internet and try again."
-      );
+      setApiErr(t("apiError.connection"));
       setTimeout(() => setSt("idle"), 5000);
     }
   }
@@ -113,7 +108,7 @@ const [submissionId] = useState(() =>
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <Back onClick={onBack} label="Overview" />
+        <Back onClick={onBack} label={t("backLabel")} />
         <X onClose={onClose} />
       </div>
       <StepBar step="form" />
@@ -122,21 +117,21 @@ const [submissionId] = useState(() =>
           className="font-extrabold tracking-tight mb-1.5"
           style={{ fontSize: "1.25rem", color: C.ink }}
         >
-          Tell us about yourself
+          {t("title")}
         </h2>
         <p className="text-sm" style={{ color: C.muted }}>
-          Our team reads every application personally. Just be genuine.
+          {t("subtitle")}
         </p>
       </div>
 
       <div className="space-y-4">
         <Group>
-          <SectionHead>Your details</SectionHead>
+          <SectionHead>{t("sections.details")}</SectionHead>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <FieldLabel>First name</FieldLabel>
+              <FieldLabel>{t("fields.firstName")}</FieldLabel>
               <input
-                placeholder="Ada"
+                placeholder={t("placeholders.firstName")}
                 value={f.firstName}
                 type="text"
                 onChange={(ev) => set("firstName", ev.target.value)}
@@ -145,9 +140,9 @@ const [submissionId] = useState(() =>
               <Err msg={e.firstName} />
             </div>
             <div>
-              <FieldLabel>Last name</FieldLabel>
+              <FieldLabel>{t("fields.lastName")}</FieldLabel>
               <input
-                placeholder="Okafor"
+                placeholder={t("placeholders.lastName")}
                 value={f.lastName}
                 type="text"
                 onChange={(ev) => set("lastName", ev.target.value)}
@@ -158,9 +153,9 @@ const [submissionId] = useState(() =>
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <FieldLabel>Email address</FieldLabel>
+              <FieldLabel>{t("fields.email")}</FieldLabel>
               <input
-                placeholder="ada@gmail.com"
+                placeholder={t("placeholders.email")}
                 value={f.email}
                 type="email"
                 onChange={(ev) => set("email", ev.target.value)}
@@ -169,9 +164,9 @@ const [submissionId] = useState(() =>
               <Err msg={e.email} />
             </div>
             <div>
-              <FieldLabel>Phone number</FieldLabel>
+              <FieldLabel>{t("fields.phone")}</FieldLabel>
               <input
-                placeholder="+234 801…"
+                placeholder={t("placeholders.phone")}
                 value={f.phone}
                 type="tel"
                 onChange={(ev) => set("phone", ev.target.value)}
@@ -181,9 +176,9 @@ const [submissionId] = useState(() =>
             </div>
           </div>
           <div>
-            <FieldLabel>Where are you based?</FieldLabel>
+            <FieldLabel>{t("fields.location")}</FieldLabel>
             <input
-              placeholder="Lagos, Nigeria"
+              placeholder={t("placeholders.location")}
               value={f.location}
               type="text"
               onChange={(ev) => set("location", ev.target.value)}
@@ -194,12 +189,13 @@ const [submissionId] = useState(() =>
         </Group>
 
         <Group>
-          <SectionHead>Your coding background</SectionHead>
+          <SectionHead>{t("sections.codingBackground")}</SectionHead>
           <div>
-            <FieldLabel>How would you describe your experience?</FieldLabel>
+            <FieldLabel>{t("fields.experienceLevel")}</FieldLabel>
             <div className="space-y-2 mt-1">
               {LEVELS.map((lv) => {
                 const on = f.experienceLevel === lv.id;
+                const levelKey = `experienceLevels.${lv.id}` as const;
                 return (
                   <motion.button
                     key={lv.id}
@@ -217,10 +213,10 @@ const [submissionId] = useState(() =>
                         className="text-sm font-semibold"
                         style={{ color: on ? C.brand : C.ink }}
                       >
-                        {lv.title}
+                        {t(`${levelKey}.title`)}
                       </p>
                       <p className="text-xs" style={{ color: C.subtle }}>
-                        {lv.hint}
+                        {t(`${levelKey}.hint`)}
                       </p>
                     </div>
                     <AnimatePresence>
@@ -257,9 +253,9 @@ const [submissionId] = useState(() =>
           </div>
 
           <div>
-            <FieldLabel>Languages you've worked with</FieldLabel>
+            <FieldLabel>{t("fields.languages")}</FieldLabel>
             <p className="text-xs mb-3" style={{ color: C.subtle }}>
-              Select everything that applies — no need to be an expert.
+              {t("languagesHint")}
             </p>
             <div className="flex flex-wrap gap-2">
               {LANGUAGES.map((l) => {
@@ -286,9 +282,9 @@ const [submissionId] = useState(() =>
           </div>
 
           <div>
-            <FieldLabel optional>GitHub or Portfolio</FieldLabel>
+            <FieldLabel optional>{t("fields.portfolio")}</FieldLabel>
             <input
-              placeholder="https://github.com/…"
+              placeholder={t("placeholders.portfolio")}
               value={f.portfolio}
               type="url"
               onChange={(ev) => set("portfolio", ev.target.value)}
@@ -298,15 +294,15 @@ const [submissionId] = useState(() =>
         </Group>
 
         <Group>
-          <SectionHead>A little more about you</SectionHead>
+          <SectionHead>{t("sections.moreAboutYou")}</SectionHead>
           <div>
-            <FieldLabel>Why do you want to join this programme?</FieldLabel>
+            <FieldLabel>{t("fields.whyJoin")}</FieldLabel>
             <p className="text-xs mb-2" style={{ color: C.subtle }}>
-              Be genuine — we value real motivation over polished answers.
+              {t("whyJoinHint")}
             </p>
             <textarea
               rows={4}
-              placeholder="Tell us what you're hoping to build, change, or achieve…"
+              placeholder={t("placeholders.whyJoin")}
               value={f.whyJoin}
               onChange={(ev) => set("whyJoin", ev.target.value)}
               className={tcls(e.whyJoin)}
@@ -314,11 +310,9 @@ const [submissionId] = useState(() =>
             <Err msg={e.whyJoin} />
           </div>
           <div>
-            <FieldLabel>
-              Can you join Mon · Wed · Fri sessions (June 11 – July 4)?
-            </FieldLabel>
+            <FieldLabel>{t("fields.canCommit")}</FieldLabel>
             <p className="text-xs mb-2.5" style={{ color: C.subtle }}>
-              Each session is 2.5 hrs · Google Meet · Live instruction.
+              {t("canCommitHint")}
             </p>
             <div className="grid grid-cols-2 gap-2.5">
               {(["yes", "no"] as const).map((v) => {
@@ -344,7 +338,7 @@ const [submissionId] = useState(() =>
                         : C.border
                     }}
                   >
-                    {v === "yes" ? "Yes, I'm in" : "No, I can't"}
+                    {t(`canCommitOptions.${v}`)}
                   </motion.button>
                 );
               })}
@@ -354,21 +348,20 @@ const [submissionId] = useState(() =>
         </Group>
 
         <div className="space-y-3.5 px-0.5">
-          <SectionHead>Two quick confirmations</SectionHead>
+          <SectionHead>{t("sections.confirmations")}</SectionHead>
           <Check
             checked={f.acceptsFee}
             onChange={() => set("acceptsFee", !f.acceptsFee)}
             error={e.acceptsFee}
           >
-            I'm aware of the ₦5,000 registration fee that follows this form.
+            {t("confirmations.acceptsFee")}
           </Check>
           <Check
             checked={f.acceptsRequirement}
             onChange={() => set("acceptsRequirement", !f.acceptsRequirement)}
             error={e.acceptsRequirement}
           >
-            I have prior coding experience and understand this is an intensive,
-            fast-paced programme.
+            {t("confirmations.acceptsRequirement")}
           </Check>
         </div>
 
@@ -380,10 +373,10 @@ const [submissionId] = useState(() =>
 
         <div className="pt-1">
           <Cta onClick={submit} loading={st === "loading"}>
-            Save & continue →
+            {t("cta")}
           </Cta>
           <p className="text-center text-xs mt-3" style={{ color: C.subtle }}>
-            Your details are saved before you move to payment
+            {t("footnote")}
           </p>
         </div>
       </div>

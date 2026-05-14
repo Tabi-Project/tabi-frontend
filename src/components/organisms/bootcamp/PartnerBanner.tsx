@@ -96,8 +96,11 @@ export default function PartnerBanner() {
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.2 }}
               className="text-base text-[#666] leading-relaxed mb-8"
-              dangerouslySetInnerHTML={{ __html: t("description") }}
-            />
+            >
+              {t.rich("description", {
+                strong: (chunks) => <strong>{chunks}</strong>
+              })}
+            </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 10 }}

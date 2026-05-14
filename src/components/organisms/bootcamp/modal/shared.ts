@@ -1,5 +1,4 @@
 // No "use client" needed – pure data
-import type { Step, Dir, ApiStatus, FormData } from "./types"; // you can inline types here
 
 // TYPES (move to a separate types.ts if you prefer, but keeping in shared is fine)
 export type Step = "welcome" | "form" | "payment" | "confirmation" | "success";
@@ -71,7 +70,7 @@ export const LANGUAGES = [
   "Other"
 ];
 
-export const WA_NUMBER = "2349024937385";
+export const WA_NUMBER = "2347056033371";
 export const SUPPORT_EMAIL = "hello@tabiproject.com";
 
 export function genRef(): string {
@@ -105,7 +104,11 @@ export const fadeUp = {
   show: (i = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.06, duration: 0.4, ease: [0.22, 1, 0.36, 1] }
+    transition: {
+      delay: i * 0.06,
+      duration: 0.4,
+      ease: [0.22, 1, 0.36, 1] as const
+    }
   })
 };
 

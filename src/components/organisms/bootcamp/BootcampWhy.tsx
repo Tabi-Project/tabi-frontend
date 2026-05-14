@@ -14,7 +14,7 @@ export default function BootcampWhy() {
 
   return (
     <section className="w-full bg-[#fdf7ff] relative overflow-hidden py-24 md:py-32">
-      {/* ... diagonal stripe accent unchanged ... */}
+      {/* ... stripe accent unchanged ... */}
       <div
         className="absolute top-0 right-0 w-1/3 h-full pointer-events-none opacity-[0.03]"
         style={{
@@ -84,10 +84,12 @@ export default function BootcampWhy() {
                 }}
               />
               <div className="absolute bottom-0 left-0 p-6">
-                <p
-                  className="text-white font-bold text-lg leading-tight"
-                  dangerouslySetInnerHTML={{ __html: t("quoteText") }}
-                />
+                {/* Quote text with <br/> handled by t.rich */}
+                <p className="text-white font-bold text-lg leading-tight">
+                  {t.rich("quoteText", {
+                    br: () => <br />
+                  })}
+                </p>
                 <p className="text-white/60 text-xs mt-1">
                   {t("quoteCaption")}
                 </p>
@@ -169,10 +171,12 @@ export default function BootcampWhy() {
               }}
             >
               <span className="text-xl text-brand-primary">✦</span>
-              <p
-                className="text-sm text-[#444] leading-relaxed"
-                dangerouslySetInnerHTML={{ __html: t("bottomQuote") }}
-              />
+              {/* bottomQuote with <strong> handled by t.rich */}
+              <p className="text-sm text-[#444] leading-relaxed">
+                {t.rich("bottomQuote", {
+                  strong: (chunks) => <strong>{chunks}</strong>
+                })}
+              </p>
             </motion.div>
           </div>
         </div>

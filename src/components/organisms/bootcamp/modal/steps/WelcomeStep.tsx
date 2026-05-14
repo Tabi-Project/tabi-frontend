@@ -1,29 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { C, GRAD, fadeUp } from "../shared";
 import { X, Tag, Cta } from "../ui";
 import { StepBar } from "../StepBar";
-
-const PROCESS = [
-  {
-    icon: "📋",
-    n: "01",
-    title: "Tell us about yourself",
-    body: "A short form so we can get to know your background and goals."
-  },
-  {
-    icon: "💳",
-    n: "02",
-    title: "Reserve your place",
-    body: "A ₦5,000 commitment fee confirms your spot after you've applied."
-  },
-  {
-    icon: "💬",
-    n: "03",
-    title: "Send your payment receipt",
-    body: "Drop it in our WhatsApp and we'll confirm your place right away."
-  }
-];
 
 export function WelcomeStep({
   onNext,
@@ -32,11 +12,16 @@ export function WelcomeStep({
   onNext: () => void;
   onClose: () => void;
 }) {
+  const t = useTranslations("Bootcamp.modal.welcome");
+
+  // The process items are now taken from translations
+  const process = t.raw("process") as any[];
+
   return (
     <div>
       <div className="flex items-start justify-between mb-6">
         <div className="flex flex-col gap-1.5">
-          <Tag>Cohort 1 · June 2026</Tag>
+          <Tag>{t("tag")}</Tag>
         </div>
         <X onClose={onClose} />
       </div>
@@ -53,7 +38,7 @@ export function WelcomeStep({
           className="font-extrabold leading-[1.15] tracking-tight mb-2.5"
           style={{ fontSize: "clamp(1.35rem, 4vw, 1.55rem)", color: C.ink }}
         >
-          You're one step away from
+          {t("headline")}
           <br />
           <span
             style={{
@@ -62,17 +47,16 @@ export function WelcomeStep({
               WebkitTextFillColor: "transparent"
             }}
           >
-            building something real.
+            {t("highlight")}
           </span>
         </h2>
         <p className="text-sm leading-relaxed" style={{ color: C.body }}>
-          The Full-Stack JS Bootcamp is a 4-week live programme for developers
-          ready to go from consuming tutorials to shipping real products.
+          {t("body")}
         </p>
       </motion.div>
 
       <div className="space-y-2.5 mb-6">
-        {PROCESS.map((p, i) => (
+        {process.map((p, i) => (
           <motion.div
             key={p.n}
             variants={fadeUp}
@@ -123,15 +107,14 @@ export function WelcomeStep({
       >
         <span className="shrink-0 text-base">🛡️</span>
         <p className="text-xs leading-relaxed" style={{ color: C.muted }}>
-          Every application is reviewed personally by the Tabi team. No bots, no
-          automated filtering.
+          {t("trust")}
         </p>
       </motion.div>
 
       <motion.div variants={fadeUp} custom={5} initial="hidden" animate="show">
-        <Cta onClick={onNext}>Let's get started →</Cta>
+        <Cta onClick={onNext}>{t("cta")}</Cta>
         <p className="text-center text-xs mt-3" style={{ color: C.subtle }}>
-          About 5 minutes · No payment needed to start
+          {t("footnote")}
         </p>
       </motion.div>
     </div>

@@ -1,4 +1,5 @@
 "use client";
+import { useTranslations } from "next-intl";
 import { C, WA_NUMBER } from "../shared";
 import { Back, X, CopyBtn, SectionHead, Cta } from "../ui";
 import { StepBar } from "../StepBar";
@@ -16,10 +17,12 @@ export function PaymentStep({
   onClose,
   refId
 }: PaymentStepProps) {
+  const t = useTranslations("Bootcamp.modal.payment");
+
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <Back onClick={onBack} label="Application" />
+        <Back onClick={onBack} label={t("backLabel")} />
         <X onClose={onClose} />
       </div>
       <StepBar step="payment" />
@@ -28,11 +31,10 @@ export function PaymentStep({
           className="font-extrabold tracking-tight mb-1.5"
           style={{ fontSize: "1.25rem", color: C.ink }}
         >
-          Reserve your spot
+          {t("title")}
         </h2>
         <p className="text-sm leading-relaxed" style={{ color: C.body }}>
-          Your application is saved. Complete the ₦5,000 commitment fee below to
-          secure your place in Cohort 1.
+          {t("body")}
         </p>
       </div>
 
@@ -48,7 +50,7 @@ export function PaymentStep({
             className="text-[10px] font-black uppercase tracking-[0.2em] mb-0.5"
             style={{ color: C.muted }}
           >
-            Your application reference
+            {t("reference.label")}
           </p>
           <p
             className="font-extrabold tracking-widest text-base"
@@ -57,7 +59,7 @@ export function PaymentStep({
             {refId}
           </p>
           <p className="text-[10px] mt-0.5" style={{ color: C.subtle }}>
-            Include this when sending your receipt
+            {t("reference.hint")}
           </p>
         </div>
         <CopyBtn value={refId} label="Copy ref" />
@@ -67,13 +69,16 @@ export function PaymentStep({
         className="rounded-2xl p-5 mb-5"
         style={{ background: C.surface, border: `1px solid ${C.border}` }}
       >
-        <SectionHead>Bank transfer details</SectionHead>
+        <SectionHead>{t("bankDetails.sectionHead")}</SectionHead>
         <div className="space-y-3.5">
           {[
-            { k: "Bank", v: "KudaBank" },
             {
-              k: "Account name",
-              v: "Tabi Empowerment and Educational Foundation"
+              k: t("bankDetails.bank"),
+              v: t("bankDetails.values.bankName")
+            },
+            {
+              k: t("bankDetails.accountName"),
+              v: t("bankDetails.values.accountNameValue")
             }
           ].map((row) => (
             <div key={row.k}>
@@ -99,16 +104,16 @@ export function PaymentStep({
               className="text-[10px] font-black uppercase tracking-widest"
               style={{ color: C.subtle }}
             >
-              Account number
+              {t("bankDetails.accountNumber")}
             </span>
             <div className="flex items-center gap-2.5">
               <span
                 className="font-extrabold text-lg tracking-wider"
                 style={{ color: C.brand }}
               >
-                3003408026
+                {t("bankDetails.values.accountNumberValue")}
               </span>
-              <CopyBtn value="3003408026" />
+              <CopyBtn value={t("bankDetails.values.accountNumberValue")} />
             </div>
           </div>
           <div className="h-px" style={{ background: C.border }} />
@@ -117,13 +122,13 @@ export function PaymentStep({
               className="text-[10px] font-black uppercase tracking-widest"
               style={{ color: C.subtle }}
             >
-              Amount
+              {t("bankDetails.amount")}
             </span>
             <span
               className="font-extrabold text-base"
               style={{ color: C.brand }}
             >
-              ₦5,000
+              {t("bankDetails.values.amountValue")}
             </span>
           </div>
         </div>
@@ -135,13 +140,16 @@ export function PaymentStep({
       >
         <span className="shrink-0 mt-0.5">💡</span>
         <p className="text-xs leading-relaxed" style={{ color: C.muted }}>
-          Once you've made the transfer, save a screenshot of your receipt.
-          You'll share it with us via WhatsApp in the next step — include your
-          reference <strong style={{ color: C.brand }}>{refId}</strong>.
+          {t.rich("tip", {
+            ref: (chunks) => (
+              <strong style={{ color: C.brand }}>{chunks}</strong>
+            ),
+            refId
+          })}
         </p>
       </div>
 
-      <Cta onClick={onNext}>I've made the payment →</Cta>
+      <Cta onClick={onNext}>{t("cta")}</Cta>
     </div>
   );
 }

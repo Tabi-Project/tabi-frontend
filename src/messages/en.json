@@ -1928,6 +1928,183 @@
         { "v": "Cohort 1", "l": "Exclusive" }
       ],
       "overlayText": "Official partnership for Cohort 1 — announced May 12, 2026"
+    },
+    "modal": {
+      "stepBar": {
+        "welcome": "Hi!",
+        "form": "Apply",
+        "payment": "Pay",
+        "confirmation": "Confirm",
+        "success": "Done"
+      },
+      "welcome": {
+        "tag": "Cohort 1 · June 2026",
+        "headline": "You're one step away from",
+        "highlight": "building something real.",
+        "body": "The Full-Stack JS Bootcamp is a 4-week live programme for developers ready to go from consuming tutorials to shipping real products.",
+        "process": [
+          {
+            "icon": "📋",
+            "n": "01",
+            "title": "Tell us about yourself",
+            "body": "A short form so we can get to know your background and goals."
+          },
+          {
+            "icon": "💳",
+            "n": "02",
+            "title": "Reserve your place",
+            "body": "A ₦5,000 commitment fee confirms your spot after you've applied."
+          },
+          {
+            "icon": "💬",
+            "n": "03",
+            "title": "Send your payment receipt",
+            "body": "Drop it in our WhatsApp and we'll confirm your place right away."
+          }
+        ],
+        "trust": "Every application is reviewed personally by the Tabi team. No bots, no automated filtering.",
+        "cta": "Let's get started →",
+        "footnote": "About 5 minutes · No payment needed to start"
+      },
+      "form": {
+        "backLabel": "Overview",
+        "title": "Tell us about yourself",
+        "subtitle": "Our team reads every application personally. Just be genuine.",
+        "sections": {
+          "details": "Your details",
+          "codingBackground": "Your coding background",
+          "moreAboutYou": "A little more about you",
+          "confirmations": "Two quick confirmations"
+        },
+        "fields": {
+          "firstName": "First name",
+          "lastName": "Last name",
+          "email": "Email address",
+          "phone": "Phone number",
+          "location": "Where are you based?",
+          "experienceLevel": "How would you describe your experience?",
+          "languages": "Languages you've worked with",
+          "portfolio": "GitHub or Portfolio",
+          "whyJoin": "Why do you want to join this programme?",
+          "canCommit": "Can you join Mon · Wed · Fri sessions (June 11 – July 4)?"
+        },
+        "placeholders": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@gmail.com",
+          "phone": "+234 801…",
+          "location": "Lagos, Nigeria",
+          "portfolio": "https://github.com/…",
+          "whyJoin": "Tell us what you're hoping to build, change, or achieve…"
+        },
+        "experienceLevels": {
+          "beginner": {
+            "title": "Beginner",
+            "hint": "Less than 6 months"
+          },
+          "intermediate": {
+            "title": "Intermediate",
+            "hint": "6 months – 2 years"
+          },
+          "experienced": {
+            "title": "Experienced",
+            "hint": "2+ years of coding"
+          }
+        },
+        "languagesHint": "Select everything that applies — no need to be an expert.",
+        "whyJoinHint": "Be genuine — we value real motivation over polished answers.",
+        "canCommitHint": "Each session is 2.5 hrs · Google Meet · Live instruction.",
+        "canCommitOptions": {
+          "yes": "Yes, I'm in",
+          "no": "No, I can't"
+        },
+        "confirmations": {
+          "acceptsFee": "I'm aware of the ₦5,000 registration fee that follows this form.",
+          "acceptsRequirement": "I have prior coding experience and understand this is an intensive, fast-paced programme."
+        },
+        "validation": {
+          "firstName": "We'd love to know your first name",
+          "lastName": "And your last name?",
+          "emailRequired": "We'll need your email to reach you",
+          "emailInvalid": "That doesn't look quite right",
+          "phone": "A phone number helps us stay in touch",
+          "location": "Where are you based?",
+          "experienceLevel": "Pick the level that feels most honest",
+          "languages": "Select at least one you've worked with",
+          "whyJoin": "We'd love to hear your story — even a sentence or two",
+          "canCommit": "Let us know about your availability",
+          "acceptsFee": "Just so we're on the same page about the fee",
+          "acceptsRequirement": "Please confirm your coding background"
+        },
+        "apiError": {
+          "generic": "Something didn't go through — please try again.",
+          "connection": "A connection error occurred. Please check your internet and try again."
+        },
+        "cta": "Save & continue →",
+        "footnote": "Your details are saved before you move to payment"
+      },
+      "payment": {
+        "backLabel": "Application",
+        "title": "Reserve your spot",
+        "body": "Your application is saved. Complete the ₦5,000 commitment fee below to secure your place in Cohort 1.",
+        "reference": {
+          "label": "Your application reference",
+          "hint": "Include this when sending your receipt"
+        },
+        "bankDetails": {
+          "sectionHead": "Bank transfer details",
+          "bank": "Bank",
+          "accountName": "Account name",
+          "accountNumber": "Account number",
+          "amount": "Amount",
+          "values": {
+            "bankName": "KudaBank",
+            "accountNameValue": "Tabi Empowerment and Educational Foundation",
+            "accountNumberValue": "3003408026",
+            "amountValue": "₦5,000"
+          }
+        },
+        "tip": "Once you've made the transfer, save a screenshot of your receipt. You'll share it with us via WhatsApp in the next step — include your reference",
+        "cta": "I've made the payment →"
+      },
+      "confirmation": {
+        "title": "One last step",
+        "body": "Send us your payment receipt so we can verify it and officially confirm your place. It takes less than a minute.",
+        "sectionHead": "What to send us",
+        "whatsappMessage": "Hi! I've completed my registration for the Tabi JS Bootcamp (Cohort 1).\n\nName: {fullName}\nReference ID: {refId}\n\nAttaching my payment receipt now.",
+        "emailSubject": "Bootcamp Payment — {refId}",
+        "emailBody": "Hi Tabi Team,\n\nI've completed my registration for Cohort 1.\n\nName: {fullName}\nReference: {refId}\n\nPayment receipt is attached.\n\nThank you!",
+        "items": {
+          "fullName": "Your full name — {fullName}",
+          "referenceId": "Your reference ID — {refId}",
+          "screenshot": "A screenshot of your payment confirmation"
+        },
+        "whatsappButton": "Send via WhatsApp",
+        "emailButton": "Send via email instead",
+        "alreadySent": "already sent?",
+        "confirmButton": "I've sent my receipt ✓"
+      },
+      "success": {
+        "title": "You're all in, {displayName}! 🎉",
+        "body": "Your application has been received and your spot is being held. We'll be in touch soon.",
+        "reference": "Reference: {refId}",
+        "sectionHead": "What happens next",
+        "items": [
+          {
+            "icon": "👀",
+            "text": "Our team reviews every application personally — no shortcuts."
+          },
+          {
+            "icon": "📩",
+            "text": "Expect our feedback via email — keep your ears on the ground!"
+          },
+          {
+            "icon": "🤝",
+            "text": "If it's not the right fit yet, we'll guide you toward the best next step."
+          }
+        ],
+        "cta": "Close"
+      }
     }
   },
   "Privacy": {

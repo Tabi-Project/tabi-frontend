@@ -1931,6 +1931,183 @@
         { "v": "Cohorte 1", "l": "Exclusif" }
       ],
       "overlayText": "Partenariat officiel pour la Cohorte 1 — annoncé le 4 mai 2026"
+    },
+    "modal": {
+      "stepBar": {
+        "welcome": "Salut!",
+        "form": "Postuler",
+        "payment": "Payer",
+        "confirmation": "Confirmer",
+        "success": "Terminé"
+      },
+      "welcome": {
+        "tag": "Cohorte 1 · Juin 2026",
+        "headline": "Vous êtes à un pas de",
+        "highlight": "construire quelque chose de concret.",
+        "body": "Le Bootcamp Full-Stack JS est un programme en direct de 4 semaines pour les développeurs prêts à arrêter de consommer des tutoriels et à créer de vrais produits.",
+        "process": [
+          {
+            "icon": "📋",
+            "n": "01",
+            "title": "Parlez-nous de vous",
+            "body": "Un court formulaire pour connaître votre parcours et vos objectifs."
+          },
+          {
+            "icon": "💳",
+            "n": "02",
+            "title": "Réservez votre place",
+            "body": "Des frais d'engagement de 5 000 ₦ confirment votre place après votre candidature."
+          },
+          {
+            "icon": "💬",
+            "n": "03",
+            "title": "Envoyez votre reçu de paiement",
+            "body": "Déposez-le sur notre WhatsApp et nous confirmerons votre place immédiatement."
+          }
+        ],
+        "trust": "Chaque candidature est examinée personnellement par l'équipe Tabi. Pas de robots, pas de filtrage automatique.",
+        "cta": "Commençons →",
+        "footnote": "Environ 5 minutes · Aucun paiement requis pour commencer"
+      },
+      "form": {
+        "backLabel": "Aperçu",
+        "title": "Parlez-nous de vous",
+        "subtitle": "Notre équipe lit chaque candidature personnellement. Soyez authentique.",
+        "sections": {
+          "details": "Vos coordonnées",
+          "codingBackground": "Votre parcours de code",
+          "moreAboutYou": "Un peu plus sur vous",
+          "confirmations": "Deux confirmations rapides"
+        },
+        "fields": {
+          "firstName": "Prénom",
+          "lastName": "Nom",
+          "email": "Adresse e-mail",
+          "phone": "Numéro de téléphone",
+          "location": "Où êtes-vous basé(e) ?",
+          "experienceLevel": "Comment décririez-vous votre expérience ?",
+          "languages": "Langages que vous avez utilisés",
+          "portfolio": "GitHub ou Portfolio",
+          "whyJoin": "Pourquoi voulez-vous rejoindre ce programme ?",
+          "canCommit": "Pouvez-vous participer aux sessions lun · mer · ven (11 juin – 4 juillet) ?"
+        },
+        "placeholders": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@gmail.com",
+          "phone": "+234 801…",
+          "location": "Lagos, Nigéria",
+          "portfolio": "https://github.com/…",
+          "whyJoin": "Dites-nous ce que vous espérez construire, changer ou accomplir…"
+        },
+        "experienceLevels": {
+          "beginner": {
+            "title": "Débutant",
+            "hint": "Moins de 6 mois"
+          },
+          "intermediate": {
+            "title": "Intermédiaire",
+            "hint": "6 mois – 2 ans"
+          },
+          "experienced": {
+            "title": "Expérimenté",
+            "hint": "Plus de 2 ans de code"
+          }
+        },
+        "languagesHint": "Sélectionnez tout ce qui s'applique — pas besoin d'être un expert.",
+        "whyJoinHint": "Soyez authentique — nous apprécions la motivation réelle plus que les réponses polies.",
+        "canCommitHint": "Chaque session dure 2,5 h · Google Meet · Instruction en direct.",
+        "canCommitOptions": {
+          "yes": "Oui, je suis partant(e)",
+          "no": "Non, je ne peux pas"
+        },
+        "confirmations": {
+          "acceptsFee": "Je suis informé(e) des frais d'inscription de 5 000 ₦ qui suivent ce formulaire.",
+          "acceptsRequirement": "J'ai une expérience préalable en programmation et je comprends que c'est un programme intensif et rapide."
+        },
+        "validation": {
+          "firstName": "Nous aimerions connaître votre prénom",
+          "lastName": "Et votre nom ?",
+          "emailRequired": "Nous avons besoin de votre e-mail pour vous contacter",
+          "emailInvalid": "Cela ne semble pas correct",
+          "phone": "Un numéro de téléphone nous aide à rester en contact",
+          "location": "Où êtes-vous basé(e) ?",
+          "experienceLevel": "Choisissez le niveau qui vous semble le plus honnête",
+          "languages": "Sélectionnez au moins un langage que vous avez utilisé",
+          "whyJoin": "Nous aimerions entendre votre histoire — même une phrase ou deux",
+          "canCommit": "Dites-nous si vous êtes disponible",
+          "acceptsFee": "Juste pour être sur la même longueur d'onde à propos des frais",
+          "acceptsRequirement": "Veuillez confirmer votre expérience en programmation"
+        },
+        "apiError": {
+          "generic": "Quelque chose ne s'est pas bien passé — veuillez réessayer.",
+          "connection": "Une erreur de connexion s'est produite. Veuillez vérifier votre connexion internet et réessayer."
+        },
+        "cta": "Enregistrer et continuer →",
+        "footnote": "Vos informations sont enregistrées avant de passer au paiement"
+      },
+      "payment": {
+        "backLabel": "Candidature",
+        "title": "Réservez votre place",
+        "body": "Votre candidature est enregistrée. Effectuez les frais d'engagement de 5 000 ₦ ci-dessous pour garantir votre place dans la Cohorte 1.",
+        "reference": {
+          "label": "Votre référence de candidature",
+          "hint": "Incluez ceci lors de l'envoi de votre reçu"
+        },
+        "bankDetails": {
+          "sectionHead": "Coordonnées bancaires",
+          "bank": "Banque",
+          "accountName": "Nom du compte",
+          "accountNumber": "Numéro de compte",
+          "amount": "Montant",
+          "values": {
+            "bankName": "KudaBank",
+            "accountNameValue": "Tabi Empowerment and Educational Foundation",
+            "accountNumberValue": "3003408026",
+            "amountValue": "5 000 ₦"
+          }
+        },
+        "tip": "Une fois le virement effectué, enregistrez une capture d'écran de votre reçu. Vous la partagerez avec nous via WhatsApp à l'étape suivante — incluez votre référence",
+        "cta": "J'ai effectué le paiement →"
+      },
+      "confirmation": {
+        "title": "Une dernière étape",
+        "body": "Envoyez-nous votre reçu de paiement afin que nous puissions le vérifier et confirmer officiellement votre place. Cela prend moins d'une minute.",
+        "sectionHead": "Ce qu'il faut nous envoyer",
+        "whatsappMessage": "Bonjour! J'ai finalisé mon inscription au Tabi JS Bootcamp (Cohorte 1).\n\nNom : {fullName}\nRéférence : {refId}\n\nJe joins mon reçu de paiement.",
+        "emailSubject": "Paiement Bootcamp — {refId}",
+        "emailBody": "Bonjour l'équipe Tabi,\n\nJ'ai terminé mon inscription pour la Cohorte 1.\n\nNom : {fullName}\nRéférence : {refId}\n\nLe reçu de paiement est ci-joint.\n\nMerci !",
+        "items": {
+          "fullName": "Votre nom complet — {fullName}",
+          "referenceId": "Votre référence — {refId}",
+          "screenshot": "Une capture d'écran de votre confirmation de paiement"
+        },
+        "whatsappButton": "Envoyer via WhatsApp",
+        "emailButton": "Envoyer par e-mail",
+        "alreadySent": "déjà envoyé ?",
+        "confirmButton": "J'ai envoyé mon reçu ✓"
+      },
+      "success": {
+        "title": "Vous êtes bien inscrit(e), {displayName}! 🎉",
+        "body": "Votre candidature a été reçue et votre place est réservée. Nous vous contacterons bientôt.",
+        "reference": "Référence : {refId}",
+        "sectionHead": "Et ensuite ?",
+        "items": [
+          {
+            "icon": "👀",
+            "text": "Notre équipe examine chaque candidature personnellement — aucun raccourci."
+          },
+          {
+            "icon": "📩",
+            "text": "Attendez notre retour par e-mail — gardez l'œil ouvert !"
+          },
+          {
+            "icon": "🤝",
+            "text": "Si ce n'est pas encore le bon moment, nous vous guiderons vers la meilleure prochaine étape."
+          }
+        ],
+        "cta": "Fermer"
+      }
     }
   },
   "Privacy": {
