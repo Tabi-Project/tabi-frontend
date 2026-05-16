@@ -5,6 +5,7 @@
     "openSource": "Open Source",
     "aiForBusiness": "AI for Business",
     "aiForBusinesses": "AI for Businesses",
+    "fullStackBootcamp": "Full-Stack JS Bootcamp",
     "resources": "Resources",
     "news": "News",
     "blog": "Blog Posts",
@@ -1681,13 +1682,13 @@
       "ogDescription": "Stop learning, start shipping. Join 25 developers in a live, 4‑week bootcamp. Vue, Sails, Inertia, Tailwind. June 11 — July 4."
     },
     "hero": {
-      "badge": "Enrollment Opens May 11 · Cohort 1",
+      "badge": "Enrollment Opens May 19 · Cohort 1",
       "line1": "Build Products.",
       "line2": "Integrate AI.",
       "line3": "Create Income.",
       "subheadline": "A 4-week Full-Stack JavaScript Bootcamp for developers ready to stop consuming tutorials and start building <semibold>deployable SaaS products.</semibold>",
-      "schedule": "100% Virtual · Mon, Wed & Fri · June 11 – July 4, 2026 · Google Meet",
-      "cta": "Apply for June Cohort →",
+      "schedule": "100% Virtual · Thurs, Fri & Sat · June 18 – July 11, 2026 · Google Meet",
+      "cta": "Apply Now",
       "ctaSecondary": "Explore Curriculum",
       "trust": [
         { "value": "12", "label": "Live Sessions" },
@@ -1699,17 +1700,17 @@
       "heroCardLabel": "Full-Stack JavaScript Bootcamp",
       "heroCardDetails": "4 Weeks · 12 Sessions · 1 Deployable SaaS Product",
       "floatingStartsLabel": "Starts",
-      "floatingStartsDate": "June 11",
+      "floatingStartsDate": "June 18",
       "floatingStartsSubtext": "2026 · Online",
       "stackLabel": "The Stack"
     },
     "cta": {
-      "badge": "Cohort 1 · June 11 – July 4, 2026 · Only 25 Seats",
+      "badge": "Cohort 1 · June 18 – July 11, 2026 · Only 25 Seats",
       "heading": "Applications Are",
       "highlight": "Competitive.",
       "description": "Only 25 developers will be accepted for Cohort 1. If you're serious about building products and earning from your skills — this is your room.",
-      "button": "Apply Now — Opens May 11",
-      "footnote": "Decisions by June 3rd · Cohort starts June 11"
+      "button": "Apply Now",
+      "footnote": "Limited seats available · Cohort begins June 18"
     },
     "whyThisExists": {
       "badge": "Why This Bootcamp Exists",
@@ -1765,11 +1766,11 @@
       "badge": "Curriculum · 4 Weeks · 12 Sessions",
       "heading": "From First Commit",
       "highlight": "to First Revenue",
-      "description": "4 weeks. 12 live sessions. 2.5 hours each. One complete deployable SaaS product — no filler, no fluff.",
+      "description": "4 weeks. 12 live sessions. 2 hours 30 mins each. One complete deployable SaaS product — no filler, no fluff.",
       "stats": [
         { "v": "~27hrs", "l": "Live Instruction" },
-        { "v": "Mon · Wed · Fri", "l": "Session Days" },
-        { "v": "June 11", "l": "Start Date" }
+        { "v": "Thurs · Fri · Sat", "l": "Session Days" },
+        { "v": "June 18", "l": "Start Date" }
       ],
       "footerText": "You build this. Live. Every session.",
       "weeks": [
@@ -1779,7 +1780,7 @@
           "tagline": "Hello World → Hello Product",
           "tech": ["Vue.js", "Sails.js", "Inertia.js", "Tailwind CSS"],
           "build": "Your first full-stack app. Understand exactly how the pieces connect — and build something real by Friday of week one.",
-          "sessions": "Sessions 1–3 · 2.5hrs each"
+          "sessions": "Sessions 1–3 ·  2 hours 30 mins each"
         },
         {
           "week": "02",
@@ -1787,7 +1788,7 @@
           "tagline": "A real SaaS from scratch",
           "tech": ["Authentication", "CRUD", "File Uploads", "Dashboards"],
           "build": "Build a Project Tracker SaaS with auth, create-read-update-delete, cloud file handling, and a polished dashboard.",
-          "sessions": "Sessions 4–6 · 2.5hrs each"
+          "sessions": "Sessions 4–6 ·  2 hours 30 mins each"
         },
         {
           "week": "03",
@@ -1800,7 +1801,7 @@
             "AI Dev Tools"
           ],
           "build": "Add a streaming AI chat assistant to your SaaS. Learn to prompt, integrate, and deploy AI-powered product features.",
-          "sessions": "Sessions 7–9 · 2.5hrs each"
+          "sessions": "Sessions 7–9 ·  2 hours 30 mins each"
         },
         {
           "week": "04",
@@ -1813,7 +1814,7 @@
             "Remote Dev"
           ],
           "build": "Capstone demo, payment integration, and your personal 90-day income roadmap — freelancing, micro-SaaS, or remote work.",
-          "sessions": "Sessions 10–12 · 2.5hrs each"
+          "sessions": "Sessions 10–12 ·  2 hours 30 mins each"
         }
       ]
     },
@@ -1859,7 +1860,7 @@
       "description": "This bootcamp moves fast and assumes you can read code, follow logic, and troubleshoot independently. We protect the quality of this room.",
       "goldenRuleTitle": "The Golden Rule",
       "goldenRuleText": "You must have written working code before — loops, functions, logic. The language doesn't matter. The mindset does.",
-      "qualifyTitle": "✓ You Qualify",
+      "qualifyTitle": "You’re a Great Fit",
       "qualifies": [
         "Built small scripts or projects, even if rough.",
         "Completed a course that included actual coding exercises.",
@@ -1867,17 +1868,16 @@
         "Can explain what a variable, function, or loop does.",
         "Prior language doesn't matter — Python, PHP, Java, JS, anything."
       ],
-      "doesntQualifyTitle": "✕ You Don't Qualify",
+      "doesntQualifyTitle": "Recommended Before Joining",
       "doesntQualify": [
-        "Have never written a line of code before.",
-        "Only watched coding videos without practising.",
-        "Cannot explain what a variable or function is.",
-        "Looking for a beginner introduction to programming."
+        "You’ll benefit more if you’ve written some code before.",
+        "Watching tutorials alone may not be enough preparation yet.",
+        "Basic understanding of variables and functions is recommended.",
+        "This programme is not designed as a first introduction to programming."
       ],
-      "doesntQualifyFooter": "Applicants who don't qualify are directed to recommended preparation resources — no one is left without a next step.",
+      "doesntQualifyFooter": "If you're still early in your journey, we’ll recommend beginner-friendly resources to help you prepare for future cohorts.",
       "pills": [
         "No CS Degree Required",
-        "No Prior JavaScript Needed",
         "Self-Taught Welcome",
         "All Locations",
         "All Ages"
@@ -1887,7 +1887,7 @@
         {
           "step": "01",
           "title": "Apply Online",
-          "desc": "Fill in the form published May 11. Name, background, experience, CV or portfolio link."
+          "desc": "Fill in the application form with your background, experience, and portfolio or CV link."
         },
         {
           "step": "02",
@@ -1896,19 +1896,19 @@
         },
         {
           "step": "03",
-          "title": "Decision by June 3",
-          "desc": "Accepted applicants get onboarding instructions. Others get directed to prep resources."
+          "title": "Receive Onboarding Details",
+          "desc": "Successful applicants will receive onboarding instructions, programme access, and preparation details."
         },
         {
           "step": "04",
-          "title": "Confirm Your Seat",
-          "desc": "Pay the ₦5,000 registration fee to lock in your place in Cohort 1."
+          "title": "Cohort Begins June 18",
+          "desc": "Live classes, mentorship, projects, and programme activities officially begin for Cohort 1."
         }
       ],
       "stats": [
         { "v": "25", "l": "Max Cohort Size" },
         { "v": "₦5,000", "l": "Registration Fee" },
-        { "v": "June 3", "l": "Decision Date" },
+        { "v": "June 18", "l": "Cohort Begins" },
         { "v": "100%", "l": "Online Delivery" }
       ]
     },
@@ -1923,11 +1923,188 @@
         "Co-branded student certificates"
       ],
       "stats": [
-        { "v": "May 4", "l": "Announced" },
-        { "v": "June 7", "l": "Integrated" },
+        { "v": "May 12", "l": "Announced" },
+        { "v": "Premium", "l": "Learning Resources" },
         { "v": "Cohort 1", "l": "Exclusive" }
       ],
-      "overlayText": "Official partnership for Cohort 1 — announced May 4, 2026"
+      "overlayText": "Official partnership for Cohort 1 — announced May 12, 2026"
+    },
+    "modal": {
+      "stepBar": {
+        "welcome": "Hi!",
+        "form": "Apply",
+        "payment": "Pay",
+        "confirmation": "Confirm",
+        "success": "Done"
+      },
+      "welcome": {
+        "tag": "Cohort 1 · June 2026",
+        "headline": "You're one step away from",
+        "highlight": "building something real.",
+        "body": "The Full-Stack JS Bootcamp is a 4-week live programme for developers ready to go from consuming tutorials to shipping real products.",
+        "process": [
+          {
+            "icon": "📋",
+            "n": "01",
+            "title": "Tell us about yourself",
+            "body": "A short form so we can get to know your background and goals."
+          },
+          {
+            "icon": "💳",
+            "n": "02",
+            "title": "Reserve your place",
+            "body": "A ₦5,000 commitment fee confirms your spot after you've applied."
+          },
+          {
+            "icon": "💬",
+            "n": "03",
+            "title": "Send your payment receipt",
+            "body": "Drop it in our WhatsApp and we'll confirm your place right away."
+          }
+        ],
+        "trust": "Every application is reviewed personally by the Tabi team. No bots, no automated filtering.",
+        "cta": "Let's get started →",
+        "footnote": "About 5 minutes · No payment needed to start"
+      },
+      "form": {
+        "backLabel": "Overview",
+        "title": "Tell us about yourself",
+        "subtitle": "Our team reads every application personally.",
+        "sections": {
+          "details": "Your details",
+          "codingBackground": "Your coding background",
+          "moreAboutYou": "A little more about you",
+          "confirmations": "Two quick confirmations"
+        },
+        "fields": {
+          "firstName": "First name",
+          "lastName": "Last name",
+          "email": "Email address",
+          "phone": "Phone number",
+          "location": "Where are you based?",
+          "experienceLevel": "How would you describe your experience?",
+          "languages": "Languages you've worked with",
+          "portfolio": "GitHub or Portfolio",
+          "whyJoin": "Why do you want to join this programme?",
+          "canCommit": "Can you join Thurs · Fri · Sat sessions (June 18 – July 11)?"
+        },
+        "placeholders": {
+          "firstName": "Ada",
+          "lastName": "Okafor",
+          "email": "ada@gmail.com",
+          "phone": "+234 801…",
+          "location": "Lagos, Nigeria",
+          "portfolio": "https://github.com/…",
+          "whyJoin": "Tell us what you're hoping to build, change, or achieve…"
+        },
+        "experienceLevels": {
+          "beginner": {
+            "title": "Beginner",
+            "hint": "Less than 6 months"
+          },
+          "intermediate": {
+            "title": "Intermediate",
+            "hint": "6 months – 2 years"
+          },
+          "experienced": {
+            "title": "Experienced",
+            "hint": "2+ years of coding"
+          }
+        },
+        "languagesHint": "Select everything that applies — no need to be an expert.",
+        "whyJoinHint": "Be genuine — we value real motivation over polished answers.",
+        "canCommitHint": "Each session is 2hrs 30 min · Google Meet · Live instruction.",
+        "canCommitOptions": {
+          "yes": "Yes, I'm in",
+          "no": "No, I can't"
+        },
+        "confirmations": {
+          "acceptsFee": "I'm aware of the ₦5,000 registration fee that follows this form.",
+          "acceptsRequirement": "I have prior coding experience and understand this is an intensive, fast-paced programme."
+        },
+        "validation": {
+          "firstName": "We'd love to know your first name",
+          "lastName": "And your last name?",
+          "emailRequired": "We'll need your email to reach you",
+          "emailInvalid": "That doesn't look quite right",
+          "phone": "A phone number helps us stay in touch",
+          "location": "Where are you based?",
+          "experienceLevel": "Pick the level that feels most honest",
+          "languages": "Select at least one you've worked with",
+          "whyJoin": "We'd love to hear your story — even a sentence or two",
+          "canCommit": "Let us know about your availability",
+          "acceptsFee": "Just so we're on the same page about the fee",
+          "acceptsRequirement": "Please confirm your coding background"
+        },
+        "apiError": {
+          "generic": "Something didn't go through — please try again.",
+          "connection": "A connection error occurred. Please check your internet and try again."
+        },
+        "cta": "Save & continue →",
+        "footnote": "Your details are saved before you move to payment"
+      },
+      "payment": {
+        "backLabel": "Application",
+        "title": "Reserve your spot",
+        "body": "Your application is saved. Complete the ₦5,000 commitment fee below to secure your place in Cohort 1.",
+        "reference": {
+          "label": "Your application reference",
+          "hint": "Include this when sending your receipt"
+        },
+        "bankDetails": {
+          "sectionHead": "Bank transfer details",
+          "bank": "Bank",
+          "accountName": "Account name",
+          "accountNumber": "Account number",
+          "amount": "Amount",
+          "values": {
+            "bankName": "KudaBank",
+            "accountNameValue": "Tabi Empowerment and Educational Foundation",
+            "accountNumberValue": "3003408026",
+            "amountValue": "₦5,000"
+          }
+        },
+        "tip": "Once you've made the transfer, save a screenshot of your receipt. You'll share it with us via WhatsApp in the next step — include your reference",
+        "cta": "I've made the payment →"
+      },
+      "confirmation": {
+        "title": "One last step",
+        "body": "Send us your payment receipt so we can verify it and officially confirm your place. It takes less than a minute.",
+        "sectionHead": "What to send us",
+        "whatsappMessage": "Hi! I've completed my registration for the Tabi JS Bootcamp (Cohort 1).\n\nName: {fullName}\nReference ID: {refId}\n\nAttaching my payment receipt now.",
+        "emailSubject": "Bootcamp Payment — {refId}",
+        "emailBody": "Hi Tabi Team,\n\nI've completed my registration for Cohort 1.\n\nName: {fullName}\nReference: {refId}\n\nPayment receipt is attached.\n\nThank you!",
+        "items": {
+          "fullName": "Your full name — {fullName}",
+          "referenceId": "Your reference ID — {refId}",
+          "screenshot": "A screenshot of your payment confirmation"
+        },
+        "whatsappButton": "Send via WhatsApp",
+        "emailButton": "Send via email instead",
+        "alreadySent": "already sent?",
+        "confirmButton": "I've sent my receipt ✓"
+      },
+      "success": {
+        "title": "You're all in, {displayName}! 🎉",
+        "body": "Your application has been received and your spot is being held. We'll be in touch soon.",
+        "reference": "Reference: {refId}",
+        "sectionHead": "What happens next",
+        "items": [
+          {
+            "icon": "👀",
+            "text": "Our team reviews every application personally — no shortcuts."
+          },
+          {
+            "icon": "📩",
+            "text": "Expect our feedback via email — keep your ears on the ground!"
+          },
+          {
+            "icon": "🤝",
+            "text": "If it's not the right fit yet, we'll guide you toward the best next step."
+          }
+        ],
+        "cta": "Close"
+      }
     }
   },
   "Privacy": {
