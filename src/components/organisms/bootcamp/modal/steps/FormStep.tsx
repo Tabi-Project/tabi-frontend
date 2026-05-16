@@ -16,6 +16,7 @@ import {
   Group
 } from "../ui";
 import { StepBar } from "../StepBar";
+import { enqueue, remove } from "@/lib/submission-queue";
 
 interface FormStepProps {
   onBack: () => void;
@@ -69,41 +70,46 @@ export function FormStep({ onBack, onSuccess, onClose }: FormStepProps) {
     return Object.keys(n).length === 0;
   }
 
-  async function submit() {
-    if (!validate()) return;
-    setSt("loading");
-    setApiErr("");
-    try {
-      const res = await fetch("/api/bootcamp-apply", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          ...f,
-          firstName: f.firstName.trim(),
-          lastName: f.lastName.trim(),
-          email: f.email.trim(),
-          phone: f.phone.trim(),
-          location: f.location.trim(),
-          portfolio: f.portfolio.trim(),
-          whyJoin: f.whyJoin.trim(),
-          languages: f.languages.join(", "),
-          submissionId
-        })
-      });
-      const json = await res.json();
-      if (json.success) {
-        onSuccess(f);
-      } else {
-        setSt("error");
-        setApiErr(json.error ?? t("apiError.generic"));
-        setTimeout(() => setSt("idle"), 5000);
-      }
-    } catch {
-      setSt("error");
-      setApiErr(t("apiError.connection"));
-      setTimeout(() => setSt("idle"), 5000);
-    }
-  }
+async function submit() {
+  if (!validate()) return;
+  setSt("loading");
+
+  const payload = {
+    firstName: f.firstName.trim(),
+    lastName: f.lastName.trim(),
+    email: f.email.trim().toLowerCase(),
+    phone: f.phone.trim(),
+    location: f.location.trim(),
+    experienceLevel: f.experienceLevel,
+    languages: f.languages.join(", "),
+    portfolio: f.portfolio.trim(),
+    whyJoin: f.whyJoin.trim(),
+    canCommit: f.canCommit,
+    acceptsFee: f.acceptsFee,
+    acceptsRequirement: f.acceptsRequirement,
+    submissionId
+  };
+
+  // 1. Save locally — user never loses data
+  enqueue(submissionId, payload);
+
+  // 2. Move to next step immediately
+  onSuccess(f);
+
+  // 3. Best‑effort background send (fire & forget)
+  fetch("/api/bootcamp-apply", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
+  })
+    .then((r) => r.json())
+    .then((json) => {
+      if (json.success) remove(submissionId);
+    })
+    .catch(() => {
+      // Will be retried automatically on next page load
+    });
+}
 
   return (
     <div>
@@ -282,7 +288,7 @@ export function FormStep({ onBack, onSuccess, onClose }: FormStepProps) {
           </div>
 
           <div>
-            <FieldLabel optional>{t("fields.portfolio")}</FieldLabel>
+            <FieldLabel>{t("fields.portfolio")}</FieldLabel>
             <input
               placeholder={t("placeholders.portfolio")}
               value={f.portfolio}

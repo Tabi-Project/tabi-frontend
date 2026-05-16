@@ -1689,12 +1689,12 @@
       "ogDescription": "Arrêtez d'apprendre, commencez à livrer. Rejoignez 25 développeurs dans un bootcamp en direct de 4 semaines. Vue, Sails, Inertia, Tailwind. 11 juin — 4 juillet."
     },
     "hero": {
-      "badge": "Inscriptions ouvertes le 11 mai · Cohorte 1",
+      "badge": "Inscriptions ouvertes le 19 mai · Cohorte 1",
       "line1": "Créez des produits.",
       "line2": "Intégrez l'IA.",
       "line3": "Générez des revenus.",
       "subheadline": "Un bootcamp JavaScript Full‑Stack de 4 semaines pour les développeurs prêts à arrêter de consommer des tutoriels et à construire de <semibold>vrais produits SaaS.</semibold>",
-      "schedule": "100 % virtuel · Jeu, Ven, Sam · 11 juin – 4 juillet 2026 · Google Meet",
+      "schedule": "100 % virtuel · Jeu, Ven, Sam · 18 juin – 11 juillet 2026 · Google Meet",
       "cta": "Postuler maintenant",
       "ctaSecondary": "Explorer le programme",
       "trust": [
@@ -1707,17 +1707,17 @@
       "heroCardLabel": "Bootcamp JavaScript Full‑Stack",
       "heroCardDetails": "4 semaines · 12 sessions · 1 produit SaaS déployable",
       "floatingStartsLabel": "Début",
-      "floatingStartsDate": "11 juin",
+      "floatingStartsDate": "18 juin",
       "floatingStartsSubtext": "2026 · En ligne",
       "stackLabel": "La Stack"
     },
     "cta": {
-      "badge": "Cohorte 1 · 11 juin – 4 juillet 2026 · Seulement 25 places",
+      "badge": "Cohorte 1 · 18 juin – 11 juillet 2026 · Seulement 25 places",
       "heading": "Les candidatures sont",
       "highlight": "Compétitives.",
       "description": "Seuls 25 développeurs seront acceptés pour la Cohorte 1. Si vous êtes sérieux dans la création de produits et souhaitez monétiser vos compétences — cette salle est la vôtre.",
       "button": "Postuler maintenant",
-      "footnote": "Places limitées · La cohorte débute le 11 juin"
+      "footnote": "Places limitées · La cohorte débute le 18 juin"
     },
 
     "whyThisExists": {
@@ -1778,7 +1778,7 @@
       "stats": [
         { "v": "~27h", "l": "Cours en direct" },
         { "v": "Jeu · Ven · Sam", "l": "Jours de session" },
-        { "v": "11 juin", "l": "Date de début" }
+        { "v": "18 juin", "l": "Date de début" }
       ],
       "footerText": "Vous construisez cela. En direct. Chaque session.",
       "weeks": [
@@ -1863,7 +1863,7 @@
       "description": "Ce bootcamp avance vite et suppose que vous savez lire du code, suivre une logique et résoudre des problèmes de façon autonome. Nous protégeons la qualité de cette salle.",
       "goldenRuleTitle": "La Règle d'Or",
       "goldenRuleText": "Vous devez avoir écrit du code fonctionnel auparavant — boucles, fonctions, logique. Le langage n'a pas d'importance. L'état d'esprit, si.",
-      "qualifyTitle": "✓ Vous correspondez parfaitement",
+      "qualifyTitle": "Vous correspondez parfaitement",
       "qualifies": [
         "Avoir créé de petits scripts ou projets, même simples.",
         "Avoir suivi un cours incluant des exercices de codage pratiques.",
@@ -1871,7 +1871,7 @@
         "Savoir expliquer ce qu'est une variable, une fonction ou une boucle.",
         "Le langage précédent n'a pas d'importance — Python, PHP, Java, JS, peu importe."
       ],
-      "doesntQualifyTitle": "⚠ Recommandé avant de rejoindre",
+      "doesntQualifyTitle": "Recommandé avant de rejoindre",
       "doesntQualify": [
         "Vous bénéficierez davantage si vous avez déjà écrit un peu de code.",
         "Regarder uniquement des tutoriels peut ne pas suffire comme préparation.",
@@ -1904,14 +1904,14 @@
         },
         {
           "step": "04",
-          "title": "La cohorte débute le 11 juin",
+          "title": "La cohorte débute le 18 juin",
           "desc": "Les cours en direct, le mentorat, les projets et les activités du programme débutent officiellement pour la Cohorte 1."
         }
       ],
       "stats": [
         { "v": "25", "l": "Taille max de la cohorte" },
         { "v": "₦5,000", "l": "Frais d'inscription" },
-        { "v": "11 juin", "l": "Début de la cohorte" },
+        { "v": "18 juin", "l": "Début de la cohorte" },
         { "v": "100%", "l": "Formation en ligne" }
       ]
     },
@@ -1972,7 +1972,7 @@
       "form": {
         "backLabel": "Aperçu",
         "title": "Parlez-nous de vous",
-        "subtitle": "Notre équipe lit chaque candidature personnellement. Soyez authentique.",
+        "subtitle": "Notre équipe lit chaque candidature personnellement.",
         "sections": {
           "details": "Vos coordonnées",
           "codingBackground": "Votre parcours de code",
@@ -1989,7 +1989,7 @@
           "languages": "Langages que vous avez utilisés",
           "portfolio": "GitHub ou Portfolio",
           "whyJoin": "Pourquoi voulez-vous rejoindre ce programme ?",
-          "canCommit": "Pouvez-vous participer aux sessions lun · mer · ven (11 juin – 4 juillet) ?"
+          "canCommit": "Pouvez-vous participer aux sessions Jeu · Ven · Sam  (18 juin – 11 juillet) ?"
         },
         "placeholders": {
           "firstName": "Ada",
@@ -2016,7 +2016,7 @@
         },
         "languagesHint": "Sélectionnez tout ce qui s'applique — pas besoin d'être un expert.",
         "whyJoinHint": "Soyez authentique — nous apprécions la motivation réelle plus que les réponses polies.",
-        "canCommitHint": "Chaque session dure 2,5 h · Google Meet · Instruction en direct.",
+        "canCommitHint": "Chaque session dure 2h 30 min · Google Meet · Instruction en direct.",
         "canCommitOptions": {
           "yes": "Oui, je suis partant(e)",
           "no": "Non, je ne peux pas"

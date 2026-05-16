@@ -1682,12 +1682,12 @@
       "ogDescription": "Stop learning, start shipping. Join 25 developers in a live, 4‑week bootcamp. Vue, Sails, Inertia, Tailwind. June 11 — July 4."
     },
     "hero": {
-      "badge": "Enrollment Opens May 11 · Cohort 1",
+      "badge": "Enrollment Opens May 19 · Cohort 1",
       "line1": "Build Products.",
       "line2": "Integrate AI.",
       "line3": "Create Income.",
       "subheadline": "A 4-week Full-Stack JavaScript Bootcamp for developers ready to stop consuming tutorials and start building <semibold>deployable SaaS products.</semibold>",
-      "schedule": "100% Virtual · Thurs, Fri & Sat · June 11 – July 4, 2026 · Google Meet",
+      "schedule": "100% Virtual · Thurs, Fri & Sat · June 18 – July 11, 2026 · Google Meet",
       "cta": "Apply Now",
       "ctaSecondary": "Explore Curriculum",
       "trust": [
@@ -1700,17 +1700,17 @@
       "heroCardLabel": "Full-Stack JavaScript Bootcamp",
       "heroCardDetails": "4 Weeks · 12 Sessions · 1 Deployable SaaS Product",
       "floatingStartsLabel": "Starts",
-      "floatingStartsDate": "June 11",
+      "floatingStartsDate": "June 18",
       "floatingStartsSubtext": "2026 · Online",
       "stackLabel": "The Stack"
     },
     "cta": {
-      "badge": "Cohort 1 · June 11 – July 4, 2026 · Only 25 Seats",
+      "badge": "Cohort 1 · June 18 – July 11, 2026 · Only 25 Seats",
       "heading": "Applications Are",
       "highlight": "Competitive.",
       "description": "Only 25 developers will be accepted for Cohort 1. If you're serious about building products and earning from your skills — this is your room.",
       "button": "Apply Now",
-      "footnote": "Limited seats available · Cohort begins June 11"
+      "footnote": "Limited seats available · Cohort begins June 18"
     },
     "whyThisExists": {
       "badge": "Why This Bootcamp Exists",
@@ -1770,7 +1770,7 @@
       "stats": [
         { "v": "~27hrs", "l": "Live Instruction" },
         { "v": "Thurs · Fri · Sat", "l": "Session Days" },
-        { "v": "June 11", "l": "Start Date" }
+        { "v": "June 18", "l": "Start Date" }
       ],
       "footerText": "You build this. Live. Every session.",
       "weeks": [
@@ -1860,7 +1860,7 @@
       "description": "This bootcamp moves fast and assumes you can read code, follow logic, and troubleshoot independently. We protect the quality of this room.",
       "goldenRuleTitle": "The Golden Rule",
       "goldenRuleText": "You must have written working code before — loops, functions, logic. The language doesn't matter. The mindset does.",
-      "qualifyTitle": "✓ You’re a Great Fit",
+      "qualifyTitle": "You’re a Great Fit",
       "qualifies": [
         "Built small scripts or projects, even if rough.",
         "Completed a course that included actual coding exercises.",
@@ -1868,7 +1868,7 @@
         "Can explain what a variable, function, or loop does.",
         "Prior language doesn't matter — Python, PHP, Java, JS, anything."
       ],
-      "doesntQualifyTitle": "⚠ Recommended Before Joining",
+      "doesntQualifyTitle": "Recommended Before Joining",
       "doesntQualify": [
         "You’ll benefit more if you’ve written some code before.",
         "Watching tutorials alone may not be enough preparation yet.",
@@ -1901,14 +1901,14 @@
         },
         {
           "step": "04",
-          "title": "Cohort Begins June 11",
+          "title": "Cohort Begins June 18",
           "desc": "Live classes, mentorship, projects, and programme activities officially begin for Cohort 1."
         }
       ],
       "stats": [
         { "v": "25", "l": "Max Cohort Size" },
         { "v": "₦5,000", "l": "Registration Fee" },
-        { "v": "June 11", "l": "Cohort Begins" },
+        { "v": "June 18", "l": "Cohort Begins" },
         { "v": "100%", "l": "Online Delivery" }
       ]
     },
@@ -1969,7 +1969,7 @@
       "form": {
         "backLabel": "Overview",
         "title": "Tell us about yourself",
-        "subtitle": "Our team reads every application personally. Just be genuine.",
+        "subtitle": "Our team reads every application personally.",
         "sections": {
           "details": "Your details",
           "codingBackground": "Your coding background",
@@ -1986,7 +1986,7 @@
           "languages": "Languages you've worked with",
           "portfolio": "GitHub or Portfolio",
           "whyJoin": "Why do you want to join this programme?",
-          "canCommit": "Can you join Mon · Wed · Fri sessions (June 11 – July 4)?"
+          "canCommit": "Can you join Thurs · Fri · Sat sessions (June 18 – July 11)?"
         },
         "placeholders": {
           "firstName": "Ada",
@@ -2013,7 +2013,7 @@
         },
         "languagesHint": "Select everything that applies — no need to be an expert.",
         "whyJoinHint": "Be genuine — we value real motivation over polished answers.",
-        "canCommitHint": "Each session is 2.5 hrs · Google Meet · Live instruction.",
+        "canCommitHint": "Each session is 2hrs 30 min · Google Meet · Live instruction.",
         "canCommitOptions": {
           "yes": "Yes, I'm in",
           "no": "No, I can't"
