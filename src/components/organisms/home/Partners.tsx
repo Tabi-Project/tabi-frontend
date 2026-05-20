@@ -37,6 +37,11 @@ export default function Partners() {
       id: "cchub",
       src: withBasePath("/partners/cchub.png"),
       alt: t("logos.cchub")
+    },
+    {
+      id: "sailscast",
+      src: withBasePath("/partners/sailscast-full.png"),
+      alt: t("logos.sailscast")
     }
   ];
 

@@ -110,7 +110,8 @@
       "yebox": "Yebox Technologies",
       "genesys": "Genesys",
       "risevest": "Rise Academy",
-      "cchub": "CcHUB"
+      "cchub": "CcHUB",
+      "sailscast": "Sailscast"
     }
   },
   "AIBusinessTeaser": {
@@ -1767,12 +1768,14 @@
       "badge": "Curriculum · 4 Weeks · 12 Sessions",
       "heading": "From First Commit",
       "highlight": "to First Revenue",
-      "description": "4 weeks. 12 live sessions. 2 hours 30 mins each. One complete deployable SaaS product — no filler, no fluff.",
+      "description": "4 weeks. 12 live sessions. 2 hours 30 mins each. One complete deployable SaaS product — no filler, no fluff. Delivered with hands-on implementation support from Sailscast.",
       "stats": [
         { "v": "~27hrs", "l": "Live Instruction" },
         { "v": "Thurs · Fri · Sat", "l": "Session Days" },
         { "v": "June 18", "l": "Start Date" }
       ],
+      "implementationPartnerTitle": "Implementation Partner",
+"implementationPartnerDesc": "Training is implemented live by <brand>Sailscast</brand> using real-world engineering workflows, production practices, and modern SaaS development standards.",
       "footerText": "You build this. Live. Every session.",
       "weeks": [
         {

@@ -110,7 +110,8 @@
       "yebox": "Yebox Technologies",
       "genesys": "Genesys",
       "risevest": "Rise Academy",
-      "cchub": "CcHUB"
+      "cchub": "CcHUB",
+      "sailscast": "Sailscast"
     }
   },
   "AIBusinessTeaser": {
@@ -1775,12 +1776,14 @@
       "badge": "Programme · 4 Semaines · 12 Sessions",
       "heading": "Du Premier Commit",
       "highlight": "au Premier Revenu",
-"description": "4 semaines. 12 sessions en direct. 2 heures 30 minutes chacune. Un produit SaaS complet déployable — sans superflu.",
+"description": "4 semaines. 12 sessions en direct. 2h30 chacune. Un produit SaaS complet et déployable — sans superflu. Formation avec support pratique de Sailscast.",
       "stats": [
         { "v": "~27h", "l": "Cours en direct" },
         { "v": "Jeu · Ven · Sam", "l": "Jours de session" },
         { "v": "18 juin", "l": "Date de début" }
       ],
+      "implementationPartnerTitle": "Partenaire de mise en œuvre",
+"implementationPartnerDesc": "La formation est assurée en direct par <brand>Sailscast</brand> en utilisant des flux de travail d'ingénierie réels, des pratiques de production et des normes modernes de développement SaaS.",
       "footerText": "Vous construisez cela. En direct. Chaque session.",
       "weeks": [
         {
