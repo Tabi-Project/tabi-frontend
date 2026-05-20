@@ -110,7 +110,8 @@
       "yebox": "Yebox Technologies",
       "genesys": "Genesys",
       "risevest": "Rise Academy",
-      "cchub": "CcHUB"
+      "cchub": "CcHUB",
+      "sailscast": "Sailscast"
     }
   },
   "AIBusinessTeaser": {
@@ -1689,7 +1690,7 @@
       "subheadline": "A 4-week Full-Stack JavaScript Bootcamp for developers ready to stop consuming tutorials and start building <semibold>deployable SaaS products.</semibold>",
       "schedule": "100% Virtual · Thurs, Fri & Sat · June 18 – July 11, 2026 · Google Meet",
       "cta": "Apply Now",
-      "ctaSecondary": "Explore Curriculum",
+      "ctaSecondary": "Learn More",
       "trust": [
         { "value": "12", "label": "Live Sessions" },
         { "value": "25", "label": "Seats Only" },
@@ -1733,7 +1734,8 @@
         "AI integration, payments, and a 90-day income roadmap.",
         "25 serious developers, guided by live experts."
       ],
-      "bottomQuote": "No noise. No hype. Just <strong>one stack, one product, one clear path to income.</strong>"
+      "bottomQuote": "No noise. No hype. Just <strong>one stack, one product, one clear path to income.</strong>",
+      "ctaButton": "Join the Next Cohort"
     },
     "boringStack": {
       "badge": "The Technology",
@@ -1766,12 +1768,14 @@
       "badge": "Curriculum · 4 Weeks · 12 Sessions",
       "heading": "From First Commit",
       "highlight": "to First Revenue",
-      "description": "4 weeks. 12 live sessions. 2 hours 30 mins each. One complete deployable SaaS product — no filler, no fluff.",
+      "description": "4 weeks. 12 live sessions. 2 hours 30 mins each. One complete deployable SaaS product — no filler, no fluff. Delivered with hands-on implementation support from Sailscast.",
       "stats": [
         { "v": "~27hrs", "l": "Live Instruction" },
         { "v": "Thurs · Fri · Sat", "l": "Session Days" },
         { "v": "June 18", "l": "Start Date" }
       ],
+      "implementationPartnerTitle": "Implementation Partner",
+"implementationPartnerDesc": "Training is implemented live by <brand>Sailscast</brand> using real-world engineering workflows, production practices, and modern SaaS development standards.",
       "footerText": "You build this. Live. Every session.",
       "weeks": [
         {
@@ -1851,7 +1855,8 @@
       ],
       "closingTitle": "Not just skills.",
       "closingHighlight": "Proof.",
-      "closingDesc": "Every graduate leaves with a live product, a certificate, and a 90-day income plan — not just a completion badge."
+      "closingDesc": "Every graduate leaves with a live product, a certificate, and a 90-day income plan — not just a completion badge.",
+      "ctaButton": "Claim Your Spot"
     },
     "admission": {
       "badge": "Admission",
@@ -1910,7 +1915,8 @@
         { "v": "₦5,000", "l": "Registration Fee" },
         { "v": "June 18", "l": "Cohort Begins" },
         { "v": "100%", "l": "Online Delivery" }
-      ]
+      ],
+      "ctaButton": "Start Your Application"
     },
     "partnerBanner": {
       "badge": "Official Programme Partner · Cohort 1",

@@ -6,7 +6,6 @@ import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { ArrowRight } from "lucide-react";
 
-
 function WeekCard({
   week,
   reverse,
@@ -102,7 +101,7 @@ function WeekCard({
           </div>
         </div>
 
-        {/* Updated Footer Section */}
+        {/* Footer */}
         <div className="mt-8 pt-5 border-t border-[#f5f5f5] flex items-center gap-2 group cursor-pointer">
           <motion.div
             initial={{ x: 0 }}
@@ -208,8 +207,37 @@ export default function CurriculumTimeline() {
                 </div>
               ))}
             </div>
+
+            {/* ── Implementation Partner badge ── */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.3 }}
+              className="mt-5"
+            >
+              <div className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl border border-[#eddeed] bg-white">
+                <div className="w-10 h-10 rounded-xl bg-brand-primary/8 flex items-center justify-center">
+                  <div className="w-2.5 h-2.5 rounded-full bg-brand-primary" />
+                </div>
+                <div>
+                  <p className="text-[10px] uppercase tracking-[0.18em] text-[#999] font-semibold">
+                    {t("implementationPartnerTitle")}
+                  </p>
+                  <p className="text-sm text-[#444] leading-relaxed">
+                    {t.rich("implementationPartnerDesc", {
+                      brand: (chunks) => (
+                        <span className="font-bold text-brand-primary">
+                          {chunks}
+                        </span>
+                      )
+                    })}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
+
         <div className="flex flex-col gap-6">
           {weekData.map((week, i) => (
             <WeekCard

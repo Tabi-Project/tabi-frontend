@@ -110,7 +110,8 @@
       "yebox": "Yebox Technologies",
       "genesys": "Genesys",
       "risevest": "Rise Academy",
-      "cchub": "CcHUB"
+      "cchub": "CcHUB",
+      "sailscast": "Sailscast"
     }
   },
   "AIBusinessTeaser": {
@@ -1696,7 +1697,7 @@
       "subheadline": "Un bootcamp JavaScript Full‑Stack de 4 semaines pour les développeurs prêts à arrêter de consommer des tutoriels et à construire de <semibold>vrais produits SaaS.</semibold>",
       "schedule": "100 % virtuel · Jeu, Ven, Sam · 18 juin – 11 juillet 2026 · Google Meet",
       "cta": "Postuler maintenant",
-      "ctaSecondary": "Explorer le programme",
+      "ctaSecondary": "En savoir plus",
       "trust": [
         { "value": "12", "label": "Sessions en direct" },
         { "value": "25", "label": "Places seulement" },
@@ -1741,7 +1742,8 @@
         "Intégration de l'IA, paiements et une feuille de route de revenus sur 90 jours.",
         "25 développeurs sérieux, guidés par des experts en direct."
       ],
-      "bottomQuote": "Pas de bruit. Pas de battage médiatique. Juste <strong>une stack, un produit, un chemin clair vers le revenu.</strong>"
+      "bottomQuote": "Pas de bruit. Pas de battage médiatique. Juste <strong>une stack, un produit, un chemin clair vers le revenu.</strong>",
+      "ctaButton": "Rejoindre la prochaine cohorte"
     },
     "boringStack": {
       "badge": "La Technologie",
@@ -1774,12 +1776,14 @@
       "badge": "Programme · 4 Semaines · 12 Sessions",
       "heading": "Du Premier Commit",
       "highlight": "au Premier Revenu",
-"description": "4 semaines. 12 sessions en direct. 2 heures 30 minutes chacune. Un produit SaaS complet déployable — sans superflu.",
+"description": "4 semaines. 12 sessions en direct. 2h30 chacune. Un produit SaaS complet et déployable — sans superflu. Formation avec support pratique de Sailscast.",
       "stats": [
         { "v": "~27h", "l": "Cours en direct" },
         { "v": "Jeu · Ven · Sam", "l": "Jours de session" },
         { "v": "18 juin", "l": "Date de début" }
       ],
+      "implementationPartnerTitle": "Partenaire de mise en œuvre",
+"implementationPartnerDesc": "La formation est assurée en direct par <brand>Sailscast</brand> en utilisant des flux de travail d'ingénierie réels, des pratiques de production et des normes modernes de développement SaaS.",
       "footerText": "Vous construisez cela. En direct. Chaque session.",
       "weeks": [
         {
@@ -1854,7 +1858,8 @@
       ],
       "closingTitle": "Pas que des compétences.",
       "closingHighlight": "Des preuves.",
-      "closingDesc": "Chaque diplômé repart avec un produit fonctionnel, un certificat et un plan de revenus sur 90 jours — pas seulement un badge de complétion."
+      "closingDesc": "Chaque diplômé repart avec un produit fonctionnel, un certificat et un plan de revenus sur 90 jours — pas seulement un badge de complétion.",
+      "ctaButton": "Réservez votre place"
     },
     "admission": {
       "badge": "Admission",
@@ -1913,7 +1918,8 @@
         { "v": "₦5,000", "l": "Frais d'inscription" },
         { "v": "18 juin", "l": "Début de la cohorte" },
         { "v": "100%", "l": "Formation en ligne" }
-      ]
+      ],
+      "ctaButton": "Lancer ma candidature"
     },
     "partnerBanner": {
       "badge": "Partenaire Officiel du Programme · Cohorte 1",

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react"; 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
@@ -12,6 +13,7 @@ import {
   Award
 } from "lucide-react";
 import { useTranslations } from "next-intl";
+import BootcampApplyModal from "@/components/organisms/bootcamp/BootcampApplyModal"; 
 
 const ICONS = [
   <Rocket size={28} strokeWidth={1.5} key="rocket" />,
@@ -36,6 +38,7 @@ export default function Outcomes() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const t = useTranslations("Bootcamp.outcomes");
   const items = t.raw("items") as Array<{ title: string; desc: string }>;
+  const [modalOpen, setModalOpen] = useState(false); 
 
   return (
     <section className="w-full bg-white py-24 md:py-32 overflow-hidden">
@@ -149,7 +152,24 @@ export default function Outcomes() {
             </div>
           </div>
         </motion.div>
+
+        {/* ── Apply Now CTA ────────────────────────────────── */}
+        <div className="mt-14 text-center">
+          <button
+            onClick={() => setModalOpen(true)}
+            className="px-10 py-4 rounded-xl font-bold text-sm tracking-wide text-white transition-all duration-200 hover:scale-[1.03] hover:shadow-xl"
+            style={{
+              background: "linear-gradient(135deg, #71286F, #c040a0)",
+              boxShadow: "0 8px 36px rgba(113,40,111,0.35)"
+            }}
+          >
+            {t("ctaButton")}
+          </button>
+        </div>
       </div>
+
+      {/* Application modal */}
+      {modalOpen && <BootcampApplyModal onClose={() => setModalOpen(false)} />}
     </section>
   );
 }
