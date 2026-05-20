@@ -102,7 +102,7 @@ export function SuccessStep({ onClose, firstName, refId }: SuccessStepProps) {
         <div className="space-y-4">
           {items.map((item, i) => (
             <div key={i} className="flex items-start gap-3">
-              <span className="shrink-0 mt-0.5" style={{ color: C.primary }}>
+              <span className="shrink-0 mt-0.5" style={{ color: C.brand }}>
                 {successIconMap[item.iconKey] ?? item.iconKey}
               </span>
               <p className="text-xs leading-relaxed" style={{ color: C.body }}>

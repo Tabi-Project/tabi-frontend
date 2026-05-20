@@ -69,7 +69,7 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
           firstName: formData.firstName,
           lastName: formData.lastName,
           email: formData.email,
-          phone: formData.phone, // ← include phone
+          phone: formData.phone, 
           industry:
             formData.industry === t("industry.options.others")
               ? formData.otherIndustry
@@ -100,7 +100,7 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
         firstName: "",
         lastName: "",
         email: "",
-        phone: "", // ← reset phone
+        phone: "", 
         industry: t("industry.options.retail"),
         otherIndustry: "",
         experience: t("experience.options.beginner")
@@ -112,7 +112,7 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
     formData.firstName.trim() !== "" &&
     formData.lastName.trim() !== "" &&
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) &&
-    formData.phone.trim() !== "" && // ← phone required
+    formData.phone.trim() !== "" && 
     (formData.industry !== t("industry.options.others") ||
       formData.otherIndustry.trim() !== "");
 
