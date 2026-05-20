@@ -1953,19 +1953,19 @@
         "body": "Le Bootcamp Full-Stack JS est un programme en direct de 4 semaines pour les développeurs prêts à arrêter de consommer des tutoriels et à créer de vrais produits.",
         "process": [
           {
-            "icon": "📋",
+            "iconKey": "form",
             "n": "01",
             "title": "Parlez-nous de vous",
             "body": "Un court formulaire pour connaître votre parcours et vos objectifs."
           },
           {
-            "icon": "💳",
+            "iconKey": "payment",
             "n": "02",
             "title": "Réservez votre place",
             "body": "Des frais d'engagement de 5 000 ₦ confirment votre place après votre candidature."
           },
           {
-            "icon": "💬",
+            "iconKey": "receipt",
             "n": "03",
             "title": "Envoyez votre reçu de paiement",
             "body": "Déposez-le sur notre WhatsApp et nous confirmerons votre place immédiatement."
@@ -2100,15 +2100,15 @@
         "sectionHead": "Et ensuite ?",
         "items": [
           {
-            "icon": "👀",
+            "iconKey": "eye",
             "text": "Notre équipe examine chaque candidature personnellement — aucun raccourci."
           },
           {
-            "icon": "📩",
+            "iconKey": "mail",
             "text": "Attendez notre retour par e-mail — gardez l'œil ouvert !"
           },
           {
-            "icon": "🤝",
+            "iconKey": "handshake",
             "text": "Si ce n'est pas encore le bon moment, nous vous guiderons vers la meilleure prochaine étape."
           }
         ],

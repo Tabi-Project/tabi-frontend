@@ -4,6 +4,13 @@ import { useTranslations } from "next-intl";
 import { C, GRAD, fadeUp } from "../shared";
 import { Cta, SectionHead } from "../ui";
 import { StepBar } from "../StepBar";
+import { Eye, Mail, Handshake } from "lucide-react";
+
+const successIconMap: Record<string, React.ReactNode> = {
+  eye: <Eye size={20} strokeWidth={1.5} />,
+  mail: <Mail size={20} strokeWidth={1.5} />,
+  handshake: <Handshake size={20} strokeWidth={1.5} />
+};
 
 interface SuccessStepProps {
   onClose: () => void;
@@ -14,6 +21,7 @@ interface SuccessStepProps {
 export function SuccessStep({ onClose, firstName, refId }: SuccessStepProps) {
   const t = useTranslations("Bootcamp.modal.success");
   const displayName = firstName || "";
+  const items = t.raw("items") as { iconKey: string; text: string }[];
 
   return (
     <div className="text-center py-2">
@@ -92,17 +100,13 @@ export function SuccessStep({ onClose, firstName, refId }: SuccessStepProps) {
       >
         <SectionHead>{t("sectionHead")}</SectionHead>
         <div className="space-y-4">
-          {(
-            [
-              { icon: "👀", key: "0" },
-              { icon: "📩", key: "1" },
-              { icon: "🤝", key: "2" }
-            ] as const
-          ).map((item, i) => (
+          {items.map((item, i) => (
             <div key={i} className="flex items-start gap-3">
-              <span className="text-base shrink-0 mt-0.5">{item.icon}</span>
+              <span className="shrink-0 mt-0.5" style={{ color: C.primary }}>
+                {successIconMap[item.iconKey] ?? item.iconKey}
+              </span>
               <p className="text-xs leading-relaxed" style={{ color: C.body }}>
-                {t(`items.${item.key}.text` as any)}
+                {item.text}
               </p>
             </div>
           ))}
