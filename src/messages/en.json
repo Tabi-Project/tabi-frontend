@@ -1950,19 +1950,19 @@
         "body": "The Full-Stack JS Bootcamp is a 4-week live programme for developers ready to go from consuming tutorials to shipping real products.",
         "process": [
           {
-            "icon": "📋",
+            "iconKey": "form",
             "n": "01",
             "title": "Tell us about yourself",
             "body": "A short form so we can get to know your background and goals."
           },
           {
-            "icon": "💳",
+            "iconKey": "payment",
             "n": "02",
             "title": "Reserve your place",
             "body": "A ₦5,000 commitment fee confirms your spot after you've applied."
           },
           {
-            "icon": "💬",
+            "iconKey": "receipt",
             "n": "03",
             "title": "Send your payment receipt",
             "body": "Drop it in our WhatsApp and we'll confirm your place right away."
@@ -2091,21 +2091,21 @@
         "confirmButton": "I've sent my receipt ✓"
       },
       "success": {
-        "title": "You're all in, {displayName}! 🎉",
+        "title": "You're all in, {displayName}!",
         "body": "Your application has been received and your spot is being held. We'll be in touch soon.",
         "reference": "Reference: {refId}",
         "sectionHead": "What happens next",
         "items": [
           {
-            "icon": "👀",
+            "iconKey": "eye",
             "text": "Our team reviews every application personally — no shortcuts."
           },
           {
-            "icon": "📩",
+            "iconKey": "mail",
             "text": "Expect our feedback via email — keep your ears on the ground!"
           },
           {
-            "icon": "🤝",
+            "iconKey": "handshake",
             "text": "If it's not the right fit yet, we'll guide you toward the best next step."
           }
         ],

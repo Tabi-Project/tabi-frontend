@@ -4,6 +4,19 @@ import { useTranslations } from "next-intl";
 import { C, GRAD, fadeUp } from "../shared";
 import { X, Tag, Cta } from "../ui";
 import { StepBar } from "../StepBar";
+import {
+  ClipboardList,
+  CreditCard,
+  MessageCircle,
+  ShieldCheck
+} from "lucide-react"; 
+
+// Map icon keys to components
+const iconMap: Record<string, React.ReactNode> = {
+  form: <ClipboardList size={20} strokeWidth={1.5} />,
+  payment: <CreditCard size={20} strokeWidth={1.5} />,
+  receipt: <MessageCircle size={20} strokeWidth={1.5} />
+};
 
 export function WelcomeStep({
   onNext,
@@ -13,8 +26,6 @@ export function WelcomeStep({
   onClose: () => void;
 }) {
   const t = useTranslations("Bootcamp.modal.welcome");
-
-  // The process items are now taken from translations
   const process = t.raw("process") as any[];
 
   return (
@@ -67,14 +78,15 @@ export function WelcomeStep({
             style={{ background: C.surface, border: `1px solid ${C.border}` }}
           >
             <div
-              className="w-9 h-9 rounded-xl flex items-center justify-center text-lg shrink-0"
+              className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
               style={{
                 background: "white",
                 border: `1px solid ${C.border}`,
-                boxShadow: "0 1px 6px rgba(113,40,111,0.07)"
+                boxShadow: "0 1px 6px rgba(113,40,111,0.07)",
+                color: C.brand // tint the icon with brand color
               }}
             >
-              {p.icon}
+              {iconMap[p.iconKey] ?? p.iconKey}
             </div>
             <div className="flex-1 min-w-0">
               <p
@@ -105,7 +117,7 @@ export function WelcomeStep({
         className="flex items-center gap-3 px-4 py-3 rounded-xl mb-6"
         style={{ background: C.surface, border: `1px solid ${C.border}` }}
       >
-        <span className="shrink-0 text-base">🛡️</span>
+        <ShieldCheck size={20} strokeWidth={1.5} style={{ color: C.brand }} />
         <p className="text-xs leading-relaxed" style={{ color: C.muted }}>
           {t("trust")}
         </p>
