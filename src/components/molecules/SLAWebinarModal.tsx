@@ -1,11 +1,13 @@
 // src/components/molecules/SLAWebinarModal.tsx
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Loader2, CheckCircle2 } from "lucide-react";
 import { LuChevronDown } from "react-icons/lu";
 import { useTranslations } from "next-intl";
+import { usePortalDropdown } from "@/hooks/usePortalDropdown"; 
+import PortalDropdown from "@/components/atoms/PortalDropdown"; 
 
 interface SLAWebinarModalProps {
   onClose: () => void;
@@ -16,8 +18,14 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const industryTriggerRef = useRef<HTMLButtonElement>(null);
+  const {
+    open: dropdownOpen,
+    toggle,
+    close: closeDropdown,
+    position: dropdownPos
+  } = usePortalDropdown(industryTriggerRef);
 
   const industries = [
     { key: "retail", label: t("industry.options.retail") },
@@ -43,19 +51,6 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
     experience: t("experience.options.beginner")
   });
 
-  useEffect(() => {
-    const handler = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
-        setDropdownOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
@@ -69,7 +64,7 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
           firstName: formData.firstName,
           lastName: formData.lastName,
           email: formData.email,
-          phone: formData.phone, 
+          phone: formData.phone,
           industry:
             formData.industry === t("industry.options.others")
               ? formData.otherIndustry
@@ -100,7 +95,7 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
         firstName: "",
         lastName: "",
         email: "",
-        phone: "", 
+        phone: "",
         industry: t("industry.options.retail"),
         otherIndustry: "",
         experience: t("experience.options.beginner")
@@ -112,12 +107,13 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
     formData.firstName.trim() !== "" &&
     formData.lastName.trim() !== "" &&
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) &&
-    formData.phone.trim() !== "" && 
+    formData.phone.trim() !== "" &&
     (formData.industry !== t("industry.options.others") ||
       formData.otherIndustry.trim() !== "");
 
   return (
     <div className="fixed inset-0 z-100 flex items-center justify-center p-6">
+      {/* Backdrop */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -125,6 +121,8 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
         onClick={handleClose}
         className="absolute inset-0 bg-[#2D102D]/90 backdrop-blur-md"
       />
+
+      {/* Modal */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -183,76 +181,76 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
                 onChange={(v) => setFormData({ ...formData, phone: v })}
               />
 
+              {/* Industry Dropdown – now using reusable hook */}
               <div className="space-y-2">
                 <label className="block text-xs font-semibold text-[#444444]">
                   {t("industry.label")}
                 </label>
-                <div ref={dropdownRef} className="relative">
-                  <button
-                    type="button"
-                    onClick={() => setDropdownOpen(!dropdownOpen)}
-                    className="w-full flex items-center justify-between rounded-full border border-[#e5e5e5] px-5 py-3 text-sm text-left focus:outline-none focus:border-brand-primary transition-colors"
-                  >
-                    <span className="text-[#333]">
-                      {formData.industry === t("industry.options.others") &&
-                      formData.otherIndustry
-                        ? formData.otherIndustry
-                        : formData.industry}
-                    </span>
-                    <LuChevronDown
-                      size={16}
-                      className={`text-[#999] transition-transform duration-200 ${
-                        dropdownOpen ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                  {dropdownOpen && (
-                    <div className="absolute top-full left-0 right-0 mt-1.5 bg-white border border-gray-100 rounded-2xl shadow-xl z-50 py-1 max-h-56 overflow-y-auto">
-                      {industries.map((item) => (
-                        <div key={item.key}>
-                          <button
-                            type="button"
-                            onClick={() => {
-                              setFormData({
-                                ...formData,
-                                industry: item.label
-                              });
-                              if (item.key !== "others") setDropdownOpen(false);
-                            }}
-                            className={`w-full text-left px-5 py-3 text-sm hover:bg-gray-50 transition-colors ${
-                              formData.industry === item.label
-                                ? "text-brand-primary font-bold"
-                                : "text-[#555]"
-                            }`}
-                          >
-                            {item.label}
-                          </button>
-                          {item.key === "others" &&
-                            formData.industry ===
-                              t("industry.options.others") && (
-                              <div className="px-5 pb-3">
-                                <input
-                                  type="text"
-                                  autoFocus
-                                  placeholder={t("industry.othersPlaceholder")}
-                                  value={formData.otherIndustry}
-                                  onChange={(e) =>
-                                    setFormData({
-                                      ...formData,
-                                      otherIndustry: e.target.value
-                                    })
-                                  }
-                                  className="w-full rounded-lg border border-[#e5e5e5] px-3 py-2 text-sm focus:border-brand-primary outline-none"
-                                />
-                              </div>
-                            )}
-                        </div>
-                      ))}
+                <button
+                  ref={industryTriggerRef}
+                  type="button"
+                  onClick={toggle}
+                  className="w-full flex items-center justify-between rounded-full border border-[#e5e5e5] px-5 py-3 text-sm text-left focus:outline-none focus:border-brand-primary transition-colors"
+                >
+                  <span className="text-[#333]">
+                    {formData.industry === t("industry.options.others") &&
+                    formData.otherIndustry
+                      ? formData.otherIndustry
+                      : formData.industry}
+                  </span>
+                  <LuChevronDown
+                    size={16}
+                    className={`text-[#999] transition-transform duration-200 ${
+                      dropdownOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+
+                <PortalDropdown
+                  open={dropdownOpen}
+                  position={dropdownPos}
+                  onClose={closeDropdown}
+                >
+                  {industries.map((item) => (
+                    <div key={item.key}>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setFormData({ ...formData, industry: item.label });
+                          if (item.key !== "others") closeDropdown();
+                        }}
+                        className={`w-full text-left px-5 py-3 text-sm hover:bg-gray-50 transition-colors ${
+                          formData.industry === item.label
+                            ? "text-brand-primary font-bold"
+                            : "text-[#555]"
+                        }`}
+                      >
+                        {item.label}
+                      </button>
+                      {item.key === "others" &&
+                        formData.industry === t("industry.options.others") && (
+                          <div className="px-5 pb-3">
+                            <input
+                              type="text"
+                              autoFocus
+                              placeholder={t("industry.othersPlaceholder")}
+                              value={formData.otherIndustry}
+                              onChange={(e) =>
+                                setFormData({
+                                  ...formData,
+                                  otherIndustry: e.target.value
+                                })
+                              }
+                              className="w-full rounded-lg border border-[#e5e5e5] px-3 py-2 text-sm focus:border-brand-primary outline-none"
+                            />
+                          </div>
+                        )}
                     </div>
-                  )}
-                </div>
+                  ))}
+                </PortalDropdown>
               </div>
 
+              {/* Experience selectors */}
               <div className="space-y-2">
                 <label className="block text-xs font-semibold text-[#444444]">
                   {t("experience.label")}
@@ -283,12 +281,11 @@ export default function SLAWebinarModal({ onClose }: SLAWebinarModalProps) {
 
               <button
                 disabled={loading || !isFormValid}
-                className={`w-full py-4 rounded-full font-bold shadow-lg transition-all flex items-center justify-center gap-2
-        ${
-          !isFormValid || loading
-            ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-            : "bg-brand-primary text-white hover:shadow-brand-primary/30"
-        }`}
+                className={`w-full py-4 rounded-full font-bold shadow-lg transition-all flex items-center justify-center gap-2 ${
+                  !isFormValid || loading
+                    ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                    : "bg-brand-primary text-white hover:shadow-brand-primary/30"
+                }`}
               >
                 {loading ? <Loader2 className="animate-spin" /> : t("cta")}
               </button>
@@ -306,7 +303,7 @@ function Input({
   value,
   onChange,
   type = "text",
-  placeholder 
+  placeholder
 }: {
   label: string;
   value: string;
@@ -323,7 +320,7 @@ function Input({
         type={type}
         required
         value={value}
-        placeholder={placeholder} 
+        placeholder={placeholder}
         onChange={(e) => onChange(e.target.value)}
         className="w-full rounded-full border border-[#e5e5e5] px-5 py-3 text-sm text-left focus:outline-none focus:border-brand-primary transition-colors"
       />

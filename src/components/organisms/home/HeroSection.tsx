@@ -138,7 +138,17 @@ export default function HeroSection() {
           {t("subheadline")}
         </p>
 
-        <Link href="/ai-for-businesses" className="mt-6 md:mt-8">
+        {/* <Link href="/ai-for-businesses" className="mt-6 md:mt-8">
+          <Button
+            variant="primary"
+            size="lg"
+            className="text-sm md:text-base px-6 md:px-8"
+          >
+            {t("cta")}
+          </Button>
+        </Link> */}
+
+        <Link href="/projects/javascript-bootcamp" className="mt-6 md:mt-8">
           <Button
             variant="primary"
             size="lg"
