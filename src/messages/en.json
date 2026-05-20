@@ -1689,7 +1689,7 @@
       "subheadline": "A 4-week Full-Stack JavaScript Bootcamp for developers ready to stop consuming tutorials and start building <semibold>deployable SaaS products.</semibold>",
       "schedule": "100% Virtual · Thurs, Fri & Sat · June 18 – July 11, 2026 · Google Meet",
       "cta": "Apply Now",
-      "ctaSecondary": "Explore Curriculum",
+      "ctaSecondary": "Learn More",
       "trust": [
         { "value": "12", "label": "Live Sessions" },
         { "value": "25", "label": "Seats Only" },
@@ -1733,7 +1733,8 @@
         "AI integration, payments, and a 90-day income roadmap.",
         "25 serious developers, guided by live experts."
       ],
-      "bottomQuote": "No noise. No hype. Just <strong>one stack, one product, one clear path to income.</strong>"
+      "bottomQuote": "No noise. No hype. Just <strong>one stack, one product, one clear path to income.</strong>",
+      "ctaButton": "Join the Next Cohort"
     },
     "boringStack": {
       "badge": "The Technology",
@@ -1851,7 +1852,8 @@
       ],
       "closingTitle": "Not just skills.",
       "closingHighlight": "Proof.",
-      "closingDesc": "Every graduate leaves with a live product, a certificate, and a 90-day income plan — not just a completion badge."
+      "closingDesc": "Every graduate leaves with a live product, a certificate, and a 90-day income plan — not just a completion badge.",
+      "ctaButton": "Claim Your Spot"
     },
     "admission": {
       "badge": "Admission",
@@ -1910,7 +1912,8 @@
         { "v": "₦5,000", "l": "Registration Fee" },
         { "v": "June 18", "l": "Cohort Begins" },
         { "v": "100%", "l": "Online Delivery" }
-      ]
+      ],
+      "ctaButton": "Start Your Application"
     },
     "partnerBanner": {
       "badge": "Official Programme Partner · Cohort 1",

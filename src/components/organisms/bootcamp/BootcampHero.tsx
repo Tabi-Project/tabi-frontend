@@ -1,8 +1,11 @@
 "use client";
 
+import { useState } from "react";  
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import BootcampApplyModal from "@/components/organisms/bootcamp/BootcampApplyModal";  // ← import
+
 
 /* ── Inline SVG logos ─────────────────────────────────────────────── */
 function VueLogo() {
@@ -68,6 +71,7 @@ function SailsLogo() {
 export default function BootcampHero() {
   const t = useTranslations("Bootcamp.hero");
   const trust = t.raw("trust") as Array<{ value: string; label: string }>;
+  const [modalOpen, setModalOpen] = useState(false); 
 
   return (
     <section className="relative w-full bg-white overflow-hidden pt-28 pb-0 md:pt-32">
@@ -159,12 +163,8 @@ export default function BootcampHero() {
               className="flex flex-col sm:flex-row gap-3 mb-12"
             >
               <button
-                onClick={() => {
-                  document
-                    .getElementById("cta-section")
-                    ?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="px-8 py-4 rounded-xl font-bold text-sm tracking-wide transition-all duration-200 hover:scale-[1.03] hover:shadow-xl"
+                onClick={() => setModalOpen(true)}
+                className="px-8 py-4 rounded-xl font-bold text-sm tracking-wide transition-all duration-200 hover:scale-[1.03] hover:shadow-xl cursor-pointer"
                 style={{
                   background: "linear-gradient(135deg, #71286F, #c040a0)",
                   boxShadow: "0 6px 24px rgba(113,40,111,0.35)",
@@ -179,7 +179,7 @@ export default function BootcampHero() {
                     .getElementById("curriculum")
                     ?.scrollIntoView({ behavior: "smooth" });
                 }}
-                className="px-8 py-4 rounded-xl font-bold text-sm tracking-wide border-2 transition-all duration-200 hover:bg-[rgba(113,40,111,0.05)]"
+                className="px-8 py-4 rounded-xl font-bold text-sm tracking-wide border-2 transition-all duration-200 hover:bg-[rgba(113,40,111,0.05)] cursor-pointer"
                 style={{
                   color: "#71286F",
                   borderColor: "rgba(113,40,111,0.28)"
@@ -308,6 +308,8 @@ export default function BootcampHero() {
           </motion.div>
         </div>
       </div>
+      {/* Application modal */}
+      {modalOpen && <BootcampApplyModal onClose={() => setModalOpen(false)} />}
     </section>
   );
 }

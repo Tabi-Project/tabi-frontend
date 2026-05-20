@@ -1696,7 +1696,7 @@
       "subheadline": "Un bootcamp JavaScript Full‑Stack de 4 semaines pour les développeurs prêts à arrêter de consommer des tutoriels et à construire de <semibold>vrais produits SaaS.</semibold>",
       "schedule": "100 % virtuel · Jeu, Ven, Sam · 18 juin – 11 juillet 2026 · Google Meet",
       "cta": "Postuler maintenant",
-      "ctaSecondary": "Explorer le programme",
+      "ctaSecondary": "En savoir plus",
       "trust": [
         { "value": "12", "label": "Sessions en direct" },
         { "value": "25", "label": "Places seulement" },
@@ -1741,7 +1741,8 @@
         "Intégration de l'IA, paiements et une feuille de route de revenus sur 90 jours.",
         "25 développeurs sérieux, guidés par des experts en direct."
       ],
-      "bottomQuote": "Pas de bruit. Pas de battage médiatique. Juste <strong>une stack, un produit, un chemin clair vers le revenu.</strong>"
+      "bottomQuote": "Pas de bruit. Pas de battage médiatique. Juste <strong>une stack, un produit, un chemin clair vers le revenu.</strong>",
+      "ctaButton": "Rejoindre la prochaine cohorte"
     },
     "boringStack": {
       "badge": "La Technologie",
@@ -1854,7 +1855,8 @@
       ],
       "closingTitle": "Pas que des compétences.",
       "closingHighlight": "Des preuves.",
-      "closingDesc": "Chaque diplômé repart avec un produit fonctionnel, un certificat et un plan de revenus sur 90 jours — pas seulement un badge de complétion."
+      "closingDesc": "Chaque diplômé repart avec un produit fonctionnel, un certificat et un plan de revenus sur 90 jours — pas seulement un badge de complétion.",
+      "ctaButton": "Réservez votre place"
     },
     "admission": {
       "badge": "Admission",
@@ -1913,7 +1915,8 @@
         { "v": "₦5,000", "l": "Frais d'inscription" },
         { "v": "18 juin", "l": "Début de la cohorte" },
         { "v": "100%", "l": "Formation en ligne" }
-      ]
+      ],
+      "ctaButton": "Lancer ma candidature"
     },
     "partnerBanner": {
       "badge": "Partenaire Officiel du Programme · Cohorte 1",

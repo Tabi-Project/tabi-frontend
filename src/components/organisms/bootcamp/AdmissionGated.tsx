@@ -1,9 +1,11 @@
 "use client";
 
+import { useState } from "react"; 
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import BootcampApplyModal from "@/components/organisms/bootcamp/BootcampApplyModal"; 
 
 export default function AdmissionGated() {
   const ref = useRef(null);
@@ -18,6 +20,7 @@ export default function AdmissionGated() {
     desc: string;
   }>;
   const stats = t.raw("stats") as Array<{ v: string; l: string }>;
+  const [modalOpen, setModalOpen] = useState(false); 
 
   return (
     <section className="w-full bg-[#fdf7ff] py-24 md:py-32 overflow-hidden">
@@ -233,7 +236,24 @@ export default function AdmissionGated() {
             </motion.div>
           ))}
         </div>
+
+        {/* ── Apply Now CTA ────────────────────────────────── */}
+        <div className="mt-14 text-center">
+          <button
+            onClick={() => setModalOpen(true)}
+            className="px-10 py-4 rounded-xl font-bold text-sm tracking-wide text-white transition-all duration-200 hover:scale-[1.03] hover:shadow-xl"
+            style={{
+              background: "linear-gradient(135deg, #71286F, #c040a0)",
+              boxShadow: "0 8px 36px rgba(113,40,111,0.35)"
+            }}
+          >
+            {t("ctaButton")}
+          </button>
+        </div>
       </div>
+
+      {/* Application modal */}
+      {modalOpen && <BootcampApplyModal onClose={() => setModalOpen(false)} />}
     </section>
   );
 }
