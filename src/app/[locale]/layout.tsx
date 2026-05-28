@@ -8,7 +8,6 @@ import Footer from "@/components/organisms/shared/Footer";
 import ScrollRestoration from "@/components/atoms/ScrollRestoration";
 import { locales } from "@/i18n/request";
 import "../globals.css";
-// import SophiaBirthdayModal from "@/components/molecules/SophiaBirthdayModal";
 import SubmissionFlusher from "@/components/atoms/SubmissionFlusher";
 
 export default async function LocaleLayout({
@@ -19,10 +18,10 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
-
   if (!locales.includes(locale as any)) notFound();
-
   const messages = await getMessages();
+
+  const isProduction = process.env.NODE_ENV === "production";
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
@@ -37,7 +36,6 @@ export default async function LocaleLayout({
         src="https://identity.netlify.com/v1/netlify-identity-widget.js"
         strategy="beforeInteractive"
       />
-
       {/* Netlify Identity redirect */}
       <Script
         id="netlify-identity-redirect"
@@ -57,21 +55,22 @@ export default async function LocaleLayout({
         }}
       />
 
-      {/* Microsoft Clarity */}
-      <Script
-        id="clarity-script"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function(c,l,a,r,i,t,y){
-              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "wermu7foxw");
-          `
-        }}
-      />
-      {/* <SophiaBirthdayModal /> */}
+      {/* Microsoft Clarity – only in production */}
+      {isProduction && (
+        <Script
+          id="clarity-script"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+              })(window, document, "clarity", "script", "wermu7foxw");
+            `
+          }}
+        />
+      )}
     </NextIntlClientProvider>
   );
 }

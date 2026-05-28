@@ -21,7 +21,61 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  // ... your existing metadata (unchanged)
+  metadataBase: new URL(BASE_URL),
+  title: {
+    default: "Tabi Academy | Empowering Women in Tech",
+    template: "%s | Tabi Academy"
+  },
+  description:
+    "Tabi Academy by TEE Foundation empowers African women through free tech education, AI training, mentorship, and community. Join our growing network.",
+  keywords: [
+    "tabi",                       
+    "tabi academy",
+    "Tabi Academy",
+    "Tabi Empowerment and Educational Foundation",
+    "TEE Foundation",
+    "women in tech Africa",
+    "AI training women",
+    "free tech education Nigeria",
+    "women empowerment technology"
+  ],
+  authors: [{ name: "Tabi Academy", url: "https://tabiproject.com" }],
+  creator: "Tabi Academy",
+  publisher: "Tabi Academy",
+  openGraph: {
+    type: "website",
+    locale: "en_NG",
+    url: "https://tabiproject.com",
+    siteName: "Tabi Academy",
+    title: "Tabi Academy | Empowering Women in Tech",
+    description:
+      "Empowering African women through free technology education, AI training, and mentorship.",
+    images: [
+      {
+        url: "/og-image.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Tabi Academy — Empowering African Women Through Tech",
+        type: "image/jpeg"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@tabi_academy",
+    creator: "@tabi_academy",
+    title: "Tabi Academy | Empowering Women in Tech",
+    description:
+      "Empowering African women through free technology education, AI training, and mentorship.",
+    images: ["/og-image.jpeg"]
+  },
+  robots: {
+    index: true,
+    follow: true
+  },
+  alternates: {
+    canonical: "https://tabiproject.com"
+  }
 };
 
 export default function RootLayout({
