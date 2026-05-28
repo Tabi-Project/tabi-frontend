@@ -127,7 +127,6 @@ export default function HeroSection() {
             height={84}
             className="inline-block -ml-2 md:-ml-3 mb-4 md:mb-6 w-12 h-12 md:w-20 md:h-20 align-middle"
             aria-hidden
-            priority
             quality={85}
           />
           <br />

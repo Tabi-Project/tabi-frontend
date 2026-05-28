@@ -40,6 +40,7 @@ export default function LanguageSwitcher() {
           height="16"
           width="20"
           className="rounded-sm object-cover"
+          alt="" // ✅ decorative image
         />
         <span className="text-sm font-medium text-gray-700">
           {locale === "en" ? "EN" : "FR"}
@@ -80,6 +81,7 @@ export default function LanguageSwitcher() {
                   height="18"
                   width="24"
                   className="rounded-sm object-cover"
+                  alt="" // ✅ decorative image
                 />
                 <span
                   className={`text-sm font-medium ${

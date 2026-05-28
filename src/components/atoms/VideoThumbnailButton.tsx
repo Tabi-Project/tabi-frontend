@@ -22,7 +22,8 @@ export default function VideoThumbnailButton({
     >
       <Image
         src={thumbnail}
-        alt={label}
+        // alt={label}
+        alt="" // ✅ decorative image
         fill
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 896px"
         className="object-cover brightness-50 group-hover:brightness-40 transition-all duration-300"
