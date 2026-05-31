@@ -8,6 +8,7 @@ import InsightsStories from "@/components/organisms/resources/InsightsStories";
 import Partners from "@/components/organisms/home/Partners";
 import WhatWeDo from "@/components/organisms/home/WhatWeDo";
 import type { Metadata } from "next";
+import TestimonialSectionServer from "@/components/organisms/home/TestimonialSectionServer";
 
 export async function generateMetadata({
   params
@@ -73,6 +74,7 @@ export default async function HomePage({
       <AIBusinessTeaser />
       <WhatWeDo />
       <FeaturedProjectsServer locale={locale} />
+      <TestimonialSectionServer locale={locale} />
       <GetInvolved />
       <ConsultancyTeaser />
       <InsightsStories locale={locale} />

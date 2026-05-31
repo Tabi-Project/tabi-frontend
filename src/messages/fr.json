@@ -269,6 +269,10 @@
     "viewAll": "Voir tous les projets",
     "showLess": "Afficher moins"
   },
+    "Testimonials": {
+    "heading": "Les voix de notre communauté",
+    "subheading": "Les mots authentiques de personnes dont la vie et le travail ont été façonnés par Tabi."
+  },
   "ConsultancyTeaser": {
     "badge": "✦ 100 % gratuit",
     "deadlinePrefix": "Clôture :",
