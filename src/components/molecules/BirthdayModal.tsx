@@ -6,7 +6,7 @@ import Image from "next/image";
 import { withBasePath } from "@/constants/paths";
 
 
-const SOPHIA_IMAGE = "/sophia-birthday.png";
+const IHUOMA_IMAGE = "/ihuoma-birthday.png";
 
 /* ─── Confetti ──────────────────────────────────────────────────── */
 type Particle = {
@@ -158,7 +158,7 @@ function getTodayKey() {
 }
 
 /* ─── Modal ─────────────────────────────────────────────────────── */
-export default function SophiaBirthdayModal() {
+export default function BirthdayModal() {
   const [open, setOpen] = useState(false);
   const [celebrating, setCelebrating] = useState(false);
   const burstRef = useRef<(() => void) | null>(null);
@@ -193,7 +193,7 @@ export default function SophiaBirthdayModal() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.35 }}
-          className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+          className="fixed inset-0 z-9999 flex items-center justify-center p-4"
           style={{
             background: "rgba(10,6,18,0.75)",
             backdropFilter: "blur(8px)"
@@ -229,13 +229,13 @@ export default function SophiaBirthdayModal() {
             {/* ── TOP: Full-bleed photo ─────────────────────── */}
             <div className="relative w-full" style={{ height: "340px" }}>
               <Image
-                src={withBasePath(SOPHIA_IMAGE)}
-                alt="Sophia Abubakar Ahuoyiza"
+                src={withBasePath(IHUOMA_IMAGE)}
+                alt="Ihuoma Agbaru Favour"
                 fill
-                className="object-cover object-top"
+                className="object-cover object-center brightness-95"
                 onError={(e) => {
                   (e.currentTarget as HTMLImageElement).style.display = "none";
-                  const fb = document.getElementById("sophia-fallback");
+                  const fb = document.getElementById("ihuoma-fallback");
                   if (fb) fb.style.display = "flex";
                 }}
               />
@@ -260,7 +260,7 @@ export default function SophiaBirthdayModal() {
               />
 
               {/* Animated shimmer bar */}
-              <div className="absolute bottom-0 left-0 right-0 h-[3px] pointer-events-none z-10">
+              <div className="absolute bottom-0 left-0 right-0 h-0.75 pointer-events-none z-10">
                 <motion.div
                   animate={{
                     backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
@@ -314,7 +314,7 @@ export default function SophiaBirthdayModal() {
                     filter: "drop-shadow(0 2px 12px rgba(192,64,160,0.5))"
                   }}
                 >
-                  Sophia! 🎂
+                  Ihuoma! 🎂
                 </motion.h2>
               </div>
             </div>
@@ -332,7 +332,9 @@ export default function SophiaBirthdayModal() {
                 }}
               />
 
-              <motion.p
+              {/* for sophia */}
+
+              {/* <motion.p
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.75 }}
@@ -371,6 +373,48 @@ export default function SophiaBirthdayModal() {
                 Whose vision, warmth, and leadership make everything we do
                 possible. May this year bring you every joy you so generously
                 give to others.
+              </motion.p> */}
+
+              {/* for ihuoma */}
+              <motion.p
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.75 }}
+                className="font-black text-white text-base mb-0.5"
+              >
+                Ihuoma Favour Agbaru
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.82 }}
+                className="text-[11px] uppercase tracking-[0.2em] mb-5 font-semibold"
+                style={{ color: "#c040a0" }}
+              >
+                Co-Director, Tabi
+              </motion.p>
+
+              <motion.div
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ delay: 0.86, duration: 0.5 }}
+                className="mx-auto mb-5 h-px w-20"
+                style={{
+                  background:
+                    "linear-gradient(90deg, transparent, rgba(192,64,160,0.55), transparent)"
+                }}
+              />
+
+              <motion.p
+                initial={{ opacity: 0, y: 6 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.9 }}
+                className="text-sm leading-relaxed mb-6 font-medium"
+                style={{ color: "rgba(255,255,255,0.65)" }}
+              >
+                Whose purposeful leadership, dedication, and passion move women
+                from capability to power. May this year reward you with the
+                abundant joy and fulfillment you give to others.
               </motion.p>
 
               {/* ── Celebrate button — changes state when clicked ── */}

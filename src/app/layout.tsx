@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from "next";
 import { Lato } from "next/font/google";
 import "./globals.css";
 import NextTopLoader from "nextjs-toploader";
+import BirthdayModal from "@/components/molecules/BirthdayModal";
 
 
 const lato = Lato({
@@ -97,6 +98,8 @@ export default function RootLayout({
           speed={200}
         />
         {children}
+
+        <BirthdayModal />
       </body>
     </html>
   );
