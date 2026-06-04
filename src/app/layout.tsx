@@ -99,7 +99,7 @@ export default function RootLayout({
         />
         {children}
 
-        <BirthdayModal />
+        {/* <BirthdayModal /> */}
       </body>
     </html>
   );

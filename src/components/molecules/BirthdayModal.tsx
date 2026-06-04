@@ -446,7 +446,7 @@ export default function BirthdayModal() {
                       exit={{ opacity: 0 }}
                       className="flex items-center justify-center gap-2"
                     >
-                      🥳 Cheers, Sophia! 🎊
+                      🥳 Cheers, Ihuoma! 🎊
                     </motion.span>
                   ) : (
                     <motion.span
