@@ -32,13 +32,15 @@ export default function TestimonialStrip({
           className="shrink-0 relative overflow-hidden"
           style={{ width: 189, height: 264, borderRadius: 126, minWidth: 189 }}
           variants={{
-            hidden: { opacity: 0, scale: 0.95 },
+            hidden: { opacity: 0, scale: 0.9, clipPath: "inset(30% 0% 30% 0% round 126px)" },
             visible: {
               opacity: 1,
               scale: 1,
-              transition: { duration: 0.6, ease: "easeOut" }
+              clipPath: "inset(0% 0% 0% 0% round 126px)",
+              transition: { duration: 0.9, ease: [0.16, 1, 0.3, 1] }
             }
           }}
+          whileHover={{ scale: 1.03, rotate: -2 }}
         >
           {testimonial.avatar ? (
             <Image
@@ -55,7 +57,7 @@ export default function TestimonialStrip({
               className="w-full h-full flex items-center justify-center"
               style={{ background: "#F3E8FF" }}
             >
-              <span className="text-3xl font-extrabold text-brand-primary opacity-30">
+              <span className="text-3xl font-bold text-brand-primary opacity-30">
                 {testimonial.name
                   .split(" ")
                   .map((n) => n[0])
@@ -83,7 +85,8 @@ export default function TestimonialStrip({
           </p>
 
           <p className="text-sm font-bold text-[#121212]">
-            {testimonial.name}, // <span className="">{testimonial.role}</span>
+            {testimonial.name}
+            {testimonial.role && <>, {testimonial.role}</>}
           </p>
         </motion.div>
       </motion.div>

@@ -132,7 +132,7 @@ export default function EventDetailDrawer({
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center">
-                  <span className="text-4xl font-extrabold text-brand-primary opacity-20">
+                  <span className="text-4xl font-bold text-brand-primary opacity-20">
                     TEE
                   </span>
                 </div>

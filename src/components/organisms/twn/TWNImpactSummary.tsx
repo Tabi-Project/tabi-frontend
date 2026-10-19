@@ -1,26 +1,30 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { CountUp } from "@/components/atoms/CountUp";
+import { Stagger, StaggerItem } from "@/components/atoms/Reveal";
+
+const TINTS = ["bg-tabi-pink", "bg-tabi-mint", "bg-tabi-cream", "bg-tabi-lilac/60"];
 
 export default function TWNImpactSummary() {
   const t = useTranslations("TWN.impactSummary");
   const stats = t.raw("stats") as Array<{ label: string; value: string }>;
 
   return (
-    <section className="py-24 bg-brand-surface/30 border-y border-purple-100/50">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          {stats.map((stat) => (
-            <div key={stat.label} className="group">
-              <p className="text-5xl font-black text-brand-primary tracking-tighter transition-transform group-hover:scale-110 duration-300">
-                {stat.value}
-              </p>
-              <p className="text-[10px] uppercase font-bold text-gray-400 tracking-[0.2em] mt-2">
-                {stat.label}
-              </p>
-            </div>
+    <section className="bg-white py-16 lg:py-20">
+      <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20">
+        <Stagger className="grid grid-cols-2 gap-4 md:grid-cols-4" stagger={0.08}>
+          {stats.map((stat, i) => (
+            <StaggerItem key={stat.label} hoverLift={4}>
+              <div className={`rounded-[1.75rem] p-6 sm:p-7 ${TINTS[i % TINTS.length]}`}>
+                <p className="text-[clamp(2.2rem,4vw,3.25rem)] font-bold leading-none text-tabi-ink">
+                  <CountUp value={stat.value} />
+                </p>
+                <p className="mt-3 text-sm text-tabi-body">{stat.label}</p>
+              </div>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   );

@@ -45,7 +45,7 @@ export function ConfirmationStep({
 
       <div className="mb-7">
         <h2
-          className="font-extrabold tracking-tight mb-1.5"
+          className="font-bold tracking-tight mb-1.5"
           style={{ fontSize: "1.25rem", color: C.ink }}
         >
           {t("title")}

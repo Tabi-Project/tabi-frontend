@@ -29,14 +29,14 @@ export default function FeaturedPostCard({
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">
-            <span className="text-4xl font-extrabold text-brand-primary opacity-20">
+            <span className="text-4xl font-bold text-brand-primary opacity-20">
               TEE
             </span>
           </div>
         )}
       </div>
       <div className="flex flex-col flex-1 p-8">
-        <h3 className="text-xl font-bold text-[#1a1a2e] mb-2 leading-snug">
+        <h3 className="text-xl font-bold text-tabi-ink mb-2 leading-snug">
           {post.title}
         </h3>
         <p className="text-xs text-brand-primary font-semibold mb-3">

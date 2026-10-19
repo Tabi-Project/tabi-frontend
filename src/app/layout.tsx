@@ -85,7 +85,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`scroll-smooth ${lato.variable}`}>
       <body className={lato.className} suppressHydrationWarning>
         <NextTopLoader
           color="#71286F"

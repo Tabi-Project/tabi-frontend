@@ -71,7 +71,7 @@ export default function ShareButtons({ title, url }: ShareButtonsProps) {
 
   return (
     <div className="flex flex-col gap-4 py-8 border-y border-gray-100 my-10">
-      <div className="flex items-center gap-2 text-sm font-semibold text-[#1a1a2e] uppercase tracking-wider">
+      <div className="flex items-center gap-2 text-sm font-semibold text-tabi-ink uppercase tracking-wider">
         <Share2 size={16} className="text-brand-primary" />
         <span>Share this post</span>
       </div>

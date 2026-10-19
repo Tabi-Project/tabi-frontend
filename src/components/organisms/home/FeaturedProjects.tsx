@@ -132,7 +132,7 @@ export default function FeaturedProjects({
       >
         <motion.h2
           variants={headerItem}
-          className="text-[clamp(1.8rem,4vw,3rem)] font-extrabold text-[#1a1a2e] tracking-tight"
+          className="text-[clamp(1.8rem,4vw,3rem)] font-bold text-tabi-ink tracking-tight"
         >
           {t("heading")}
         </motion.h2>
@@ -215,7 +215,7 @@ export default function FeaturedProjects({
             <circle cx="118" cy="38" r="2" fill="#C084E8" opacity="0.4" />
             <circle cx="135" cy="80" r="2.5" fill="#71286F" opacity="0.25" />
           </svg>
-          <p className="text-base font-bold text-[#1a1a2e] mb-2">
+          <p className="text-base font-bold text-tabi-ink mb-2">
             {t("emptyTitle")}
           </p>
           <p className="text-sm text-[#888] max-w-xs leading-relaxed">

@@ -1,106 +1,67 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { motion, useSpring, useTransform, useInView } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { CountUp } from "@/components/atoms/CountUp";
+import { Eyebrow } from "@/components/atoms/Eyebrow";
+import { Reveal, Stagger, StaggerItem } from "@/components/atoms/Reveal";
+import { Sparkle } from "@/components/atoms/Sparkle";
 
-function AnimatedNumber({ value }: { value: string }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-  const numericValue = parseInt(value.replace(/[^0-9]/g, "")) || 0;
-  const suffix = value.replace(/[0-9]/g, "");
-  const spring = useSpring(0, { mass: 0.8, stiffness: 75, damping: 15 });
-  const display = useTransform(
-    spring,
-    (current) => Math.round(current).toLocaleString() + suffix
-  );
-
-  useEffect(() => {
-    if (isInView) spring.set(numericValue);
-  }, [isInView, spring, numericValue]);
-
-  return <motion.span ref={ref}>{display}</motion.span>;
-}
+const ACCENTS = ["#F3A6D9", "#E0C0A8", "#9FD8B0", "#D8B4F8"];
 
 export default function OpenSourceImpact() {
   const t = useTranslations("OpenSource.impact");
-  const stats = t.raw("stats") as Array<{
-    label: string;
-    value: string;
-    description: string;
-  }>;
+  const stats = t.raw("stats") as Array<{ label: string; value: string; description: string }>;
 
   return (
-    <section className="py-24 bg-[#0a0a0a] text-white overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6 sm:px-12 lg:px-20">
-        <div className="text-center mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-4 mb-8 px-6 py-2 rounded-full bg-white/5 border border-white/10"
-          >
-            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-gray-400">
+    <section className="relative overflow-hidden bg-tabi-night py-20 text-white lg:py-28">
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_0%,rgba(208,96,176,0.3)_0%,transparent_65%)]" />
+      <Sparkle className="absolute right-[12%] top-16" size={28} />
+
+      <div className="relative mx-auto max-w-350 px-6 sm:px-12 lg:px-20">
+        <div className="mb-16 text-center">
+          <Reveal y={12}>
+            <Eyebrow tone="plum">
               {t("badge")}
-            </span>
-            <div className="w-px h-4 bg-white/20" />
-            <span className="text-xs font-bold text-brand-primary">
-              {t("collaborator")}
-            </span>
-          </motion.div>
-
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            viewport={{ once: true }}
-            className="text-4xl lg:text-6xl font-black tracking-tight leading-[1.1]"
-          >
-            {t("headingPart1")}{" "}
-            <span className="text-brand-primary italic">
-              {t("headingHighlight")}
-            </span>
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="mt-6 text-lg text-gray-400 max-w-2xl mx-auto font-light leading-relaxed"
-          >
-            {t("description")}
-          </motion.p>
+              <span className="mx-1 h-3.5 w-px bg-white/25" />
+              <span className="text-tabi-tan">{t("collaborator")}</span>
+            </Eyebrow>
+          </Reveal>
+          <Reveal delay={0.06} className="mt-6">
+            <h2 className="text-[clamp(2.1rem,4.5vw,3.5rem)] font-bold leading-[1.1]">
+              {t("headingPart1")}{" "}
+              <span className="bg-gradient-to-r from-[#F9C8EE] via-[#F3A6D9] to-tabi-tan bg-clip-text text-transparent">
+                {t("headingHighlight")}
+              </span>
+            </h2>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <p className="mx-auto mt-5 max-w-2xl text-lg leading-[1.8] text-white/70">{t("description")}</p>
+          </Reveal>
         </div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-          {stats.map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, scale: 0.9, y: 30 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{
-                duration: 0.5,
-                delay: i * 0.1,
-                ease: [0.21, 1.11, 0.81, 0.99]
-              }}
-              viewport={{ once: true }}
-              whileHover={{ y: -8, transition: { duration: 0.2 } }}
-              className="relative p-8 rounded-4xl bg-linear-to-b from-white/10 to-transparent border border-white/10 group hover:border-brand-primary/50 transition-all duration-500"
-            >
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-px bg-linear-to-r from-transparent via-brand-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <div className="text-4xl lg:text-5xl font-black text-white mb-3 tracking-tighter">
-                <AnimatedNumber value={stat.value} />
-              </div>
-              <p className="text-[10px] font-black uppercase tracking-widest text-brand-primary mb-2">
-                {stat.label}
-              </p>
-              <p className="text-xs text-gray-500 leading-relaxed font-medium">
-                {stat.description}
-              </p>
-            </motion.div>
-          ))}
-        </div>
+        <Stagger className="grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-5" stagger={0.1}>
+          {stats.map((stat, i) => {
+            const accent = ACCENTS[i % ACCENTS.length];
+            return (
+              <StaggerItem key={stat.label} className="h-full" hoverLift={8}>
+                <div className="group relative h-full overflow-hidden rounded-[2rem] bg-white/[0.05] p-7 ring-1 ring-white/10 transition-colors duration-500 hover:bg-white/[0.09] sm:p-8">
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full opacity-30 blur-2xl transition-opacity duration-500 group-hover:opacity-70"
+                    style={{ background: accent }}
+                  />
+                  <p className="relative text-[clamp(2.2rem,4vw,3rem)] font-bold leading-none">
+                    <CountUp value={stat.value} />
+                  </p>
+                  <p className="relative mt-4 text-sm font-medium" style={{ color: accent }}>
+                    {stat.label}
+                  </p>
+                  <p className="relative mt-2 text-sm leading-relaxed text-white/60">{stat.description}</p>
+                </div>
+              </StaggerItem>
+            );
+          })}
+        </Stagger>
       </div>
     </section>
   );

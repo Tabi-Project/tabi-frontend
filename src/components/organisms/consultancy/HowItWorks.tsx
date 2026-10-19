@@ -1,63 +1,64 @@
 "use client";
 
+import { useRef } from "react";
 import { useTranslations } from "next-intl";
+import { motion, useReducedMotion, useScroll, useSpring } from "framer-motion";
+import { EASE_TABI } from "@/components/atoms/Reveal";
+import { Sparkle } from "@/components/atoms/Sparkle";
+import SectionHeading from "@/components/molecules/SectionHeading";
+
+const ACCENTS = ["#F3A6D9", "#E0C0A8", "#9FD8B0", "#D8B4F8"];
 
 export default function HowItWorks() {
   const t = useTranslations("Consultancy.HowItWorks");
-  const steps = t.raw("steps") as Array<{
-    number: string;
-    title: string;
-    description: string;
-  }>;
+  const steps = t.raw("steps") as Array<{ number: string; title: string; description: string }>;
+  const reduced = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start 75%", "end 55%"] });
+  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
 
   return (
-    <section className="w-full" style={{ background: "#1a1a2e" }}>
-      <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <span
-            className="inline-flex items-center rounded-full px-5 py-2 text-sm font-semibold mb-5"
-            style={{ background: "rgba(113,40,111,0.3)", color: "#D4A8F0" }}
-          >
-            {t("badge")}
-          </span>
-          <h2 className="text-[clamp(1.8rem,3.5vw,2.8rem)] font-extrabold text-white leading-snug">
-            {t("heading")}
-          </h2>
-        </div>
+    <section className="relative w-full overflow-hidden bg-tabi-night">
+      <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_70%_at_50%_0%,rgba(208,96,176,0.3)_0%,transparent_65%)]" />
+      <Sparkle className="absolute left-[8%] top-16" size={28} />
+      <Sparkle className="absolute bottom-16 right-[10%]" size={18} delay={1.4} color="#F3A6D9" />
 
-        {/* Steps */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 relative">
-          {/* Connector — desktop */}
-          <div
-            className="hidden sm:block absolute top-8 left-[calc(16.66%+2rem)] right-[calc(16.66%+2rem)] h-px"
-            style={{ background: "rgba(113,40,111,0.4)" }}
-          />
+      <div className="relative mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
+        <SectionHeading align="center" inverted eyebrow={t("badge")} title={t("heading")} className="mb-16 lg:mb-20" />
+
+        <div ref={ref} className="relative grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-8">
+          {/* Connector that fills as you scroll */}
+          <div aria-hidden className="absolute left-[16.66%] right-[16.66%] top-8 hidden h-[2px] rounded-full bg-white/10 sm:block">
+            <motion.span
+              className="absolute inset-0 origin-left rounded-full bg-gradient-to-r from-[#F3A6D9] via-tabi-tan to-[#9FD8B0]"
+              style={reduced ? undefined : { scaleX: progress }}
+            />
+          </div>
 
           {steps.map((step, i) => (
-            <div
+            <motion.div
               key={step.number}
-              className="flex flex-col items-center text-center relative"
+              className="group relative flex flex-col items-center text-center"
+              initial={reduced ? { opacity: 0 } : { opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.7, delay: i * 0.15, ease: EASE_TABI }}
             >
-              {/* Number circle */}
-              <div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 z-10 shadow-lg"
-                style={{ background: "#71286F" }}
+              <motion.span
+                className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full text-xl font-bold text-tabi-night ring-8 ring-tabi-night transition-transform duration-500 group-hover:scale-110"
+                style={{ background: ACCENTS[i % ACCENTS.length] }}
+                initial={{ scale: 0.3 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ type: "spring", stiffness: 240, damping: 14, delay: 0.2 + i * 0.15 }}
               >
-                <span className="text-xl font-extrabold text-white">
-                  {step.number}
-                </span>
+                {step.number}
+              </motion.span>
+              <div className="mt-8 w-full rounded-[1.75rem] bg-white/[0.06] p-7 ring-1 ring-white/10 transition-colors duration-500 group-hover:bg-white/[0.1]">
+                <h3 className="text-lg font-bold text-white">{step.title}</h3>
+                <p className="mt-3 text-sm leading-[1.8] text-white/65">{step.description}</p>
               </div>
-              <h3 className="text-base font-extrabold text-white mb-3">
-                {step.title}
-              </h3>
-              <p
-                className="text-sm leading-relaxed"
-                style={{ color: "rgba(255,255,255,0.55)" }}
-              >
-                {step.description}
-              </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

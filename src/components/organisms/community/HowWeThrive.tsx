@@ -1,135 +1,108 @@
 "use client";
 
+import { useRef } from "react";
 import { useTranslations } from "next-intl";
-import { motion, Variants } from "framer-motion";
-import { Code2, Users, HeartHandshake, ArrowUpRight } from "lucide-react";
+import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from "framer-motion";
+import { ArrowUpRight, Code2, HeartHandshake, Users } from "lucide-react";
+import { GradientText } from "@/components/atoms/GradientText";
+import { Reveal } from "@/components/atoms/Reveal";
+import SectionHeading from "@/components/molecules/SectionHeading";
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2 }
-  }
-};
+const ICONS = [Code2, Users, HeartHandshake];
+const TINTS = [
+  { card: "bg-tabi-pink", ink: "text-brand-primary" },
+  { card: "bg-tabi-mint", ink: "text-[#2F8F5B]" },
+  { card: "bg-tabi-cream", ink: "text-[#B9772E]" }
+];
 
-const cardVariants: Variants = {
-  hidden: { opacity: 0, y: 40, scale: 0.95 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
-  }
-};
+/** A card that pins, then shrinks back as the next card slides over it. */
+function StackCard({
+  index,
+  total,
+  progress,
+  children
+}: {
+  index: number;
+  total: number;
+  progress: MotionValue<number>;
+  children: React.ReactNode;
+}) {
+  const reduced = useReducedMotion();
+  const start = index / total;
+  const scale = useTransform(progress, [start, 1], [1, 1 - (total - index - 1) * 0.05]);
+  const dim = useTransform(progress, [start, Math.min(1, start + 1 / total)], [0, index < total - 1 ? 0.06 : 0]);
+
+  return (
+    <div className="sticky" style={{ top: `calc(var(--nav-height, 80px) + 2rem + ${index * 28}px)` }}>
+      <motion.div style={reduced ? undefined : { scale }} className="origin-top">
+        {children}
+        {!reduced && (
+          <motion.div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 rounded-[2.5rem] bg-tabi-ink"
+            style={{ opacity: dim }}
+          />
+        )}
+      </motion.div>
+    </div>
+  );
+}
 
 export default function HowWeThrive() {
   const t = useTranslations("Community.howWeThrive");
-  const pillarsData = t.raw("pillars") as Array<{
-    title: string;
-    desc: string;
-  }>;
-
-  // Map icons and gradients (cannot be stored in JSON)
-  const icons = [Code2, Users, HeartHandshake];
-  const gradients = [
-    "from-blue-500 to-cyan-400",
-    "from-purple-500 to-pink-500",
-    "from-brand-primary to-orange-400"
-  ];
+  const pillars = t.raw("pillars") as Array<{ title: string; desc: string }>;
+  const stackRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: stackRef, offset: ["start start", "end end"] });
 
   return (
-    <section className="relative py-32 bg-[#fcfcfd] overflow-hidden">
-      {/* Background visuals unchanged */}
-      <div className="absolute inset-0 opacity-40 pointer-events-none">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: "radial-gradient(#e2e8f0 1px, transparent 1px)",
-            backgroundSize: "30px 30px"
-          }}
-        />
-        <div className="absolute top-1/4 -right-20 w-80 h-80 bg-brand-primary/10 rounded-full blur-3xl" />
-        <div className="absolute -bottom-10 left-10 w-60 h-60 bg-purple-500/10 rounded-full blur-3xl" />
-      </div>
+    <section className="relative bg-white">
+      <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
+        <div className="grid grid-cols-1 gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+          <div className="lg:sticky lg:top-32 lg:self-start">
+            <SectionHeading
+              eyebrow={t("badge")}
+              title={
+                <>
+                  {t("headingPart1")} <GradientText>{t("headingHighlight")}</GradientText>
+                </>
+              }
+            />
+            <Reveal delay={0.15}>
+              <p className="mt-6 max-w-md border-l-2 border-brand-primary/30 pl-6 text-lg leading-[1.8] text-tabi-body">
+                {t("description")}
+              </p>
+            </Reveal>
+          </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-20">
-        {/* Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-6">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-primary">
-              {t("badge")}
-            </span>
-            <h2 className="mt-3 text-4xl md:text-5xl font-black text-[#1a1a2e] tracking-tight leading-none">
-              {t("headingPart1")}{" "}
-              <span className="text-brand-primary italic">
-                {t("headingHighlight")}
-              </span>
-            </h2>
-          </motion.div>
-          <motion.p
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="max-w-md text-gray-500 text-sm md:text-base font-light border-l-2 border-brand-primary/30 pl-6"
-          >
-            {t("description")}
-          </motion.p>
-        </div>
-
-        {/* Cards Grid */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12"
-        >
-          {pillarsData.map((item, i) => {
-            const Icon = icons[i];
-            return (
-              <motion.div
-                key={i}
-                variants={cardVariants}
-                whileHover={{ y: -12 }}
-                className="group relative bg-white/60 backdrop-blur-xl border border-white hover:border-brand-primary/20 rounded-tabi-card p-10 shadow-[0_8px_30px_rgb(0,0,0,0.02)] hover:shadow-[0_20px_40px_rgba(113,40,111,0.05)] transition-all duration-500 flex flex-col justify-between min-h-100"
-              >
-                <div className="absolute inset-0 rounded-tabi-card bg-linear-to-br from-white/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                <div>
-                  <div className="relative w-14 h-14 mb-8">
-                    <div
-                      className={`absolute inset-0 bg-linear-to-br ${gradients[i]} rounded-2xl blur-md opacity-20 group-hover:opacity-60 transition-opacity duration-500`}
-                    />
-                    <div className="relative w-full h-full bg-white border border-gray-100 rounded-2xl flex items-center justify-center text-gray-700 group-hover:text-brand-primary transition-colors duration-500">
-                      <Icon size={24} strokeWidth={1.5} />
+          <div ref={stackRef} className="relative flex flex-col gap-8 pb-10">
+            {pillars.map((item, i) => {
+              const Icon = ICONS[i % ICONS.length];
+              const tint = TINTS[i % TINTS.length];
+              return (
+                <StackCard key={item.title} index={i} total={pillars.length} progress={scrollYProgress}>
+                  <article
+                    className={`group relative flex min-h-[320px] flex-col justify-between overflow-hidden rounded-[2.5rem] p-8 shadow-[0_30px_60px_-40px_rgba(113,40,111,0.5)] sm:p-10 ${tint.card}`}
+                  >
+                    <span className="pointer-events-none absolute -right-2 -top-6 select-none text-[8rem] font-bold leading-none text-black/[0.05]">
+                      0{i + 1}
+                    </span>
+                    <span className={`flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-sm transition-transform duration-500 group-hover:rotate-[-10deg] group-hover:scale-110 ${tint.ink}`}>
+                      <Icon size={24} strokeWidth={1.6} />
+                    </span>
+                    <div className="mt-12">
+                      <h3 className="text-[clamp(1.6rem,3vw,2.2rem)] font-bold text-tabi-ink">{item.title}</h3>
+                      <p className="mt-3 max-w-lg text-base leading-[1.8] text-tabi-body">{item.desc}</p>
+                      <span className={`mt-6 inline-flex items-center gap-1.5 text-sm font-medium ${tint.ink}`}>
+                        {t("exploreText")}
+                        <ArrowUpRight size={15} className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                      </span>
                     </div>
-                  </div>
-                  <h3 className="text-2xl font-bold text-[#1a1a2e] mb-4">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-500 text-sm font-light leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-                <div className="mt-8 pt-6 border-t border-gray-50 flex items-center justify-between text-xs font-bold uppercase tracking-widest text-gray-300 group-hover:text-brand-primary transition-colors duration-500">
-                  <span>{t("exploreText")}</span>
-                  <ArrowUpRight
-                    size={14}
-                    className="translate-y-0.5 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform duration-300"
-                  />
-                </div>
-                <span className="absolute -top-6 -right-2 text-[7rem] font-black text-[#1a1a2e]/2 group-hover:text-[#1a1a2e]/5 transition-colors duration-500 select-none font-sans">
-                  0{i + 1}
-                </span>
-              </motion.div>
-            );
-          })}
-        </motion.div>
+                  </article>
+                </StackCard>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </section>
   );

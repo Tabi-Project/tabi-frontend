@@ -16,7 +16,7 @@ export default function LegalSubsection({
 }: LegalSubsectionProps) {
   return (
     <div className="mb-6">
-      <h4 className="text-[15px] font-bold text-[#121212] mb-2">
+      <h4 className="text-[15px] font-bold text-tabi-ink mb-2">
         <span className="text-brand-primary mr-1">{number}</span>
         {title}
       </h4>

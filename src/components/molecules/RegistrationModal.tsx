@@ -24,7 +24,7 @@ export default function RegistrationModal({
           {/* Modal header */}
           <div className="flex items-center justify-between px-6 py-4 border-b border-[#f0ebf8] shrink-0">
             <div>
-              <h3 className="text-base font-extrabold text-[#1a1a2e]">
+              <h3 className="text-base font-bold text-tabi-ink">
                 {t("title")}
               </h3>
               <p className="text-xs text-[#888] mt-0.5">{t("subtitle")}</p>

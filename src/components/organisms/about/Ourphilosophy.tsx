@@ -68,7 +68,7 @@ export default function OurPhilosophy() {
   return (
     <section className="w-full bg-white">
       <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
-        <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-extrabold text-center text-[#121212] tracking-tight mb-10">
+        <h2 className="text-[clamp(2rem,4vw,3.2rem)] font-bold text-center text-[#121212] tracking-tight mb-10">
           {t("heading")}
         </h2>
 
@@ -107,7 +107,7 @@ export default function OurPhilosophy() {
           </div>
 
           <div className="flex flex-col justify-center px-10 py-12">
-            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#121212] mb-6 leading-tight">
+            <h3 className="text-2xl sm:text-3xl font-bold text-[#121212] mb-6 leading-tight">
               {t(`${active}.heading`)}
             </h3>
             <p className="text-sm sm:text-base text-[#121212] leading-relaxed">

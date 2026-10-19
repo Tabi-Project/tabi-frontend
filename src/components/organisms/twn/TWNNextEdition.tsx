@@ -6,6 +6,11 @@ import { Button } from "@/components/atoms/Button";
 import { Star, Calendar, Info } from "lucide-react";
 import CityRequestModal from "@/components/molecules/CityRequestModal";
 import Image from "next/image";
+import { LayoutGroup, motion } from "framer-motion";
+import { Eyebrow } from "@/components/atoms/Eyebrow";
+import { Reveal } from "@/components/atoms/Reveal";
+import { Sparkle } from "@/components/atoms/Sparkle";
+import { TiltCard } from "@/components/atoms/TiltCard";
 
 export default function TWNNextEdition() {
   const t = useTranslations("TWN.nextEdition");
@@ -14,46 +19,49 @@ export default function TWNNextEdition() {
 
   return (
     <section className="py-24 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="bg-[#FAF7FA] border border-brand-primary/5 rounded-[4rem] p-8 md:p-16 relative">
+      <div className="max-w-350 mx-auto px-6 sm:px-12 lg:px-20">
+        <Reveal y={40} scale={0.97}>
+        <div className="relative overflow-hidden rounded-[2.5rem] bg-tabi-blush p-8 md:p-16">
+          <div aria-hidden className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-brand-orchid/15 blur-[80px]" />
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left: Text & Details */}
             <div className="space-y-8 order-2 lg:order-1">
               <div className="space-y-4">
-                <div className="flex items-center gap-2 text-brand-primary text-[10px] font-black uppercase tracking-[0.2em]">
-                  <Star size={14} fill="currentColor" /> {t("badge")}
-                </div>
-                <h2 className="text-4xl md:text-5xl font-extrabold text-[#2D102D] leading-tight">
+                <Eyebrow tone="white">
+                  <Star size={13} fill="currentColor" /> {t("badge")}
+                </Eyebrow>
+                <h2 className="text-4xl md:text-5xl font-bold text-tabi-ink leading-tight">
                   {t("headingLine1")} <br />
-                  <span className="text-brand-primary italic font-serif lowercase">
+                  <span className="text-gradient-brand font-serif lowercase">
                     {t("headingHighlight")}
                   </span>
                 </h2>
-                <p className="text-gray-500 text-lg font-medium max-w-md">
+                <p className="text-tabi-body text-lg font-medium max-w-md">
                   {t("description")}
                 </p>
               </div>
 
-              <div className="flex items-start gap-6 p-6 bg-white rounded-3xl shadow-sm border border-gray-100">
-                <div className="w-14 h-14 bg-brand-primary rounded-2xl flex flex-col items-center justify-center text-white shrink-0">
-                  <span className="text-[8px] font-black uppercase">{t("month")}</span>
-                  <span className="text-2xl font-black leading-none">{t("day")}</span>
+              <div className="flex items-start gap-6 rounded-[1.5rem] bg-white p-6">
+                <div className="flex h-16 w-16 shrink-0 flex-col items-center justify-center rounded-full bg-brand-primary text-white shadow-[0_10px_24px_-10px_rgba(113,40,111,0.7)]">
+                  <span className="text-[10px] font-bold uppercase">{t("month")}</span>
+                  <span className="text-2xl font-bold leading-none">{t("day")}</span>
                 </div>
                 <div>
-                  <p className="text-[#1a1a2e] font-bold">{t("eventTitle")}</p>
-                  <p className="text-sm text-gray-500">{t("eventTime")}</p>
+                  <p className="text-tabi-ink font-bold">{t("eventTitle")}</p>
+                  <p className="text-sm text-tabi-body">{t("eventTime")}</p>
                 </div>
               </div>
 
               <div className="space-y-4">
                 <Button
                   onClick={() => setModalOpen(true)}
-                  className="w-full md:w-auto bg-[#2D102D] hover:bg-brand-primary text-white px-10 py-6 rounded-2xl font-bold transition-all flex items-center justify-center gap-3 shadow-xl"
+                  size="lg"
+                  className="w-full md:w-auto"
                 >
                   {t("cta")} <Calendar size={18} />
                 </Button>
 
-                <div className="flex items-center gap-2 text-[11px] text-gray-400 font-medium">
+                <div className="flex items-center gap-2 text-[11px] text-tabi-body/70 font-medium">
                   <Info size={14} className="text-brand-primary" />
                   <span>{t("footnote")}</span>
                 </div>
@@ -62,7 +70,9 @@ export default function TWNNextEdition() {
 
             {/* Right: The Flyer with Language Toggle */}
             <div className="relative order-1 lg:order-2 group">
-              <div className="relative aspect-4/5 w-full max-w-sm mx-auto overflow-hidden rounded-4xl shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
+              <Sparkle className="absolute -top-4 right-[12%] z-10" size={40} />
+              <TiltCard max={8} className="mx-auto w-full max-w-sm rounded-[2rem]">
+              <div className="relative aspect-4/5 w-full overflow-hidden rounded-[2rem] border-[3px] border-brand-primary shadow-[0_40px_80px_-40px_rgba(113,40,111,0.6)]">
                 <Image
                   src={
                     language === "en"
@@ -71,31 +81,43 @@ export default function TWNNextEdition() {
                   }
                   alt="Tabi Women Network Cotonou Flyer"
                   fill
+                  sizes="384px"
                   className="object-cover transition-opacity duration-500"
                 />
 
-                {/* Language Switcher Overlay */}
-                <div className="absolute top-4 right-4 flex bg-white/20 backdrop-blur-xl border border-white/20 p-1 rounded-full">
-                  <button
-                    onClick={() => setLanguage("en")}
-                    className={`px-4 py-1 text-[10px] font-black rounded-full transition-all ${language === "en" ? "bg-white text-brand-primary" : "text-white"}`}
-                  >
-                    EN
-                  </button>
-                  <button
-                    onClick={() => setLanguage("fr")}
-                    className={`px-4 py-1 text-[10px] font-black rounded-full transition-all ${language === "fr" ? "bg-white text-brand-primary" : "text-white"}`}
-                  >
-                    FR
-                  </button>
-                </div>
+                {/* Language switcher with a sliding pill */}
+                <LayoutGroup id="flyer-lang">
+                  <div className="absolute right-4 top-4 flex rounded-full bg-white/25 p-1 ring-1 ring-white/30 backdrop-blur-xl">
+                    {(["en", "fr"] as const).map((lang) => (
+                      <button
+                        key={lang}
+                        type="button"
+                        onClick={() => setLanguage(lang)}
+                        aria-pressed={language === lang}
+                        className={`relative cursor-pointer rounded-full px-4 py-1 text-[11px] font-bold uppercase transition-colors ${language === lang ? "text-brand-primary" : "text-white"}`}
+                      >
+                        {language === lang && (
+                          <motion.span
+                            layoutId="flyer-lang-pill"
+                            className="absolute inset-0 rounded-full bg-white"
+                            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                          />
+                        )}
+                        <span className="relative">{lang}</span>
+                      </button>
+                    ))}
+                  </div>
+                </LayoutGroup>
               </div>
+              </TiltCard>
 
               {/* Decorative Glow */}
               <div className="absolute -z-10 inset-0 bg-brand-primary/20 blur-[80px] rounded-full scale-75 group-hover:scale-100 transition-transform duration-700" />
             </div>
           </div>
         </div>
+
+        </Reveal>
       </div>
 
       {modalOpen && <CityRequestModal onClose={() => setModalOpen(false)} />}

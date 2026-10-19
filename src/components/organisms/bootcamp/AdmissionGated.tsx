@@ -1,258 +1,184 @@
 "use client";
 
-import { useState } from "react"; 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useState } from "react";
 import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import BootcampApplyModal from "@/components/organisms/bootcamp/BootcampApplyModal"; 
+import { ArrowRight, Check, X } from "lucide-react";
+import BootcampApplyModal from "@/components/organisms/bootcamp/BootcampApplyModal";
+import { Button } from "@/components/atoms/Button";
+import { CountUp } from "@/components/atoms/CountUp";
+import { GradientText } from "@/components/atoms/GradientText";
+import { Parallax } from "@/components/atoms/Parallax";
+import { Reveal, Stagger, StaggerItem, EASE_TABI } from "@/components/atoms/Reveal";
+import { Sparkle } from "@/components/atoms/Sparkle";
+import SectionHeading from "@/components/molecules/SectionHeading";
+
+const STEP_TINTS = ["bg-tabi-pink", "bg-tabi-mint", "bg-tabi-cream", "bg-tabi-lilac/60"];
 
 export default function AdmissionGated() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
   const t = useTranslations("Bootcamp.admission");
   const qualifies = t.raw("qualifies") as string[];
   const doesntQualify = t.raw("doesntQualify") as string[];
   const pills = t.raw("pills") as string[];
-  const process = t.raw("process") as Array<{
-    step: string;
-    title: string;
-    desc: string;
-  }>;
+  const process = t.raw("process") as Array<{ step: string; title: string; desc: string }>;
   const stats = t.raw("stats") as Array<{ v: string; l: string }>;
-  const [modalOpen, setModalOpen] = useState(false); 
+  const [modalOpen, setModalOpen] = useState(false);
+  const reduced = useReducedMotion();
 
   return (
-    <section className="w-full bg-[#fdf7ff] py-24 md:py-32 overflow-hidden">
-      <div className="px-6 sm:px-10 lg:px-16 max-w-350 mx-auto">
-        {/* Header row */}
-        <div
-          className="grid lg:grid-cols-[1fr_1fr] gap-12 items-start mb-16"
-          ref={ref}
-        >
+    <section className="w-full overflow-hidden bg-tabi-blush py-20 lg:py-28">
+      <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20">
+        {/* Header */}
+        <div className="mb-14 grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              className="text-xs font-semibold text-brand-primary uppercase tracking-wide mb-4"
-            >
-              {t("badge")}
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.1 }}
-              className="font-extrabold tracking-tight text-[clamp(2rem,3.8vw,3rem)] text-[#1a1a2e] leading-tight mb-6"
-            >
-              {t("heading")}{" "}
-              <span
-                className="bg-clip-text text-transparent"
-                style={{
-                  backgroundImage: "linear-gradient(135deg, #71286F, #c040a0)"
-                }}
-              >
-                {t("highlight")}
-              </span>
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.18 }}
-              className="text-base text-[#666] leading-relaxed mb-7"
-            >
-              {t("description")}
-            </motion.p>
-            {/* Golden rule */}
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.26 }}
-              className="flex items-start gap-4 rounded-2xl p-5"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(113,40,111,0.06), rgba(192,64,160,0.04))",
-                border: "1px solid rgba(113,40,111,0.15)"
-              }}
-            >
-              <span className="text-2xl shrink-0 text-brand-primary">✦</span>
-              <div>
-                <p className="font-bold text-[#1a1a2e] text-sm mb-1">
-                  {t("goldenRuleTitle")}
-                </p>
-                <p className="text-sm text-[#555] leading-relaxed">
-                  {t("goldenRuleText")}
-                </p>
+            <SectionHeading
+              eyebrow={t("badge")}
+              eyebrowTone="white"
+              title={
+                <>
+                  {t("heading")} <GradientText>{t("highlight")}</GradientText>
+                </>
+              }
+              description={t("description")}
+            />
+            <Reveal delay={0.2} className="mt-8">
+              <div className="flex items-start gap-4 rounded-[1.5rem] bg-white p-5">
+                <span className="mt-0.5 shrink-0">
+                  <Sparkle size={26} still />
+                </span>
+                <div>
+                  <p className="font-bold text-tabi-ink">{t("goldenRuleTitle")}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-tabi-body">{t("goldenRuleText")}</p>
+                </div>
               </div>
-            </motion.div>
+            </Reveal>
           </div>
 
-          {/* Right: image with overlaid stats */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.3 }}
-            className="relative rounded-2xl overflow-hidden"
-            style={{ height: "360px" }}
-          >
-            <Image
-              src="https://images.unsplash.com/photo-1637979911022-792ba47b8098?w=500"
-              alt="Developer working focused"
-              fill
-              className="object-cover"
-            />
-            <div
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(113,40,111,0.75) 0%, rgba(192,64,160,0.5) 100%)"
-              }}
-            />
-            <div className="absolute inset-0 flex flex-col justify-end p-8">
-              <div className="grid grid-cols-2 gap-3">
-                {stats.map((s) => (
-                  <div
-                    key={s.l}
-                    className="bg-white/15 backdrop-blur-sm rounded-xl p-3 border border-white/20"
-                  >
-                    <p className="text-white font-extrabold text-xl leading-none">
-                      {s.v}
-                    </p>
-                    <p className="text-white/70 text-[10px] mt-1 uppercase tracking-widest font-semibold">
-                      {s.l}
-                    </p>
-                  </div>
-                ))}
+          <Parallax offset={30}>
+            <Reveal scale={0.95}>
+              <div className="relative h-[380px] overflow-hidden rounded-[2rem] border-[3px] border-brand-primary">
+                <Image
+                  src="https://images.unsplash.com/photo-1637979911022-792ba47b8098?w=900"
+                  alt=""
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 560px"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/90 via-brand-primary/40 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 grid grid-cols-2 gap-3 p-6">
+                  {stats.map((s) => (
+                    <div key={s.l} className="rounded-2xl bg-white/15 p-4 ring-1 ring-white/25 backdrop-blur-md">
+                      <p className="text-2xl font-bold leading-none text-white">
+                        <CountUp value={s.v} />
+                      </p>
+                      <p className="mt-1.5 text-xs text-white/75">{s.l}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </Reveal>
+          </Parallax>
         </div>
 
-        {/* Qualify/Doesn't grid */}
-        <div className="grid md:grid-cols-2 gap-5 mb-12">
-          <motion.div
-            initial={{ opacity: 0, x: -16 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.35 }}
-            className="rounded-2xl border border-brand-primary/30 bg-white p-7"
-            style={{ boxShadow: "0 4px 20px rgba(34,197,94,0.06)" }}
-          >
-            <p className="text-xs font-semibold uppercase tracking-wide text-brand-primary mb-5">
-              {t("qualifyTitle")}
-            </p>
-            <div className="space-y-4">
-              {qualifies.map((q, i) => (
-                <motion.div
-                  key={q}
-                  initial={{ opacity: 0 }}
-                  animate={inView ? { opacity: 1 } : {}}
-                  transition={{ delay: 0.45 + i * 0.07 }}
-                  className="flex items-start gap-3"
-                >
-                  <span className="text-brand-primary text-sm shrink-0 mt-0.5">
-                    ✓
-                  </span>
-                  <p className="text-sm text-[#555] leading-relaxed">{q}</p>
-                </motion.div>
-              ))}
+        {/* Qualify / doesn't */}
+        <div className="mb-10 grid gap-5 md:grid-cols-2">
+          <Reveal x={-24} y={0}>
+            <div className="h-full rounded-[2rem] bg-white p-7 sm:p-8">
+              <p className="mb-5 text-sm font-medium text-[#2F8F5B]">{t("qualifyTitle")}</p>
+              <ul className="space-y-4">
+                {qualifies.map((q, i) => (
+                  <motion.li
+                    key={q}
+                    className="flex items-start gap-3"
+                    initial={reduced ? { opacity: 0 } : { opacity: 0, x: -12 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 1 }}
+                    transition={{ duration: 0.5, delay: 0.2 + i * 0.08, ease: EASE_TABI }}
+                  >
+                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-tabi-green text-[#2F8F5B]">
+                      <Check size={13} strokeWidth={3} />
+                    </span>
+                    <p className="text-base leading-relaxed text-tabi-ink">{q}</p>
+                  </motion.li>
+                ))}
+              </ul>
             </div>
-          </motion.div>
+          </Reveal>
 
-          <motion.div
-            initial={{ opacity: 0, x: 16 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ delay: 0.4 }}
-            className="rounded-2xl border border-red-100 bg-white p-7"
-            style={{ boxShadow: "0 4px 20px rgba(239,68,68,0.05)" }}
-          >
-            <p className="text-xs font-semibold uppercase tracking-wide text-red-500 mb-5">
-              {t("doesntQualifyTitle")}
-            </p>
-            <div className="space-y-4">
-              {doesntQualify.map((q, i) => (
-                <motion.div
-                  key={q}
-                  initial={{ opacity: 0 }}
-                  animate={inView ? { opacity: 1 } : {}}
-                  transition={{ delay: 0.5 + i * 0.07 }}
-                  className="flex items-start gap-3"
-                >
-                  <span className="text-red-400 text-sm shrink-0 mt-0.5">
-                    ✕
-                  </span>
-                  <p className="text-sm text-[#555] leading-relaxed">{q}</p>
-                </motion.div>
-              ))}
-            </div>
-            <div className="mt-6 pt-5 border-t border-[#fef2f2]">
-              <p className="text-xs text-[#999] leading-relaxed">
+          <Reveal x={24} y={0}>
+            <div className="h-full rounded-[2rem] bg-white p-7 sm:p-8">
+              <p className="mb-5 text-sm font-medium text-[#C2416B]">{t("doesntQualifyTitle")}</p>
+              <ul className="space-y-4">
+                {doesntQualify.map((q, i) => (
+                  <motion.li
+                    key={q}
+                    className="flex items-start gap-3"
+                    initial={reduced ? { opacity: 0 } : { opacity: 0, x: 12 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 1 }}
+                    transition={{ duration: 0.5, delay: 0.2 + i * 0.08, ease: EASE_TABI }}
+                  >
+                    <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#FDE8EE] text-[#C2416B]">
+                      <X size={13} strokeWidth={3} />
+                    </span>
+                    <p className="text-base leading-relaxed text-tabi-body">{q}</p>
+                  </motion.li>
+                ))}
+              </ul>
+              <p className="mt-6 border-t border-brand-primary/10 pt-5 text-sm leading-relaxed text-tabi-body">
                 {t("doesntQualifyFooter")}
               </p>
             </div>
-          </motion.div>
+          </Reveal>
         </div>
 
-        {/* Disclaimer pills */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={inView ? { opacity: 1 } : {}}
-          transition={{ delay: 0.65 }}
-          className="flex flex-wrap gap-2 mb-14"
-        >
+        <Stagger className="mb-16 flex flex-wrap gap-2" stagger={0.05}>
           {pills.map((p) => (
-            <span
-              key={p}
-              className="px-4 py-2 rounded-full border border-[#f0e8f0] text-xs font-medium text-[#888] bg-white"
-            >
-              {p}
-            </span>
+            <StaggerItem key={p} as="span" y={10} scale={0.9}>
+              <span className="inline-block rounded-full bg-white px-4 py-2 text-sm text-tabi-body">{p}</span>
+            </StaggerItem>
           ))}
-        </motion.div>
+        </Stagger>
 
-        {/* Process steps */}
-        <motion.h3
-          initial={{ opacity: 0, y: 10 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.65 }}
-          className="text-[#1a1a2e] font-extrabold text-xl mb-7"
-        >
-          {t("processTitle")}
-        </motion.h3>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {process.map((p, i) => (
-            <motion.div
-              key={p.step}
-              initial={{ opacity: 0, y: 18 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.72 + i * 0.09 }}
-              className="rounded-xl border border-[#f0e8f0] bg-white p-5 hover:shadow-sm hover:border-brand-primary/20 transition-all duration-300"
-            >
-              <p className="text-xs font-semibold text-brand-primary mb-3 tracking-widest">
-                {p.step}
-              </p>
-              <h4 className="text-[#1a1a2e] font-bold text-sm mb-2">
-                {p.title}
-              </h4>
-              <p className="text-xs text-[#888] leading-relaxed">{p.desc}</p>
-            </motion.div>
-          ))}
+        {/* Process */}
+        <Reveal>
+          <h3 className="mb-8 text-2xl font-bold text-tabi-ink">{t("processTitle")}</h3>
+        </Reveal>
+        <div className="relative">
+          <motion.span
+            aria-hidden
+            className="absolute left-0 right-0 top-6 hidden h-px origin-left bg-gradient-to-r from-brand-primary via-brand-orchid to-tabi-tan lg:block"
+            initial={reduced ? undefined : { scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 1.4, ease: EASE_TABI }}
+          />
+          <Stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" stagger={0.12}>
+            {process.map((p, i) => (
+              <StaggerItem key={p.step} className="h-full" hoverLift={6}>
+                <div className="relative h-full">
+                  <span className="relative z-10 mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-brand-primary text-sm font-bold text-white ring-[6px] ring-tabi-blush">
+                    {p.step}
+                  </span>
+                  <div className={`rounded-[1.5rem] p-6 ${STEP_TINTS[i % STEP_TINTS.length]}`}>
+                    <h4 className="font-bold text-tabi-ink">{p.title}</h4>
+                    <p className="mt-2 text-sm leading-relaxed text-tabi-body">{p.desc}</p>
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
+          </Stagger>
         </div>
 
-        {/* ── Apply Now CTA ────────────────────────────────── */}
-        <div className="mt-14 text-center">
-          <button
-            onClick={() => setModalOpen(true)}
-            className="px-10 py-4 rounded-xl font-bold text-sm tracking-wide text-white transition-all duration-200 hover:scale-[1.03] hover:shadow-xl"
-            style={{
-              background: "linear-gradient(135deg, #71286F, #c040a0)",
-              boxShadow: "0 8px 36px rgba(113,40,111,0.35)"
-            }}
-          >
+        <Reveal className="mt-14 text-center" y={16}>
+          <Button variant="primary" size="lg" onClick={() => setModalOpen(true)}>
             {t("ctaButton")}
-          </button>
-        </div>
+            <ArrowRight size={18} className="transition-transform duration-300 group-hover/btn:translate-x-1" />
+          </Button>
+        </Reveal>
       </div>
 
-      {/* Application modal */}
       {modalOpen && <BootcampApplyModal onClose={() => setModalOpen(false)} />}
     </section>
   );

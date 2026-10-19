@@ -8,8 +8,9 @@ import { withBasePath } from "@/constants/paths";
 
 function polarToCSS(angleDeg: number, radiusPct: number) {
   const rad = ((angleDeg - 90) * Math.PI) / 180;
-  const x = 50 + radiusPct * Math.cos(rad);
-  const y = 50 + radiusPct * Math.sin(rad);
+  // Rounded so server and client serialise identical strings (avoids hydration mismatch)
+  const x = Math.round((50 + radiusPct * Math.cos(rad)) * 100) / 100;
+  const y = Math.round((50 + radiusPct * Math.sin(rad)) * 100) / 100;
   return { left: `${x}%`, top: `${y}%` };
 }
 
@@ -27,7 +28,7 @@ export default function HeroSection() {
           </p>
           <div className="flex items-center gap-1 md:gap-1.5 mt-0.5">
             <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-gray-300 shrink-0" />
-            <p className="text-xs md:text-sm font-bold text-[#1a1a2e]">
+            <p className="text-xs md:text-sm font-bold text-tabi-ink">
               {t("tags.academy.title")}
             </p>
           </div>
@@ -44,7 +45,7 @@ export default function HeroSection() {
           </p>
           <div className="flex items-center gap-1 md:gap-1.5 mt-0.5">
             <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-brand-primary shrink-0" />
-            <p className="text-xs md:text-sm font-bold text-[#1a1a2e]">
+            <p className="text-xs md:text-sm font-bold text-tabi-ink">
               {t("tags.project.title")}
             </p>
           </div>
@@ -57,7 +58,7 @@ export default function HeroSection() {
       content: (
         <div className="bg-white rounded-xl shadow-md px-3 py-2 md:px-4 md:py-2.5">
           <span className="text-base md:text-xl font-black text-brand-primary tracking-tight leading-none">
-            purple<span className="text-[#1a1a2e]">.</span>
+            purple<span className="text-tabi-ink">.</span>
           </span>
           <p className="text-[8px] md:text-[10px] tracking-[0.2em] md:tracking-[0.25em] text-brand-muted uppercase font-medium mt-0.5">
             {t("tags.guild.subtitle")}
@@ -70,7 +71,7 @@ export default function HeroSection() {
       angle: 310,
       content: (
         <div className="bg-[#f0faf4]/90 backdrop-blur-sm rounded-xl shadow-md px-3 py-2 md:px-4 md:py-2.5">
-          <p className="text-base md:text-xl font-extrabold text-[#1a1a2e] leading-none">
+          <p className="text-base md:text-xl font-bold text-tabi-ink leading-none">
             {t("tags.volunteers.number")}
           </p>
           <p className="text-[9px] md:text-[11px] text-[#888] mt-0.5 md:mt-1">
@@ -84,7 +85,7 @@ export default function HeroSection() {
       angle: 130,
       content: (
         <div className="bg-[#fff9f0]/90 backdrop-blur-sm rounded-xl shadow-md px-3 py-2 md:px-4 md:py-2.5">
-          <p className="text-base md:text-xl font-extrabold text-[#1a1a2e] leading-none">
+          <p className="text-base md:text-xl font-bold text-tabi-ink leading-none">
             {t("tags.trained.number")}
           </p>
           <p className="text-[9px] md:text-[11px] text-[#888] mt-0.5 md:mt-1">
@@ -98,7 +99,7 @@ export default function HeroSection() {
       angle: 240,
       content: (
         <div className="bg-[#fff9f0]/90 backdrop-blur-sm rounded-xl shadow-md px-3 py-2 md:px-4 md:py-2.5">
-          <p className="text-base md:text-xl font-extrabold text-[#1a1a2e] leading-none">
+          <p className="text-base md:text-xl font-bold text-tabi-ink leading-none">
             {t("tags.participation.number")}
           </p>
           <p className="text-[9px] md:text-[11px] text-[#888] mt-0.5 md:mt-1 max-w-20 md:max-w-none">
@@ -115,9 +116,9 @@ export default function HeroSection() {
       style={{ paddingTop: "var(--nav-height, 80px)" }}
     >
       <div className="relative z-10 flex flex-col items-center text-center px-4 sm:px-6 mb-8 md:mb-16 pt-12 md:pt-20">
-        <h1 className="text-[clamp(1.9rem,6vw,4rem)] font-extrabold leading-tight tracking-tight text-[#1a1a2e]">
+        <h1 className="text-[clamp(1.9rem,6vw,4rem)] font-bold leading-tight tracking-tight text-tabi-ink">
           {t("headlinePart1")}
-          <span className="text-brand-primary italic">
+          <span className="text-gradient-brand">
             {t("headlinePart2")}
           </span>
           <Image

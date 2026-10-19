@@ -140,7 +140,7 @@
 
 //           {/* ── Content ── */}
 //           <div className="px-8 pb-8 pt-6 text-center">
-//             <h2 className="text-2xl font-extrabold text-[#1a1a2e] mb-3">
+//             <h2 className="text-2xl font-bold text-tabi-ink mb-3">
 //               {firstName
 //                 ? `You're in, ${firstName}! 🌟`
 //                 : "You're officially in! 🌟"}
@@ -323,7 +323,7 @@ export default function CommunityWelcomeModal({
           </div>
 
           <div className="px-8 pb-8 pt-6 text-center">
-            <h2 className="text-2xl font-extrabold text-[#1a1a2e] mb-3">
+            <h2 className="text-2xl font-bold text-tabi-ink mb-3">
               {title}
             </h2>
             <p className="text-sm text-[#555] leading-relaxed mb-2">

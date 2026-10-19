@@ -270,10 +270,12 @@
     "showLess": "Afficher moins"
   },
     "Testimonials": {
+    "eyebrow": "Témoignages",
     "heading": "Les voix de notre communauté",
     "subheading": "Les mots authentiques de personnes dont la vie et le travail ont été façonnés par Tabi."
   },
   "ConsultancyTeaser": {
+    "slotsLabel": "Places ce mois-ci",
     "badge": "✦ 100 % gratuit",
     "deadlinePrefix": "Clôture :",
     "heading": "Consultance gratuite pour",
@@ -503,6 +505,7 @@
       }
     },
     "curriculum": {
+      "progressLabel": "Faites défiler pour découvrir chaque jour",
       "badge": "Le programme",
       "heading": "Quatre jours qui changent votre façon de travailler",
       "description": "Chaque journée est structurée autour d’une compétence IA clé – et chacune s’appuie sur la précédente. Au Jour 4, vous serez passée des fondamentaux de l’IA au déploiement d’agents autonomes pour votre entreprise.",
@@ -543,6 +546,7 @@
       }
     },
     "inclusions": {
+      "allLabel": "Tout",
       "badge": "Ce qui est inclus",
       "headingLine1": "Tout",
       "headingLine2": "ce dont vous avez besoin.",
@@ -649,6 +653,7 @@
       "footerHighlight": "vous avez votre place dans cette cohorte."
     },
     "pricing": {
+      "stampText": "−50 % • Durée limitée • ",
       "badge": "Investissement et accès",
       "heading": "Offre limitée à -50 %",
       "description": "Nous avons réduit les frais de formation standard de 50 % pour cette cohorte afin de soutenir davantage de femmes africaines dans la tech.",
@@ -666,6 +671,7 @@
       }
     },
     "certification": {
+      "stepLabel": "Étape",
       "badge": "Certification",
       "headingLine1": "Obtenez un certificat",
       "headingLine2": "qui a de la valeur",
@@ -1425,6 +1431,13 @@
       "ogDescription": "Ingénierie de solutions évolutives pour réduire le fossé pour les femmes en Afrique."
     },
     "hero": {
+      "deckHint": "Touchez une fenêtre pour la mettre en avant",
+      "liveLabel": "En ligne",
+      "activityLabel": "Activité du sprint",
+      "prMerged": "Pull request fusionnée",
+      "contributorsLabel": "contributeurs qui construisent en open source",
+      "ctaGithub": "Voir sur GitHub",
+      "ctaExplore": "Découvrir les projets",
       "badge": "Impact de l'ingénierie · 2026",
       "headlinePart1": "Construire pour",
       "headlineHighlight": "les femmes.",

@@ -19,6 +19,7 @@ export default async function TestimonialsSectionServer({ locale }: Props) {
       testimonials={testimonials}
       heading={t("heading")}
       subheading={t("subheading")}
+      eyebrow={t("eyebrow")}
     />
   );
 }

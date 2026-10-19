@@ -46,7 +46,7 @@ export default function GetInvolved() {
           variants={containerVariants}
         >
           <motion.div className="text-center mb-14" variants={itemVariants}>
-            <h2 className="text-[clamp(3.5rem,4.5vw,3.5rem)] font-bold tracking-tight text-[#1a1a2e] leading-tight">
+            <h2 className="text-[clamp(3.5rem,4.5vw,3.5rem)] font-bold tracking-tight text-tabi-ink leading-tight">
               {t("heading")}{" "}
               <span className="text-brand-primary">
                 {t("headingHighlight")}

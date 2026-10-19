@@ -11,7 +11,7 @@ export default function ProcessStepCard({ step }: { step: ProcessStep }) {
           {step.number}
         </span>
       </div>
-      <h3 className="text-base font-bold text-[#1a1a2e] mb-2">{step.title}</h3>
+      <h3 className="text-base font-bold text-tabi-ink mb-2">{step.title}</h3>
       <p className="text-sm text-[#666] leading-relaxed max-w-50">
         {step.description}
       </p>

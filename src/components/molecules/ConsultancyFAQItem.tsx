@@ -13,7 +13,7 @@ export default function ConsultancyFAQItem({ item }: { item: FAQItem }) {
         onClick={() => setOpen((o) => !o)}
         className="w-full flex items-center justify-between py-5 text-left gap-4"
       >
-        <span className="text-sm font-semibold text-[#1a1a2e] leading-snug">
+        <span className="text-sm font-semibold text-tabi-ink leading-snug">
           {item.question}
         </span>
         <LuChevronDown

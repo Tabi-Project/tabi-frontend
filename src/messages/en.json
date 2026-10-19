@@ -282,10 +282,12 @@
     "showLess": "Show Less"
   },
   "Testimonials": {
+    "eyebrow": "Testimonials",
     "heading": "Voices from Our Community",
     "subheading": "Real words from real people whose lives and work have been shaped by Tabi."
   },
   "ConsultancyTeaser": {
+    "slotsLabel": "Slots this month",
     "badge": "✦ 100% Free",
     "deadlinePrefix": "Closes",
     "heading": "Free Business Consultancy to",
@@ -509,6 +511,7 @@
       }
     },
     "curriculum": {
+      "progressLabel": "Scroll to explore each day",
       "badge": "The Curriculum",
       "heading": "Four Days That Change How You Work",
       "description": "Each day is structured around a core AI capability — and each one builds on the last. By Day 4, you'll have gone from AI foundations to deploying autonomous agents for your business.",
@@ -549,6 +552,7 @@
       }
     },
     "inclusions": {
+      "allLabel": "All",
       "badge": "What's Included",
       "headingLine1": "Everything",
       "headingLine2": "You Need.",
@@ -648,6 +652,7 @@
       "footerHighlight": "you belong in this cohort."
     },
     "pricing": {
+      "stampText": "50% off • Limited time • ",
       "badge": "Investment & Access",
       "heading": "50% Off Limited Time Offer",
       "description": "We've discounted the standard tuition by 50% for this cohort to support more African women in tech.",
@@ -665,6 +670,7 @@
       }
     },
     "certification": {
+      "stepLabel": "Step",
       "badge": "Certification",
       "headingLine1": "Earn a Certificate",
       "headingLine2": "That Means Something",
@@ -1418,6 +1424,13 @@
       "ogDescription": "Engineering scalable solutions to bridge the gap for women in Africa."
     },
     "hero": {
+      "deckHint": "Tap a window to bring it forward",
+      "liveLabel": "Live",
+      "activityLabel": "Sprint activity",
+      "prMerged": "Pull request merged",
+      "contributorsLabel": "contributors shipping in the open",
+      "ctaGithub": "View on GitHub",
+      "ctaExplore": "Explore the projects",
       "badge": "Engineering Impact · 2026",
       "headlinePart1": "Building for",
       "headlineHighlight": "Women.",

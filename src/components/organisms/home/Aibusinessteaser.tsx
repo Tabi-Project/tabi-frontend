@@ -1,205 +1,187 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import Link from "next/link";
+import Image from "next/image";
+import { Link } from "@/i18n/navigation";
 import { Button } from "@/components/atoms/Button";
-import { motion, Variants } from "framer-motion";
-import { Lightbulb, Palette, Globe, Zap } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowRight, Globe, Lightbulb, Palette, Zap } from "lucide-react";
+import { CountUp } from "@/components/atoms/CountUp";
+import { Eyebrow } from "@/components/atoms/Eyebrow";
+import { GradientText } from "@/components/atoms/GradientText";
+import { Parallax } from "@/components/atoms/Parallax";
+import { Reveal, Stagger, StaggerItem, EASE_TABI } from "@/components/atoms/Reveal";
+import { Sparkle } from "@/components/atoms/Sparkle";
+import { withBasePath } from "@/constants/paths";
 
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15 }
-  }
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.7,
-      ease: [0.16, 1, 0.3, 1] as const
-    }
-  }
-};
+// Card tints follow the hero stat chips in the Figma (pink / mint / cream / lilac)
+const PILLARS = [
+  { key: "strategy", icon: Lightbulb, tint: "bg-tabi-pink", iconTint: "text-brand-primary" },
+  { key: "design", icon: Palette, tint: "bg-tabi-mint", iconTint: "text-[#2F8F5B]" },
+  { key: "build", icon: Globe, tint: "bg-tabi-cream", iconTint: "text-[#B9772E]" },
+  { key: "automate", icon: Zap, tint: "bg-tabi-lilac/60", iconTint: "text-brand-primary" }
+] as const;
 
 export default function AIBusinessTeaser() {
   const t = useTranslations("AIBusinessTeaser");
+  const reduced = useReducedMotion();
 
-  // Define highlights with translation keys
   const HIGHLIGHTS = [
-    {
-      value: t("highlights.training.value"),
-      label: t("highlights.training.label")
-    },
-    { value: t("highlights.tools.value"), label: t("highlights.tools.label") },
-    {
-      value: t("highlights.participants.value"),
-      label: t("highlights.participants.label")
-    },
-    {
-      value: t("highlights.handsOn.value"),
-      label: t("highlights.handsOn.label")
-    }
-  ];
-
-  // Define pillars with icons and translation keys
-  const PILLARS = [
-    {
-      icon: Lightbulb,
-      titleKey: "pillars.strategy.title",
-      descriptionKey: "pillars.strategy.description"
-    },
-    {
-      icon: Palette,
-      titleKey: "pillars.design.title",
-      descriptionKey: "pillars.design.description"
-    },
-    {
-      icon: Globe,
-      titleKey: "pillars.build.title",
-      descriptionKey: "pillars.build.description"
-    },
-    {
-      icon: Zap,
-      titleKey: "pillars.automate.title",
-      descriptionKey: "pillars.automate.description"
-    }
-  ];
+    { id: "training", tone: "bg-tabi-mint", pos: "-left-4 top-10 sm:-left-10" },
+    { id: "participants", tone: "bg-tabi-cream", pos: "-right-2 top-1/3 sm:-right-8" },
+    { id: "tools", tone: "bg-white", pos: "left-6 -bottom-6 sm:left-10" },
+    { id: "handsOn", tone: "bg-tabi-pink", pos: "right-10 -bottom-10 hidden sm:block" }
+  ] as const;
 
   return (
-    <section className="w-full bg-brand-surface overflow-hidden">
-      <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
-        {/* Top: Label + Heading + Subtext */}
-        <motion.div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-end mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-        >
-          {/* Left */}
-          <motion.div variants={itemVariants}>
-            <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-brand-primary/30 bg-white px-4 py-1.5 text-xs font-semibold text-brand-primary tracking-wide uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-primary animate-pulse" />
-              {t("badge")}
-            </span>
+    <section className="relative w-full overflow-hidden bg-white">
+      {/* soft ambient glow */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -right-40 top-10 h-[520px] w-[520px] rounded-full bg-brand-orchid/10 blur-[120px]"
+      />
 
-            <h2 className="text-[clamp(2rem,4.5vw,3.6rem)] font-extrabold tracking-tight text-[#1a1a2e] leading-[1.08] mt-4">
-              {t("headlinePart1")}
-              <br />
-              <span className="text-brand-primary italic">
-                {t("headlinePart2")}
-              </span>
-              <br />
-              {t("headlinePart3")}
+      <div className="relative mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
+        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-[1.05fr_1fr] lg:gap-20">
+          {/* ── Copy ── */}
+          <div className="flex flex-col items-start">
+            <Reveal y={12}>
+              <Eyebrow dot>{t("badge")}</Eyebrow>
+            </Reveal>
+
+            <h2 className="mt-6 text-[clamp(2.1rem,4.6vw,3.5rem)] font-bold leading-[1.1] tracking-[-0.01em] text-tabi-ink">
+              <Reveal as="span" className="block" delay={0.05}>
+                {t("headlinePart1")}
+              </Reveal>
+              <Reveal as="span" className="block" delay={0.12}>
+                <GradientText>{t("headlinePart2")}</GradientText>
+              </Reveal>
+              <Reveal as="span" className="block" delay={0.19}>
+                {t("headlinePart3")}
+              </Reveal>
             </h2>
-          </motion.div>
 
-          {/* Right */}
-          <motion.div
-            className="flex flex-col items-start lg:items-end gap-6"
-            variants={itemVariants}
-          >
-            <p className="text-base text-[#666] leading-relaxed max-w-md lg:text-right">
-              {t("description")}
-            </p>
-            <Link href="/ai-for-businesses">
-              <Button variant="primary" size="lg">
-                {t("cta.primary")}
-              </Button>
-            </Link>
-          </motion.div>
-        </motion.div>
-
-        {/* Stats strip */}
-        <motion.div
-          className="grid grid-cols-2 md:grid-cols-4 rounded-3xl overflow-hidden border border-brand-primary/10 bg-white mb-12"
-          style={{ boxShadow: "0px 4px 24px 0px #71286F0F" }}
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          {HIGHLIGHTS.map((h, i) => (
-            <div
-              key={h.value}
-              className={`flex flex-col items-center justify-center text-center px-6 py-7
-                ${i < HIGHLIGHTS.length - 1 ? "border-r border-brand-primary/10" : ""}
-                ${i < 2 ? "border-b md:border-b-0 border-brand-primary/10" : ""}
-              `}
-            >
-              <p className="text-2xl sm:text-3xl font-extrabold text-brand-primary leading-none">
-                {h.value}
+            <Reveal delay={0.25}>
+              <p className="mt-6 max-w-lg text-base leading-[1.8] text-tabi-body">
+                {t("description")}
               </p>
-              <p className="mt-1.5 text-xs text-[#888] font-medium">
-                {h.label}
+            </Reveal>
+
+            <Reveal delay={0.32} className="mt-9 flex flex-wrap items-center gap-4">
+              <Link href="/ai-for-businesses">
+                <Button variant="primary" size="lg">
+                  {t("cta.primary")}
+                  <ArrowRight size={18} className="transition-transform duration-300 group-hover/btn:translate-x-1" />
+                </Button>
+              </Link>
+            </Reveal>
+
+            <Reveal delay={0.4} className="mt-8 flex items-center gap-3 rounded-2xl bg-tabi-blush px-5 py-4">
+              <span className="relative flex h-2.5 w-2.5 shrink-0">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#3CB371] opacity-60" />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#3CB371]" />
+              </span>
+              <p className="text-sm text-tabi-body">
+                <span className="font-bold text-tabi-ink">{t("footer.headline")}</span>{" "}
+                {t("footer.subtext")}
               </p>
-            </div>
-          ))}
-        </motion.div>
-
-        {/* Pillar cards */}
-        <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          variants={containerVariants}
-        >
-          {PILLARS.map((pillar) => {
-            const Icon = pillar.icon;
-            return (
-              <motion.div
-                key={pillar.titleKey}
-                variants={itemVariants}
-                whileHover={{ y: -5, boxShadow: "0px 10px 20px 2px #37373715" }}
-                className="group flex flex-col items-center text-center rounded-4xl p-8 bg-[#FFF5FF99]/40 border border-white/40 backdrop-blur-3xl transition-colors duration-300 hover:border-brand-primary/20 cursor-pointer"
-                style={{
-                  boxShadow: "0px 4px 12px 2px #3737371F"
-                }}
-              >
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-brand-primary shadow-sm group-hover:bg-brand-primary group-hover:text-white transition-colors duration-300">
-                  <Icon size={24} strokeWidth={1.5} />
-                </div>
-                <h3 className="text-base font-bold text-[#1a1a2e] mb-2">
-                  {t(pillar.titleKey)}
-                </h3>
-                <p className="text-sm text-[#777] leading-relaxed">
-                  {t(pillar.descriptionKey)}
-                </p>
-              </motion.div>
-            );
-          })}
-        </motion.div>
-
-        {/* Bottom CTA strip */}
-        <motion.div
-          className="mt-12 rounded-3xl px-8 py-7 flex flex-col sm:flex-row items-center justify-between gap-5"
-          style={{
-            background: "linear-gradient(135deg, #71286F10 0%, #a855f710 100%)",
-            border: "1px solid rgba(113,40,111,0.12)"
-          }}
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <div>
-            <p className="text-sm font-bold text-[#1a1a2e] mb-0.5">
-              {t("footer.headline")}
-            </p>
-            <p className="text-xs text-[#888]">{t("footer.subtext")}</p>
+            </Reveal>
           </div>
-          <Link href="/ai-for-businesses">
-            <Button variant="outline" size="md">
-              {t("cta.secondary")}
-            </Button>
-          </Link>
-        </motion.div>
+
+          {/* ── Visual: framed images + floating stat chips ── */}
+          <div className="relative mx-auto w-full max-w-[560px] py-6">
+            <Parallax offset={30}>
+              <motion.div
+                className="relative ml-auto aspect-[4/5] w-[78%] overflow-hidden rounded-[1.75rem] border-[3px] border-brand-primary"
+                initial={reduced ? { opacity: 0 } : { opacity: 0, clipPath: "inset(12% 12% 12% 12% round 28px)" }}
+                whileInView={{ opacity: 1, clipPath: "inset(0% 0% 0% 0% round 28px)" }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 1.1, ease: EASE_TABI }}
+              >
+                <Image
+                  src={withBasePath("/ai-business-hero-2.jpg")}
+                  alt=""
+                  fill
+                  sizes="(max-width: 1024px) 80vw, 440px"
+                  className="object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/50 via-transparent to-transparent" />
+              </motion.div>
+            </Parallax>
+
+            <Parallax offset={-40} className="absolute bottom-0 left-0 w-[52%]">
+              <motion.div
+                className="relative aspect-square overflow-hidden rounded-[1.5rem] border-[3px] border-brand-primary bg-white shadow-[0_30px_60px_-30px_rgba(113,40,111,0.6)]"
+                initial={reduced ? { opacity: 0 } : { opacity: 0, y: 40, rotate: -4 }}
+                whileInView={{ opacity: 1, y: 0, rotate: -3 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 1, delay: 0.2, ease: EASE_TABI }}
+              >
+                <Image
+                  src={withBasePath("/ai-business-hero.jpg")}
+                  alt=""
+                  fill
+                  sizes="(max-width: 1024px) 50vw, 290px"
+                  className="object-cover object-[70%_center]"
+                />
+              </motion.div>
+            </Parallax>
+
+            <Sparkle className="absolute left-[44%] top-[56%] z-10" size={46} />
+            <Sparkle className="absolute right-2 top-0 z-10" size={22} delay={1.4} color="var(--color-brand-orchid)" />
+
+            {/* Stat chips — same visual vocabulary as the hero orbit cards */}
+            {HIGHLIGHTS.map((h, i) => (
+              <motion.div
+                key={h.id}
+                className={`absolute z-20 ${h.pos}`}
+                initial={reduced ? { opacity: 0 } : { opacity: 0, scale: 0.6, y: 20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ type: "spring", stiffness: 220, damping: 18, delay: 0.45 + i * 0.12 }}
+              >
+                <div
+                  className={`animate-float rounded-2xl px-4 py-3 shadow-[0_14px_34px_-14px_rgba(113,40,111,0.35)] ring-1 ring-black/[0.03] ${h.tone}`}
+                  style={{ animationDelay: `${i * -1.4}s` }}
+                >
+                  <p className="text-xl font-bold leading-none text-tabi-ink">
+                    <CountUp value={t(`highlights.${h.id}.value`)} />
+                  </p>
+                  <p className="mt-1.5 text-[11px] text-tabi-body">{t(`highlights.${h.id}.label`)}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Pillars ── */}
+        <Stagger className="mt-20 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:mt-28 lg:grid-cols-4" stagger={0.1}>
+          {PILLARS.map(({ key, icon: Icon, tint, iconTint }, i) => (
+            <StaggerItem key={key} hoverLift={6}>
+              <Link
+                href="/ai-for-businesses"
+                className={`group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] p-7 transition-shadow duration-500 hover:shadow-[0_24px_50px_-28px_rgba(113,40,111,0.55)] ${tint}`}
+              >
+                <span className="absolute right-6 top-5 text-5xl font-bold text-black/[0.05] transition-transform duration-500 group-hover:-translate-y-1">
+                  0{i + 1}
+                </span>
+                <span
+                  className={`mb-8 flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm transition-transform duration-500 group-hover:rotate-[-10deg] group-hover:scale-110 ${iconTint}`}
+                >
+                  <Icon size={22} strokeWidth={1.6} />
+                </span>
+                <h3 className="text-lg font-bold text-tabi-ink">{t(`pillars.${key}.title`)}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-tabi-body">
+                  {t(`pillars.${key}.description`)}
+                </p>
+                <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-brand-primary opacity-0 transition-all duration-300 group-hover:opacity-100">
+                  {t("cta.secondary").replace(/\s*→\s*$/, "")}
+                  <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+              </Link>
+            </StaggerItem>
+          ))}
+        </Stagger>
       </div>
     </section>
   );

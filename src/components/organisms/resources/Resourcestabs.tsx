@@ -58,7 +58,7 @@ export default function ResourcesTabs({
             className={`pb-3 text-sm font-medium transition-all border-b-2 -mb-px cursor-pointer ${
               activeTab === tab.key
                 ? "border-brand-primary text-brand-primary"
-                : "border-transparent text-[#666] hover:text-[#1a1a2e]"
+                : "border-transparent text-[#666] hover:text-tabi-ink"
             }`}
           >
             {tab.label}

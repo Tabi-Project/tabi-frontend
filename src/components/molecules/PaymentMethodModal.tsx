@@ -36,7 +36,7 @@ export default function PaymentMethodModal({
       <div className="relative w-full max-w-lg bg-white rounded-[2.5rem] shadow-2xl transition-all duration-300 max-h-[90vh] flex flex-col overflow-hidden">
         {/* Fixed Header */}
         <div className="flex items-center justify-between p-8 pb-4 bg-white">
-          <h2 className="text-xl font-extrabold text-[#1a1a2e]">
+          <h2 className="text-xl font-bold text-tabi-ink">
             Select Payment Method
           </h2>
           <button
@@ -96,7 +96,7 @@ export default function PaymentMethodModal({
                   <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
                     Bank Name
                   </span>
-                  <span className="text-sm font-bold text-[#1a1a2e]">
+                  <span className="text-sm font-bold text-tabi-ink">
                     Kuda Bank
                   </span>
                 </div>
@@ -104,7 +104,7 @@ export default function PaymentMethodModal({
                   <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
                     Account Name
                   </span>
-                  <span className="text-xs font-bold text-[#1a1a2e] text-right max-w-[200px]">
+                  <span className="text-xs font-bold text-tabi-ink text-right max-w-[200px]">
                     Tabi Empowerment and Educational Foundation
                   </span>
                 </div>
@@ -128,7 +128,7 @@ export default function PaymentMethodModal({
 
               {/* Mandatory Next Steps */}
               <div className="space-y-4">
-                <h4 className="text-[10px] font-black text-[#1a1a2e] uppercase tracking-[0.2em] px-1">
+                <h4 className="text-[10px] font-black text-tabi-ink uppercase tracking-[0.2em] px-1">
                   Important Next Steps
                 </h4>
 
@@ -178,7 +178,7 @@ export default function PaymentMethodModal({
               <div className="w-16 h-16 bg-brand-surface rounded-3xl flex items-center justify-center mx-auto mb-4">
                 <Globe className="text-brand-primary" size={24} />
               </div>
-              <h3 className="font-bold text-[#1a1a2e] mb-2">
+              <h3 className="font-bold text-tabi-ink mb-2">
                 Tailored International Payments
               </h3>
               <p className="text-sm text-[#666] leading-relaxed mb-8 max-w-[280px] mx-auto">

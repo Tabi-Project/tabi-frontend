@@ -27,14 +27,14 @@ export default function UpcomingEventsSlider({
   if (slides.length === 0) {
     return (
       <section className="mb-14">
-        <h2 className="text-2xl font-bold text-[#1a1a2e] mb-6">
+        <h2 className="text-2xl font-bold text-tabi-ink mb-6">
           Upcoming Events
         </h2>
         <div className="flex flex-col items-center justify-center py-16 rounded-2xl border border-dashed border-[#E5E7EB] text-center">
           <div className="w-12 h-12 rounded-full bg-[#F3E8FF] flex items-center justify-center mb-4 text-xl">
             📅
           </div>
-          <p className="text-sm font-semibold text-[#1a1a2e] mb-1">
+          <p className="text-sm font-semibold text-tabi-ink mb-1">
             No upcoming events yet
           </p>
           <p className="text-xs text-[#888]">
@@ -48,7 +48,7 @@ export default function UpcomingEventsSlider({
   return (
     <>
       <section className="mb-14">
-        <h2 className="text-2xl font-bold text-[#1a1a2e] mb-6">
+        <h2 className="text-2xl font-bold text-tabi-ink mb-6">
           Upcoming Events
         </h2>
 

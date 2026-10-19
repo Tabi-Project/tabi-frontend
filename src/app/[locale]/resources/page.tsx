@@ -91,7 +91,7 @@ export default async function ResourcesPage({ params }: { params: Promise<{ loca
         {/* Page Header */}
         <header className="mb-12">
           <h1
-            className="text-[clamp(2.2rem,5vw,3.8rem)] font-extrabold mb-4 tracking-tight"
+            className="text-[clamp(2.2rem,5vw,3.8rem)] font-bold mb-4 tracking-tight"
             style={{
               background:
                 "linear-gradient(180deg, #FFCC70 0%, #C850C0 50%, #71286F 100%)",

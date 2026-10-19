@@ -46,7 +46,7 @@ export function WelcomeStep({
         className="mb-6"
       >
         <h2
-          className="font-extrabold leading-[1.15] tracking-tight mb-2.5"
+          className="font-bold leading-[1.15] tracking-tight mb-2.5"
           style={{ fontSize: "clamp(1.35rem, 4vw, 1.55rem)", color: C.ink }}
         >
           {t("headline")}
