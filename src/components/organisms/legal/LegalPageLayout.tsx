@@ -1,7 +1,10 @@
 import Link from "next/link";
+import { ChevronRight } from "lucide-react";
 import { LegalSection } from "@/types/legal";
 import LegalTOC from "@/components/molecules/LegalTOC";
 import LegalSectionBlock from "@/components/organisms/legal/LegalSectionBlock";
+import { Eyebrow } from "@/components/atoms/Eyebrow";
+import { Reveal } from "@/components/atoms/Reveal";
 
 interface LegalPageLayoutProps {
   label: string;
@@ -27,46 +30,51 @@ export default function LegalPageLayout({
   breadcrumbHomeLabel
 }: LegalPageLayoutProps) {
   return (
-    <main className="w-full bg-white min-h-screen">
-      <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-14 lg:py-20">
-        <p className="text-sm text-[#666] mb-10">
-          <Link href="/" className="hover:text-brand-primary transition-colors">
-            {breadcrumbHomeLabel}
-          </Link>
-          <span className="mx-2 text-[#ccc]">&gt;&gt;</span>
-          <Link
-            href={breadcrumbHref}
-            className="text-brand-primary font-medium"
-          >
-            {breadcrumbLabel}
-          </Link>
-        </p>
+    <main className="min-h-screen w-full bg-white" style={{ paddingTop: "var(--nav-height, 80px)" }}>
+      <section className="relative overflow-hidden bg-tabi-blush">
+        <div aria-hidden className="pointer-events-none absolute -right-20 -top-10 h-72 w-72 rounded-full bg-brand-orchid/15 blur-[90px]" />
+        <div className="relative mx-auto max-w-350 px-6 py-12 sm:px-12 lg:px-20 lg:py-16">
+          <nav aria-label="Breadcrumb" className="mb-8 flex items-center gap-2 text-sm text-tabi-body">
+            <Link href="/" className="transition-colors hover:text-brand-primary">
+              {breadcrumbHomeLabel}
+            </Link>
+            <ChevronRight size={14} className="text-tabi-body/40" />
+            <Link href={breadcrumbHref} className="font-medium text-brand-primary">
+              {breadcrumbLabel}
+            </Link>
+          </nav>
+          <Reveal y={12}>
+            <Eyebrow tone="white">{label}</Eyebrow>
+          </Reveal>
+          <Reveal delay={0.06}>
+            <h1 className="mt-5 max-w-3xl text-[clamp(2rem,4.5vw,3.25rem)] font-bold leading-[1.12] text-tabi-ink">{title}</h1>
+          </Reveal>
+          <Reveal delay={0.12}>
+            <div className="mt-6 flex flex-wrap gap-2 text-sm">
+              <span className="rounded-full bg-white px-4 py-1.5 text-tabi-body">
+                Effective: <span className="font-medium text-tabi-ink">{effectiveDate}</span>
+              </span>
+              <span className="rounded-full bg-white px-4 py-1.5 text-tabi-body">
+                Last updated: <span className="font-medium text-tabi-ink">{lastUpdated}</span>
+              </span>
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
-        <div className="flex flex-col lg:flex-row gap-16">
+      <div className="mx-auto max-w-350 px-6 py-14 sm:px-12 lg:px-20 lg:py-20">
+        <div className="flex flex-col gap-16 lg:flex-row">
           <LegalTOC sections={sections} />
 
-          <div className="flex-1 min-w-0">
-            <div className="mb-12 pb-8 border-b border-gray-100">
-              <p className="text-xs font-bold uppercase tracking-widest text-brand-primary mb-4">
-                {label}
-              </p>
-              <h1 className="text-2xl sm:text-3xl font-bold text-[#121212] leading-snug mb-3">
-                {title}
-              </h1>
-              <p className="text-sm text-[#888]">
-                Effective Date: {effectiveDate}&nbsp;&nbsp;|&nbsp;&nbsp;Last
-                Updated: {lastUpdated}
-              </p>
-            </div>
-
-            <div className="space-y-12">
+          <div className="min-w-0 max-w-3xl flex-1">
+            <div className="space-y-14">
               {sections.map((section) => (
                 <LegalSectionBlock key={section.number} section={section} />
               ))}
             </div>
 
-            <div className="mt-16 pt-8 border-t border-gray-100">
-              <p className="text-sm text-[#aaa] italic">{footerNote}</p>
+            <div className="mt-16 rounded-[1.5rem] bg-tabi-card/70 px-6 py-5">
+              <p className="text-sm text-tabi-body">{footerNote}</p>
             </div>
           </div>
         </div>

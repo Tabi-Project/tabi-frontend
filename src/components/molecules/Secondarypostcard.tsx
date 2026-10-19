@@ -29,14 +29,14 @@ export default function SecondaryPostCard({
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">
-            <span className="text-xl font-extrabold text-brand-primary opacity-20">
+            <span className="text-xl font-bold text-brand-primary opacity-20">
               TEE
             </span>
           </div>
         )}
       </div>
       <div className="flex flex-col flex-1 p-6 min-w-0">
-        <h3 className="text-base font-bold text-[#1a1a2e] mb-1.5 leading-snug">
+        <h3 className="text-base font-bold text-tabi-ink mb-1.5 leading-snug">
           {post.title}
         </h3>
         <p className="text-xs text-brand-primary font-semibold mb-2">

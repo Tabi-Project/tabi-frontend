@@ -24,7 +24,7 @@ export default function EventCard({ event, onClick }: EventCardProps) {
         <div className="self-start">
           <EventTypeBadge mode={event.mode} />
         </div>
-        <h3 className="text-sm font-bold text-[#1a1a2e] mt-1.5 mb-0.5 leading-snug line-clamp-1">
+        <h3 className="text-sm font-bold text-tabi-ink mt-1.5 mb-0.5 leading-snug line-clamp-1">
           {event.title}
         </h3>
         <p className="text-xs text-[#666] mb-1">{event.location}</p>
@@ -49,7 +49,7 @@ export default function EventCard({ event, onClick }: EventCardProps) {
           </span>
         </div>
       </div>
-      <span className="flex items-center gap-1 text-xs font-semibold text-[#1a1a2e] shrink-0 ml-2">
+      <span className="flex items-center gap-1 text-xs font-semibold text-tabi-ink shrink-0 ml-2">
         {event.ctaLabel ?? "More Info"}
         <svg width="13" height="13" viewBox="0 0 14 14" fill="none">
           <path

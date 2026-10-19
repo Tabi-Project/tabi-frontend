@@ -3,6 +3,10 @@ import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import { getAllCaseStudies } from "@/lib/cms";
+import { ArrowRight, ChevronRight, FileText } from "lucide-react";
+import { Eyebrow } from "@/components/atoms/Eyebrow";
+import { Reveal } from "@/components/atoms/Reveal";
+import { Sparkle } from "@/components/atoms/Sparkle";
 
 export async function generateMetadata({
   params
@@ -58,146 +62,106 @@ export default async function CaseStudiesPage({
 const caseStudies = getAllCaseStudies(locale);
 
   return (
-    <main
-      className="w-full bg-white"
-      style={{ paddingTop: "var(--nav-height, 80px)" }}
-    >
-      <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-12 lg:py-16">
-        {/* Breadcrumb */}
-        <nav className="flex items-center gap-2 text-sm text-[#878787] mb-8">
-          <Link href="/" className="hover:text-brand-primary transition-colors">
-            {t("breadcrumb.home")}
-          </Link>
-          <span className="text-[#ccc] text-[10px] font-bold">&gt;&gt;</span>
-          <Link
-            href="/resources"
-            className="hover:text-brand-primary transition-colors"
-          >
-            {t("breadcrumb.resources")}
-          </Link>
-          <span className="text-[#ccc] text-[10px] font-bold">&gt;&gt;</span>
-          <span className="text-brand-primary font-medium">
-            {t("breadcrumb.label")}
-          </span>
-        </nav>
+    <main className="w-full bg-white" style={{ paddingTop: "var(--nav-height, 80px)" }}>
+      {/* Header band */}
+      <section className="relative overflow-hidden bg-tabi-blush">
+        <div aria-hidden className="pointer-events-none absolute -right-20 -top-10 h-80 w-80 rounded-full bg-brand-orchid/20 blur-[90px] animate-blob" />
+        <Sparkle className="absolute right-[18%] top-16 hidden md:block" size={36} />
+        <div className="relative mx-auto max-w-350 px-6 py-14 sm:px-12 lg:px-20 lg:py-20">
+          <nav aria-label="Breadcrumb" className="mb-10 flex items-center gap-2 text-sm text-tabi-body">
+            <Link href="/" className="transition-colors hover:text-brand-primary">
+              {t("breadcrumb.home")}
+            </Link>
+            <ChevronRight size={14} className="text-tabi-body/40" />
+            <Link href="/resources" className="transition-colors hover:text-brand-primary">
+              {t("breadcrumb.resources")}
+            </Link>
+            <ChevronRight size={14} className="text-tabi-body/40" />
+            <span className="font-medium text-brand-primary">{t("breadcrumb.label")}</span>
+          </nav>
 
-        {/* Header */}
-        <header className="mb-14 max-w-2xl">
-          <span
-            className="inline-flex items-center rounded-full px-5 py-2 text-sm font-semibold text-brand-primary mb-5"
-            style={{ background: "#F3E8FF" }}
-          >
-            {t("badge")}
-          </span>
-          <h1 className="text-[clamp(2rem,4vw,3.2rem)] font-extrabold text-[#1a1a2e] tracking-tight leading-[1.1] mb-4">
-            {t("title")}
-          </h1>
-          <p className="text-base text-[#555] leading-relaxed">
-            {t("description")}
-          </p>
-        </header>
+          <header className="max-w-2xl">
+            <Reveal y={12}>
+              <Eyebrow tone="white" dot>
+                {t("badge")}
+              </Eyebrow>
+            </Reveal>
+            <Reveal delay={0.06}>
+              <h1 className="mt-6 text-[clamp(2.4rem,5vw,3.75rem)] font-bold leading-[1.08] tracking-[-0.015em] text-tabi-ink">
+                {t("title")}
+              </h1>
+            </Reveal>
+            <Reveal delay={0.12}>
+              <p className="mt-5 text-lg leading-[1.8] text-tabi-body">{t("description")}</p>
+            </Reveal>
+          </header>
+        </div>
+      </section>
 
-        {/* Case studies list */}
+      <div className="mx-auto max-w-350 px-6 py-14 sm:px-12 lg:px-20 lg:py-20">
         {caseStudies.length === 0 ? (
-          <div className="flex flex-col items-center justify-center py-24 text-center border border-dashed border-[#E5E7EB] rounded-2xl">
-            <div className="w-14 h-14 rounded-full bg-[#F3E8FF] flex items-center justify-center mb-4">
-              <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                <path
-                  d="M6 4h12l6 6v16H6V4z"
-                  stroke="#71286F"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M18 4v6h6M10 14h8M10 18h6"
-                  stroke="#71286F"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                />
-              </svg>
+          <Reveal>
+            <div className="flex flex-col items-center justify-center rounded-[2rem] bg-tabi-blush py-24 text-center">
+              <span className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white text-brand-primary">
+                <FileText size={26} />
+              </span>
+              <p className="font-bold text-tabi-ink">{t("emptyTitle")}</p>
+              <p className="mt-1 text-sm text-tabi-body">{t("emptyMessage")}</p>
             </div>
-            <p className="text-sm font-semibold text-[#1a1a2e] mb-1">
-              {t("emptyTitle")}
-            </p>
-            <p className="text-xs text-[#888]">{t("emptyMessage")}</p>
-          </div>
+          </Reveal>
         ) : (
-          <div className="flex flex-col divide-y divide-[#F0E8F5]">
+          <div className="flex flex-col gap-5">
             {caseStudies.map((study, i) => (
-              <Link
-                key={study.slug}
-                href={`/resources/case-studies/${study.slug}`}
-                className="group flex flex-col sm:flex-row gap-6 sm:gap-10 py-10 hover:bg-[#FDFAFF] transition-colors rounded-xl px-4 -mx-4"
-              >
-                {/* Cover image */}
-                {study.coverImage && (
-                  <div className="relative w-full sm:w-52 h-36 shrink-0 rounded-xl overflow-hidden bg-[#F3E8FF]">
-                    <Image
-                      src={study.coverImage}
-                      alt={study.title}
-                      fill
-                      sizes="(max-width: 640px) 100vw, 208px"
-                      className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                      loading={i === 0 ? "eager" : "lazy"}
-                    />
-                  </div>
-                )}
-
-                <div className="flex flex-col justify-center flex-1 min-w-0">
-                  {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    {study.tags?.slice(0, 3).map((tag) => (
-                      <span
-                        key={tag}
-                        className="text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full"
-                        style={{ background: "#F3E8FF", color: "#71286F" }}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  <h2 className="text-lg sm:text-xl font-bold text-[#1a1a2e] leading-snug mb-2 group-hover:text-brand-primary transition-colors">
-                    {study.title}
-                  </h2>
-
-                  <p className="text-sm text-[#666] leading-relaxed mb-3 line-clamp-2">
-                    {study.excerpt}
-                  </p>
-
-                  <div className="flex items-center gap-3 text-xs text-[#999]">
-                    {study.author && (
-                      <span className="font-medium text-[#555]">
-                        {study.author}
-                      </span>
-                    )}
-                    {study.author && <span>·</span>}
-                    <span>{study.date}</span>
-                    {study.programme && (
-                      <>
-                        <span>·</span>
-                        <span>{study.programme}</span>
-                      </>
-                    )}
-                  </div>
-                </div>
-
-                {/* Arrow */}
-                <div className="hidden sm:flex items-center shrink-0">
-                  <span className="w-9 h-9 rounded-full border border-[#ede8f5] flex items-center justify-center text-[#aaa] group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:text-white transition-all duration-300">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                      <path
-                        d="M2.5 7h9M8 3.5l3.5 3.5L8 10.5"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
+              <Reveal key={study.slug} delay={Math.min(i, 4) * 0.06} y={30}>
+                <Link
+                  href={`/resources/case-studies/${study.slug}`}
+                  className="group grid gap-6 rounded-[2rem] bg-tabi-card/70 p-4 transition-all duration-500 hover:-translate-y-1 hover:bg-tabi-blush hover:shadow-[0_24px_50px_-30px_rgba(113,40,111,0.5)] sm:grid-cols-[260px_1fr_auto] sm:items-center sm:gap-8 sm:p-5"
+                >
+                  <div className="relative h-48 overflow-hidden rounded-[1.5rem] border-[3px] border-brand-primary bg-tabi-lilac sm:h-40">
+                    {study.coverImage && (
+                      <Image
+                        src={study.coverImage}
+                        alt={study.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 260px"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        loading={i === 0 ? "eager" : "lazy"}
                       />
-                    </svg>
+                    )}
+                  </div>
+
+                  <div className="min-w-0 px-2 sm:px-0">
+                    {study.tags && study.tags.length > 0 && (
+                      <div className="mb-3 flex flex-wrap gap-2">
+                        {study.tags.slice(0, 3).map((tag) => (
+                          <span key={tag} className="rounded-full bg-tabi-pink px-3 py-1 text-xs font-medium text-brand-primary">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    <h2 className="text-xl font-bold leading-snug text-tabi-ink transition-colors group-hover:text-brand-primary sm:text-2xl">
+                      {study.title}
+                    </h2>
+                    <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-tabi-body sm:text-base">{study.excerpt}</p>
+                    <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-tabi-body/80">
+                      {study.author && <span className="font-medium text-tabi-ink">{study.author}</span>}
+                      {study.author && <span aria-hidden>·</span>}
+                      <span>{study.date}</span>
+                      {study.programme && (
+                        <>
+                          <span aria-hidden>·</span>
+                          <span>{study.programme}</span>
+                        </>
+                      )}
+                    </div>
+                  </div>
+
+                  <span className="hidden h-12 w-12 items-center justify-center rounded-full bg-white text-brand-primary transition-all duration-300 group-hover:bg-brand-primary group-hover:text-white sm:flex">
+                    <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-0.5" />
                   </span>
-                </div>
-              </Link>
+                </Link>
+              </Reveal>
             ))}
           </div>
         )}

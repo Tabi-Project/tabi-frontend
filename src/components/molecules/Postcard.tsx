@@ -28,7 +28,7 @@ export default function PostCard({ post, href }: PostCardProps) {
           />
         ) : (
           <div className="w-full h-full bg-[#F3E8FF] flex items-center justify-center">
-            <span className="text-brand-primary text-3xl font-extrabold opacity-20">
+            <span className="text-brand-primary text-3xl font-bold opacity-20">
               TEE
             </span>
           </div>
@@ -36,7 +36,7 @@ export default function PostCard({ post, href }: PostCardProps) {
       </div>
 
       <div className="flex flex-col flex-1 p-5">
-        <h3 className="text-sm font-bold text-[#1a1a2e] mb-1 leading-snug line-clamp-2">
+        <h3 className="text-sm font-bold text-tabi-ink mb-1 leading-snug line-clamp-2">
           {post.title}
         </h3>
         <p className="text-xs text-brand-primary font-semibold mb-2">

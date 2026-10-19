@@ -1,9 +1,12 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { GradientText } from "@/components/atoms/GradientText";
+import { Reveal, Stagger, StaggerItem } from "@/components/atoms/Reveal";
+import { Sparkle } from "@/components/atoms/Sparkle";
+import SectionHeading from "@/components/molecules/SectionHeading";
 
 /* ── Tech Logo SVGs ─────────────────────────────────────────────── */
 function VueLogo({ size = 36 }: { size?: number }) {
@@ -77,169 +80,100 @@ function SailsLogo({ size = 36 }: { size?: number }) {
 }
 
 export default function BoringStack() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
   const t = useTranslations("Bootcamp.boringStack");
   const items = t.raw("items") as Array<{ role: string; desc: string }>;
 
   const STACK = [
-    {
-      Logo: VueLogo,
-      name: "Vue.js",
-      version: "v3",
-      color: "#41b883",
-      bg: "rgba(65,184,131,0.06)",
-      border: "rgba(65,184,131,0.2)"
-    },
-    {
-      Logo: SailsLogo,
-      name: "Sails.js",
-      version: "v1",
-      color: "#71286F",
-      bg: "rgba(113,40,111,0.06)",
-      border: "rgba(113,40,111,0.2)"
-    },
-    {
-      Logo: InertiaLogo,
-      name: "Inertia.js",
-      version: "v2",
-      color: "#9553E9",
-      bg: "rgba(149,83,233,0.06)",
-      border: "rgba(149,83,233,0.2)"
-    },
-    {
-      Logo: TailwindLogo,
-      name: "Tailwind CSS",
-      version: "v4",
-      color: "#38bdf8",
-      bg: "rgba(56,189,248,0.06)",
-      border: "rgba(56,189,248,0.2)"
-    }
+    { Logo: VueLogo, name: "Vue.js", version: "v3", color: "#2F8F5B", tint: "bg-tabi-mint" },
+    { Logo: SailsLogo, name: "Sails.js", version: "v1", color: "#71286F", tint: "bg-tabi-pink" },
+    { Logo: InertiaLogo, name: "Inertia.js", version: "v2", color: "#7A3FC4", tint: "bg-tabi-lilac/60" },
+    { Logo: TailwindLogo, name: "Tailwind CSS", version: "v4", color: "#1E8DB8", tint: "bg-[#EAF6FC]" }
   ];
 
   return (
-    <section className="w-full bg-white py-24 md:py-32 overflow-hidden">
-      <div className="px-6 sm:px-10 lg:px-16 max-w-350 mx-auto" ref={ref}>
-        {/* Header row */}
-        <div className="grid lg:grid-cols-[1.2fr_1fr] gap-12 items-end mb-16">
-          <div>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              className="text-xs font-semibold text-brand-primary uppercase tracking-wide mb-4"
-            >
-              {t("badge")}
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.1 }}
-              className="font-extrabold tracking-tight text-[clamp(2rem,3.8vw,3rem)] text-[#1a1a2e] leading-tight"
-            >
-              {t("heading")}{" "}
-              <span
-                className="bg-clip-text text-transparent"
-                style={{
-                  backgroundImage: "linear-gradient(135deg, #71286F, #c040a0)"
-                }}
-              >
-                {t("headingHighlight")}
-              </span>
-            </motion.h2>
-          </div>
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.2 }}
-          >
-            <p className="text-base text-[#666] leading-relaxed">
-              {t.rich("description", {
-                strong: (chunks) => <strong>{chunks}</strong>
-              })}
+    <section className="w-full overflow-hidden bg-tabi-blush py-20 lg:py-28">
+      <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20">
+        <div className="mb-14 grid items-end gap-10 lg:grid-cols-[1.2fr_1fr]">
+          <SectionHeading
+            eyebrow={t("badge")}
+            eyebrowTone="white"
+            title={
+              <>
+                {t("heading")} <GradientText>{t("headingHighlight")}</GradientText>
+              </>
+            }
+          />
+          <Reveal delay={0.12}>
+            <p className="text-base leading-[1.8] text-tabi-body">
+              {t.rich("description", { strong: (chunks) => <strong className="text-tabi-ink">{chunks}</strong> })}
             </p>
-          </motion.div>
+          </Reveal>
         </div>
 
-        {/* Stack cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-14">
+        <Stagger className="mb-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
           {STACK.map((tech, i) => {
             const trans = items[i];
             return (
-              <motion.div
-                key={tech.name}
-                initial={{ opacity: 0, y: 28 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.55, delay: 0.15 + i * 0.1 }}
-                className="group rounded-2xl border p-6 hover:shadow-lg transition-all duration-300 relative overflow-hidden"
-                style={{ background: tech.bg, borderColor: tech.border }}
-              >
-                <div className="mb-5 flex items-center gap-3">
-                  <tech.Logo size={32} />
-                  <div>
-                    <p
-                      className="text-[9px] uppercase tracking-[0.2em] font-black"
-                      style={{ color: tech.color }}
-                    >
-                      {trans?.role}
-                    </p>
-                    <p className="font-bold text-[#1a1a2e] text-base leading-tight">
-                      {tech.name}
-                    </p>
-                  </div>
-                </div>
-                <p className="text-sm text-[#777] leading-relaxed">
-                  {trans?.desc}
-                </p>
-                <div className="absolute top-4 right-4">
-                  <span
-                    className="text-[10px] font-bold px-2 py-0.5 rounded-full"
-                    style={{ background: `${tech.color}18`, color: tech.color }}
-                  >
+              <StaggerItem key={tech.name} className="h-full" hoverLift={8}>
+                <article className={`group relative h-full overflow-hidden rounded-[1.75rem] p-7 transition-shadow duration-500 hover:shadow-[0_24px_50px_-28px_rgba(113,40,111,0.5)] ${tech.tint}`}>
+                  <span className="absolute right-5 top-5 rounded-full bg-white px-2.5 py-0.5 text-xs font-medium" style={{ color: tech.color }}>
                     {tech.version}
                   </span>
-                </div>
-              </motion.div>
+                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-sm transition-transform duration-500 group-hover:rotate-[-10deg] group-hover:scale-110">
+                    <tech.Logo size={28} />
+                  </span>
+                  <p className="mt-8 text-xs font-medium" style={{ color: tech.color }}>
+                    {trans?.role}
+                  </p>
+                  <p className="mt-1 text-xl font-bold text-tabi-ink">{tech.name}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-tabi-body">{trans?.desc}</p>
+                </article>
+              </StaggerItem>
             );
           })}
-        </div>
+        </Stagger>
 
-        {/* Bottom stat band */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.65 }}
-          className="rounded-2xl p-8 md:p-12 flex flex-col md:flex-row items-center justify-between gap-8"
-          style={{
-            background:
-              "linear-gradient(135deg, rgba(113,40,111,0.06), rgba(192,64,160,0.04))",
-            border: "1px solid rgba(113,40,111,0.12)"
-          }}
-        >
-          <div>
-            <p className="text-5xl md:text-7xl font-extrabold text-[#1a1a2e] leading-none">
-              {t("bottomStatLine1")}
-            </p>
-            <p
-              className="text-5xl md:text-7xl font-extrabold bg-clip-text text-transparent leading-none"
-              style={{
-                backgroundImage: "linear-gradient(135deg, #71286F, #c040a0)"
-              }}
-            >
-              {t("bottomStatLine2")}
-            </p>
+        {/* Bottom band — logos ride an orbit around the headline stat */}
+        <Reveal scale={0.97} y={30}>
+          <div className="relative flex flex-col items-center justify-between gap-10 overflow-hidden rounded-[2.5rem] bg-tabi-night p-8 text-white sm:p-12 md:flex-row">
+            <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_80%_at_0%_0%,rgba(208,96,176,0.35)_0%,transparent_60%)]" />
+            <div className="relative">
+              <p className="text-[clamp(2.6rem,6vw,4.5rem)] font-bold leading-none">{t("bottomStatLine1")}</p>
+              <p className="text-[clamp(2.6rem,6vw,4.5rem)] font-bold leading-none">
+                <span className="bg-gradient-to-r from-[#F9C8EE] via-[#F3A6D9] to-tabi-tan bg-clip-text text-transparent">
+                  {t("bottomStatLine2")}
+                </span>
+              </p>
+              <p className="mt-5 max-w-xs text-base leading-relaxed text-white/70">{t("bottomStatDesc")}</p>
+            </div>
+
+            <div className="relative h-56 w-56 shrink-0">
+              <div aria-hidden className="absolute inset-0 rounded-full border border-dashed border-white/20" />
+              <div aria-hidden className="absolute inset-10 rounded-full border border-white/10" />
+              <motion.div
+                className="absolute inset-0"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
+              >
+                {[VueLogo, SailsLogo, InertiaLogo, TailwindLogo].map((Logo, i) => {
+                  const angle = (i / 4) * Math.PI * 2 - Math.PI / 2;
+                  return (
+                    <motion.span
+                      key={i}
+                      className="absolute flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-lg"
+                      style={{ left: `${(50 + 50 * Math.cos(angle)).toFixed(2)}%`, top: `${(50 + 50 * Math.sin(angle)).toFixed(2)}%` }}
+                      animate={{ rotate: -360 }}
+                      transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
+                    >
+                      <Logo size={28} />
+                    </motion.span>
+                  );
+                })}
+              </motion.div>
+              <Sparkle className="absolute inset-0 m-auto" size={44} />
+            </div>
           </div>
-          <div className="max-w-xs">
-            <p className="text-base text-[#555] leading-relaxed">
-              {t("bottomStatDesc")}
-            </p>
-          </div>
-          <div className="flex gap-4">
-            <VueLogo size={40} />
-            <SailsLogo size={40} />
-            <InertiaLogo size={40} />
-            <TailwindLogo size={40} />
-          </div>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

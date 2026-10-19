@@ -1,211 +1,209 @@
 "use client";
 
+import { useRef } from "react";
 import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
-import { ArrowRight, Users, Heart } from "lucide-react";
-import { Button } from "@/components/atoms/Button";
 import Image from "next/image";
+import { motion, useReducedMotion, useScroll, useTransform, type MotionValue } from "framer-motion";
+import { ArrowRight, Heart, Users } from "lucide-react";
+import { Button } from "@/components/atoms/Button";
+import { Eyebrow } from "@/components/atoms/Eyebrow";
+import { GradientText } from "@/components/atoms/GradientText";
+import { EASE_TABI } from "@/components/atoms/Reveal";
+import { Sparkle } from "@/components/atoms/Sparkle";
+import { withBasePath } from "@/constants/paths";
+
+// Five photos fanned along an arc — they spread further apart as you scroll
+const FAN = [
+  { src: "/events/enugu-group-shot.jpeg", rotate: -14, x: -2.1, y: 50 },
+  { src: "/community/learnable-event.jpg", rotate: -7, x: -1.05, y: 14 },
+  { src: "/community/woman-teaching.jpg", rotate: 0, x: 0, y: 0 },
+  { src: "/uploads/20240913_110227.jpg", rotate: 7, x: 1.05, y: 14 },
+  { src: "/events/tw-side.jpeg", rotate: 14, x: 2.1, y: 50 }
+];
+
+function FanCard({
+  card,
+  index,
+  spread,
+  alt
+}: {
+  card: (typeof FAN)[number];
+  index: number;
+  spread: MotionValue<number>;
+  alt: string;
+}) {
+  const reduced = useReducedMotion();
+  const x = useTransform(spread, (s) => `calc(${card.x * 100}% + ${card.x * s}px)`);
+  const rotate = useTransform(spread, (s) => card.rotate * (1 + s / 140));
+  const center = index === 2;
+
+  return (
+    <motion.div
+      className={`absolute left-1/2 top-0 w-[38%] max-w-[260px] -translate-x-1/2 sm:w-[30%] ${center ? "z-30" : index === 1 || index === 3 ? "z-20" : "z-10"}`}
+      style={reduced ? { rotate: card.rotate, x: `${card.x * 100}%`, y: card.y } : { x, rotate, y: card.y }}
+    >
+      <motion.div
+        initial={{ opacity: 0, y: 120, rotate: 0, scale: 0.8 }}
+        animate={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
+        transition={{ duration: 1.1, delay: 0.25 + Math.abs(index - 2) * 0.12, ease: EASE_TABI }}
+        whileHover={{ y: -14, scale: 1.04, transition: { duration: 0.35 } }}
+        className="relative aspect-[3/4] overflow-hidden rounded-[1.5rem] border-[3px] border-white bg-tabi-lilac shadow-[0_30px_60px_-30px_rgba(42,13,41,0.6)]"
+      >
+        <Image
+          src={withBasePath(card.src)}
+          alt={center ? alt : ""}
+          fill
+          priority={center}
+          sizes="(max-width: 640px) 40vw, 260px"
+          className="object-cover"
+        />
+        {center && <div className="absolute inset-0 ring-[3px] ring-inset ring-brand-primary rounded-[1.35rem]" />}
+      </motion.div>
+    </motion.div>
+  );
+}
 
 export default function CommunityHero() {
   const t = useTranslations("Community.hero");
+  const reduced = useReducedMotion();
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
+  const spread = useTransform(scrollYProgress, [0, 1], [0, 90]);
+  const fanY = useTransform(scrollYProgress, [0, 1], [0, 80]);
+
+  const scrollToJoin = () => document.getElementById("join")?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <section
-      className="relative w-full overflow-hidden bg-[#fdf7ff]"
+      ref={ref}
+      className="relative w-full overflow-hidden bg-white"
       style={{ paddingTop: "var(--nav-height, 80px)" }}
     >
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.03]"
-        style={{
-          backgroundImage: `radial-gradient(#71286F 0.5px, transparent 0.5px)`,
-          backgroundSize: "24px 24px"
-        }}
-      />
+      {/* Blurred orbs from the About Us hero */}
+      <div aria-hidden className="pointer-events-none absolute -left-20 top-28 h-64 w-64 rounded-full bg-brand-orchid/25 blur-[80px] animate-blob" />
+      <div aria-hidden className="pointer-events-none absolute -right-16 top-64 h-72 w-72 rounded-full bg-brand-orchid/20 blur-[90px] animate-blob [animation-delay:-7s]" />
 
-      <div className="relative mx-auto max-w-7xl px-6 py-12 md:py-20 lg:py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          <div className="relative z-10">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="mb-8"
-            >
-              <div className="inline-flex items-center gap-2 rounded-full border border-brand-primary/20 bg-white px-4 py-1.5 shadow-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-primary animate-pulse" />
-                <span className="text-[10px] font-black uppercase tracking-widest text-brand-primary">
-                  {t("badge")}
-                </span>
-              </div>
-            </motion.div>
+      <div className="relative mx-auto max-w-350 px-6 pt-14 text-center sm:px-12 lg:px-20 lg:pt-20">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: EASE_TABI }}
+        >
+          <Eyebrow dot>{t("badge")}</Eyebrow>
+        </motion.div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-5xl lg:text-[4.2rem] font-extrabold text-[#1a1a2e] leading-[1.05] tracking-tight"
-            >
-              {t("headlinePart1")}{" "}
-              <span className="relative inline-block text-brand-primary italic">
-                {t("headlineHighlight")}
-                <svg
-                  className="absolute -bottom-1 left-0 w-full"
-                  height="6"
-                  viewBox="0 0 300 6"
-                  fill="none"
-                  preserveAspectRatio="none"
-                  aria-hidden
-                >
-                  <path
-                    d="M0 4 Q37.5 0 75 4 Q112.5 8 150 4 Q187.5 0 225 4 Q262.5 8 300 4"
-                    stroke="#71286F"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    fill="none"
-                    opacity="0.5"
-                  />
-                </svg>
-              </span>{" "}
-              {t("headlinePart2")}
-            </motion.h1>
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.08, ease: EASE_TABI }}
+          className="mx-auto mt-7 max-w-4xl text-[clamp(2.3rem,5.6vw,4.4rem)] font-bold leading-[1.08] tracking-[-0.015em] text-tabi-ink"
+        >
+          {t("headlinePart1")}{" "}
+          <span className="relative inline-block">
+            <GradientText>{t("headlineHighlight")}</GradientText>
+            <Image
+              src={withBasePath("/scribble.svg")}
+              alt=""
+              aria-hidden
+              width={70}
+              height={70}
+              className="absolute -right-12 -top-8 h-12 w-12 sm:-right-14 sm:h-16 sm:w-16"
+            />
+          </span>{" "}
+          {t("headlinePart2")}
+        </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="mt-6 text-sm md:text-lg text-gray-600 font-light leading-relaxed max-w-xl"
-            >
-              {t.rich("subhead", {
-                prefix: () => t("subheadPrefix"),
-                bold: (chunks) => (
-                  <span className="font-bold text-[#1a1a2e]">{chunks}</span>
-                ),
-                suffix: () => t("subheadSuffix")
-              })}
-              {/* Fallback if t.rich not used: we can just concatenate */}
-              {t("subheadPrefix")}{" "}
-              <span className="font-bold text-[#1a1a2e]">
-                {t("subheadBold")}
-              </span>{" "}
-              {t("subheadSuffix")}
-            </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.18, ease: EASE_TABI }}
+          className="mx-auto mt-6 max-w-2xl text-base leading-[1.8] text-tabi-body sm:text-lg"
+        >
+          {t("subheadPrefix")} <span className="font-bold text-tabi-ink">{t("subheadBold")}</span>{" "}
+          {t("subheadSuffix")}
+        </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="mt-10 flex flex-col sm:flex-row sm:items-center gap-6"
-            >
-              <Button
-                variant="primary"
-                size="lg"
-                onClick={() => {
-                  const joinSection = document.getElementById("join");
-                  if (joinSection) {
-                    joinSection.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-                className="gap-2 text-sm md:text-base px-6 md:px-6"
-              >
-                {t("cta")} <ArrowRight size={16} />
-              </Button>
-
-              <div className="flex items-center gap-3">
-                <span className="relative flex h-3 w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500" />
-                </span>
-                <p className="text-xs md:text-sm font-medium text-gray-700">
-                  {t("fomoMain")}{" "}
-                  <span className="text-gray-400 font-normal block sm:inline">
-                    {t("fomoQueue")}
-                  </span>
-                </p>
-              </div>
-            </motion.div>
-          </div>
-
-          <div className="relative h-112.5 md:h-137.5 w-full">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6 }}
-              className="absolute top-0 left-0 w-[65%] h-[65%] rounded-3xl overflow-hidden border-4 border-white shadow-xl bg-gray-100"
-            >
-              <div className="absolute inset-0 bg-linear-to-b from-transparent to-black/30 z-10" />
-              <Image
-                src="/community/woman-teaching.jpg"
-                alt={t("images.womanCodingAlt")}
-                fill
-                className="object-cover"
-                priority
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, x: 20 }}
-              animate={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="absolute bottom-5 right-0 w-[55%] h-[45%] rounded-3xl overflow-hidden border-4 border-white shadow-2xl bg-gray-100"
-            >
-              <Image
-                src="/community/learnable-event.jpg"
-                alt={t("images.learnableEventAlt")}
-                fill
-                className="object-cover"
-                priority
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="absolute top-[10%] right-[15%] z-20 bg-white/90 backdrop-blur-sm rounded-xl shadow-md px-3 py-2 md:px-4 md:py-2.5 flex items-center gap-2"
-            >
-              <span className="w-2 h-2 rounded-full bg-brand-primary shrink-0" />
-              <div>
-                <p className="text-[10px] md:text-xs text-[#888] font-medium">
-                  {t("floatingTag1")}
-                </p>
-                <p className="text-xs md:text-sm font-bold text-[#1a1a2e]">
-                  {t("floatingTag1Sub")}
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: -10 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.7 }}
-              className="absolute bottom-[20%] left-[-5%] md:left-[-10%] z-20 bg-[#f0faf4]/90 backdrop-blur-sm rounded-xl shadow-md px-3 py-2 md:px-4 md:py-2.5 flex items-center gap-3"
-            >
-              <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-                <Users size={16} />
-              </div>
-              <div>
-                <p className="text-base md:text-xl font-extrabold text-[#1a1a2e] leading-none">
-                  {t("floatingTag2Value")}
-                </p>
-                <p className="text-[9px] md:text-[11px] text-[#888] mt-0.5">
-                  {t("floatingTag2Label")}
-                </p>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.9 }}
-              className="absolute top-[45%] left-[40%] z-20 bg-white rounded-full shadow-lg p-2 flex items-center justify-center"
-            >
-              <div className="bg-brand-surface text-brand-primary w-8 h-8 rounded-full flex items-center justify-center">
-                <Heart size={16} fill="currentColor" />
-              </div>
-            </motion.div>
-
-            <div className="absolute -z-10 top-[30%] left-[40%] w-60 h-60 rounded-full bg-brand-primary/10 blur-3xl" />
-          </div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.26, ease: EASE_TABI }}
+          className="mt-9 flex flex-col items-center justify-center gap-5 sm:flex-row"
+        >
+          <Button variant="primary" size="lg" onClick={scrollToJoin}>
+            {t("cta")}
+            <ArrowRight size={18} className="transition-transform duration-300 group-hover/btn:translate-x-1" />
+          </Button>
+          <p className="flex items-center gap-2.5 text-sm text-tabi-body">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#3CB371] opacity-60" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#3CB371]" />
+            </span>
+            <span>
+              <span className="font-medium text-tabi-ink">{t("fomoMain")}</span> {t("fomoQueue")}
+            </span>
+          </p>
+        </motion.div>
       </div>
+
+      {/* Photo fan */}
+      <motion.div
+        style={reduced ? undefined : { y: fanY }}
+        className="relative mx-auto mt-16 h-[min(70vw,440px)] w-full max-w-[1100px] sm:mt-20"
+      >
+        {FAN.map((card, i) => (
+          <FanCard key={card.src} card={card} index={i} spread={spread} alt={t("images.womanCodingAlt")} />
+        ))}
+
+        <Sparkle className="absolute left-[30%] top-[-6%] z-40" size={40} />
+
+        {/* Floating chips (desktop) */}
+        <motion.div
+          className="absolute left-[4%] top-[12%] z-40 hidden md:block"
+          initial={{ opacity: 0, scale: 0.6 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ type: "spring", stiffness: 200, damping: 16, delay: 1 }}
+        >
+          <div className="animate-float flex items-center gap-3 rounded-2xl bg-tabi-mint px-4 py-3 shadow-[0_14px_34px_-14px_rgba(113,40,111,0.35)]">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-[#2F8F5B]">
+              <Users size={16} />
+            </span>
+            <span className="text-left">
+              <span className="block text-xl font-bold leading-none text-tabi-ink">{t("floatingTag2Value")}</span>
+              <span className="mt-1 block text-[11px] text-tabi-body">{t("floatingTag2Label")}</span>
+            </span>
+          </div>
+        </motion.div>
+
+        <motion.div
+          className="absolute right-[4%] top-[6%] z-40 hidden md:block"
+          initial={{ opacity: 0, scale: 0.6 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ type: "spring", stiffness: 200, damping: 16, delay: 1.15 }}
+        >
+          <div className="animate-float rounded-2xl bg-white px-4 py-3 text-left shadow-[0_14px_34px_-14px_rgba(113,40,111,0.35)] [animation-delay:-3s]">
+            <p className="text-[11px] text-tabi-body">{t("floatingTag1")}</p>
+            <p className="flex items-center gap-1.5 text-sm font-bold text-tabi-ink">
+              <span className="h-1.5 w-1.5 rounded-full bg-brand-primary" />
+              {t("floatingTag1Sub")}
+            </p>
+          </div>
+        </motion.div>
+
+        <motion.div
+          aria-hidden
+          className="absolute left-1/2 top-[62%] z-40 -translate-x-1/2"
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ type: "spring", stiffness: 260, damping: 12, delay: 1.3 }}
+        >
+          <span className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-primary text-white shadow-[0_10px_30px_-8px_rgba(113,40,111,0.7)] ring-4 ring-white animate-float">
+            <Heart size={22} fill="currentColor" strokeWidth={0} />
+          </span>
+        </motion.div>
+      </motion.div>
+
+      {/* soft fade into the next section */}
+      <div aria-hidden className="pointer-events-none relative z-40 -mt-24 h-24 bg-gradient-to-b from-transparent to-white" />
     </section>
   );
 }

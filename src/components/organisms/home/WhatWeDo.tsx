@@ -92,7 +92,7 @@ export default function WhatWeDo() {
 
           <motion.h2
             variants={itemVariants}
-            className="text-[clamp(2.4rem,5vw,3.8rem)] font-extrabold leading-none tracking-tight text-[#1a1a2e]"
+            className="text-[clamp(2.4rem,5vw,3.8rem)] font-bold leading-none tracking-tight text-tabi-ink"
           >
             {t("title")}
           </motion.h2>
@@ -136,7 +136,7 @@ export default function WhatWeDo() {
                 <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-brand-primary shadow-sm group-hover:bg-brand-primary group-hover:text-white transition-colors duration-300">
                   <Icon size={24} strokeWidth={1.5} />
                 </div>
-                <h3 className="text-lg font-bold text-[#1a1a2e] mb-3">
+                <h3 className="text-lg font-bold text-tabi-ink mb-3">
                   {t(item.titleKey)}
                 </h3>
                 <p className="text-sm text-[#777] leading-relaxed">

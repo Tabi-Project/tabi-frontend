@@ -2,10 +2,13 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
+import { ArrowRight, Briefcase, Building2, Rocket } from "lucide-react";
 import { Button } from "@/components/atoms/Button";
+import { GradientText } from "@/components/atoms/GradientText";
+import { Reveal, Stagger, StaggerItem } from "@/components/atoms/Reveal";
+import SectionHeading from "@/components/molecules/SectionHeading";
 import RegistrationModal from "@/components/molecules/RegistrationModal";
 
-// Define the expected shape of a profile from translations
 interface ProfileTranslation {
   label: string;
   hook: string;
@@ -13,165 +16,94 @@ interface ProfileTranslation {
   traits: string[];
 }
 
+const PROFILES = [
+  { id: "owner", icon: Building2, tint: "bg-tabi-pink", iconInk: "text-brand-primary" },
+  { id: "professional", icon: Briefcase, tint: "bg-tabi-mint", iconInk: "text-[#2F8F5B]" },
+  { id: "founder", icon: Rocket, tint: "bg-tabi-cream", iconInk: "text-[#B9772E]" }
+] as const;
+
 export default function AIBusinessAudience() {
   const t = useTranslations("AIBusiness.audience");
-  const [hovered, setHovered] = useState<string | null>(null);
   const [formOpen, setFormOpen] = useState(false);
-
-  const PROFILES = [
-    {
-      id: "owner",
-      ...(t.raw("profiles.owner") as ProfileTranslation),
-      emoji: "🏢",
-      accent: "#a855f7",
-      bg: "linear-gradient(135deg, #1a0a2e 0%, #2d1045 100%)",
-      border: "rgba(168,85,247,0.2)",
-      tagBg: "rgba(168,85,247,0.12)"
-    },
-    {
-      id: "professional",
-      ...(t.raw("profiles.professional") as ProfileTranslation),
-      emoji: "💼",
-      accent: "#f472b6",
-      bg: "linear-gradient(135deg, #2d0a1e 0%, #450a2e 100%)",
-      border: "rgba(244,114,182,0.2)",
-      tagBg: "rgba(244,114,182,0.12)"
-    },
-    {
-      id: "founder",
-      ...(t.raw("profiles.founder") as ProfileTranslation),
-      emoji: "🚀",
-      accent: "#34d399",
-      bg: "linear-gradient(135deg, #0a2e1a 0%, #0a3d24 100%)",
-      border: "rgba(52,211,153,0.2)",
-      tagBg: "rgba(52,211,153,0.12)"
-    }
-  ];
 
   return (
     <>
-      <section className="w-full bg-white overflow-hidden">
+      <section className="w-full overflow-hidden bg-white">
         <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
-          <div className="flex flex-col items-center text-center mb-16">
-            <span className="mb-4 inline-flex items-center rounded-full border border-brand-primary/30 bg-[#fdf7ff] px-4 py-1.5 text-xs font-semibold text-brand-primary tracking-wide uppercase">
-              {t("badge")}
-            </span>
-            <h2 className="text-[clamp(1.9rem,4vw,3rem)] font-extrabold tracking-tight text-[#1a1a2e] max-w-2xl leading-tight">
-              {t("heading")}
-            </h2>
-            <p className="mt-4 max-w-lg text-base text-[#666] leading-relaxed">
-              {t("description")}
-            </p>
-          </div>
+          <SectionHeading
+            align="center"
+            eyebrow={t("badge")}
+            title={t("heading")}
+            description={t("description")}
+            className="mb-14 lg:mb-16"
+          />
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-            {PROFILES.map((profile) => {
-              const isHovered = hovered === profile.id;
+          <Stagger className="grid grid-cols-1 gap-5 lg:grid-cols-3" stagger={0.12}>
+            {PROFILES.map(({ id, icon: Icon, tint, iconInk }) => {
+              const p = t.raw(`profiles.${id}`) as ProfileTranslation;
               return (
-                <div
-                  key={profile.id}
-                  onMouseEnter={() => setHovered(profile.id)}
-                  onMouseLeave={() => setHovered(null)}
-                  className="relative flex flex-col rounded-3xl overflow-hidden cursor-default transition-all duration-500"
-                  style={{
-                    background: isHovered ? profile.bg : "#f9f5ff",
-                    border: `1px solid ${isHovered ? profile.border : "#ede8f5"}`,
-                    transform: isHovered ? "translateY(-6px)" : "translateY(0)",
-                    boxShadow: isHovered
-                      ? `0 24px 60px ${profile.accent}22`
-                      : "0px 4px 12px 2px #3737371F"
-                  }}
-                >
-                  <div
-                    className="h-1 w-full transition-all duration-500"
-                    style={{
-                      background: isHovered
-                        ? `linear-gradient(90deg, ${profile.accent}, transparent)`
-                        : "transparent"
-                    }}
-                  />
-                  <div className="flex flex-col flex-1 p-8">
-                    <div className="flex items-center gap-4 mb-8">
-                      <div
-                        className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl transition-colors duration-300 shrink-0"
-                        style={{
-                          background: isHovered ? profile.tagBg : "white",
-                          boxShadow: isHovered
-                            ? "none"
-                            : "0 2px 8px rgba(0,0,0,0.06)"
-                        }}
-                      >
-                        {profile.emoji}
-                      </div>
-                      <h3
-                        className="text-lg font-extrabold transition-colors duration-300"
-                        style={{ color: isHovered ? "white" : "#1a1a2e" }}
-                      >
-                        {profile.label}
-                      </h3>
-                    </div>
-                    <p
-                      className="text-base font-semibold leading-snug mb-3 transition-colors duration-300"
-                      style={{ color: isHovered ? profile.accent : "#1a1a2e" }}
+                <StaggerItem key={id} className="h-full">
+                  <article
+                    tabIndex={0}
+                    className={`group relative isolate flex h-full flex-col overflow-hidden rounded-[2rem] p-8 outline-none transition-transform duration-500 hover:-translate-y-1.5 focus-visible:-translate-y-1.5 sm:p-9 ${tint}`}
+                  >
+                    {/* Ink flood — grows out of the icon on hover */}
+                    <span
+                      aria-hidden
+                      className="absolute left-[3.75rem] top-[3.75rem] -z-10 h-14 w-14 -translate-x-1/2 -translate-y-1/2 scale-0 rounded-full bg-brand-primary transition-transform duration-[900ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[22] group-focus-visible:scale-[22]"
+                    />
+
+                    <span
+                      className={`flex h-14 w-14 items-center justify-center rounded-full bg-white shadow-sm transition-all duration-500 group-hover:rotate-[-8deg] group-hover:bg-white/15 group-hover:text-white group-focus-visible:text-white ${iconInk}`}
                     >
-                      {profile.hook}
+                      <Icon size={24} strokeWidth={1.6} />
+                    </span>
+
+                    <p className="mt-8 text-sm font-medium text-brand-primary transition-colors duration-500 group-hover:text-tabi-tan group-focus-visible:text-tabi-tan">
+                      {p.label}
                     </p>
-                    <p
-                      className="text-sm leading-relaxed mb-8 flex-1 transition-colors duration-300"
-                      style={{
-                        color: isHovered ? "rgba(255,255,255,0.55)" : "#666"
-                      }}
-                    >
-                      {profile.description}
+                    <h3 className="mt-2 text-xl font-bold leading-snug text-tabi-ink transition-colors duration-500 group-hover:text-white group-focus-visible:text-white">
+                      {p.hook}
+                    </h3>
+                    <p className="mt-4 flex-1 text-sm leading-[1.8] text-tabi-body transition-colors duration-500 group-hover:text-white/75 group-focus-visible:text-white/75">
+                      {p.description}
                     </p>
-                    <div className="flex flex-wrap gap-2">
-                      {profile.traits.map((trait: string) => (
-                        <span
+
+                    <ul className="mt-8 flex flex-wrap gap-2">
+                      {p.traits.map((trait, i) => (
+                        <li
                           key={trait}
-                          className="text-[11px] font-bold tracking-[0.12em] uppercase px-3 py-1.5 rounded-full transition-colors duration-300"
-                          style={{
-                            background: isHovered ? profile.tagBg : "white",
-                            color: isHovered ? profile.accent : "#888",
-                            border: isHovered
-                              ? `1px solid ${profile.accent}30`
-                              : "1px solid #e5e5e5"
-                          }}
+                          className="rounded-full bg-white/80 px-3 py-1.5 text-xs font-medium text-tabi-ink transition-all duration-500 group-hover:bg-white/10 group-hover:text-white group-hover:ring-1 group-hover:ring-white/20"
+                          style={{ transitionDelay: `${i * 60}ms` }}
                         >
                           {trait}
-                        </span>
+                        </li>
                       ))}
-                    </div>
-                  </div>
-                </div>
+                    </ul>
+                  </article>
+                </StaggerItem>
               );
             })}
-          </div>
+          </Stagger>
 
-          <div className="mt-16 flex flex-col md:flex-row items-center justify-between gap-8 p-8 md:p-12 rounded-tabi-card bg-[#fdf7ff] border border-brand-primary/10">
-            <div className="flex-1 text-center md:text-left">
-              <h4 className="text-2xl font-bold text-[#1a1a2e] mb-3">
-                {t("cta.heading")}
-              </h4>
-              <p className="text-[#666] text-sm md:text-base max-w-md">
-                {t("cta.description")}
-              </p>
+          <Reveal className="mt-14" y={24}>
+            <div className="flex flex-col items-center justify-between gap-8 rounded-[2.5rem] bg-tabi-blush p-8 md:flex-row md:p-12">
+              <div className="flex-1 text-center md:text-left">
+                <h4 className="text-2xl font-bold text-tabi-ink">{t("cta.heading")}</h4>
+                <p className="mt-3 max-w-md text-base leading-relaxed text-tabi-body">{t("cta.description")}</p>
+              </div>
+              <Button variant="primary" size="lg" onClick={() => setFormOpen(true)}>
+                {t("cta.button")}
+                <ArrowRight size={18} className="transition-transform duration-300 group-hover/btn:translate-x-1" />
+              </Button>
             </div>
-            <Button
-              variant="primary"
-              size="lg"
-              className="px-10"
-              onClick={() => setFormOpen(true)}
-            >
-              {t("cta.button")}
-            </Button>
-          </div>
+          </Reveal>
 
-          <p className="text-center text-sm text-[#aaa] mt-12">
-            {t("footerLine")}{" "}
-            <span className="text-brand-primary font-semibold">
-              {t("footerHighlight")}
-            </span>
-          </p>
+          <Reveal delay={0.1}>
+            <p className="mt-10 text-center text-base text-tabi-body">
+              {t("footerLine")} <GradientText className="font-bold">{t("footerHighlight")}</GradientText>
+            </p>
+          </Reveal>
         </div>
       </section>
       {formOpen && <RegistrationModal onClose={() => setFormOpen(false)} />}

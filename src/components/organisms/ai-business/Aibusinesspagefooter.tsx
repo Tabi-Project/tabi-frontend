@@ -29,7 +29,7 @@ export default function AIBusinessPageFooter() {
                 </svg>
               </div>
               <div>
-                <p className="text-sm font-extrabold text-white leading-none">
+                <p className="text-sm font-bold text-white leading-none">
                   Tabi Academy
                 </p>
                 <p className="text-[10px] text-white/30 font-medium mt-0.5">

@@ -145,13 +145,13 @@ export default async function BlogDetailPage({ params }: Props) {
             </span>
           </div>
 
-          <h1 className="text-[clamp(1.75rem,3.5vw,2.6rem)] font-bold text-[#1a1a2e] text-center leading-tight mb-6">
+          <h1 className="text-[clamp(1.75rem,3.5vw,2.6rem)] font-bold text-tabi-ink text-center leading-tight mb-6">
             {post.title}
           </h1>
 
           <div className="flex items-center justify-center flex-wrap gap-3 text-sm text-[#555] mb-10">
             {post.author && (
-              <span className="font-medium text-[#1a1a2e]">
+              <span className="font-medium text-tabi-ink">
                 By {post.author}
               </span>
             )}

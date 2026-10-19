@@ -92,7 +92,7 @@ export const TWNDirectory = () => {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="py-24 bg-[#FDFCFE]"
     >
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-350 mx-auto px-6 sm:px-12 lg:px-20">
         <div className="mb-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -100,7 +100,7 @@ export const TWNDirectory = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <h2 className="text-4xl font-bold text-[#2D102D] mb-4">
+            <h2 className="text-4xl font-bold text-tabi-ink mb-4">
               {t("heading")}
             </h2>
             <p className="text-gray-500 mb-10 max-w-2xl">{t("description")}</p>
@@ -249,7 +249,7 @@ export const TWNDirectory = () => {
                       />
                     </div>
                     <div>
-                      <h3 className="text-lg font-bold text-[#2D102D]">
+                      <h3 className="text-lg font-bold text-tabi-ink">
                         {member.name}
                       </h3>
                       <p className="text-xs font-bold text-brand-primary uppercase tracking-widest">
@@ -380,7 +380,7 @@ export const TWNDirectory = () => {
               <div className="w-20 h-20 bg-purple-50 rounded-full flex items-center justify-center mb-6 text-brand-primary/40">
                 <SearchX size={40} />
               </div>
-              <h3 className="text-xl font-bold text-[#2D102D] mb-2">
+              <h3 className="text-xl font-bold text-tabi-ink mb-2">
                 {t("emptyTitle")}
               </h3>
               <p className="text-gray-500 max-w-sm mb-8">{t("emptyMessage")}</p>

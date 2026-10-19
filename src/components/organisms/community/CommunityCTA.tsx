@@ -2,14 +2,11 @@
 
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import {
-  animate,
-  motion,
-  useInView,
-  useMotionValue,
-  useTransform
-} from "framer-motion";
-import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { CountUp } from "@/components/atoms/CountUp";
+import { Marquee } from "@/components/atoms/Marquee";
+import { Reveal, Stagger, StaggerItem, EASE_TABI } from "@/components/atoms/Reveal";
+import { Sparkle } from "@/components/atoms/Sparkle";
 import { withBasePath } from "@/constants/paths";
 
 function WhatsAppIcon({ className }: { className?: string }) {
@@ -20,167 +17,82 @@ function WhatsAppIcon({ className }: { className?: string }) {
   );
 }
 
-function RollingCounter({ value }: { value: string }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
-  const numericValue = parseInt(value.replace(/[^0-9]/g, ""), 10);
-  const count = useMotionValue(0);
-  const rounded = useTransform(count, (latest) => {
-    const formatted = Math.round(latest).toLocaleString();
-    return value.includes("+") ? `${formatted}+` : formatted;
-  });
-
-  useEffect(() => {
-    if (isInView) {
-      animate(count, numericValue, { duration: 2, ease: [0.16, 1, 0.3, 1] });
-    }
-  }, [isInView, count, numericValue]);
-
-  return <motion.span ref={ref}>{rounded}</motion.span>;
-}
-
 // Partner logos – same as used in the Partners component
 const PARTNERS = [
-  {
-    id: "yip",
-    src: withBasePath("/partners/yip.png"),
-    alt: "YIP – Yebox Internship Program"
-  },
-  {
-    id: "gutsy",
-    src: withBasePath("/partners/gutsy-woman.png"),
-    alt: "GIV The Gutsy Woman"
-  },
-  {
-    id: "yebox",
-    src: withBasePath("/partners/yebox.png"),
-    alt: "Yebox Technologies"
-  },
-  {
-    id: "genesys",
-    src: withBasePath("/partners/genesys.png"),
-    alt: "Genesys"
-  },
-  {
-    id: "risevest",
-    src: withBasePath("/partners/rise.png"),
-    alt: "Rise Academy"
-  },
-  {
-    id: "cchub",
-    src: withBasePath("/partners/cchub.png"),
-    alt: "Co-creation HUB Africa"
-  }
+  { id: "yip", src: withBasePath("/partners/yip.png"), alt: "YIP – Yebox Internship Program" },
+  { id: "gutsy", src: withBasePath("/partners/gutsy-woman.png"), alt: "GIV The Gutsy Woman" },
+  { id: "yebox", src: withBasePath("/partners/yebox.png"), alt: "Yebox Technologies" },
+  { id: "genesys", src: withBasePath("/partners/genesys.png"), alt: "Genesys" },
+  { id: "risevest", src: withBasePath("/partners/rise.png"), alt: "Rise Academy" },
+  { id: "cchub", src: withBasePath("/partners/cchub.jpeg"), alt: "Co-creation HUB Africa" }
 ];
+
+const STAT_TINTS = ["bg-tabi-pink", "bg-tabi-mint", "bg-tabi-cream", "bg-tabi-lilac/60"];
 
 export default function CommunityCTA() {
   const t = useTranslations("Community.cta");
   const stats = t.raw("stats") as Array<{ label: string; value: string }>;
 
   return (
-    <section id="join" className="pb-20">
-      <div className="mx-auto max-w-7xl px-6 lg:px-20">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-gray-100 border border-gray-100 rounded-3xl overflow-hidden mb-8">
+    <section id="join" className="scroll-mt-24 bg-white pb-20 lg:pb-28">
+      <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20">
+        <Stagger className="mb-6 grid grid-cols-2 gap-4 lg:grid-cols-4" stagger={0.08}>
           {stats.map((stat, i) => (
-            <div key={i} className="bg-white p-8 text-center">
-              <p className="text-3xl font-black text-[#1a1a2e] mb-1">
-                <RollingCounter value={stat.value} />
-              </p>
-              <p className="text-[10px] uppercase tracking-widest font-bold text-gray-400">
-                {stat.label}
-              </p>
-            </div>
+            <StaggerItem key={stat.label} hoverLift={4}>
+              <div className={`rounded-[1.75rem] p-6 sm:p-7 ${STAT_TINTS[i % STAT_TINTS.length]}`}>
+                <p className="text-[clamp(1.8rem,3.4vw,2.6rem)] font-bold leading-none text-tabi-ink">
+                  <CountUp value={stat.value} />
+                </p>
+                <p className="mt-3 text-sm text-tabi-body">{stat.label}</p>
+              </div>
+            </StaggerItem>
           ))}
-        </div>
+        </Stagger>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          className="relative rounded-[3rem] overflow-hidden p-12 lg:p-20 text-center text-white"
-          style={{
-            background: "linear-gradient(160deg, #0f0a1a 0%, #71286F 100%)"
-          }}
-        >
-          <div className="absolute top-0 right-0 w-80 h-80 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+        <Reveal scale={0.97} y={40}>
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-brand-primary px-6 py-14 text-center text-white sm:px-12 lg:py-20">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_70%_at_100%_0%,rgba(208,96,176,0.55)_0%,transparent_60%),radial-gradient(60%_60%_at_0%_100%,rgba(42,13,41,0.85)_0%,transparent_60%)]"
+            />
+            <Sparkle className="absolute left-[10%] top-12" size={34} />
+            <Sparkle className="absolute bottom-14 right-[12%]" size={20} delay={1.2} color="#fff" />
 
-          {/* Partner logo banner */}
-          {/* Partner logo banner */}
-          <div
-            className="relative mb-14 overflow-hidden py-3
-            before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-8
-            before:bg-linear-to-r before:from-[#0f0a1a] before:to-transparent
-            after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-8
-            after:bg-linear-to-l after:from-[#0f0a1a] after:to-transparent"
-          >
-            <motion.div
-              className="flex items-center gap-12 whitespace-nowrap"
-              animate={{ x: ["0%", "-50%"] }}
-              transition={{ repeat: Infinity, ease: "linear", duration: 12 }}
-            >
-              {[...PARTNERS, ...PARTNERS].map((partner, index) => (
-                <div
-                  key={`${partner.id}-${index}`}
-                  className="relative h-10 w-24 shrink-0 opacity-70 hover:opacity-100 transition-all duration-300"
-                >
-                  <Image
-                    src={partner.src}
-                    alt={partner.alt}
-                    fill
-                    className="object-contain mix-blend-multiply"
-                  />
-                </div>
-              ))}
-            </motion.div>
-          </div>
+            {/* Partner logos on a white strip so they stay legible */}
+            <div className="relative mx-auto mb-14 max-w-4xl rounded-full bg-white py-4">
+              <Marquee duration={24}>
+                {PARTNERS.map((partner) => (
+                  <div key={partner.id} className="relative mx-8 h-9 w-24 shrink-0 opacity-80 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0">
+                    <Image src={partner.src} alt={partner.alt} fill sizes="96px" className="object-contain" />
+                  </div>
+                ))}
+              </Marquee>
+            </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-          >
-            <h2 className="text-4xl lg:text-7xl font-black mb-6 tracking-tighter">
-              {t("headingLine1")} <br />
-              <span className="text-white/40 italic">
+            <h2 className="relative mx-auto max-w-3xl text-[clamp(2.2rem,5.5vw,4.25rem)] font-bold leading-[1.08]">
+              {t("headingLine1")}{" "}
+              <span className="bg-gradient-to-r from-[#F9C8EE] via-white to-tabi-tan bg-clip-text text-transparent">
                 {t("headingHighlight")}
               </span>
             </h2>
-          </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-            className="max-w-2xl mx-auto text-white/70 text-base md:text-lg font-light mb-12"
-          >
-            {t("description")}
-          </motion.p>
+            <p className="relative mx-auto mt-6 max-w-2xl text-base leading-[1.8] text-white/75 md:text-lg">{t("description")}</p>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.6, duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col items-center gap-6"
-          >
             <motion.a
               href="https://chat.whatsapp.com/CdOuCwdpNez6FgmckwojNo"
               target="_blank"
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0px 20px 40px rgba(0,0,0,0.3)"
-              }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 px-10 py-5 bg-white text-brand-primary rounded-full font-bold text-lg transition-colors"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.5, ease: EASE_TABI }}
+              className="relative mt-10 inline-flex items-center gap-3 rounded-full bg-white px-9 py-4 text-lg font-bold text-brand-primary animate-pulse-ring transition-transform duration-300 hover:-translate-y-0.5 active:scale-95"
             >
-              {t("joinButton")}{" "}
-              <WhatsAppIcon className="w-6 h-6 fill-current" />
+              {t("joinButton")}
+              <WhatsAppIcon className="h-6 w-6 text-[#25D366]" />
             </motion.a>
-          </motion.div>
-        </motion.div>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -243,7 +155,7 @@ export default function CommunityCTA() {
 //         <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-gray-100 border border-gray-100 rounded-3xl overflow-hidden mb-8">
 //           {stats.map((stat, i) => (
 //             <div key={i} className="bg-white p-8 text-center">
-//               <p className="text-3xl font-black text-[#1a1a2e] mb-1">
+//               <p className="text-3xl font-black text-tabi-ink mb-1">
 //                 <RollingCounter value={stat.value} />
 //               </p>
 //               <p className="text-[10px] uppercase tracking-widest font-bold text-gray-400">
@@ -291,7 +203,7 @@ export default function CommunityCTA() {
 //             viewport={{ once: true }}
 //             transition={{ delay: 0.2, duration: 0.6 }}
 //           >
-//             <h2 className="text-4xl lg:text-7xl font-black mb-6 tracking-tighter">
+//             <h2 className="text-4xl lg:text-7xl font-bold mb-6 tracking-tight">
 //               {t("headingLine1")} <br />
 //               <span className="text-white/40 italic">
 //                 {t("headingHighlight")}

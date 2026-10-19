@@ -22,7 +22,7 @@ export default function PostsPanel({
   return (
     <>
       <section className="mb-16">
-        <h2 className="text-2xl font-bold text-[#1a1a2e] mb-8">{heroTitle}</h2>
+        <h2 className="text-2xl font-bold text-tabi-ink mb-8">{heroTitle}</h2>
         <HeroGrid posts={posts} basePath={basePath} />
       </section>
       <PostsGrid

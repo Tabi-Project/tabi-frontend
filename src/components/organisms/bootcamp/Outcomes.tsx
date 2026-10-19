@@ -1,174 +1,110 @@
 "use client";
 
-import { useState } from "react"; 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Image from "next/image";
-import {
-  Rocket,
-  Bot,
-  CreditCard,
-  FolderOpen,
-  Route,
-  Award
-} from "lucide-react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight, Award, Bot, CreditCard, FolderOpen, Rocket, Route } from "lucide-react";
 import { useTranslations } from "next-intl";
-import BootcampApplyModal from "@/components/organisms/bootcamp/BootcampApplyModal"; 
+import BootcampApplyModal from "@/components/organisms/bootcamp/BootcampApplyModal";
+import { Button } from "@/components/atoms/Button";
+import { GradientText } from "@/components/atoms/GradientText";
+import { Reveal, Stagger, StaggerItem } from "@/components/atoms/Reveal";
+import { Sparkle } from "@/components/atoms/Sparkle";
+import SectionHeading from "@/components/molecules/SectionHeading";
 
-const ICONS = [
-  <Rocket size={28} strokeWidth={1.5} key="rocket" />,
-  <Bot size={28} strokeWidth={1.5} key="bot" />,
-  <CreditCard size={28} strokeWidth={1.5} key="card" />,
-  <FolderOpen size={28} strokeWidth={1.5} key="folder" />,
-  <Route size={28} strokeWidth={1.5} key="route" />,
-  <Award size={28} strokeWidth={1.5} key="award" />
-];
+const ICONS = [Rocket, Bot, CreditCard, FolderOpen, Route, Award];
 
 const IMAGES = [
-  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80",
-  "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=400&q=80",
-  "https://images.unsplash.com/photo-1596843720750-7de9329da5d7?w=500",
-  "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=500",
-  "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?q=80",
+  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
+  "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80",
+  "https://images.unsplash.com/photo-1596843720750-7de9329da5d7?w=600",
+  "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600",
+  "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?w=600&q=80",
   "https://images.unsplash.com/photo-1638636241638-aef5120c5153?q=80&w=870"
 ];
 
 export default function Outcomes() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
   const t = useTranslations("Bootcamp.outcomes");
   const items = t.raw("items") as Array<{ title: string; desc: string }>;
-  const [modalOpen, setModalOpen] = useState(false); 
+  const [modalOpen, setModalOpen] = useState(false);
+  const reduced = useReducedMotion();
+  const bandRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: bandRef, offset: ["start end", "end start"] });
+  const bgY = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
 
   return (
-    <section className="w-full bg-white py-24 md:py-32 overflow-hidden">
-      <div className="px-6 sm:px-10 lg:px-16 max-w-350 mx-auto">
-        <div
-          className="grid lg:grid-cols-[1fr_1fr] gap-12 items-end mb-16"
-          ref={ref}
-        >
-          <div>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              className="text-xs font-semibold text-brand-primary uppercase tracking-wide mb-4"
-            >
-              {t("badge")}
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.1 }}
-              className="font-extrabold tracking-tight text-[clamp(2rem,3.8vw,3rem)] text-[#1a1a2e] leading-tight"
-            >
-              {t("heading")}{" "}
-              <span
-                className="bg-clip-text text-transparent"
-                style={{
-                  backgroundImage: "linear-gradient(135deg, #71286F, #c040a0)"
-                }}
-              >
-                {t("highlight")}
-              </span>
-            </motion.h2>
-          </div>
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.2 }}
-            className="text-base text-[#666] leading-relaxed"
-          >
-            {t("description")}
-          </motion.p>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {items.map((item, i) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 24 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 0.15 + i * 0.09 }}
-              className="group rounded-2xl overflow-hidden border border-[#f0e8f0] hover:shadow-lg transition-all duration-300"
-            >
-              <div className="relative h-44 overflow-hidden">
-                <Image
-                  src={IMAGES[i]}
-                  alt={item.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(to top, rgba(26,26,46,0.7) 0%, rgba(113,40,111,0.2) 100%)"
-                  }}
-                />
-                <span className="absolute top-4 left-4 text-white">
-                  {ICONS[i]}
-                </span>
-              </div>
-              <div className="p-6 bg-white">
-                <h3 className="text-[#1a1a2e] font-extrabold text-base mb-2 leading-snug">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-[#777] leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.8 }}
-          className="mt-10 rounded-2xl overflow-hidden relative"
-          style={{ height: "220px" }}
-        >
-          <Image
-            src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1400&q=80"
-            alt="Team of developers"
-            fill
-            className="object-cover"
+    <section className="w-full overflow-hidden bg-white py-20 lg:py-28">
+      <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20">
+        <div className="mb-14 grid items-end gap-10 lg:grid-cols-2">
+          <SectionHeading
+            eyebrow={t("badge")}
+            title={
+              <>
+                {t("heading")} <GradientText>{t("highlight")}</GradientText>
+              </>
+            }
           />
-          <div
-            className="absolute inset-0 flex items-center justify-center"
-            style={{
-              background:
-                "linear-gradient(135deg, rgba(113,40,111,0.88), rgba(192,64,160,0.75))"
-            }}
-          >
-            <div className="text-center px-6">
-              <p className="text-white font-extrabold text-3xl md:text-4xl leading-tight">
-                {t("closingTitle")}{" "}
-                <span className="text-white/70">{t("closingHighlight")}</span>
-              </p>
-              <p className="text-white/70 text-sm mt-2 font-light max-w-md mx-auto">
-                {t("closingDesc")}
-              </p>
-            </div>
-          </div>
-        </motion.div>
+          <Reveal delay={0.12}>
+            <p className="text-base leading-[1.8] text-tabi-body">{t("description")}</p>
+          </Reveal>
+        </div>
 
-        {/* ── Apply Now CTA ────────────────────────────────── */}
-        <div className="mt-14 text-center">
-          <button
-            onClick={() => setModalOpen(true)}
-            className="px-10 py-4 rounded-xl font-bold text-sm tracking-wide text-white transition-all duration-200 hover:scale-[1.03] hover:shadow-xl"
-            style={{
-              background: "linear-gradient(135deg, #71286F, #c040a0)",
-              boxShadow: "0 8px 36px rgba(113,40,111,0.35)"
-            }}
-          >
-            {t("ctaButton")}
-          </button>
+        <Stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3" stagger={0.08}>
+          {items.map((item, i) => {
+            const Icon = ICONS[i % ICONS.length];
+            return (
+              <StaggerItem key={item.title} className="h-full" hoverLift={6}>
+                <article className="group h-full overflow-hidden rounded-[1.75rem] bg-tabi-card/70 p-3 transition-shadow duration-500 hover:shadow-[0_24px_50px_-30px_rgba(113,40,111,0.55)]">
+                  <div className="relative h-44 overflow-hidden rounded-[1.35rem] border-[3px] border-brand-primary">
+                    <Image
+                      src={IMAGES[i % IMAGES.length]}
+                      alt=""
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 380px"
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/70 to-brand-primary/10" />
+                    <span className="absolute left-4 top-4 flex h-11 w-11 items-center justify-center rounded-full bg-white text-brand-primary shadow-md transition-transform duration-500 group-hover:rotate-[-10deg] group-hover:scale-110">
+                      <Icon size={20} strokeWidth={1.7} />
+                    </span>
+                    <span className="absolute bottom-3 right-4 text-4xl font-bold text-white/40">0{i + 1}</span>
+                  </div>
+                  <div className="px-4 pb-4 pt-5">
+                    <h3 className="text-lg font-bold leading-snug text-tabi-ink">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-tabi-body">{item.desc}</p>
+                  </div>
+                </article>
+              </StaggerItem>
+            );
+          })}
+        </Stagger>
+
+        {/* Closing band with a parallax photo behind */}
+        <div ref={bandRef} className="relative mt-12 overflow-hidden rounded-[2.5rem]">
+          <motion.div className="absolute inset-[-15%_0]" style={reduced ? undefined : { y: bgY }}>
+            <Image
+              src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1600&q=80"
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover"
+            />
+          </motion.div>
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/95 via-brand-primary/85 to-brand-magenta/75" />
+          <Sparkle className="absolute left-[8%] top-8" size={30} />
+          <Reveal className="relative px-6 py-16 text-center sm:py-20">
+            <p className="mx-auto max-w-3xl text-[clamp(1.9rem,4vw,3rem)] font-bold leading-tight text-white">
+              {t("closingTitle")} <span className="text-tabi-tan">{t("closingHighlight")}</span>
+            </p>
+            <p className="mx-auto mt-4 max-w-md text-base text-white/75">{t("closingDesc")}</p>
+            <Button variant="white" size="lg" className="mt-8" onClick={() => setModalOpen(true)}>
+              {t("ctaButton")}
+              <ArrowRight size={18} className="transition-transform duration-300 group-hover/btn:translate-x-1" />
+            </Button>
+          </Reveal>
         </div>
       </div>
 
-      {/* Application modal */}
       {modalOpen && <BootcampApplyModal onClose={() => setModalOpen(false)} />}
     </section>
   );

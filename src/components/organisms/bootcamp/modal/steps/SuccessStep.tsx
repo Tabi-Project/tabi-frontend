@@ -64,7 +64,7 @@ export function SuccessStep({ onClose, firstName, refId }: SuccessStepProps) {
         custom={0}
         initial="hidden"
         animate="show"
-        className="font-extrabold tracking-tight mb-2"
+        className="font-bold tracking-tight mb-2"
         style={{ fontSize: "1.4rem", color: C.ink }}
       >
         {t("title", { displayName })}

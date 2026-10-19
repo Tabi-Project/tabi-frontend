@@ -9,6 +9,7 @@ import ScrollRestoration from "@/components/atoms/ScrollRestoration";
 import { locales } from "@/i18n/request";
 import "../globals.css";
 import SubmissionFlusher from "@/components/atoms/SubmissionFlusher";
+import ScrollProgress from "@/components/atoms/ScrollProgress";
 
 export default async function LocaleLayout({
   children,
@@ -26,6 +27,7 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <ScrollRestoration />
+      <ScrollProgress />
       <Navbar />
       <main className="min-h-screen">{children}</main>
       <Footer />

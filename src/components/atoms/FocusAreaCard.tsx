@@ -24,7 +24,7 @@ export default function FocusAreaCard({
       </div>
 
       {/* Content */}
-      <h3 className="text-base font-bold text-[#1a1a2e] mb-3 leading-snug">
+      <h3 className="text-base font-bold text-tabi-ink mb-3 leading-snug">
         {area.title}
       </h3>
       <p className="text-sm text-[#666] leading-relaxed flex-1">

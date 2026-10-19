@@ -244,7 +244,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                   />
                 </svg>
               </div>
-              <h2 className="text-xl font-extrabold text-[#1a1a2e] mb-2">
+              <h2 className="text-xl font-bold text-tabi-ink mb-2">
                 {t("bankTransfer.title")}
               </h2>
               <p className="text-sm text-[#888] max-w-xs mx-auto leading-relaxed">
@@ -261,7 +261,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                   <span className="text-xs font-semibold text-[#aaa] uppercase tracking-widest">
                     {t("bankTransfer.bankNameLabel")}
                   </span>
-                  <span className="text-sm font-bold text-[#1a1a2e]">
+                  <span className="text-sm font-bold text-tabi-ink">
                     KudaBank
                   </span>
                 </div>
@@ -270,7 +270,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                   <span className="text-xs font-semibold text-[#aaa] uppercase tracking-widest shrink-0">
                     {t("bankTransfer.accountNameLabel")}
                   </span>
-                  <span className="text-sm font-bold text-[#1a1a2e] text-right leading-snug">
+                  <span className="text-sm font-bold text-tabi-ink text-right leading-snug">
                     Tabi Empowerment and Educational Foundation
                   </span>
                 </div>
@@ -280,7 +280,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
                     {t("bankTransfer.accountNumberLabel")}
                   </span>
                   <div className="flex items-center gap-3">
-                    <span className="text-lg font-extrabold text-brand-primary tracking-wider">
+                    <span className="text-lg font-bold text-brand-primary tracking-wider">
                       3003408026
                     </span>
                     <button
@@ -384,7 +384,7 @@ export default function DonationModal({ onClose }: DonationModalProps) {
         ) : (
           <>
             <div className="flex items-center justify-between mb-7">
-              <h2 className="text-xl font-extrabold text-[#1a1a2e]">
+              <h2 className="text-xl font-bold text-tabi-ink">
                 {t("title")}
               </h2>
               <button

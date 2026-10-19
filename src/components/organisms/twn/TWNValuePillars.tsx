@@ -1,42 +1,41 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { MoveRight, Coffee, Sparkles } from "lucide-react";
+import { Coffee, MoveRight, Sparkles } from "lucide-react";
+import { Stagger, StaggerItem } from "@/components/atoms/Reveal";
+
+const ICONS = [Coffee, Sparkles, MoveRight];
+const TINTS = [
+  { card: "bg-tabi-pink", ink: "text-brand-primary" },
+  { card: "bg-tabi-mint", ink: "text-[#2F8F5B]" },
+  { card: "bg-tabi-cream", ink: "text-[#B9772E]" }
+];
 
 export default function TWNValuePillars() {
   const t = useTranslations("TWN.valuePillars");
-
-  // Get pillars from translations
-  const pillarsData = t.raw("pillars") as Array<{
-    title: string;
-    desc: string;
-  }>;
-
-  // Predefined icons (cannot be stored in JSON)
-  const icons = [
-    <Coffee size={32} key="coffee" />,
-    <Sparkles size={32} key="sparkles" />,
-    <MoveRight size={32} key="moveright" />
-  ];
+  const pillars = t.raw("pillars") as Array<{ title: string; desc: string }>;
 
   return (
-    <section className="py-32 bg-brand-surface/30 border-t border-purple-100/50">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-3 gap-16">
-          {pillarsData.map((item, i) => (
-            <div key={i} className="group">
-              <div className="w-20 h-20 rounded-4xl bg-white shadow-sm flex items-center justify-center text-brand-primary mb-10 transition-all duration-500 group-hover:bg-brand-primary group-hover:text-white group-hover:shadow-xl group-hover:-rotate-6">
-                {icons[i]}
-              </div>
-              <h3 className="text-2xl font-bold text-[#2D102D] mb-4">
-                {item.title}
-              </h3>
-              <p className="text-gray-500 leading-relaxed text-lg">
-                {item.desc}
-              </p>
-            </div>
-          ))}
-        </div>
+    <section className="bg-tabi-blush py-20 lg:py-28">
+      <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20">
+        <Stagger className="grid gap-5 md:grid-cols-3" stagger={0.12}>
+          {pillars.map((item, i) => {
+            const Icon = ICONS[i % ICONS.length];
+            const tint = TINTS[i % TINTS.length];
+            return (
+              <StaggerItem key={item.title} className="h-full" hoverLift={8}>
+                <article className="group relative h-full overflow-hidden rounded-[2rem] bg-white p-8 transition-shadow duration-500 hover:shadow-[0_24px_50px_-30px_rgba(113,40,111,0.5)] sm:p-9">
+                  <span className={`absolute -right-10 -top-10 h-36 w-36 rounded-full transition-transform duration-700 group-hover:scale-125 ${tint.card}`} />
+                  <span className={`relative flex h-16 w-16 items-center justify-center rounded-full shadow-sm transition-all duration-500 group-hover:-rotate-6 group-hover:bg-brand-primary group-hover:text-white ${tint.card} ${tint.ink}`}>
+                    <Icon size={28} strokeWidth={1.6} />
+                  </span>
+                  <h3 className="relative mt-10 text-2xl font-bold text-tabi-ink">{item.title}</h3>
+                  <p className="relative mt-3 text-base leading-[1.8] text-tabi-body">{item.desc}</p>
+                </article>
+              </StaggerItem>
+            );
+          })}
+        </Stagger>
       </div>
     </section>
   );

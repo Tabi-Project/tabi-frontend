@@ -137,7 +137,7 @@ export default function Footer() {
             {t("brandLine1")}
           </p>
           <p className="text-2xl font-semibold text-black leading-snug tracking-tight">
-            <span className="font-bold italic text-brand-primary">
+            <span className="font-bold text-gradient-brand">
               {t("brandLine2")}
             </span>{" "}
             {t("brandLine3")}
@@ -185,7 +185,7 @@ export default function Footer() {
               onKeyDown={(e) => e.key === "Enter" && handleSubscribe()}
               placeholder={t("emailPlaceholder")}
               disabled={isLoading}
-              className="flex-1 min-w-0 bg-transparent text-sm text-[#1a1a2e] placeholder:text-gray-400 outline-none disabled:opacity-50"
+              className="flex-1 min-w-0 bg-transparent text-sm text-tabi-ink placeholder:text-gray-400 outline-none disabled:opacity-50"
             />
             <button
               type="button"

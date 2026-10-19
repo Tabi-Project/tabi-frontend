@@ -58,7 +58,7 @@ function CustomDropdown({
         onClick={() => setOpen((o) => !o)}
         className="flex items-center gap-2 pl-4 pr-3 py-2 text-sm border border-gray-200 rounded-lg bg-white text-[#555] hover:border-gray-300 focus:outline-none focus:border-brand-primary transition-colors min-w-32.5 justify-between cursor-pointer"
       >
-        <span className={value ? "text-[#1a1a2e] font-medium" : "text-[#888]"}>
+        <span className={value ? "text-tabi-ink font-medium" : "text-[#888]"}>
           {value || placeholder}
         </span>
         <LuChevronDown
@@ -74,7 +74,7 @@ function CustomDropdown({
               onChange("");
               setOpen(false);
             }}
-            className={`w-full text-left px-4 py-2.5 text-sm transition-colors cursor-pointer ${value === "" ? "bg-gray-50 text-[#1a1a2e] font-medium" : "text-[#555] hover:bg-gray-50"}`}
+            className={`w-full text-left px-4 py-2.5 text-sm transition-colors cursor-pointer ${value === "" ? "bg-gray-50 text-tabi-ink font-medium" : "text-[#555] hover:bg-gray-50"}`}
           >
             {allLabel}
           </button>
@@ -85,7 +85,7 @@ function CustomDropdown({
                 onChange(opt);
                 setOpen(false);
               }}
-              className={`w-full text-left px-4 py-2.5 text-sm transition-colors cursor-pointer ${value === opt ? "bg-gray-50 text-[#1a1a2e] font-medium" : "text-[#555] hover:bg-gray-50"}`}
+              className={`w-full text-left px-4 py-2.5 text-sm transition-colors cursor-pointer ${value === opt ? "bg-gray-50 text-tabi-ink font-medium" : "text-[#555] hover:bg-gray-50"}`}
             >
               {opt}
             </button>
@@ -124,7 +124,7 @@ export default function AllEventsGrid({ events }: AllEventsGridProps) {
     <>
       <section>
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-7">
-          <h2 className="text-2xl font-bold text-[#1a1a2e] shrink-0">
+          <h2 className="text-2xl font-bold text-tabi-ink shrink-0">
             All Events
           </h2>
           <div className="flex flex-wrap items-center gap-3">
@@ -213,7 +213,7 @@ export default function AllEventsGrid({ events }: AllEventsGridProps) {
                 <circle cx="19" cy="17" r="1.2" fill="#71286F" />
               </svg>
             </div>
-            <p className="text-sm font-semibold text-[#1a1a2e] mb-1">
+            <p className="text-sm font-semibold text-tabi-ink mb-1">
               {search || typeFilter || monthFilter
                 ? "No events match your filters"
                 : "No events yet"}

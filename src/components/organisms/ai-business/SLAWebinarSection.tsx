@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { motion } from "framer-motion";
 import { Calendar, Clock, Video, ArrowRight } from "lucide-react";
@@ -8,6 +8,8 @@ import Image from "next/image";
 import SLAWebinarModal from "@/components/molecules/SLAWebinarModal";
 import { usePathname } from "@/i18n/navigation";
 import { withBasePath } from "@/constants/paths";
+import { Reveal, Stagger, StaggerItem, EASE_TABI } from "@/components/atoms/Reveal";
+import { Sparkle } from "@/components/atoms/Sparkle";
 
 export const SLAWebinarSection = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,84 +29,100 @@ export const SLAWebinarSection = () => {
   }, [pathname]);
 
   return (
-    <section
-      id="sla"
-      className="py-24 bg-[#2D102D] text-white relative overflow-hidden"
-    >
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            {/* Logos instead of badge text */}
-            <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/80 border border-white/20 mb-6">
-              <Image
-                src={withBasePath("/Footer-logo.svg")}
-                alt="Tabi Academy"
-                width={60}
-                height={24}
-                className="h-8 w-auto object-contain"
-              />
-              <span className="text-black text-lg font-bold">×</span>
-              <Image
-                src={withBasePath("/partners/sla.png")}
-                alt="She Leads Africa"
-                width={80}
-                height={24}
-                className="h-11 w-auto object-contain"
-              />
-            </div>
+    <section id="sla" className="relative overflow-hidden bg-tabi-night py-24 text-white lg:py-28">
+      {/* plum glow + halftone */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_70%_at_85%_20%,rgba(208,96,176,0.35)_0%,transparent_60%),radial-gradient(50%_60%_at_0%_100%,rgba(113,40,111,0.6)_0%,transparent_60%)]"
+      />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-0 top-0 h-72 w-72 opacity-30 [background-image:radial-gradient(circle,rgba(255,255,255,0.4)_1px,transparent_1.5px)] [background-size:14px_14px] [mask-image:radial-gradient(circle_at_top_left,#000,transparent_70%)]"
+      />
+      <Sparkle className="absolute right-[10%] top-16" size={30} />
 
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              {t("headline")} <br />
-              <span className="text-brand-primary-light font-extrabold text-transparent bg-clip-text bg-linear-to-r from-pink-400 to-brand-surface">
-                {t("headlineHighlight")}
-              </span>
-            </h2>
-            <p className="text-gray-300 text-lg mb-8 max-w-lg">
-              {t("description")}
-            </p>
-            <div className="space-y-4 mb-10">
-              <InfoItem
-                icon={<Calendar size={18} />}
-                label={t("dateLabel")}
-                value={t("dateValue")}
-              />
-              <InfoItem
-                icon={<Clock size={18} />}
-                label={t("timeLabel")}
-                value={t("timeValue")}
-              />
-              <InfoItem
-                icon={<Video size={18} />}
-                label={t("platformLabel")}
-                value={t("platformValue")}
-              />
-            </div>
-            <button
-              onClick={() => setIsModalOpen(true)}
-              className="group flex items-center gap-3 px-8 py-4 bg-white text-[#2D102D] rounded-full font-bold hover:bg-brand-surface transition-all shadow-xl active:scale-95"
-            >
-              {t("cta")}{" "}
-              <ArrowRight
-                size={18}
-                className="group-hover:translate-x-1 transition-transform"
-              />
-            </button>
-          </motion.div>
+      <div className="relative z-10 mx-auto max-w-350 px-6 sm:px-12 lg:px-20">
+        <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
+          <div>
+            <Reveal y={12}>
+              <div className="mb-7 inline-flex items-center gap-3 rounded-full bg-white px-5 py-2 shadow-lg">
+                <Image
+                  src={withBasePath("/footer-logo.svg")}
+                  alt="Tabi Academy"
+                  width={60}
+                  height={24}
+                  className="h-7 w-auto object-contain"
+                />
+                <span className="text-lg font-bold text-tabi-ink">×</span>
+                <Image
+                  src={withBasePath("/partners/sla.png")}
+                  alt="She Leads Africa"
+                  width={80}
+                  height={24}
+                  className="h-10 w-auto object-contain"
+                />
+              </div>
+            </Reveal>
 
-          <div className="bg-white/5 border border-white/10 p-8 rounded-tabi-card backdrop-blur-md">
-            <h3 className="text-lg font-bold mb-6 opacity-80 uppercase tracking-widest">
-              {t("agendaTitle")}
-            </h3>
-            <div className="space-y-6 text-gray-300">
-              {agendaItems.map((item) => (
-                <AgendaItem key={item.text} time={item.time} text={item.text} />
-              ))}
-            </div>
+            <Reveal delay={0.06}>
+              <h2 className="text-[clamp(2rem,4.2vw,3.25rem)] font-bold leading-[1.12]">
+                {t("headline")}{" "}
+                <span className="bg-gradient-to-r from-[#F9C8EE] via-[#F3A6D9] to-tabi-tan bg-clip-text text-transparent">
+                  {t("headlineHighlight")}
+                </span>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.12}>
+              <p className="mt-6 max-w-lg text-lg leading-[1.75] text-white/70">{t("description")}</p>
+            </Reveal>
+
+            <Stagger className="mt-9 grid gap-3 sm:grid-cols-3" stagger={0.08} delay={0.15}>
+              <InfoItem icon={<Calendar size={18} />} label={t("dateLabel")} value={t("dateValue")} />
+              <InfoItem icon={<Clock size={18} />} label={t("timeLabel")} value={t("timeValue")} />
+              <InfoItem icon={<Video size={18} />} label={t("platformLabel")} value={t("platformValue")} />
+            </Stagger>
+
+            <Reveal delay={0.25} className="mt-10">
+              <button
+                onClick={() => setIsModalOpen(true)}
+                className="group inline-flex cursor-pointer items-center gap-3 rounded-full bg-white px-8 py-4 font-bold text-brand-primary shadow-[0_14px_34px_-12px_rgba(0,0,0,0.5)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-tabi-pink active:scale-95"
+              >
+                {t("cta")}
+                <ArrowRight size={18} className="transition-transform group-hover:translate-x-1" />
+              </button>
+            </Reveal>
           </div>
+
+          {/* Agenda as a vertical timeline */}
+          <Reveal x={30} y={0} delay={0.1}>
+            <div className="rounded-[2rem] bg-white/[0.06] p-8 ring-1 ring-white/10 backdrop-blur-md sm:p-10">
+              <h3 className="mb-8 text-sm font-medium uppercase tracking-[0.2em] text-white/60">{t("agendaTitle")}</h3>
+              <ol className="relative">
+                <motion.span
+                  aria-hidden
+                  className="absolute bottom-3 left-[3.15rem] top-3 w-px origin-top bg-gradient-to-b from-tabi-tan via-brand-orchid to-transparent"
+                  initial={{ scaleY: 0 }}
+                  whileInView={{ scaleY: 1 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ duration: 1.4, ease: EASE_TABI }}
+                />
+                {agendaItems.map((item, i) => (
+                  <motion.li
+                    key={item.text}
+                    className="relative flex items-center gap-6 py-3"
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.6 }}
+                    transition={{ duration: 0.6, delay: 0.15 + i * 0.08, ease: EASE_TABI }}
+                  >
+                    <span className="w-14 shrink-0 text-right font-mono text-xs font-bold text-tabi-tan">{item.time}</span>
+                    <span className="relative z-10 h-2.5 w-2.5 shrink-0 rounded-full bg-white ring-4 ring-tabi-night" />
+                    <p className="text-sm text-white/85">{item.text}</p>
+                  </motion.li>
+                ))}
+              </ol>
+            </div>
+          </Reveal>
         </div>
       </div>
 
@@ -113,25 +131,16 @@ export const SLAWebinarSection = () => {
   );
 };
 
-const InfoItem = ({ icon, label, value }: any) => (
-  <div className="flex items-center gap-4">
-    <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-brand-primary-light">
-      {icon}
+const InfoItem = ({ icon, label, value }: { icon: ReactNode; label: string; value: string }) => (
+  <StaggerItem>
+    <div className="flex h-full flex-col gap-3 rounded-2xl bg-white/[0.06] p-4 ring-1 ring-white/10">
+      <span className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-tabi-tan">{icon}</span>
+      <span>
+        <span className="block text-[11px] uppercase tracking-widest text-white/50">{label}</span>
+        <span className="mt-0.5 block text-sm font-bold">{value}</span>
+      </span>
     </div>
-    <div>
-      <p className="text-[10px] text-gray-500 uppercase font-black tracking-widest leading-none mb-1">
-        {label}
-      </p>
-      <p className="font-bold text-sm">{value}</p>
-    </div>
-  </div>
+  </StaggerItem>
 );
 
-const AgendaItem = ({ time, text }: any) => (
-  <div className="flex gap-4 items-start">
-    <span className="text-brand-primary-light font-mono font-bold text-xs bg-white/5 px-2 py-1 rounded shrink-0">
-      {time}
-    </span>
-    <p className="text-sm">{text}</p>
-  </div>
-);
+export default SLAWebinarSection;

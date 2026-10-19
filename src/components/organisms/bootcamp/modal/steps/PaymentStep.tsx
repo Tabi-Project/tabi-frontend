@@ -28,7 +28,7 @@ export function PaymentStep({
       <StepBar step="payment" />
       <div className="mb-6">
         <h2
-          className="font-extrabold tracking-tight mb-1.5"
+          className="font-bold tracking-tight mb-1.5"
           style={{ fontSize: "1.25rem", color: C.ink }}
         >
           {t("title")}
@@ -53,7 +53,7 @@ export function PaymentStep({
             {t("reference.label")}
           </p>
           <p
-            className="font-extrabold tracking-widest text-base"
+            className="font-bold tracking-widest text-base"
             style={{ color: C.brand }}
           >
             {refId}
@@ -108,7 +108,7 @@ export function PaymentStep({
             </span>
             <div className="flex items-center gap-2.5">
               <span
-                className="font-extrabold text-lg tracking-wider"
+                className="font-bold text-lg tracking-wider"
                 style={{ color: C.brand }}
               >
                 {t("bankDetails.values.accountNumberValue")}
@@ -125,7 +125,7 @@ export function PaymentStep({
               {t("bankDetails.amount")}
             </span>
             <span
-              className="font-extrabold text-base"
+              className="font-bold text-base"
               style={{ color: C.brand }}
             >
               {t("bankDetails.values.amountValue")}

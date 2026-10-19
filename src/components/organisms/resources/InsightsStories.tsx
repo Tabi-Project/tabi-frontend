@@ -21,7 +21,7 @@ export default async function InsightsStories({
       <section className="w-full bg-white">
         <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
           <div className="text-start mb-14">
-            <h2 className="text-[clamp(1.8rem,3.5vw,3.5rem)] font-bold tracking-tight text-[#1a1a2e]">
+            <h2 className="text-[clamp(1.8rem,3.5vw,3.5rem)] font-bold tracking-tight text-tabi-ink">
               {t("heading")}
             </h2>
             <p className="mt-4 text-base text-black max-w-5xl leading-relaxed">
@@ -53,7 +53,7 @@ export default async function InsightsStories({
                 />
               </svg>
             </div>
-            <p className="text-sm font-semibold text-[#1a1a2e] mb-1">
+            <p className="text-sm font-semibold text-tabi-ink mb-1">
               {t("emptyTitle")}
             </p>
             <p className="text-xs text-[#888]">{t("emptyMessage")}</p>
@@ -67,7 +67,7 @@ export default async function InsightsStories({
     <section className="w-full bg-white">
       <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
         <div className="text-start mb-14">
-          <h2 className="text-[clamp(1.8rem,3.5vw,3.5rem)] font-bold tracking-tight text-[#1a1a2e]">
+          <h2 className="text-[clamp(1.8rem,3.5vw,3.5rem)] font-bold tracking-tight text-tabi-ink">
             {t("heading")}
           </h2>
           <p className="mt-4 text-base text-black max-w-5xl leading-relaxed">
@@ -93,7 +93,7 @@ export default async function InsightsStories({
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center">
-                  <span className="text-4xl font-extrabold text-brand-primary opacity-20">
+                  <span className="text-4xl font-bold text-brand-primary opacity-20">
                     TEE
                   </span>
                 </div>
@@ -106,7 +106,7 @@ export default async function InsightsStories({
               >
                 {featured.category}
               </span>
-              <h3 className="text-xl font-bold text-[#1a1a2e] mb-2 leading-snug">
+              <h3 className="text-xl font-bold text-tabi-ink mb-2 leading-snug">
                 {featured.title}
               </h3>
               <p className="text-xs text-brand-primary font-semibold mb-3">
@@ -151,7 +151,7 @@ export default async function InsightsStories({
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">
-                      <span className="text-xl font-extrabold text-brand-primary opacity-20">
+                      <span className="text-xl font-bold text-brand-primary opacity-20">
                         TEE
                       </span>
                     </div>
@@ -164,7 +164,7 @@ export default async function InsightsStories({
                   >
                     {post.category}
                   </span>
-                  <h3 className="text-base font-bold text-[#1a1a2e] mb-1.5 leading-snug">
+                  <h3 className="text-base font-bold text-tabi-ink mb-1.5 leading-snug">
                     {post.title}
                   </h3>
                   <p className="text-xs text-brand-primary font-semibold mb-2">

@@ -10,19 +10,19 @@ export default function MarkdownBody({ content }: { content: string }) {
         components={{
           h2: ({ ...props }) => (
             <h2
-              className="font-bold text-[#1a1a2e] text-xl mt-10 mb-3"
+              className="font-bold text-tabi-ink text-xl mt-10 mb-3"
               {...props}
             />
           ),
           h3: ({ ...props }) => (
             <h3
-              className="font-semibold text-[#1a1a2e] text-base mt-7 mb-2"
+              className="font-semibold text-tabi-ink text-base mt-7 mb-2"
               {...props}
             />
           ),
           h4: ({ ...props }) => (
             <h4
-              className="font-semibold text-[#1a1a2e] text-sm mt-5 mb-1"
+              className="font-semibold text-tabi-ink text-sm mt-5 mb-1"
               {...props}
             />
           ),

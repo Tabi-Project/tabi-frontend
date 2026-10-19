@@ -2,16 +2,197 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  /* Tabi Academy Brand Palette */
+  /* Tabi Academy Brand Palette (sampled from the Figma design system) */
   --color-brand-primary: #71286F;
   --color-brand-secondary: #8a40a7;
-  --color-brand-surface: #E3D4E2D9; 
+  --color-brand-surface: #E3D4E2D9;
   --color-brand-muted: #6B7280;
+
+  /* Gradient stops used for highlighted words ("Futures", "Support", "Who Are We?") */
+  --color-brand-plum: #71286F;
+  --color-brand-magenta: #A03898;
+  --color-brand-orchid: #D060B0;
+  --color-brand-coral: #E89090;
+
+  /* Surfaces */
+  --color-tabi-ink: #121212;
+  --color-tabi-body: #4B4B4B;
+  --color-tabi-blush: #FDF4FD;
+  --color-tabi-pink: #FCE8FC;
+  --color-tabi-lilac: #E3D4E2;
+  --color-tabi-mauve: #A07098;
+  --color-tabi-mint: #F0FAF2;
+  --color-tabi-green: #DDF4DD;
+  --color-tabi-cream: #FDF5E6;
+  --color-tabi-peach: #F7ECE4;
+  --color-tabi-tan: #E0C0A8;
+  --color-tabi-brown: #887058;
+  --color-tabi-card: #F5F5F5;
+  --color-tabi-gold: #F8C828;
+
+  /* Dark surfaces stay inside the brand — deep plum, never black / navy */
+  --color-tabi-night: #2A0D29;
+  --color-tabi-night-2: #3A1439;
+  --color-tabi-night-3: #4A1C48;
 
   /* Custom Radii for those smooth Figma cards */
   --radius-tabi-card: 2.5rem;
   --radius-tabi-pill: 9999px;
 
   /* Typography */
-  --font-sans: "Inter", ui-sans-serif, system-ui;
+  --font-sans: var(--font-lato), ui-sans-serif, system-ui;
+
+  /* Motion */
+  --ease-tabi: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --animate-float: tabi-float 6s ease-in-out infinite;
+  --animate-float-slow: tabi-float 9s ease-in-out infinite;
+  --animate-spin-slow: spin 18s linear infinite;
+  --animate-twinkle: tabi-twinkle 3.2s ease-in-out infinite;
+  --animate-marquee: tabi-marquee 40s linear infinite;
+  --animate-blob: tabi-blob 14s ease-in-out infinite;
+  --animate-shimmer: tabi-shimmer 3s linear infinite;
+
+  @keyframes tabi-float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-12px);
+    }
+  }
+
+  @keyframes tabi-twinkle {
+    0%,
+    100% {
+      transform: scale(1) rotate(0deg);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(0.78) rotate(15deg);
+      opacity: 0.6;
+    }
+  }
+
+  @keyframes tabi-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes tabi-blob {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(30px, -20px) scale(1.08);
+    }
+    66% {
+      transform: translate(-20px, 15px) scale(0.95);
+    }
+  }
+
+  @keyframes tabi-shimmer {
+    from {
+      background-position: 200% center;
+    }
+    to {
+      background-position: -200% center;
+    }
+  }
+}
+
+/* Soft expanding halo for primary CTAs on dark surfaces */
+@keyframes tabi-pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgb(243 166 217 / 0.55);
+  }
+  70%,
+  100% {
+    box-shadow: 0 0 0 18px rgb(243 166 217 / 0);
+  }
+}
+
+@utility animate-pulse-ring {
+  animation: tabi-pulse-ring 2.4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+/* Used by carousels whose autoplay is driven by `animationend` */
+@keyframes tabi-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* ── Design-system utilities ─────────────────────────────────────────── */
+
+/* Purple → orchid gradient text, as used for highlighted words in the Figma */
+@utility text-gradient-brand {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-brand-plum) 0%,
+    var(--color-brand-magenta) 55%,
+    var(--color-brand-orchid) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+/* Warmer variant used on the Resources page title */
+@utility text-gradient-warm {
+  background-image: linear-gradient(
+    90deg,
+    var(--color-brand-orchid) 0%,
+    var(--color-brand-magenta) 45%,
+    var(--color-brand-plum) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility bg-gradient-brand {
+  background-image: linear-gradient(
+    120deg,
+    var(--color-brand-plum) 0%,
+    var(--color-brand-magenta) 60%,
+    var(--color-brand-orchid) 100%
+  );
+}
+
+/* Halftone dot texture seen on the Donate / Join Community cards */
+@utility bg-dots {
+  background-image: radial-gradient(
+    circle,
+    rgb(113 40 111 / 0.12) 1px,
+    transparent 1.5px
+  );
+  background-size: 14px 14px;
+}
+
+@utility pause-on-hover {
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
 }

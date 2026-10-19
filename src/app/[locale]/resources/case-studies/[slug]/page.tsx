@@ -149,7 +149,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
           )}
 
           <h1
-            className="text-[clamp(1.8rem,4vw,2.8rem)] font-bold text-[#1a1a2e] leading-[1.2] mb-5"
+            className="text-[clamp(1.8rem,4vw,2.8rem)] font-bold text-tabi-ink leading-[1.2] mb-5"
             style={{ fontFamily: "Georgia, serif" }}
           >
             {study.title}
@@ -180,7 +180,7 @@ export default async function CaseStudyDetailPage({ params }: Props) {
             >
               {study.stats.map((stat, i) => (
                 <div key={i} className="flex flex-col items-center text-center">
-                  <span className="text-3xl font-extrabold leading-none text-brand-primary mb-1">
+                  <span className="text-3xl font-bold leading-none text-brand-primary mb-1">
                     {stat.value}
                   </span>
                   <span className="text-xs text-brand-primary font-medium">

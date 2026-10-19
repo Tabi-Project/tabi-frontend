@@ -2,117 +2,90 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { Brain, Palette, Globe, Zap, Trophy, ScrollText } from "lucide-react";
+import { ArrowRight, Brain, Globe, Palette, ScrollText, Trophy, Zap } from "lucide-react";
 import { Button } from "@/components/atoms/Button";
+import { GradientText } from "@/components/atoms/GradientText";
+import { Reveal, Stagger, StaggerItem } from "@/components/atoms/Reveal";
+import { Sparkle } from "@/components/atoms/Sparkle";
+import SectionHeading from "@/components/molecules/SectionHeading";
 import RegistrationModal from "@/components/molecules/RegistrationModal";
+
+const OUTCOMES = [
+  { key: "fluency", icon: Brain, tint: "bg-tabi-pink", ink: "text-brand-primary", span: "lg:col-span-2" },
+  { key: "brand", icon: Palette, tint: "bg-tabi-mint", ink: "text-[#2F8F5B]", span: "" },
+  { key: "website", icon: Globe, tint: "bg-tabi-cream", ink: "text-[#B9772E]", span: "" },
+  { key: "agent", icon: Zap, tint: "bg-tabi-lilac/60", ink: "text-brand-primary", span: "" },
+  { key: "capstone", icon: Trophy, tint: "bg-tabi-peach", ink: "text-tabi-brown", span: "" },
+  { key: "certificate", icon: ScrollText, tint: "bg-tabi-blush", ink: "text-brand-primary", span: "lg:col-span-2" }
+] as const;
 
 export default function AIBusinessOutcomes() {
   const t = useTranslations("AIBusiness.outcomes");
   const [formOpen, setFormOpen] = useState(false);
 
-  const OUTCOMES = [
-    {
-      number: "01",
-      icon: <Brain size={28} strokeWidth={1.5} />,
-      titleKey: "items.fluency.title",
-      descriptionKey: "items.fluency.description",
-    },
-    {
-      number: "02",
-      icon: <Palette size={28} strokeWidth={1.5} />,
-      titleKey: "items.brand.title",
-      descriptionKey: "items.brand.description",
-    },
-    {
-      number: "03",
-      icon: <Globe size={28} strokeWidth={1.5} />,
-      titleKey: "items.website.title",
-      descriptionKey: "items.website.description",
-    },
-    {
-      number: "04",
-      icon: <Zap size={28} strokeWidth={1.5} />,
-      titleKey: "items.agent.title",
-      descriptionKey: "items.agent.description",
-    },
-    {
-      number: "05",
-      icon: <Trophy size={28} strokeWidth={1.5} />,
-      titleKey: "items.capstone.title",
-      descriptionKey: "items.capstone.description",
-    },
-    {
-      number: "06",
-      icon: <ScrollText size={28} strokeWidth={1.5} />,
-      titleKey: "items.certificate.title",
-      descriptionKey: "items.certificate.description",
-    },
-  ];
-
   return (
     <>
-      <section className="w-full bg-[#fdf7ff]">
+      <section className="relative w-full overflow-hidden bg-white">
         <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-20 lg:py-28">
-          <div className="flex flex-col items-center text-center mb-16">
-            <span className="mb-4 inline-flex items-center rounded-full border border-brand-primary/30 bg-white px-4 py-1.5 text-xs font-semibold text-brand-primary tracking-wide uppercase">
-              {t("badge")}
-            </span>
-            <h2 className="text-[clamp(1.9rem,4vw,3rem)] font-extrabold tracking-tight text-[#1a1a2e] max-w-2xl leading-tight">
-              {t("heading")}
-            </h2>
-            <p className="mt-4 max-w-xl text-base text-[#666] leading-relaxed">
-              {t("description")}
-            </p>
-          </div>
+          <SectionHeading
+            align="center"
+            eyebrow={t("badge")}
+            title={t("heading")}
+            description={t("description")}
+            className="mb-14 lg:mb-16"
+          />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {OUTCOMES.map((outcome, i) => (
-              <div
-                key={outcome.number}
-                className="group relative flex flex-col items-center text-center rounded-4xl p-8 bg-[#FFF5FF99]/40 border border-white/40 backdrop-blur-3xl hover:-translate-y-1 transition-all duration-300"
-                style={{
-                  boxShadow: "0px 4px 12px 2px #3737371F",
-                  transitionDelay: `${i * 40}ms`,
-                }}
-              >
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-white shadow-sm text-brand-primary group-hover:bg-brand-primary group-hover:text-white transition-colors duration-300">
-                  {outcome.icon}
-                </div>
-                <h3 className="text-lg font-bold text-[#1a1a2e] mb-3">
-                  {t(outcome.titleKey)}
-                </h3>
-                <p className="text-sm text-[#777] leading-relaxed">
-                  {t(outcome.descriptionKey)}
-                </p>
-              </div>
+          <Stagger className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4" stagger={0.08}>
+            {OUTCOMES.map(({ key, icon: Icon, tint, ink, span }, i) => (
+              <StaggerItem key={key} className={span} hoverLift={6}>
+                <article
+                  className={`group relative flex h-full min-h-[240px] flex-col overflow-hidden rounded-[2rem] p-7 transition-shadow duration-500 hover:shadow-[0_24px_50px_-28px_rgba(113,40,111,0.5)] sm:p-8 ${tint}`}
+                >
+                  <span className="pointer-events-none absolute -right-2 -top-4 select-none text-[6.5rem] font-bold leading-none text-black/[0.04] transition-transform duration-700 group-hover:-translate-y-2">
+                    0{i + 1}
+                  </span>
+                  <span
+                    className={`flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-sm transition-transform duration-500 group-hover:rotate-[-10deg] group-hover:scale-110 ${ink}`}
+                  >
+                    <Icon size={22} strokeWidth={1.6} />
+                  </span>
+                  <h3 className="mt-auto pt-10 text-xl font-bold text-tabi-ink">{t(`items.${key}.title`)}</h3>
+                  <p className="mt-2 max-w-md text-sm leading-relaxed text-tabi-body">
+                    {t(`items.${key}.description`)}
+                  </p>
+                </article>
+              </StaggerItem>
             ))}
-          </div>
+          </Stagger>
 
-          <div className="mt-20 flex flex-col items-center text-center bg-white/60 border border-white/80 rounded-[3rem] p-10 md:p-16 shadow-xl shadow-brand-primary/5">
-            <h3 className="text-2xl md:text-3xl font-extrabold text-[#1a1a2e] mb-4">
-              {t("ctaHeading")}
-            </h3>
-            <p className="text-[#555] max-w-xl mb-10 text-sm md:text-base leading-relaxed">
-              {t("ctaDescription")}
-            </p>
-            <div className="flex flex-col items-center gap-5">
-              <Button
-                variant="primary"
-                size="lg"
-                className="px-12 py-7 text-lg shadow-lg shadow-brand-primary/20 hover:scale-105 transition-transform cursor-pointer"
-                onClick={() => setFormOpen(true)}
-              >
-                {t("ctaButton")}
-              </Button>
-              <div className="flex items-center gap-2 text-brand-primary font-semibold text-xs uppercase tracking-widest">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-primary" />
+          {/* CTA band */}
+          <Reveal className="mt-16 lg:mt-20" scale={0.97}>
+            <div className="relative overflow-hidden rounded-[2.5rem] bg-tabi-lilac/60 px-8 py-12 text-center sm:px-16 sm:py-16">
+              <div aria-hidden className="pointer-events-none absolute inset-0 bg-dots opacity-60 [mask-image:radial-gradient(ellipse_at_center,transparent_30%,#000_80%)]" />
+              <Sparkle className="absolute left-[12%] top-10" size={32} />
+              <Sparkle className="absolute bottom-10 right-[14%]" size={20} delay={1.2} color="var(--color-brand-orchid)" />
+
+              <h3 className="relative text-[clamp(1.6rem,3vw,2.4rem)] font-bold text-tabi-ink">
+                <GradientText>{t("ctaHeading")}</GradientText>
+              </h3>
+              <p className="relative mx-auto mt-4 max-w-xl text-base leading-relaxed text-tabi-body">
+                {t("ctaDescription")}
+              </p>
+              <div className="relative mt-9 flex flex-col items-center gap-5">
+                <Button variant="primary" size="lg" onClick={() => setFormOpen(true)}>
+                  {t("ctaButton")}
+                  <ArrowRight size={18} className="transition-transform duration-300 group-hover/btn:translate-x-1" />
+                </Button>
+                <span className="inline-flex items-center gap-2 text-sm font-medium text-brand-primary">
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-brand-primary opacity-60" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-brand-primary" />
+                  </span>
+                  {t("closingSoon")}
                 </span>
-                {t("closingSoon")}
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
       {formOpen && <RegistrationModal onClose={() => setFormOpen(false)} />}

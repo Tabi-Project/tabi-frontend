@@ -24,7 +24,7 @@ export default function FeaturedEventCard({
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">
-            <span className="text-3xl font-extrabold text-brand-primary opacity-20">
+            <span className="text-3xl font-bold text-brand-primary opacity-20">
               TEE
             </span>
           </div>
@@ -40,7 +40,7 @@ export default function FeaturedEventCard({
           <EventTypeBadge mode={event.mode} />
         </div>
 
-        <h3 className="text-lg font-bold text-[#1a1a2e] leading-snug mb-5">
+        <h3 className="text-lg font-bold text-tabi-ink leading-snug mb-5">
           {event.title}
         </h3>
 
@@ -116,7 +116,7 @@ export default function FeaturedEventCard({
         <div className="flex justify-end">
           <button
             onClick={onClick}
-            className="flex items-center gap-1.5 text-sm font-semibold text-[#1a1a2e] hover:text-brand-primary transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 text-sm font-semibold text-tabi-ink hover:text-brand-primary transition-colors cursor-pointer"
           >
             {event.ctaLabel ?? "Register"}
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">

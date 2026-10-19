@@ -40,7 +40,7 @@ const components: Components = {
             {match[1]}
           </div>
           <div className="flex-1 px-6 py-5">
-            <h3 className="text-base font-bold text-[#1a1a2e] leading-snug">
+            <h3 className="text-base font-bold text-tabi-ink leading-snug">
               {match[2]}
             </h3>
           </div>
@@ -48,12 +48,12 @@ const components: Components = {
       );
     }
     return (
-      <h3 className="text-lg font-bold text-[#1a1a2e] mt-8 mb-3">{children}</h3>
+      <h3 className="text-lg font-bold text-tabi-ink mt-8 mb-3">{children}</h3>
     );
   },
 
   h4: ({ children }) => (
-    <h4 className="text-base font-semibold text-[#1a1a2e] mt-6 mb-2">
+    <h4 className="text-base font-semibold text-tabi-ink mt-6 mb-2">
       {children}
     </h4>
   ),
@@ -165,7 +165,7 @@ const components: Components = {
 
   // ── Strong ────────────────────────────────────────────────────────
   strong: ({ children }) => (
-    <strong className="font-bold text-[#1a1a2e]">{children}</strong>
+    <strong className="font-bold text-tabi-ink">{children}</strong>
   ),
 
   // ── Links ─────────────────────────────────────────────────────────

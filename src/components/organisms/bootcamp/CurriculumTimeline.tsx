@@ -1,253 +1,175 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { ArrowRight } from "lucide-react";
+import { motion, useReducedMotion, useScroll, useSpring } from "framer-motion";
+import { ArrowRight, Handshake } from "lucide-react";
+import { GradientText } from "@/components/atoms/GradientText";
+import { Reveal, EASE_TABI } from "@/components/atoms/Reveal";
+import SectionHeading from "@/components/molecules/SectionHeading";
 
-function WeekCard({
-  week,
-  reverse,
-  footerText
-}: {
-  week: any;
-  reverse: boolean;
-  footerText: string;
-}) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
+type Week = {
+  week: string;
+  label: string;
+  tagline: string;
+  sessions: string;
+  build: string;
+  tech: string[];
+};
+
+const IMAGES = [
+  "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80",
+  "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&q=80",
+  "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80",
+  "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?w=800&q=80"
+];
+
+const TINTS = [
+  { chip: "bg-tabi-pink text-brand-primary", dot: "bg-brand-primary" },
+  { chip: "bg-tabi-mint text-[#2F8F5B]", dot: "bg-[#3CB371]" },
+  { chip: "bg-tabi-cream text-[#9A5B1E]", dot: "bg-[#D9932F]" },
+  { chip: "bg-tabi-lilac/70 text-brand-primary", dot: "bg-tabi-mauve" }
+];
+
+function WeekCard({ week, index, footerText }: { week: Week; index: number; footerText: string }) {
+  const reduced = useReducedMotion();
+  const tint = TINTS[index % TINTS.length];
 
   return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 32 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: 0.1 }}
-      className={`grid lg:grid-cols-[1fr_1fr] gap-0 rounded-3xl overflow-hidden border`}
-      style={{
-        borderColor: week.accentBorder,
-        boxShadow: "0 4px 32px rgba(0,0,0,0.06)"
-      }}
+    <motion.li
+      className="relative flex gap-5 pb-10 last:pb-0 sm:gap-8"
+      initial={reduced ? { opacity: 0 } : { opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.25 }}
+      transition={{ duration: 0.8, ease: EASE_TABI }}
     >
-      {/* Image side */}
-      <div
-        className={`relative h-56 lg:h-auto ${reverse ? "lg:order-2" : ""}`}
-        style={{ minHeight: "240px" }}
+      <motion.span
+        className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-lg font-bold text-brand-primary shadow-[0_6px_18px_-6px_rgba(113,40,111,0.35)] ring-4 ring-tabi-lilac/60 sm:h-12 sm:w-12"
+        initial={{ scale: 0.4 }}
+        whileInView={{ scale: 1 }}
+        viewport={{ once: true, amount: 0.8 }}
+        transition={{ type: "spring", stiffness: 260, damping: 16 }}
       >
-        <Image
-          src={week.image}
-          alt={week.label}
-          fill
-          className="object-cover"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background: `linear-gradient(135deg, ${week.accent}99 0%, ${week.accent}44 100%)`
-          }}
-        />
-        <div className="absolute inset-0 flex flex-col justify-end p-8">
-          <p className="text-white/50 font-extrabold leading-none text-[clamp(4rem,8vw,7rem)]">
-            {week.week}
-          </p>
-          <p className="text-white font-extrabold text-2xl leading-tight -mt-3">
-            {week.label}
-          </p>
-          <p className="text-white/70 text-sm mt-1">{week.tagline}</p>
-        </div>
-      </div>
+        {index + 1}
+      </motion.span>
 
-      {/* Content side */}
-      <div
-        className={`bg-white p-8 flex flex-col justify-between ${reverse ? "lg:order-1" : ""}`}
-      >
-        <div>
-          <div className="flex items-center justify-between mb-6">
-            <span
-              className="text-[10px] font-semibold uppercase tracking-wide"
-              style={{ color: week.accent }}
-            >
+      <article className="group grid flex-1 overflow-hidden rounded-[2rem] bg-white shadow-[0_24px_50px_-40px_rgba(113,40,111,0.6)] md:grid-cols-[0.9fr_1.1fr]">
+        {/* Image — wipes open from the left as the card arrives */}
+        <motion.div
+          className="relative min-h-[220px] overflow-hidden"
+          initial={reduced ? undefined : { clipPath: "inset(0% 100% 0% 0%)" }}
+          whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
+          viewport={{ once: true, amount: 0.05 }}
+          transition={{ duration: 1, delay: 0.15, ease: [0.65, 0, 0.35, 1] }}
+        >
+          <Image
+            src={IMAGES[index % IMAGES.length]}
+            alt={week.label}
+            fill
+            sizes="(max-width: 768px) 100vw, 420px"
+            className="object-cover transition-transform duration-[1.2s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/85 via-brand-primary/35 to-brand-primary/10 mix-blend-multiply" />
+          <div className="absolute inset-0 flex flex-col justify-end p-7 text-white">
+            <p className="text-[clamp(3.5rem,7vw,5.5rem)] font-bold leading-none text-white/35">{week.week}</p>
+            <p className="-mt-2 text-2xl font-bold leading-tight">{week.label}</p>
+            <p className="mt-1 text-sm text-white/75">{week.tagline}</p>
+          </div>
+        </motion.div>
+
+        {/* Content */}
+        <div className="flex flex-col justify-between p-7 sm:p-8">
+          <div>
+            <span className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium ${tint.chip}`}>
+              <span className={`h-1.5 w-1.5 rounded-full ${tint.dot}`} />
               {week.sessions}
             </span>
-            <div
-              className="w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-extrabold"
-              style={{
-                borderColor: week.accentBorder,
-                color: week.accent,
-                background: week.accentLight
-              }}
-            >
-              {week.week}
-            </div>
+            <p className="mt-5 text-base leading-[1.8] text-tabi-body">{week.build}</p>
+            <ul className="mt-6 flex flex-wrap gap-2">
+              {week.tech.map((tech, i) => (
+                <motion.li
+                  key={tech}
+                  className="rounded-full bg-tabi-card px-3 py-1.5 text-xs font-medium text-tabi-ink"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.4 + i * 0.05, ease: EASE_TABI }}
+                >
+                  {tech}
+                </motion.li>
+              ))}
+            </ul>
           </div>
-          <p className="text-sm text-[#555] leading-relaxed mb-6">
-            {week.build}
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {week.tech.map((t: string) => (
-              <span
-                key={t}
-                className="px-3 py-1.5 rounded-lg text-[10px] font-bold border"
-                style={{
-                  borderColor: week.accentBorder,
-                  color: week.accent,
-                  background: week.accentLight
-                }}
-              >
-                {t}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Footer */}
-        <div className="mt-8 pt-5 border-t border-[#f5f5f5] flex items-center gap-2 group cursor-pointer">
-          <motion.div
-            initial={{ x: 0 }}
-            whileHover={{ x: 4 }}
-            style={{ color: week.accent }}
-          >
-            <ArrowRight size={16} strokeWidth={3} />
-          </motion.div>
-          <p className="text-xs text-[#999] group-hover:text-black transition-colors">
+          <p className="mt-8 flex items-center gap-2 border-t border-brand-primary/10 pt-5 text-sm text-tabi-body">
+            <ArrowRight size={15} className="text-brand-primary transition-transform duration-300 group-hover:translate-x-1" />
             {footerText}
           </p>
         </div>
-      </div>
-    </motion.div>
+      </article>
+    </motion.li>
   );
 }
 
 export default function CurriculumTimeline() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
   const t = useTranslations("Bootcamp.curriculum");
   const stats = t.raw("stats") as Array<{ v: string; l: string }>;
-  const weeks = t.raw("weeks") as any[];
-
-  const accentMap = ["#71286F", "#9553E9", "#c040a0", "#71286F"];
-  const accentLightMap = [
-    "rgba(113,40,111,0.06)",
-    "rgba(149,83,233,0.06)",
-    "rgba(192,64,160,0.06)",
-    "rgba(113,40,111,0.05)"
-  ];
-  const accentBorderMap = [
-    "rgba(113,40,111,0.16)",
-    "rgba(149,83,233,0.16)",
-    "rgba(192,64,160,0.16)",
-    "rgba(113,40,111,0.14)"
-  ];
-  const images = [
-    "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=500&q=80",
-    "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500&q=80",
-    "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=500&q=80",
-    "https://images.unsplash.com/photo-1580519542036-c47de6196ba5?q=80"
-  ];
-
-  const weekData = weeks.map((w, i) => ({
-    ...w,
-    accent: accentMap[i],
-    accentLight: accentLightMap[i],
-    accentBorder: accentBorderMap[i],
-    image: images[i]
-  }));
+  const weeks = t.raw("weeks") as Week[];
+  const reduced = useReducedMotion();
+  const railRef = useRef<HTMLOListElement>(null);
+  const { scrollYProgress } = useScroll({ target: railRef, offset: ["start 70%", "end 60%"] });
+  const fill = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
 
   return (
-    <section id="curriculum" className="w-full bg-brand-surface py-24 md:py-32">
-      <div className="px-6 sm:px-10 lg:px-16 max-w-350 mx-auto">
-        <div
-          className="grid lg:grid-cols-[1fr_1fr] gap-12 items-end mb-16"
-          ref={ref}
-        >
-          <div>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={inView ? { opacity: 1 } : {}}
-              className="text-xs font-semibold text-brand-primary uppercase tracking-wide mb-4"
-            >
-              {t("badge")}
-            </motion.p>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.1 }}
-              className="font-extrabold tracking-tight text-[clamp(2rem,3.8vw,3rem)] text-[#1a1a2e] leading-tight"
-            >
-              {t("heading")}{" "}
-              <span
-                className="bg-clip-text text-transparent"
-                style={{
-                  backgroundImage: "linear-gradient(135deg, #71286F, #c040a0)"
-                }}
-              >
-                {t("highlight")}
-              </span>
-            </motion.h2>
-          </div>
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ delay: 0.2 }}
-          >
-            <p className="text-base text-[#666] leading-relaxed mb-6">
-              {t("description")}
-            </p>
-            <div className="flex flex-wrap gap-4">
+    <section id="curriculum" className="w-full scroll-mt-20 bg-tabi-lilac/50 py-20 lg:py-28">
+      <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20">
+        <div className="mb-14 grid items-end gap-10 lg:mb-16 lg:grid-cols-2">
+          <SectionHeading
+            eyebrow={t("badge")}
+            eyebrowTone="white"
+            title={
+              <>
+                {t("heading")} <GradientText>{t("highlight")}</GradientText>
+              </>
+            }
+          />
+          <Reveal delay={0.12}>
+            <p className="text-base leading-[1.8] text-tabi-body">{t("description")}</p>
+            <div className="mt-6 flex flex-wrap gap-3">
               {stats.map((s) => (
-                <div
-                  key={s.l}
-                  className="px-4 py-3 rounded-xl border border-[#eddeed] bg-white"
-                >
-                  <p className="font-extrabold text-[#1a1a2e] text-sm">{s.v}</p>
-                  <p className="text-[10px] text-[#999] uppercase tracking-wide mt-0.5 font-semibold">
-                    {s.l}
-                  </p>
+                <div key={s.l} className="rounded-2xl bg-white px-4 py-3">
+                  <p className="font-bold text-tabi-ink">{s.v}</p>
+                  <p className="mt-0.5 text-xs text-tabi-body">{s.l}</p>
                 </div>
               ))}
             </div>
-
-            {/* ── Implementation Partner badge ── */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.3 }}
-              className="mt-5"
-            >
-              <div className="inline-flex items-center gap-3 px-5 py-3 rounded-2xl border border-[#eddeed] bg-white">
-                <div className="w-10 h-10 rounded-xl bg-brand-primary/8 flex items-center justify-center">
-                  <div className="w-2.5 h-2.5 rounded-full bg-brand-primary" />
-                </div>
-                <div>
-                  <p className="text-[10px] uppercase tracking-[0.18em] text-[#999] font-semibold">
-                    {t("implementationPartnerTitle")}
-                  </p>
-                  <p className="text-sm text-[#444] leading-relaxed">
-                    {t.rich("implementationPartnerDesc", {
-                      brand: (chunks) => (
-                        <span className="font-bold text-brand-primary">
-                          {chunks}
-                        </span>
-                      )
-                    })}
-                  </p>
-                </div>
+            <div className="mt-4 inline-flex items-center gap-3 rounded-2xl bg-white px-5 py-3">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-tabi-pink text-brand-primary">
+                <Handshake size={18} />
+              </span>
+              <div>
+                <p className="text-xs text-tabi-body">{t("implementationPartnerTitle")}</p>
+                <p className="text-sm leading-relaxed text-tabi-ink">
+                  {t.rich("implementationPartnerDesc", {
+                    brand: (chunks) => <span className="font-bold text-brand-primary">{chunks}</span>
+                  })}
+                </p>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </Reveal>
         </div>
 
-        <div className="flex flex-col gap-6">
-          {weekData.map((week, i) => (
-            <WeekCard
-              key={week.week}
-              week={week}
-              reverse={i % 2 !== 0}
-              footerText={t("footerText")}
-            />
+        <ol ref={railRef} className="relative">
+          <span aria-hidden className="absolute bottom-6 left-[1.35rem] top-6 w-px bg-brand-primary/15 sm:left-6" />
+          <motion.span
+            aria-hidden
+            style={reduced ? undefined : { scaleY: fill }}
+            className="absolute bottom-6 left-[1.35rem] top-6 w-px origin-top bg-gradient-to-b from-brand-primary via-brand-magenta to-brand-orchid sm:left-6"
+          />
+          {weeks.map((week, i) => (
+            <WeekCard key={week.week} week={week} index={i} footerText={t("footerText")} />
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   );

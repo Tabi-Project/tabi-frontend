@@ -1,201 +1,121 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
-import {
-  motion,
-  useInView,
-  useMotionValue,
-  useTransform,
-  animate,
-  Variants
-} from "framer-motion";
-import { Zap, BookOpen, Heart, ArrowUpRight } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowUpRight, BookOpen, Heart, Zap } from "lucide-react";
+import { CountUp } from "@/components/atoms/CountUp";
+import { Reveal, Stagger, StaggerItem, EASE_TABI } from "@/components/atoms/Reveal";
+import { Sparkle } from "@/components/atoms/Sparkle";
+import SectionHeading from "@/components/molecules/SectionHeading";
 
-function RollingCounter({ value }: { value: number }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const count = useMotionValue(0);
-  const rounded = useTransform(count, (latest) =>
-    Math.round(latest).toLocaleString()
-  );
-
-  useEffect(() => {
-    if (isInView) {
-      const controls = animate(count, value, {
-        duration: 2.5,
-        ease: [0.16, 1, 0.3, 1]
-      });
-      return controls.stop;
-    }
-  }, [isInView, count, value]);
-
-  return <motion.span ref={ref}>{rounded}</motion.span>;
-}
-
-const containerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.15, delayChildren: 0.2 }
-  }
-};
-
-const itemVariants: Variants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
-  }
-};
+const ICONS = [Zap, BookOpen, Heart];
+const ACCENTS = ["#F3A6D9", "#E0C0A8", "#9FD8B0"];
 
 export default function CommunityPhilosophy() {
   const t = useTranslations("Community.philosophy");
-  // Get pillars from translations
-  const pillarsData = t.raw("pillars") as Array<{
-    title: string;
-    text: string;
-    tag: string;
-  }>;
-
-  // Map icons and gradients (cannot be stored in JSON)
-  const icons = [Zap, BookOpen, Heart];
-  const gradients = [
-    "from-blue-600/20 to-brand-primary/10",
-    "from-brand-primary/20 to-purple-600/10",
-    "from-purple-600/20 to-pink-500/10"
-  ];
+  const reduced = useReducedMotion();
+  const pillars = t.raw("pillars") as Array<{ title: string; text: string; tag: string }>;
 
   return (
-    <section
-      className="relative py-32 overflow-hidden"
-      style={{
-        background: "#0a0a1a",
-        backgroundImage: `
-          radial-gradient(circle at 0% 0%, rgba(113, 40, 111, 0.12) 0%, transparent 50%),
-          radial-gradient(circle at 100% 100%, rgba(113, 40, 111, 0.12) 0%, transparent 50%)
-        `
-      }}
-    >
-      {/* Background visuals unchanged */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage:
-              "radial-gradient(#ffffff 0.5px, transparent 0.5px)",
-            backgroundSize: "40px 40px"
-          }}
-        />
-        <motion.div
-          animate={{ scale: [1, 1.2, 1], opacity: [0.05, 0.1, 0.05] }}
-          transition={{ duration: 8, repeat: Infinity }}
-          className="absolute top-1/4 left-1/3 w-96 h-96 bg-brand-primary rounded-full blur-[120px]"
-        />
-      </div>
+    <section className="relative overflow-hidden bg-tabi-night py-20 lg:py-28">
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(50%_60%_at_0%_0%,rgba(208,96,176,0.3)_0%,transparent_60%),radial-gradient(50%_60%_at_100%_100%,rgba(113,40,111,0.6)_0%,transparent_60%)]"
+      />
+      <div aria-hidden className="pointer-events-none absolute right-0 top-0 h-80 w-80 opacity-30 [background-image:radial-gradient(circle,rgba(255,255,255,0.4)_1px,transparent_1.5px)] [background-size:14px_14px] [mask-image:radial-gradient(circle_at_top_right,#000,transparent_70%)]" />
+      <Sparkle className="absolute left-[46%] top-20" size={26} />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6 sm:px-12 lg:px-20">
-        {/* Header */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end mb-24"
-        >
-          <motion.div variants={itemVariants}>
-            <span className="text-[10px] font-black uppercase tracking-[0.4em] text-brand-primary">
-              {t("badge")}
-            </span>
-            <h2 className="mt-4 text-4xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1]">
-              {t("headingLine1")} <br />
-              <span className="text-white/40 italic">
-                {t("headingHighlight")}
-              </span>
-            </h2>
-          </motion.div>
-          <motion.p
-            variants={itemVariants}
-            className="text-lg text-white/50 font-light leading-relaxed lg:border-l lg:border-white/10 lg:pl-12"
-          >
-            {t("description")}
-          </motion.p>
-        </motion.div>
+      <div className="relative z-10 mx-auto max-w-350 px-6 sm:px-12 lg:px-20">
+        <div className="mb-16 grid grid-cols-1 items-end gap-10 lg:mb-20 lg:grid-cols-2">
+          <SectionHeading
+            inverted
+            eyebrow={t("badge")}
+            title={
+              <>
+                {t("headingLine1")}{" "}
+                <span className="bg-gradient-to-r from-[#F9C8EE] via-[#F3A6D9] to-tabi-tan bg-clip-text text-transparent">
+                  {t("headingHighlight")}
+                </span>
+              </>
+            }
+          />
+          <Reveal delay={0.15}>
+            <p className="text-lg leading-[1.8] text-white/70 lg:border-l lg:border-white/15 lg:pl-10">{t("description")}</p>
+          </Reveal>
+        </div>
 
-        {/* Pillars Grid */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
-        >
-          {pillarsData.map((pillar, index) => {
-            const Icon = icons[index];
+        <Stagger className="grid grid-cols-1 gap-5 md:grid-cols-3" stagger={0.12}>
+          {pillars.map((pillar, i) => {
+            const Icon = ICONS[i % ICONS.length];
+            const accent = ACCENTS[i % ACCENTS.length];
             return (
-              <motion.div
-                key={pillar.title}
-                variants={itemVariants}
-                whileHover={{ y: -10 }}
-                className="group relative p-10 rounded-tabi-card bg-white/5 border border-white/10 hover:border-brand-primary/40 transition-colors duration-500"
-              >
-                <div
-                  className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 bg-linear-to-br ${gradients[index]} rounded-tabi-card`}
-                />
-                <div className="relative z-10">
-                  <div className="flex justify-between items-start mb-12">
-                    <motion.div
-                      whileHover={{ rotate: [0, -10, 10, 0] }}
-                      className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-primary group-hover:bg-brand-primary group-hover:text-white transition-all duration-500"
+              <StaggerItem key={pillar.title} className="h-full" hoverLift={8}>
+                <article className="group relative flex h-full flex-col overflow-hidden rounded-[2rem] bg-white/[0.05] p-8 ring-1 ring-white/10 transition-colors duration-500 hover:bg-white/[0.09] sm:p-9">
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full opacity-0 blur-3xl transition-opacity duration-700 group-hover:opacity-60"
+                    style={{ background: accent }}
+                  />
+                  <div className="relative flex items-start justify-between">
+                    <span
+                      className="flex h-12 w-12 items-center justify-center rounded-full text-tabi-night transition-transform duration-500 group-hover:rotate-[-10deg] group-hover:scale-110"
+                      style={{ background: accent }}
                     >
-                      <Icon size={24} strokeWidth={1.5} />
-                    </motion.div>
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-white/20 group-hover:text-white/60 transition-colors">
-                      {pillar.tag}
+                      <Icon size={22} strokeWidth={1.7} />
                     </span>
+                    <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/70">{pillar.tag}</span>
                   </div>
-                  <h3 className="text-2xl font-bold text-white mb-4 italic">
-                    {pillar.title}
-                  </h3>
-                  <p className="text-white/60 font-light leading-relaxed text-sm lg:text-base mb-8">
-                    &quot;{pillar.text}&quot;
-                  </p>
-                  <div className="flex items-center gap-2 text-brand-primary opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
-                    <span className="text-[10px] font-black uppercase tracking-tighter">
-                      {t("viewImpact")}
-                    </span>
-                    <ArrowUpRight size={14} />
-                  </div>
-                </div>
-              </motion.div>
+                  <h3 className="relative mt-10 text-2xl font-bold text-white">{pillar.title}</h3>
+                  <p className="relative mt-4 flex-1 text-base leading-[1.8] text-white/65">{pillar.text}</p>
+                  <span className="relative mt-8 inline-flex translate-y-2 items-center gap-1.5 text-sm font-medium opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100" style={{ color: accent }}>
+                    {t("viewImpact")}
+                    <ArrowUpRight size={15} />
+                  </span>
+                </article>
+              </StaggerItem>
             );
           })}
-        </motion.div>
+        </Stagger>
 
-        {/* Stat Bar */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="mt-20 p-12 rounded-[3rem] bg-linear-to-r from-brand-primary/10 to-transparent border border-white/5 flex flex-col md:flex-row items-center justify-between gap-8"
-        >
-          <div className="flex items-center gap-6">
-            <div className="text-5xl lg:text-7xl font-black text-white tracking-tighter">
-              <RollingCounter value={Number(t("statValue"))} />
+        {/* Mission stat with a progress ring */}
+        <Reveal className="mt-16 lg:mt-20" scale={0.96}>
+          <div className="flex flex-col items-center justify-between gap-10 rounded-[2.5rem] bg-gradient-to-r from-brand-primary/60 to-white/[0.04] p-8 ring-1 ring-white/10 sm:p-12 md:flex-row">
+            <div className="flex items-center gap-6 sm:gap-8">
+              <div className="relative h-28 w-28 shrink-0 sm:h-32 sm:w-32">
+                <svg viewBox="0 0 120 120" className="h-full w-full -rotate-90" aria-hidden>
+                  <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(255,255,255,0.12)" strokeWidth="8" />
+                  <motion.circle
+                    cx="60"
+                    cy="60"
+                    r="52"
+                    fill="none"
+                    stroke="url(#mission-ring)"
+                    strokeWidth="8"
+                    strokeLinecap="round"
+                    initial={reduced ? { pathLength: 1 } : { pathLength: 0 }}
+                    whileInView={{ pathLength: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 2.2, ease: EASE_TABI }}
+                  />
+                  <defs>
+                    <linearGradient id="mission-ring" x1="0" x2="1">
+                      <stop offset="0%" stopColor="#F3A6D9" />
+                      <stop offset="100%" stopColor="#E0C0A8" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <Sparkle className="absolute inset-0 m-auto" size={34} />
+              </div>
+              <div>
+                <p className="text-[clamp(3rem,7vw,4.5rem)] font-bold leading-none text-white">
+                  <CountUp value={Number(t("statValue")).toLocaleString("en-US")} duration={2.2} />
+                </p>
+                <p className="mt-2 whitespace-pre-line text-sm leading-snug text-white/65">{t("statLabel")}</p>
+              </div>
             </div>
-            <div className="text-sm uppercase font-bold tracking-[0.2em] text-white/40 leading-tight whitespace-pre-line">
-              {t("statLabel")}
-            </div>
+            <p className="max-w-sm text-center text-lg leading-relaxed text-white/80 md:text-right">{t("statQuote")}</p>
           </div>
-          <div className="h-px w-full md:w-24 bg-white/10" />
-          <div className="text-center md:text-right">
-            <p className="text-white/60 text-sm italic max-w-xs font-light">
-              {t("statQuote")}
-            </p>
-          </div>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );

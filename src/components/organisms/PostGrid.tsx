@@ -92,7 +92,7 @@ function EmptyState({
       <div className="w-14 h-14 rounded-full bg-[#F3E8FF] flex items-center justify-center mb-4">
         {Icon}
       </div>
-      <p className="text-sm font-semibold text-[#1a1a2e] mb-1">
+      <p className="text-sm font-semibold text-tabi-ink mb-1">
         {search
           ? "No results found"
           : isBlog
@@ -130,7 +130,7 @@ export default function PostsGrid({
   return (
     <section>
       <div className="flex items-center justify-between mb-8">
-        <h2 className="text-2xl font-bold text-[#1a1a2e]">{title}</h2>
+        <h2 className="text-2xl font-bold text-tabi-ink">{title}</h2>
         <SearchBar
           placeholder={searchPlaceholder}
           value={search}

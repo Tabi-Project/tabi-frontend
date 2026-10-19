@@ -3,12 +3,13 @@
 import { Suspense, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { Camera, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
-import { Button } from "@/components/atoms/Button";
+import { GradientText } from "@/components/atoms/GradientText";
+import SectionHeading from "@/components/molecules/SectionHeading";
 
 interface GalleryImage {
   id: string | number;
@@ -76,68 +77,63 @@ function GalleryContent({ cmsImages = [] }: CommunityGalleryProps) {
   }));
 
   return (
-    <section
-      id="community-gallery"
-      className="scroll-mt-20 py-24 bg-white overflow-hidden"
-    >
-      <div className="mx-auto max-w-7xl px-6 sm:px-12 lg:px-20">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-[10px] font-black uppercase tracking-[0.3em] text-brand-primary">
-            {t("badge")}
-          </span>
-          <h2 className="mt-3 text-4xl lg:text-5xl font-extrabold text-[#1a1a2e] tracking-tight">
-            {t("heading")}{" "}
-            <span className="italic text-brand-primary">
-              {t("headingHighlight")}
-            </span>
-          </h2>
-        </div>
+    <section className="overflow-hidden bg-white py-20 lg:py-28">
+      <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20">
+        <SectionHeading
+          align="center"
+          eyebrow={t("badge")}
+          title={
+            <>
+              {t("heading")} <GradientText>{t("headingHighlight")}</GradientText>
+            </>
+          }
+          className="mb-12"
+        />
 
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {categoriesWithCounts.map((category) => {
-            const isActive = activeTab === category.id;
-            return (
-              <Button
-                key={category.id}
-                onClick={() => {
-                  const url = new URL(window.location.href);
-                  if (category.id === "all") {
-                    url.searchParams.delete("tab");
-                  } else {
-                    url.searchParams.set("tab", category.id);
-                  }
-                  window.history.pushState({}, "", url.toString());
-                }}
-                variant={isActive ? "primary" : "ghost"}
-                size="sm"
-                className={`relative gap-2 font-bold transition-all duration-300 ${
-                  isActive
-                    ? "shadow-lg"
-                    : "bg-white text-gray-600 border border-gray-200 hover:border-brand-primary/40 hover:text-brand-primary"
-                }`}
-              >
-                <Camera
-                  size={12}
-                  className={
-                    isActive ? "text-white" : "text-brand-primary opacity-60"
-                  }
-                />
-                {category.label}
-                {category.count > 0 && (
-                  <span
-                    className={`ml-1 text-[10px] px-1.5 py-0.5 rounded-full ${
-                      isActive
-                        ? "bg-white/20 text-white"
-                        : "bg-gray-100 text-gray-500"
-                    }`}
-                  >
-                    {category.count}
+        <LayoutGroup id="gallery-tabs">
+          <div className="mb-12 flex flex-wrap justify-center gap-2" role="tablist">
+            {categoriesWithCounts.map((category) => {
+              const isActive = activeTab === category.id;
+              return (
+                <button
+                  key={category.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  onClick={() => {
+                    const url = new URL(window.location.href);
+                    if (category.id === "all") {
+                      url.searchParams.delete("tab");
+                    } else {
+                      url.searchParams.set("tab", category.id);
+                    }
+                    window.history.pushState({}, "", url.toString());
+                  }}
+                  className={`relative cursor-pointer rounded-full px-5 py-2.5 text-sm font-medium transition-colors duration-300 ${
+                    isActive ? "text-white" : "bg-tabi-card/80 text-tabi-body hover:text-brand-primary"
+                  }`}
+                >
+                  {isActive && (
+                    <motion.span
+                      layoutId="gallery-pill"
+                      className="absolute inset-0 rounded-full bg-brand-primary shadow-[0_8px_20px_-8px_rgba(113,40,111,0.7)]"
+                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    />
+                  )}
+                  <span className="relative flex items-center gap-2">
+                    <Camera size={13} className={isActive ? "text-white/80" : "text-brand-primary/60"} />
+                    {category.label}
+                    {category.count > 0 && (
+                      <span className={`rounded-full px-1.5 py-0.5 text-[10px] ${isActive ? "bg-white/20" : "bg-white text-tabi-body"}`}>
+                        {category.count}
+                      </span>
+                    )}
                   </span>
-                )}
-              </Button>
-            );
-          })}
-        </div>
+                </button>
+              );
+            })}
+          </div>
+        </LayoutGroup>
 
         <div className="relative min-h-100">
           <AnimatePresence mode="wait">
@@ -147,20 +143,25 @@ function GalleryContent({ cmsImages = [] }: CommunityGalleryProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[250px]"
+              className="grid grid-flow-row-dense grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 md:gap-5 auto-rows-[220px] md:auto-rows-[250px]"
             >
               {filteredImages.map((image, index) => {
                 const isFeatured = index % 4 === 0;
                 const isWide = index % 4 === 1;
                 return (
-                  <div
+                  <motion.button
+                    type="button"
                     key={image.id}
+                    initial={{ opacity: 0, y: 40, scale: 0.96 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.7, delay: (index % 4) * 0.08, ease: [0.16, 1, 0.3, 1] }}
                     onClick={() => {
                       setPhotoIndex(index);
                       setIsOpen(true);
                     }}
                     className={`
-                      group relative rounded-3xl overflow-hidden border border-gray-100 bg-gray-50 shadow-sm transition-all duration-500 hover:shadow-xl hover:-translate-y-1 cursor-pointer
+                      group relative cursor-pointer overflow-hidden rounded-[1.75rem] bg-tabi-lilac text-left ring-0 ring-brand-primary transition-[box-shadow,transform] duration-500 hover:-translate-y-1 hover:shadow-[0_24px_50px_-28px_rgba(113,40,111,0.6)] hover:ring-[3px]
                       ${isFeatured ? "md:col-span-2 md:row-span-2" : ""}
                       ${isWide ? "md:col-span-2 md:row-span-1" : "md:col-span-1"}
                     `}
@@ -173,29 +174,29 @@ function GalleryContent({ cmsImages = [] }: CommunityGalleryProps) {
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                       />
-                      <div className="absolute inset-0 bg-linear-to-t from-[#1a1a2e]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute inset-0 bg-linear-to-t from-tabi-night/85 via-tabi-night/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
                         <p className="text-white text-sm font-bold mb-1">
                           {image.caption}
                         </p>
-                        <p className="text-white/60 text-[10px] uppercase font-bold tracking-wider flex items-center gap-1">
+                        <p className="flex items-center gap-1 text-xs text-white/70">
                           {t("viewFullSize")} <ArrowRight size={10} />
                         </p>
                       </div>
                     </div>
-                  </div>
+                  </motion.button>
                 );
               })}
 
               {filteredImages.length === 0 && (
                 <div className="col-span-full flex flex-col items-center justify-center py-20 text-center">
-                  <div className="w-16 h-16 rounded-full bg-gray-50 flex items-center justify-center mb-4 text-gray-400">
+                  <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-tabi-pink text-brand-primary">
                     <Camera size={24} />
                   </div>
-                  <h3 className="text-lg font-bold text-[#1a1a2e] mb-1">
+                  <h3 className="text-lg font-bold text-tabi-ink mb-1">
                     {t("emptyTitle")}
                   </h3>
-                  <p className="text-sm text-gray-500 max-w-sm">
+                  <p className="max-w-sm text-sm text-tabi-body">
                     {t("emptyMessage")}
                   </p>
                 </div>

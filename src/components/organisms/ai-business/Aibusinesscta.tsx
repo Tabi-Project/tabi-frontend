@@ -1,187 +1,115 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { ArrowRight, Check } from "lucide-react";
+import { Eyebrow } from "@/components/atoms/Eyebrow";
+import { Reveal } from "@/components/atoms/Reveal";
+import { Sparkle } from "@/components/atoms/Sparkle";
 import RegistrationModal from "../../molecules/RegistrationModal";
 
 export default function AIBusinessCTA() {
   const t = useTranslations("AIBusiness.cta");
   const [formOpen, setFormOpen] = useState(false);
+  const reduced = useReducedMotion();
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "center center"] });
+  const draw = useTransform(scrollYProgress, [0.1, 1], [0, 1]);
+  const arcY = useTransform(scrollYProgress, [0, 1], [80, 0]);
 
   const trustSignals = t.raw("trustSignals") as string[];
 
   return (
     <>
-      <section id="register" className="w-full bg-[#0d0d0d] overflow-hidden">
-        <div className="relative mx-auto max-w-350 px-6 sm:px-12 lg:px-20 py-24 lg:py-32">
-          <div
-            className="absolute inset-0 pointer-events-none"
-            aria-hidden
-            style={{
-              background:
-                "radial-gradient(ellipse 60% 70% at 50% 50%, rgba(113,40,111,0.18) 0%, transparent 70%)"
-            }}
+      <section id="register" ref={ref} className="relative w-full overflow-hidden bg-tabi-night">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(70%_60%_at_50%_100%,rgba(208,96,176,0.45)_0%,transparent_65%)]"
+        />
+
+        {/* Tabi "smile" arcs draw themselves in as the section arrives */}
+        <motion.svg
+          aria-hidden
+          viewBox="0 0 400 200"
+          style={reduced ? undefined : { y: arcY }}
+          className="pointer-events-none absolute -bottom-10 left-1/2 w-[min(1100px,140vw)] -translate-x-1/2"
+          fill="none"
+        >
+          <motion.path
+            d="M20 0a180 180 0 0 0 360 0"
+            stroke="rgba(255,255,255,0.08)"
+            strokeWidth="26"
+            style={reduced ? undefined : { pathLength: draw }}
           />
-          <svg
-            className="absolute top-0 left-0 w-64 h-64 opacity-[0.04]"
-            viewBox="0 0 200 200"
-            fill="none"
-            aria-hidden
-          >
-            {[0, 40, 80, 120, 160, 200].map((v) => (
-              <g key={v}>
-                <line
-                  x1={v}
-                  y1="0"
-                  x2={v}
-                  y2="200"
-                  stroke="white"
-                  strokeWidth="0.5"
-                />
-                <line
-                  x1="0"
-                  y1={v}
-                  x2="200"
-                  y2={v}
-                  stroke="white"
-                  strokeWidth="0.5"
-                />
-              </g>
-            ))}
-          </svg>
-          <svg
-            className="absolute bottom-0 right-0 w-64 h-64 opacity-[0.04] rotate-180"
-            viewBox="0 0 200 200"
-            fill="none"
-            aria-hidden
-          >
-            {[0, 40, 80, 120, 160, 200].map((v) => (
-              <g key={v}>
-                <line
-                  x1={v}
-                  y1="0"
-                  x2={v}
-                  y2="200"
-                  stroke="white"
-                  strokeWidth="0.5"
-                />
-                <line
-                  x1="0"
-                  y1={v}
-                  x2="200"
-                  y2={v}
-                  stroke="white"
-                  strokeWidth="0.5"
-                />
-              </g>
-            ))}
-          </svg>
+          <motion.path
+            d="M110 0a90 90 0 0 0 180 0"
+            stroke="rgba(255,255,255,0.06)"
+            strokeWidth="26"
+            style={reduced ? undefined : { pathLength: draw }}
+          />
+        </motion.svg>
 
-          <div className="relative flex flex-col items-center text-center">
-            <span className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold text-white/50 tracking-wide uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#c084fc] animate-pulse" />
+        <Sparkle className="absolute left-[14%] top-24" size={34} />
+        <Sparkle className="absolute right-[16%] top-40" size={20} delay={1} color="#F3A6D9" />
+        <Sparkle className="absolute bottom-32 left-[22%]" size={16} delay={2} color="#fff" />
+
+        <div className="relative mx-auto flex max-w-350 flex-col items-center px-6 py-24 text-center sm:px-12 lg:px-20 lg:py-36">
+          <Reveal y={12}>
+            <Eyebrow tone="plum" dot>
               {t("badge")}
-            </span>
+            </Eyebrow>
+          </Reveal>
 
-            <h2 className="text-[clamp(2.4rem,6vw,5rem)] font-extrabold tracking-tight leading-[1.05] text-white max-w-4xl mb-6">
-              {t("headingLine1")}
-              <br />
-              <span
-                className="italic pr-4"
-                style={{
-                  background: "linear-gradient(90deg, #c084fc, #f472b6)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  display: "inline-block"
-                }}
-              >
+          <Reveal delay={0.06} className="mt-7">
+            <h2 className="max-w-4xl text-[clamp(2.5rem,6.5vw,5.25rem)] font-bold leading-[1.04] tracking-[-0.02em] text-white">
+              {t("headingLine1")}{" "}
+              <span className="bg-gradient-to-r from-[#F9C8EE] via-[#F3A6D9] to-tabi-tan bg-clip-text text-transparent">
                 {t("headingHighlight")}
               </span>
             </h2>
+          </Reveal>
 
-            <p className="text-base sm:text-lg text-white/50 leading-relaxed max-w-lg mb-10">
-              {t("description")}{" "}
-              <span className="text-white font-semibold">
-                {t("descriptionHighlight")}
-              </span>{" "}
+          <Reveal delay={0.12}>
+            <p className="mx-auto mt-7 max-w-xl text-base leading-[1.8] text-white/70 sm:text-lg">
+              {t("description")} <span className="font-bold text-white">{t("descriptionHighlight")}</span>{" "}
               {t("descriptionSuffix")}
             </p>
+          </Reveal>
 
-            <div className="flex flex-col items-center gap-4 mb-10">
-              <button
-                onClick={() => setFormOpen(true)}
-                className="inline-flex items-center gap-3 rounded-full px-8 py-4 text-base font-bold text-white transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl active:scale-95"
-                style={{
-                  background: "linear-gradient(135deg, #71286F, #a855f7)",
-                  boxShadow: "0 0 40px rgba(113,40,111,0.4)"
-                }}
+          <Reveal delay={0.2} className="mt-10 flex flex-col items-center gap-5">
+            <button
+              onClick={() => setFormOpen(true)}
+              className="group relative inline-flex cursor-pointer items-center gap-3 rounded-full bg-white px-9 py-4 text-base font-bold text-brand-primary animate-pulse-ring transition-transform duration-500 hover:-translate-y-0.5 active:scale-95"
+            >
+              {t("button")}
+              <ArrowRight size={18} className="transition-transform duration-300 group-hover:translate-x-1" />
+            </button>
+            <p className="text-sm text-white/50">
+              {t("enrolledText")}{" "}
+              <Link
+                href="#"
+                className="font-medium text-white/80 underline decoration-white/30 underline-offset-4 transition-colors hover:text-white hover:decoration-white"
               >
-                {t("button")}
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                  aria-hidden
-                >
-                  <path
-                    d="M4 9h10M10 5l4 4-4 4"
-                    stroke="white"
-                    strokeWidth="1.8"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
+                {t("enrolledLink")}
+              </Link>
+            </p>
+          </Reveal>
 
-              <p className="text-sm text-white/30">
-                {t("enrolledText")}{" "}
-                <Link
-                  href="#"
-                  className="text-white/60 hover:text-white underline underline-offset-4 transition-colors duration-200 font-medium"
-                >
-                  {t("enrolledLink")}
-                </Link>
-              </p>
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-x-6 gap-y-3">
-              {trustSignals.map((item, i) => (
-                <span
+          <Reveal delay={0.28} className="mt-12">
+            <ul className="flex flex-wrap justify-center gap-2.5">
+              {trustSignals.map((item) => (
+                <li
                   key={item}
-                  className="flex items-center gap-2 text-xs text-white/30"
+                  className="inline-flex items-center gap-2 rounded-full bg-white/[0.07] px-4 py-2 text-xs text-white/75 ring-1 ring-white/10"
                 >
-                  {i > 0 && (
-                    <span className="w-1 h-1 rounded-full bg-white/15 hidden sm:block" />
-                  )}
-                  <svg
-                    width="12"
-                    height="12"
-                    viewBox="0 0 12 12"
-                    fill="none"
-                    aria-hidden
-                  >
-                    <circle
-                      cx="6"
-                      cy="6"
-                      r="5.5"
-                      stroke="#c084fc"
-                      strokeOpacity="0.4"
-                    />
-                    <path
-                      d="M3.5 6l1.7 1.7 3.3-3.4"
-                      stroke="#c084fc"
-                      strokeWidth="1.2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  <Check size={12} className="text-[#9FD8B0]" strokeWidth={3} />
                   {item}
-                </span>
+                </li>
               ))}
-            </div>
-          </div>
+            </ul>
+          </Reveal>
         </div>
       </section>
       {formOpen && <RegistrationModal onClose={() => setFormOpen(false)} />}

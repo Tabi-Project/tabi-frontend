@@ -2,64 +2,89 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { Button } from "@/components/atoms/Button";
-import { MapPin, Globe } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { ArrowRight, Globe, MapPin } from "lucide-react";
 import CityRequestModal from "@/components/molecules/CityRequestModal";
+import { Eyebrow } from "@/components/atoms/Eyebrow";
+import { Reveal } from "@/components/atoms/Reveal";
+import { Sparkle } from "@/components/atoms/Sparkle";
+
+// A few cities orbiting the globe — purely decorative
+const CITIES = ["Lagos", "Accra", "Nairobi", "Kigali", "Cotonou", "Abuja"];
 
 export default function TWNCityRequest() {
   const t = useTranslations("TWN.cityRequest");
   const [modalOpen, setModalOpen] = useState(false);
+  const reduced = useReducedMotion();
 
   return (
-    <section className="py-12 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="bg-[#2D102D] rounded-[4rem] p-8 md:p-20 relative overflow-hidden shadow-[0_20px_50px_rgba(45,16,45,0.3)]">
-          <div className="absolute top-0 right-0 w-125 h-125 bg-brand-primary/10 blur-[150px] rounded-full -mr-40 -mt-40 pointer-events-none" />
+    <section className="bg-white py-12 lg:py-16">
+      <div className="mx-auto max-w-350 px-6 sm:px-12 lg:px-20">
+        <Reveal y={40} scale={0.97}>
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-tabi-night p-8 md:p-16 lg:p-20">
+            <div aria-hidden className="pointer-events-none absolute inset-0 bg-[radial-gradient(60%_70%_at_100%_0%,rgba(208,96,176,0.35)_0%,transparent_60%)]" />
+            <Sparkle className="absolute left-[8%] top-12" size={28} />
 
-          <div className="grid lg:grid-cols-2 gap-16 items-center relative z-10">
-            <div className="space-y-8 text-center md:text-left">
-              <div className="inline-flex items-center gap-2 px-5 py-2 bg-black/30 backdrop-blur-md border border-white/10 rounded-full text-white text-[10px] font-black uppercase tracking-[0.2em]">
-                <MapPin
-                  size={14}
-                  className="text-brand-primary fill-brand-primary/20"
-                />
-                {t("badge")}
+            <div className="relative z-10 grid items-center gap-14 lg:grid-cols-2">
+              <div className="text-center md:text-left">
+                <Eyebrow tone="plum">
+                  <MapPin size={14} className="text-tabi-tan" />
+                  {t("badge")}
+                </Eyebrow>
+                <h3 className="mt-7 text-[clamp(2.4rem,5vw,3.75rem)] font-bold leading-[1.08] text-white">
+                  {t("headingLine1")}
+                  <br />
+                  <span className="bg-gradient-to-r from-[#F9C8EE] via-[#F3A6D9] to-tabi-tan bg-clip-text font-serif font-normal italic text-transparent">
+                    {t("headingHighlight")}
+                  </span>
+                </h3>
+                <p className="mx-auto mt-6 max-w-md text-lg leading-[1.8] text-white/75 md:mx-0">{t("description")}</p>
               </div>
-              <h3 className="text-4xl md:text-6xl font-extrabold text-white leading-[1.1] tracking-tight">
-                {t("headingLine1")} <br />
-                <span className="text-brand-primary font-serif italic lowercase tracking-normal">
-                  {t("headingHighlight")}
-                </span>
-              </h3>
-              <p className="text-white/80 text-lg md:text-xl leading-relaxed max-w-md font-medium">
-                {t("description")}
-              </p>
-            </div>
 
-            <div className="relative">
-              <div className="relative bg-[#1a091a]/60 backdrop-blur-3xl border border-white/10 rounded-[3.5rem] p-10 md:p-14 flex flex-col items-center justify-center text-center shadow-2xl">
-                <div className="w-24 h-24 bg-brand-primary rounded-tabi-card flex items-center justify-center text-white mb-8 shadow-[0_0_30px_rgba(113,40,111,0.4)] animate-bounce">
-                  <Globe size={44} strokeWidth={2.5} />
+              <div className="relative flex flex-col items-center rounded-[2rem] bg-white/[0.06] p-10 text-center ring-1 ring-white/10 backdrop-blur-xl md:p-14">
+                {/* Globe with an orbit of city tags */}
+                <div className="relative mb-10 h-40 w-40">
+                  <div aria-hidden className="absolute inset-0 rounded-full border border-dashed border-white/20" />
+                  <motion.div
+                    aria-hidden
+                    className="absolute inset-0"
+                    animate={reduced ? undefined : { rotate: 360 }}
+                    transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+                  >
+                    {CITIES.map((city, i) => {
+                      const a = (i / CITIES.length) * Math.PI * 2;
+                      return (
+                        <motion.span
+                          key={city}
+                          className="absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-white/10 px-2 py-0.5 text-[10px] text-white/70"
+                          style={{ left: `${(50 + 50 * Math.cos(a)).toFixed(2)}%`, top: `${(50 + 50 * Math.sin(a)).toFixed(2)}%` }}
+                          animate={reduced ? undefined : { rotate: -360 }}
+                          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+                        >
+                          {city}
+                        </motion.span>
+                      );
+                    })}
+                  </motion.div>
+                  <span className="absolute inset-7 flex items-center justify-center rounded-full bg-brand-primary text-white shadow-[0_0_40px_rgba(208,96,176,0.5)]">
+                    <Globe size={42} strokeWidth={2} className={reduced ? "" : "animate-spin-slow"} />
+                  </span>
                 </div>
-                <h4 className="text-white text-2xl md:text-3xl font-bold mb-4 tracking-tight">
-                  {t("cardTitle")}
-                </h4>
-                <p className="text-white text-base md:text-lg mb-10 max-w-xs opacity-90 font-medium leading-relaxed">
-                  {t("cardText")}
-                </p>
-                <Button
+                <h4 className="text-2xl font-bold text-white md:text-3xl">{t("cardTitle")}</h4>
+                <p className="mt-3 max-w-xs text-base leading-relaxed text-white/80">{t("cardText")}</p>
+                <button
                   onClick={() => setModalOpen(true)}
-                  className="w-full md:w-auto bg-brand-primary hover:bg-white hover:text-[#2D102D] text-white px-10 py-5 rounded-2xl text-xs font-black uppercase tracking-widest transition-all duration-500 shadow-[0_10px_20px_rgba(0,0,0,0.2)] hover:-translate-y-1"
+                  className="group mt-9 inline-flex cursor-pointer items-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-bold text-brand-primary animate-pulse-ring transition-transform duration-300 hover:-translate-y-0.5"
                 >
-                  {t("cta")}
-                </Button>
+                  {t("cta").replace(/\s*→\s*$/, "")}
+                  <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+                </button>
               </div>
             </div>
           </div>
-        </div>
-
-        {modalOpen && <CityRequestModal onClose={() => setModalOpen(false)} />}
+        </Reveal>
       </div>
+      {modalOpen && <CityRequestModal onClose={() => setModalOpen(false)} />}
     </section>
   );
 }

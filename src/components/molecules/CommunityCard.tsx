@@ -26,7 +26,7 @@ export default function CommunityCard({ onSuccess }: CommunityCardProps) {
       />
 
       <div className="relative z-10">
-        <h3 className="text-4xl font-extrabold text-[#121212] leading-tight mb-2">
+        <h3 className="text-4xl font-bold text-[#121212] leading-tight mb-2">
           {t("title")}
         </h3>
         <p className="text-base text-[#444] leading-relaxed mb-8">
