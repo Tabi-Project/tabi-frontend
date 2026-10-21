@@ -39,10 +39,13 @@ function WeekCard({ week, index, footerText }: { week: Week; index: number; foot
   return (
     <motion.li
       className="relative flex gap-5 pb-10 last:pb-0 sm:gap-8"
-      initial={reduced ? { opacity: 0 } : { opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
+      initial="hidden"
+      whileInView="visible"
       viewport={{ once: true, amount: 0.25 }}
-      transition={{ duration: 0.8, ease: EASE_TABI }}
+      variants={{
+        hidden: reduced ? { opacity: 0 } : { opacity: 0, y: 40 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE_TABI } }
+      }}
     >
       <motion.span
         className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-lg font-bold text-brand-primary shadow-[0_6px_18px_-6px_rgba(113,40,111,0.35)] ring-4 ring-tabi-lilac/60 sm:h-12 sm:w-12"
@@ -55,13 +58,18 @@ function WeekCard({ week, index, footerText }: { week: Week; index: number; foot
       </motion.span>
 
       <article className="group grid flex-1 overflow-hidden rounded-[2rem] bg-white shadow-[0_24px_50px_-40px_rgba(113,40,111,0.6)] md:grid-cols-[0.9fr_1.1fr]">
-        {/* Image — wipes open from the left as the card arrives */}
+        {/* Image — wipes open from the left as the card arrives. The trigger lives on
+            the parent <li>: Chromium treats a fully clip-pathed element as zero-area,
+            so an in-view observer on this div itself would never fire. */}
         <motion.div
           className="relative min-h-[220px] overflow-hidden"
-          initial={reduced ? undefined : { clipPath: "inset(0% 100% 0% 0%)" }}
-          whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
-          viewport={{ once: true, amount: 0.05 }}
-          transition={{ duration: 1, delay: 0.15, ease: [0.65, 0, 0.35, 1] }}
+          variants={{
+            hidden: reduced ? { clipPath: "inset(0% 0% 0% 0%)" } : { clipPath: "inset(0% 100% 0% 0%)" },
+            visible: {
+              clipPath: "inset(0% 0% 0% 0%)",
+              transition: { duration: 1, delay: 0.15, ease: [0.65, 0, 0.35, 1] }
+            }
+          }}
         >
           <Image
             src={IMAGES[index % IMAGES.length]}
