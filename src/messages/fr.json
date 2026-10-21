@@ -103,7 +103,14 @@
     }
   },
   "Partners": {
-    "title": "Partenaires de la Fondation Tabi Empowerment and Education (TEE)",
+    "eyebrow": "Nos partenaires",
+    "title": "Les partenaires derrière notre <highlight>impact</highlight>",
+    "description": "La Fondation Tabi Empowerment and Education (TEE) collabore avec des organisations de la tech, de l’éducation et de l’entreprise pour offrir des formations gratuites, du mentorat et de réelles opportunités aux communautés que nous servons.",
+    "cta": {
+      "label": "Envie de collaborer avec nous ?",
+      "title": "Devenir partenaire",
+      "subject": "Demande de partenariat"
+    },
     "logos": {
       "yip": "YIP – Programme de stages Yebox",
       "gutsy": "GIV The Gutsy Woman",
