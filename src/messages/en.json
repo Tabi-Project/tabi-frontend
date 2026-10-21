@@ -103,7 +103,14 @@
     }
   },
   "Partners": {
-    "title": "Partners with Tabi Empowerment and Education (TEE) Foundation",
+    "eyebrow": "Our Partners",
+    "title": "The partners behind our <highlight>impact</highlight>",
+    "description": "The Tabi Empowerment and Education (TEE) Foundation works alongside organisations across tech, education and enterprise to bring free training, mentorship and real opportunities to the communities we serve.",
+    "cta": {
+      "label": "Want to work with us?",
+      "title": "Become a partner",
+      "subject": "Partnership enquiry"
+    },
     "logos": {
       "yip": "YIP – Yebox Internship Program",
       "gutsy": "GIV The Gutsy Woman",
