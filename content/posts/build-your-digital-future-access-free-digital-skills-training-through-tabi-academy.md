@@ -41,25 +41,21 @@ Available learning areas include:
    Learn how to create and edit engaging video content for different audiences and platforms.       
 
   **More Than Free Training: Support for Your Learning Journey**
-* One of the highlights of this opportunity is the provision of a 
-
-  **₦1,500 daily stipend for eligible learners**
-
-   to support learning-related expenses, including data costs.
+* One of the highlights of this opportunity is the provision of a **₦1,500 daily stipend for eligible learners**  to support learning related expenses, including data costs.
 * This support can help reduce some of the financial barriers that prevent people from participating in digital education.
 * Combined with access to free training, the stipend makes this an opportunity worth exploring if you are ready to invest your time and effort in developing valuable skills.
 
 However, remember that learning is an active process. The greatest benefit comes from showing up consistently, practising what you learn, and applying your knowledge to real projects.
 
 \
-Apply here: 
+[Apply here: ](https://gateway.cchub.africa/auth/register?ref=GW-O-TABI01)
 
-https://gateway.cchub.africa/auth/register?ref=GW-O-TABI01
+<https://gateway.cchub.africa/auth/register?ref=GW-O-TABI01>
 
 \
 After registering please click the link below to join the training community so you can be assisted with on boarding: 
 
-https://chat.whatsapp.com/EksQ76JPUPCJ1xTh3IM207?s=cl&p=i&mlu=4&ilr=4&iam=0
+<https://chat.whatsapp.com/EksQ76JPUPCJ1xTh3IM207?s=cl&p=i&mlu=4&ilr=4&iam=0>
 
 \
 The programme is a partnership between **Gateway, Co-Creation Hub (CcHUB), and the Mastercard Foundation**, with Tabi Academy sharing the opportunity to help more people access digital skills training and prepare for opportunities in the digital economy.
