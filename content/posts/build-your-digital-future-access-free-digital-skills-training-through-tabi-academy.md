@@ -9,7 +9,7 @@ excerpt: >-
   difference.
 
   At Tabi Academy, we believe that access to education should open doors to opportunities, regardless of gender or background. Through free technology education and initiatives that create pathways for people to participate in the digital economy, we continue to champion a future where more people can learn, grow, and thrive.
-image: /uploads/img_1363.png
+image: /uploads/img_1365.png
 authorAvatar: /uploads/img_1363.png
 featured: true
 ---
