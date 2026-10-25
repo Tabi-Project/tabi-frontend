@@ -30,28 +30,15 @@ Available learning areas include:
 * **Digital Marketing:**
 
    Learn how digital platforms can help businesses reach audiences, build brands, and achieve marketing objectives.
-
 * **UI/UX Design:**
 
    Explore the principles of creating intuitive, accessible, and user-friendly digital experiences.
-
-
 * **Graphics Design:**
 
    Develop creative skills for communicating ideas visually across digital and other media.
-
-
 * **Video Production and Editing:**
 
    Learn how to create and edit engaging video content for different audiences and platforms.       
-
-  \
-
-
-   
-
-  \
-
 
   **More Than Free Training: Support for Your Learning Journey**
 * One of the highlights of this opportunity is the provision of a 
